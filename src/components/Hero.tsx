@@ -12,7 +12,7 @@ export default function Hero() {
           </p>
 
           <h1 className="mt-3 text-2xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
-            Fast, Professional Towing — <span className="text-white/90">ETA 25–35 Minutes</span>
+            Fast, Professional Towing — <span className="text-white/90">ETA 15–35 Minutes</span>
           </h1>
 
           {/* moved up slightly to increase gap above the buttons */}
