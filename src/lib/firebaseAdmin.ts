@@ -36,7 +36,6 @@ if (getApps().length === 0) {
                 clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
                 privateKey: privateKey,
             }),
-            projectId: process.env.FIREBASE_PROJECT_ID,
         });
         console.log('✅ Firebase Admin SDK initialized successfully');
     } catch (error) {
