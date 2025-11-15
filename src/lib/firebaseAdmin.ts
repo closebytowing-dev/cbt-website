@@ -7,13 +7,16 @@ if (!process.env.FIREBASE_PROJECT_ID || !process.env.FIREBASE_PRIVATE_KEY || !pr
     throw new Error('Missing required Firebase Admin environment variables');
 }
 
-// Clean up the private key - remove quotes if present and handle newlines
+// Clean up the private key - handle both quoted and unquoted formats
 let privateKey = process.env.FIREBASE_PRIVATE_KEY;
-// Remove surrounding quotes if they exist
+
+// Remove surrounding quotes if they exist (for .env.local format)
 if (privateKey.startsWith('"') && privateKey.endsWith('"')) {
     privateKey = privateKey.slice(1, -1);
 }
+
 // Replace escaped newlines with actual newlines
+// This handles both \\n (double backslash from quoted strings) and \n (from Vercel)
 privateKey = privateKey.replace(/\\n/g, '\n');
 
 // Create proper service account object matching the JSON format
