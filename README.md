@@ -99,4 +99,4 @@ All sensitive configuration is handled through environment variables. Make sure 
 
 ## Support
 
-For technical support or questions, contact the development team.
+For technical support or questions, contact the development team. 
