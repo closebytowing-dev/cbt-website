@@ -1,0 +1,74 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ===================================================================
+    // PUBLIC READ COLLECTIONS (Website needs these)
+    // ===================================================================
+
+    // Services collection - public read for website pricing
+    match /services/{serviceId} {
+      allow read: if true;  // Website can read pricing
+      allow write: if false; // Only admin/server can write
+    }
+
+    // Price & Rate config - public read for website configuration
+    match /Price%20%26%20Rate%20config/{document} {
+      allow read: if true;  // Website can read config
+      allow write: if false; // Only admin/server can write
+    }
+
+    // Statuses - public read for website job status display
+    match /statuses/{document} {
+      allow read: if true;  // Website can read statuses
+      allow write: if false; // Only admin/server can write
+    }
+
+    // Settings - public read for website pricing configuration
+    match /settings/{document} {
+      allow read: if true; // Website can read settings for pricing
+      allow write: if false; // Only admin/server can write
+    }
+
+    // ===================================================================
+    // PROTECTED COLLECTIONS (Require authentication)
+    // ===================================================================
+
+    // Live jobs - authenticated users can create, only admins can read all
+    match /live_jobs/{jobId} {
+      allow read: if request.auth != null;
+      allow create: if true; // Website creates jobs
+      allow update, delete: if request.auth != null && request.auth.token.role == 'admin';
+    }
+
+    // Users - users can read their own, admins can read all
+    match /users/{userId} {
+      allow read: if request.auth != null && (request.auth.uid == userId || request.auth.token.role == 'admin');
+      allow write: if request.auth != null && request.auth.token.role == 'admin';
+    }
+
+    // Drivers - authenticated users only
+    match /drivers/{driverId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.token.role == 'admin';
+    }
+
+    // Partners - allow public signup creation, authenticated read/update
+    match /partners/{partnerId} {
+      allow read: if request.auth != null;
+      allow create: if true; // Website can create partner signups
+      allow update, delete: if request.auth != null && request.auth.token.role == 'admin';
+    }
+
+    // Partner payments - authenticated users only
+    match /partner_payments/{paymentId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.token.role == 'admin';
+    }
+
+    // Default deny all other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

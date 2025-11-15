@@ -1,0 +1,12 @@
+# Dependencies & builds
+node_modules
+.next
+out
+.vercel
+
+# OS & logs
+.DS_Store
+*.log
+
+# Env files (keep local only)
+.env*

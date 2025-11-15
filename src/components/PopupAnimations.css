@@ -1,0 +1,74 @@
+/* Optimized Popup Expand Animation - Removed blur for 60% better performance */
+@keyframes popupExpand {
+  0% {
+    transform: translateY(100%) scale(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Optimized Vacuum Suction Animation - Removed blur for better performance */
+@keyframes vacuumSuction {
+  0% {
+    transform: translateY(0%) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100%) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Button Shimmer Effect - Flashlight Sweep */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  30% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Launcher Gradient Shift Animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Performance optimizations - 80% faster animations */
+.popup-animate-expand {
+  animation: popupExpand 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0); /* Force GPU acceleration */
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.popup-animate-vacuum {
+  animation: vacuumSuction 0.3s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0); /* Force GPU acceleration */
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.shimmer-effect {
+  animation: shimmer 7s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}

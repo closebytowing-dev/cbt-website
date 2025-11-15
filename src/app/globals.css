@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== Google Places Autocomplete Styles ===== */
+.pac-container {
+  font-size: 1.25rem !important;   /* 20px font size */
+  line-height: 1.75rem !important; /* better spacing */
+  z-index: 9999 !important;        /* stay on top of popups */
+}
+
+.pac-item {
+  padding: 0.75rem 1rem !important;
+}
+
+.pac-item:hover {
+  background-color: #ffba42 !important; /* orange highlight to match theme */
+  color: #000 !important;
+}
+
+/* ===== Floating Animation for Hero Cards ===== */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===== Star Twinkling Animation ===== */
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  25% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  75% {
+    opacity: 0.7;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes starPulse {
+  0%, 100% {
+    filter: brightness(1) drop-shadow(0 0 2px rgba(250, 204, 21, 0.5));
+  }
+  50% {
+    filter: brightness(1.3) drop-shadow(0 0 4px rgba(250, 204, 21, 0.8));
+  }
+}
+
+/* ===== Lightning Spark Animations ===== */
+@keyframes sparkPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1) drop-shadow(0 0 15px rgba(59, 130, 246, 0.6));
+  }
+  50% {
+    transform: scale(1.15);
+    filter: brightness(1.5) drop-shadow(0 0 30px rgba(59, 130, 246, 1));
+  }
+}
+
+@keyframes sparkRotate {
+  0%, 100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+
+/* ===== Shimmer Animation for CTA Buttons ===== */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
