@@ -21,6 +21,13 @@ type JobPayload = {
 };
 
 export async function POST(req: NextRequest) {
+    console.log("[create-job] ENV PROJECT ID:", process.env.FIREBASE_PROJECT_ID);
+    console.log("[create-job] ENV CLIENT EMAIL:", process.env.FIREBASE_CLIENT_EMAIL);
+    console.log(
+        "[create-job] ENV PRIVATE KEY STARTS WITH:",
+        process.env.FIREBASE_PRIVATE_KEY?.slice(0, 40)
+    );
+
     try {
         const body = (await req.json()) as JobPayload;
 
