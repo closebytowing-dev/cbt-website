@@ -82,7 +82,9 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
       }
     } catch (error) {
       console.error("Error creating job or redirecting to Square:", error);
-      alert("There was an error processing your request. Please try again or call us directly.");
+      // Show more detailed error message
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      alert(`There was an error processing your request: ${errorMessage}\n\nPlease try again or call us directly at (858) 999-9293.`);
     } finally {
       setIsCreatingJob(false);
     }

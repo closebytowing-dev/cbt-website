@@ -66,6 +66,7 @@ export async function POST(req: NextRequest) {
         });
     } catch (err: unknown) {
         // TODO: Add proper error logging service (e.g., Sentry)
+        console.error("❌ Error in create-job API:", err);
         return new Response(JSON.stringify({ error: "An error occurred processing your request" }), {
             status: 500,
             headers: { "content-type": "application/json" },

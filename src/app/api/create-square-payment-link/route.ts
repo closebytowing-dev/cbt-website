@@ -168,10 +168,12 @@ export async function POST(req: Request) {
 
   } catch (err: unknown) {
     // TODO: Add proper error logging service (e.g., Sentry)
+    console.error("❌ Error in create-square-payment-link API:", err);
+    const errorMessage = err instanceof Error ? err.message : "Unknown error occurred";
     return new Response(
       JSON.stringify({
         error: "Payment link creation failed",
-        details: null
+        details: errorMessage
       }),
       {
         status: 500,
