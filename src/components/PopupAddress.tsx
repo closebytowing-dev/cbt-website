@@ -449,6 +449,13 @@ const isTowing = useMemo(
       estimatedQuote,
     };
 
+    console.log('PopupAddress Payload:', {
+      distanceMilesRounded,
+      baseTravelMilesRounded,
+      isTowing,
+      service: choice
+    });
+
     // Advance to Panel 3 (vehicle info)
     onContinue(payload);
   }, [

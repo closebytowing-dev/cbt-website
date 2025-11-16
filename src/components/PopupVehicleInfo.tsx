@@ -73,6 +73,15 @@ export default function PopupVehicleInfo({
   const travelMilesAmount = baseTravelMilesRounded && baseTravelMilesRounded > 0 ? baseTravelMilesRounded * TRAVEL_RATE : null;
   const travelMilesDiscounted = travelMilesAmount ? Math.round(travelMilesAmount * 0.85) : null;
 
+  // Debug logging
+  console.log('PopupVehicleInfo Debug:', {
+    isTowing,
+    distanceMilesRounded,
+    baseTravelMilesRounded,
+    serviceName,
+    serviceBasePrice
+  });
+
   return (
     <div className="w-full flex flex-col gap-3 relative">
       {/* Header + Back */}
