@@ -222,7 +222,7 @@ export default function PopupVehicleInfo({
               </div>
 
               {/* Discount Notice */}
-              <div className="mt-2 mx-2 px-4 py-3 rounded-lg bg-green-50 border-2 border-green-300 text-center">
+              <div className="mt-2 mx-2 px-4 py-3 rounded-lg border-2 border-green-300 text-center" style={{ backgroundColor: '#f0f8ff' }}>
                 <div className="flex items-center justify-center gap-2">
                   <span style={{ fontSize: '1.2em' }}>💰</span>
                   <span className="text-sm font-bold text-green-900">
