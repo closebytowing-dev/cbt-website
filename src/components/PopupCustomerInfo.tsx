@@ -55,8 +55,8 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
         throw new Error(`Failed to create job: ${errorData.error || jobResponse.status}`);
       }
 
-      const jobData = await jobResponse.json();
-      const jobId = jobData.jobId;
+      const jobResult = await jobResponse.json();
+      const jobId = jobResult.jobId;
 
       if (!jobId) {
         console.error("No jobId returned from create-job API");
