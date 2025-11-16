@@ -754,11 +754,11 @@ export default function LeftPopup({
             onClick={minimizeToLauncher}
             aria-label="Close"
             title="Close"
-            className="absolute left-6 top-6 sm:left-8 sm:top-8 z-[70] w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-full bg-red-500 hover:bg-red-600 transition-all duration-200 group cursor-pointer shadow-md hover:shadow-lg"
+            className="absolute left-6 top-6 sm:left-8 sm:top-8 z-[70] w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-red-500 hover:bg-red-600 transition-all duration-200 group cursor-pointer shadow-md hover:shadow-lg"
           >
             {/* X icon */}
             <svg
-              className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white transition-colors duration-200"
+              className="w-4 h-4 sm:w-5 sm:h-5 text-white transition-colors duration-200"
               fill="none"
               stroke="currentColor"
               strokeWidth="2.5"
