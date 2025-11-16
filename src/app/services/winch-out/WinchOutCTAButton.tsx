@@ -25,7 +25,7 @@ export function WinchOutCTAButton() {
           animation: 'shimmer 3s infinite',
         }}
       />
-      <span className="relative z-10">💰 Order Online & Save {discountText}</span>
+      <span className="relative z-10"><span style={{ color: 'red' }}>💰</span> Order Online & Save {discountText}</span>
     </button>
   );
 }
@@ -54,7 +54,7 @@ export function WinchOutCTAButtonLarge() {
           animation: 'shimmer 3s infinite',
         }}
       />
-      <span className="relative z-10">💰 Order Online & Save {discountText}</span>
+      <span className="relative z-10"><span style={{ color: 'red' }}>💰</span> Order Online & Save {discountText}</span>
     </button>
   );
 }

@@ -53,7 +53,7 @@ export default function Hero() {
                   transform: 'translateX(-100%)',
                 }}
               />
-              <span className="relative z-10">💰 Order Online & Save {discountText}</span>
+              <span className="relative z-10"><span style={{ color: 'red' }}>💰</span> Order Online & Save {discountText}</span>
             </button>
           </div>
 

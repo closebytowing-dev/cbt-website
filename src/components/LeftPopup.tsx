@@ -365,7 +365,7 @@ export default function LeftPopup({
             className="md:hidden fixed left-0 right-0 bottom-0 z-[59] bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 px-4 shadow-2xl animate-pulse hover:animate-none"
           >
             <div className="flex items-center justify-between">
-              <span className="font-black text-base">GET {discountText} OFF NOW</span>
+              <span className="font-black text-base"><span style={{ color: 'red' }}>💰</span> GET {discountText} OFF NOW</span>
               <span className="text-xs bg-white/20 px-3 py-1 rounded-full">60 sec quote</span>
             </div>
           </button>
@@ -394,7 +394,7 @@ export default function LeftPopup({
                 <div className="flex-1 text-left">
                   <div className="inline-block rounded-xl px-4 py-2 mb-2 border-2 border-white/60" style={{ backgroundColor: '#42b3ffff' }}>
                     <div className="text-2xl font-black leading-tight text-black">
-                      {bannerText}
+                      <span style={{ color: 'red' }}>💰</span> {bannerText}
                     </div>
                   </div>
                   <div className="text-sm font-semibold opacity-95">
@@ -572,7 +572,7 @@ export default function LeftPopup({
                           transform: 'translateX(-100%)',
                         }}
                       />
-                      <span className="relative z-10">{bannerText}</span>
+                      <span className="relative z-10"><span style={{ color: 'red' }}>💰</span> {bannerText}</span>
                     </button>
                   </div>
                 )}

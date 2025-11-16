@@ -22,7 +22,7 @@ export function GasDeliveryCTAButton() {
         animation: 'gradientShift 8s ease infinite',
       }}
     >
-      Order Online & Save {discountText}
+      <span style={{ color: 'red' }}>💰</span> Order Online & Save {discountText}
     </button>
   );
 }
@@ -48,7 +48,7 @@ export function GasDeliveryCTAButtonLarge() {
         animation: 'gradientShift 8s ease infinite',
       }}
     >
-      Order Online & Save {discountText}
+      <span style={{ color: 'red' }}>💰</span> Order Online & Save {discountText}
     </button>
   );
 }
