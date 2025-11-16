@@ -20,7 +20,7 @@ const BANNER_HEX = "#42b3ffff";
 
   // Panel positioning
 const panel1Pos = // Service selection (Panel 1)
-  "left-0 right-0 bottom-0 sm:right-4 sm:left-auto sm:top-[68%] sm:bottom-auto sm:-translate-y-1/2 w-full sm:w-[90vw] sm:max-w-[48rem] h-[85vh] sm:h-[55vh] max-h-[85vh]";
+  "left-0 right-0 bottom-0 sm:right-4 sm:left-auto sm:top-[68%] sm:bottom-auto sm:-translate-y-1/2 w-full sm:w-[90vw] sm:max-w-[48rem] h-auto sm:h-[55vh] max-h-[85vh]";
 const panel2Pos = // Address (Panel 2)
   "left-0 right-0 bottom-0 sm:left-1/2 sm:right-auto sm:top-1/2 sm:bottom-auto sm:-translate-x-1/2 sm:-translate-y-1/2 w-full sm:w-[95vw] sm:max-w-[1400px] h-[95vh] sm:h-auto sm:max-h-[95vh]";
 const panel3Pos = // Vehicle info (Panel 3)
