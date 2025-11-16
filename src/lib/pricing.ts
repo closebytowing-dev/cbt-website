@@ -19,12 +19,13 @@ export function quoteWithBreakdown(
   if (isTowing) {
     // Round up incoming tow miles
     const miles = typeof milesRounded === "number" ? Math.max(0, Math.ceil(milesRounded)) : undefined;
-    // Bill at least 5 miles even if unknown yet
-    const billMiles = typeof miles === "number" ? Math.max(5, miles) : 5;
+    const billMiles = typeof miles === "number" ? miles : 0;
 
-    // $65 hook-up + $8/mi (5 mi min)
+    // $65 hook-up + $8/mi (no minimum)
     items.push({ label: "Hook-up", amount: 65 });
-    items.push({ label: `${billMiles} mi × $8 (5 mi min)`, amount: 8 * billMiles });
+    if (billMiles > 0) {
+      items.push({ label: `${billMiles} mi × $8`, amount: 8 * billMiles });
+    }
 
     return { base: sum(items), milesRounded: miles, items };
   }

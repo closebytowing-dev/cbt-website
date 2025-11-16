@@ -240,13 +240,15 @@ function quoteWithBreakdownFromConfig(
   // Handle towing services
   if (serviceData.type === 'towing') {
     const miles = typeof milesRounded === "number" ? Math.max(0, Math.ceil(milesRounded)) : undefined;
-    const billMiles = typeof miles === "number" ? Math.max(serviceData.minimumMiles, miles) : serviceData.minimumMiles;
+    const billMiles = typeof miles === "number" ? miles : 0;
 
     items.push({ label: "Hook-up", amount: serviceData.hookupFee });
-    items.push({
-      label: `${billMiles} mi × $${serviceData.perMileRate} (${serviceData.minimumMiles} mi min)`,
-      amount: serviceData.perMileRate * billMiles
-    });
+    if (billMiles > 0) {
+      items.push({
+        label: `${billMiles} mi × $${serviceData.perMileRate}`,
+        amount: serviceData.perMileRate * billMiles
+      });
+    }
 
     const total = sum(items);
 
