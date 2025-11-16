@@ -20,13 +20,13 @@ const BANNER_HEX = "#42b3ffff";
 
   // Panel positioning
 const panel1Pos = // Service selection (Panel 1)
-  "left-0 right-0 bottom-0 sm:right-4 sm:left-auto sm:top-[68%] sm:bottom-auto sm:-translate-y-1/2 w-full sm:w-[90vw] sm:max-w-[48rem] sm:h-[55vh] max-h-[85vh]";
+  "left-0 right-0 bottom-0 sm:right-4 sm:left-auto sm:top-[68%] sm:bottom-auto sm:-translate-y-1/2 w-full sm:w-[90vw] sm:max-w-[48rem] h-[85vh] sm:h-[55vh] max-h-[85vh]";
 const panel2Pos = // Address (Panel 2)
-  "left-0 right-0 top-0 bottom-0 sm:left-1/2 sm:right-auto sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 w-full sm:w-[95vw] sm:max-w-[1400px] sm:h-auto sm:max-h-[95vh]";
+  "left-0 right-0 bottom-0 sm:left-1/2 sm:right-auto sm:top-1/2 sm:bottom-auto sm:-translate-x-1/2 sm:-translate-y-1/2 w-full sm:w-[95vw] sm:max-w-[1400px] h-[95vh] sm:h-auto sm:max-h-[95vh]";
 const panel3Pos = // Vehicle info (Panel 3)
-  "left-0 right-0 top-0 bottom-0 sm:left-1/2 sm:right-auto sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 w-full sm:w-[95vw] sm:max-w-[1400px] sm:h-auto sm:max-h-[95vh]";
+  "left-0 right-0 bottom-0 sm:left-1/2 sm:right-auto sm:top-1/2 sm:bottom-auto sm:-translate-x-1/2 sm:-translate-y-1/2 w-full sm:w-[95vw] sm:max-w-[1400px] h-[95vh] sm:h-auto sm:max-h-[95vh]";
 const panel4Pos = // Customer info (Panel 4)
-  "left-0 right-0 top-0 bottom-0 sm:left-1/2 sm:right-auto sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 w-full sm:w-[95vw] sm:max-w-[1400px] sm:h-auto sm:max-h-[95vh]";
+  "left-0 right-0 bottom-0 sm:left-1/2 sm:right-auto sm:top-1/2 sm:bottom-auto sm:-translate-x-1/2 sm:-translate-y-1/2 w-full sm:w-[95vw] sm:max-w-[1400px] h-[95vh] sm:h-auto sm:max-h-[95vh]";
 
 // Base panel chrome
 const basePanel =
@@ -453,9 +453,12 @@ export default function LeftPopup({
           }}
         >
           {/* MAIN CONTENT AREA */}
-          <div className="relative z-0 flex-1 bg-white rounded-t-3xl sm:rounded-t-[6rem] rounded-b-2xl sm:rounded-b-3xl">
-            <div className="h-full w-full overflow-y-auto overflow-x-hidden overscroll-contain">
-              <div className="w-full px-3 pt-3 pb-4 sm:p-6 md:p-7 lg:p-8">
+          <div className="relative z-0 flex-1 bg-white rounded-t-3xl sm:rounded-t-[6rem] rounded-b-2xl sm:rounded-b-3xl overflow-hidden">
+            <div
+              className="h-full w-full overflow-y-auto overflow-x-hidden overscroll-contain scroll-smooth"
+              style={{ WebkitOverflowScrolling: 'touch' }}
+            >
+              <div className="w-full px-3 pt-3 pb-6 sm:pb-4 sm:p-6 md:p-7 lg:p-8">
                 {/* Progress Indicator - 4 Steps */}
                 <div className="mt-4 sm:mt-5 mb-3 sm:mb-4 flex justify-center">
                   <div className="w-full max-w-[320px] sm:max-w-md">
