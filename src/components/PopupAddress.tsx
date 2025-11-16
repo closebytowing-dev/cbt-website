@@ -46,6 +46,7 @@ const isTowing = useMemo(
   const [color, setColor] = useState("");
 
   const [estimatedQuote, setEstimatedQuote] = useState<number>(0);
+  const [priceBreakdown, setPriceBreakdown] = useState<any>(null);
 
   const [dropoff, setDropoff] = useState("");
   const [dropoffCoords, setDropoffCoords] = useState<{ lat: number; lng: number } | null>(null);
@@ -333,14 +334,15 @@ const isTowing = useMemo(
     if (baseTravelMilesRounded == null) return;
 
     try {
-      setEstimatedQuote(
-        quoteWithTravel(choice, undefined, baseTravelMilesRounded).base
-      );
+      const breakdown = quoteWithTravel(choice, undefined, baseTravelMilesRounded);
+      setEstimatedQuote(breakdown.base);
+      setPriceBreakdown(breakdown);
       setPricingError(null); // Clear any previous errors
     } catch (error: any) {
       console.error("Pricing calculation error:", error);
       setPricingError(error.message || "Unable to calculate pricing. Please call (858) 999-9293.");
       setEstimatedQuote(0);
+      setPriceBreakdown(null);
     }
   }, [pricingReady, isTowing, pickupConfirmed, baseTravelMilesRounded, choice]);
 
@@ -358,11 +360,13 @@ const isTowing = useMemo(
       const baseBreakdown = quoteWithBreakdown(choice, 0); // 0 miles for just hook-up
       const temp = addTravel(baseBreakdown, baseTravelMilesRounded);
       setEstimatedQuote(temp.base);
+      setPriceBreakdown(temp);
       setPricingError(null);
     } catch (error: any) {
       console.error("Pricing calculation error:", error);
       setPricingError(error.message || "Unable to calculate pricing. Please call (858) 999-9293.");
       setEstimatedQuote(0);
+      setPriceBreakdown(null);
     }
   }, [
     pricingReady,
@@ -371,6 +375,7 @@ const isTowing = useMemo(
     baseTravelMilesRounded,
     dropoffConfirmed,
     distanceMilesRounded,
+    choice,
   ]);
 
   // Towing (FINAL): Hook-up + $8/mi × tow + Travel after destination confirmed
@@ -384,11 +389,13 @@ const isTowing = useMemo(
     try {
       const breakdown = quoteWithTravel(choice, distanceMilesRounded, baseTravelMilesRounded);
       setEstimatedQuote(breakdown.base);
+      setPriceBreakdown(breakdown);
       setPricingError(null);
     } catch (error: any) {
       console.error("Pricing calculation error:", error);
       setPricingError(error.message || "Unable to calculate pricing. Please call (858) 999-9293.");
       setEstimatedQuote(0);
+      setPriceBreakdown(null);
     }
   }, [
     pricingReady,
@@ -450,6 +457,7 @@ const isTowing = useMemo(
       baseTravelMilesRounded,
       serviceBasePrice: serviceBasePrice || undefined,
       estimatedQuote,
+      priceBreakdown,
     };
 
     console.log('PopupAddress Payload:', {
@@ -473,6 +481,7 @@ const isTowing = useMemo(
     baseTravelMilesRounded,
     serviceBasePrice,
     estimatedQuote,
+    priceBreakdown,
     choice,
     onContinue,
   ]);

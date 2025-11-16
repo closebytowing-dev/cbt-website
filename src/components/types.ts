@@ -8,6 +8,16 @@ export type VehicleInfo = {
   color: string;
 };
 
+export type BreakdownItem = { label: string; amount: number };
+
+export type QuoteBreakdown = {
+  base: number;
+  milesRounded?: number;
+  items: BreakdownItem[];
+  timeMultiplier?: number;
+  timeMultiplierLabel?: string;
+};
+
 export type AddressPayload = {
   service: string;
   isTowing: boolean;
@@ -18,4 +28,5 @@ export type AddressPayload = {
   baseTravelMilesRounded?: number | null;
   serviceBasePrice?: number;
   estimatedQuote: number;
+  priceBreakdown?: QuoteBreakdown; // Full breakdown with time multipliers
 };

@@ -31,25 +31,14 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
   const canSubmit = isValidName && isValidPhone;
 
   // Calculate the actual discounted total that customer will pay
+  // Use estimatedQuote from payload which already includes time multipliers
   const calculateDiscountedTotal = useMemo(() => {
-    if (!payload.serviceBasePrice) return 0;
+    if (!payload.estimatedQuote || payload.estimatedQuote <= 0) return 0;
 
-    const TRAVEL_RATE = 1.75;
-    let total = Math.round(payload.serviceBasePrice * 0.85);
-
-    // Add travel miles if present
-    if (payload.baseTravelMilesRounded && payload.baseTravelMilesRounded > 0) {
-      const travelMilesAmount = payload.baseTravelMilesRounded * TRAVEL_RATE;
-      total += Math.round(travelMilesAmount * 0.85);
-    }
-
-    // Add tow miles if present (for towing services)
-    if (payload.isTowing && payload.distanceMilesRounded && payload.distanceMilesRounded > 0) {
-      total += Math.round(payload.distanceMilesRounded * 8 * 0.85);
-    }
-
-    return total;
-  }, [payload.serviceBasePrice, payload.baseTravelMilesRounded, payload.isTowing, payload.distanceMilesRounded]);
+    // Apply 15% online discount to the pre-calculated quote
+    // estimatedQuote already includes: base price + time multipliers + travel + tow miles
+    return Math.round(payload.estimatedQuote * 0.85);
+  }, [payload.estimatedQuote]);
 
   const requestTow = async () => {
     if (!canSubmit || isCreatingJob) return;
@@ -194,83 +183,51 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
         )}
 
         {/* Comprehensive Pricing Display */}
-        {payload.serviceBasePrice && (
+        {payload.priceBreakdown && payload.priceBreakdown.items && payload.priceBreakdown.items.length > 0 && (
           <div className="w-full max-w-2xl mx-auto bg-white border-2 border-[#1e1e4a] rounded-lg shadow-lg">
             {/* Header */}
             <div className="bg-[#1e1e4a] text-white px-4 py-3 rounded-t-lg">
               <div className="text-lg font-bold">Price Breakdown</div>
+              {payload.priceBreakdown.timeMultiplier && payload.priceBreakdown.timeMultiplier > 1 && (
+                <div className="text-xs text-yellow-300 mt-1">
+                  {payload.priceBreakdown.timeMultiplierLabel} rate applied
+                </div>
+              )}
             </div>
 
             {/* Price Items */}
             <div className="p-4 space-y-3">
-              {/* Service Base Price */}
-              <div className="flex justify-between items-center pb-3 border-b border-gray-200">
-                <div className="flex-1">
-                  <div className="text-base font-semibold text-[#1e1e4a]">
-                    {payload.service || "Service"}
-                  </div>
-                  <div className="text-xs text-gray-600">
-                    {payload.isTowing ? "Hook-up fee" : "On-site service fee"}
-                  </div>
-                </div>
-                <div className="flex flex-col items-end ml-4">
-                  <div className="text-lg font-bold text-[#1e1e4a]">
-                    ${Math.round(payload.serviceBasePrice * 0.85).toFixed(2)}
-                  </div>
-                  <div className="text-xs text-gray-500 line-through">
-                    ${payload.serviceBasePrice.toFixed(2)}
-                  </div>
-                </div>
-              </div>
+              {/* Render all breakdown items */}
+              {payload.priceBreakdown.items.map((item: any, index: number) => {
+                // Skip the after-hours indicator line (amount = 0)
+                if (item.amount === 0) return null;
 
-              {/* Travel Miles */}
-              {payload.baseTravelMilesRounded != null && payload.baseTravelMilesRounded > 0 && (() => {
-                const TRAVEL_RATE = 1.75;
-                const travelMilesAmount = payload.baseTravelMilesRounded * TRAVEL_RATE;
-                const travelMilesDiscounted = Math.round(travelMilesAmount * 0.85);
+                // Determine color based on item label
+                const isTravel = item.label.toLowerCase().includes('travel');
+                const isTow = item.label.toLowerCase().includes('mi ×') && !isTravel;
+                const color = isTravel ? '#42b3ff' : isTow ? '#ffba42' : '#1e1e4a';
+
+                const originalAmount = item.amount;
+                const discountedAmount = Math.round(originalAmount * 0.85);
+
                 return (
-                  <div className="flex justify-between items-center pb-3 border-b border-gray-200">
+                  <div key={index} className="flex justify-between items-center pb-3 border-b border-gray-200">
                     <div className="flex-1">
-                      <div className="text-base font-semibold text-[#42b3ff]">
-                        Travel Miles ({payload.baseTravelMilesRounded} mi)
-                      </div>
-                      <div className="text-xs text-gray-600">
-                        Distance from our location to pickup
+                      <div className="text-base font-semibold" style={{ color }}>
+                        {item.label}
                       </div>
                     </div>
                     <div className="flex flex-col items-end ml-4">
-                      <div className="text-lg font-bold text-[#42b3ff]">
-                        ${travelMilesDiscounted.toFixed(2)}
+                      <div className="text-lg font-bold" style={{ color }}>
+                        ${discountedAmount.toFixed(2)}
                       </div>
                       <div className="text-xs text-gray-500 line-through">
-                        ${travelMilesAmount.toFixed(2)}
+                        ${originalAmount.toFixed(2)}
                       </div>
                     </div>
                   </div>
                 );
-              })()}
-
-              {/* Tow Miles (only for towing services) */}
-              {payload.isTowing && payload.distanceMilesRounded != null && payload.distanceMilesRounded > 0 && (
-                <div className="flex justify-between items-center pb-3 border-b border-gray-200">
-                  <div className="flex-1">
-                    <div className="text-base font-semibold text-[#ffba42]">
-                      Tow Miles ({payload.distanceMilesRounded} mi)
-                    </div>
-                    <div className="text-xs text-gray-600">
-                      Distance from pickup to drop-off
-                    </div>
-                  </div>
-                  <div className="flex flex-col items-end ml-4">
-                    <div className="text-lg font-bold text-[#ffba42]">
-                      ${Math.round(payload.distanceMilesRounded * 8 * 0.85).toFixed(2)}
-                    </div>
-                    <div className="text-xs text-gray-500 line-through">
-                      ${(payload.distanceMilesRounded * 8).toFixed(2)}
-                    </div>
-                  </div>
-                </div>
-              )}
+              })}
 
               {/* Total */}
               <div className="flex justify-between items-center pt-2">
@@ -279,31 +236,10 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
                 </div>
                 <div className="flex flex-col items-end">
                   <div className="text-xl font-bold text-green-600">
-                    ${(() => {
-                      const TRAVEL_RATE = 1.75;
-                      let total = Math.round(payload.serviceBasePrice * 0.85);
-                      if (payload.baseTravelMilesRounded && payload.baseTravelMilesRounded > 0) {
-                        const travelMilesAmount = payload.baseTravelMilesRounded * TRAVEL_RATE;
-                        total += Math.round(travelMilesAmount * 0.85);
-                      }
-                      if (payload.isTowing && payload.distanceMilesRounded) {
-                        total += Math.round(payload.distanceMilesRounded * 8 * 0.85);
-                      }
-                      return total.toFixed(2);
-                    })()}
+                    ${calculateDiscountedTotal.toFixed(2)}
                   </div>
                   <div className="text-xs text-gray-500 line-through">
-                    ${(() => {
-                      const TRAVEL_RATE = 1.75;
-                      let originalTotal = payload.serviceBasePrice;
-                      if (payload.baseTravelMilesRounded && payload.baseTravelMilesRounded > 0) {
-                        originalTotal += payload.baseTravelMilesRounded * TRAVEL_RATE;
-                      }
-                      if (payload.isTowing && payload.distanceMilesRounded) {
-                        originalTotal += payload.distanceMilesRounded * 8;
-                      }
-                      return originalTotal.toFixed(2);
-                    })()}
+                    ${payload.priceBreakdown.base.toFixed(2)}
                   </div>
                 </div>
               </div>
