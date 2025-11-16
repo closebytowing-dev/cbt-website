@@ -2,6 +2,8 @@
 import { useOnlineDiscount } from "@/hooks/useOnlineDiscount";
 
 export function TireChangeCTAButton() {
+  const { discountText } = useOnlineDiscount();
+
   const handleClick = () => {
     const popup = document.querySelector('[aria-label*="Get instant price"]') as HTMLButtonElement;
     if (popup) popup.click();
@@ -27,6 +29,8 @@ export function TireChangeCTAButton() {
 }
 
 export function TireChangeCTAButtonLarge() {
+  const { discountText } = useOnlineDiscount();
+
   const handleClick = () => {
     const popup = document.querySelector('[aria-label*="Get instant price"]') as HTMLButtonElement;
     if (popup) popup.click();
@@ -52,6 +56,8 @@ export function TireChangeCTAButtonLarge() {
 }
 
 export function FinalCTAButton() {
+  const { discountText } = useOnlineDiscount();
+
   const handleClick = () => {
     const popup = document.querySelector('[aria-label*="Get instant price"]') as HTMLButtonElement;
     if (popup) popup.click();

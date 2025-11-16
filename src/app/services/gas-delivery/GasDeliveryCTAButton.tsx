@@ -2,6 +2,8 @@
 import { useOnlineDiscount } from "@/hooks/useOnlineDiscount";
 
 export function GasDeliveryCTAButton() {
+  const { discountText } = useOnlineDiscount();
+
   const handleClick = () => {
     const popup = document.querySelector('[aria-label*="Get instant price"]') as HTMLButtonElement;
     if (popup) popup.click();
@@ -26,6 +28,8 @@ export function GasDeliveryCTAButton() {
 }
 
 export function GasDeliveryCTAButtonLarge() {
+  const { discountText } = useOnlineDiscount();
+
   const handleClick = () => {
     const popup = document.querySelector('[aria-label*="Get instant price"]') as HTMLButtonElement;
     if (popup) popup.click();

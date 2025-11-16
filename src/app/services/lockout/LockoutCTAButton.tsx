@@ -2,6 +2,8 @@
 import { useOnlineDiscount } from "@/hooks/useOnlineDiscount";
 
 export function LockoutCTAButton() {
+  const { discountText } = useOnlineDiscount();
+
   const handleClick = () => {
     const popup = document.querySelector('[aria-label*="Get instant price"]') as HTMLButtonElement;
     if (popup) popup.click();
@@ -27,6 +29,8 @@ export function LockoutCTAButton() {
 }
 
 export function LockoutCTAButtonLarge() {
+  const { discountText } = useOnlineDiscount();
+
   const handleClick = () => {
     const popup = document.querySelector('[aria-label*="Get instant price"]') as HTMLButtonElement;
     if (popup) popup.click();
