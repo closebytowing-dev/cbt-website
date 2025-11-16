@@ -5,6 +5,7 @@ import Image from "next/image";
 import LeftPopup from "@/components/LeftPopup";
 import { useEffect } from "react";
 import { useServicePricing } from "@/hooks/useServicePricing";
+import { useOnlineDiscount } from "@/hooks/useOnlineDiscount";
 
 const BANNER = "#ffba42";
 const BRAND = "#1e1e4a";
@@ -12,6 +13,7 @@ const BRAND = "#1e1e4a";
 export default function CollisionRecoveryPage() {
   // Fetch dynamic pricing from Firebase
   const { standardPrice, onlinePrice, loading, error } = useServicePricing("Collision Recovery");
+  const { discountText } = useOnlineDiscount();
 
   // Set document metadata
   useEffect(() => {
@@ -256,8 +258,8 @@ export default function CollisionRecoveryPage() {
                       transform: 'translateX(-100%)',
                     }}
                   />
-                  <span className="relative z-10 hidden sm:inline">💰 Order Online & Save 15%</span>
-                  <span className="relative z-10 sm:hidden">💰 Save 15%</span>
+                  <span className="relative z-10 hidden sm:inline"><span style={{ color: 'red' }}>💰</span> Order Online & Save {discountText}</span>
+                  <span className="relative z-10 sm:hidden"><span style={{ color: 'red' }}>💰</span> Save {discountText}</span>
                 </button>
               </div>
 
@@ -912,8 +914,8 @@ export default function CollisionRecoveryPage() {
                     transform: 'translateX(-100%)',
                   }}
                 />
-                <span className="relative z-10 hidden sm:inline">💰 Order Online & Save 15%</span>
-                <span className="relative z-10 sm:hidden">💰 Save 15%</span>
+                <span className="relative z-10 hidden sm:inline"><span style={{ color: 'red' }}>💰</span> Order Online & Save {discountText}</span>
+                <span className="relative z-10 sm:hidden"><span style={{ color: 'red' }}>💰</span> Save {discountText}</span>
               </button>
 
               <a
