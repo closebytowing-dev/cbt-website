@@ -23,21 +23,46 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
 
   const canSubmit = isValidName && isValidPhone;
 
+  // Calculate the actual discounted total that customer will pay
+  const calculateDiscountedTotal = useMemo(() => {
+    if (!payload.serviceBasePrice) return 0;
+
+    const TRAVEL_RATE = 1.75;
+    let total = Math.round(payload.serviceBasePrice * 0.85);
+
+    // Add travel miles if present
+    if (payload.baseTravelMilesRounded && payload.baseTravelMilesRounded > 0) {
+      const travelMilesAmount = payload.baseTravelMilesRounded * TRAVEL_RATE;
+      total += Math.round(travelMilesAmount * 0.85);
+    }
+
+    // Add tow miles if present (for towing services)
+    if (payload.isTowing && payload.distanceMilesRounded && payload.distanceMilesRounded > 0) {
+      total += Math.round(payload.distanceMilesRounded * 8 * 0.85);
+    }
+
+    return total;
+  }, [payload.serviceBasePrice, payload.baseTravelMilesRounded, payload.isTowing, payload.distanceMilesRounded]);
+
   const requestTow = async () => {
     if (!canSubmit || isCreatingJob) return;
 
     setIsCreatingJob(true);
 
     try {
+      // Sanitize customer inputs to remove problematic characters from copy-paste
+      const sanitizedName = name.trim().replace(/[\u200B-\u200D\uFEFF]/g, ''); // Remove zero-width spaces
+      const sanitizedPhone = phone.trim().replace(/[\u200B-\u200D\uFEFF]/g, ''); // Remove zero-width spaces
+
       // Prepare job data
       const jobData = {
         service: payload.service,
         pickup: payload.pickup.address,
         dropoff: payload.isTowing ? payload.dropoff?.address : undefined,
         vehicle: `${payload.vehicle.year} ${payload.vehicle.make} ${payload.vehicle.model} • ${payload.vehicle.color}`,
-        customer_name: name,
-        customer_phone: phone,
-        amountQuoted: payload.estimatedQuote || 0,
+        customer_name: sanitizedName,
+        customer_phone: sanitizedPhone,
+        amountQuoted: calculateDiscountedTotal,
       };
 
       console.log("📤 Creating job with data:", jobData);
@@ -71,11 +96,11 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
-          amount: payload.estimatedQuote || 0,
+          amount: calculateDiscountedTotal,
           jobId: jobId,
           service: payload.service,
-          customer_name: name,
-          customer_phone: phone,
+          customer_name: sanitizedName,
+          customer_phone: sanitizedPhone,
           pickup_address: payload.pickup.address, // Pass pickup address for pre-filling
         }),
       });
