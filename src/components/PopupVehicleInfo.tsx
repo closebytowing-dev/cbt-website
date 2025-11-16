@@ -201,19 +201,22 @@ export default function PopupVehicleInfo({
                 <div className="flex flex-col items-end">
                   <div className="text-xl font-bold text-green-600">
                     ${(() => {
-                      let total = Math.round(serviceBasePrice * (1 - discountRate));
-                      if (travelMilesAmount && travelMilesDiscounted) {
-                        total += travelMilesDiscounted;
+                      // IMPORTANT: Calculate the same way as P4 - sum original amounts first, then apply discount to total
+                      let originalTotal = serviceBasePrice || 0;
+                      if (travelMilesAmount) {
+                        originalTotal += travelMilesAmount;
                       }
                       if (isTowing && distanceMilesRounded) {
-                        total += Math.round(distanceMilesRounded * 8 * (1 - discountRate));
+                        originalTotal += distanceMilesRounded * 8;
                       }
-                      return total.toFixed(2);
+                      // Apply discount to the total sum (same as P4)
+                      const discountedTotal = Math.round(originalTotal * (1 - discountRate));
+                      return discountedTotal.toFixed(2);
                     })()}
                   </div>
                   <div className="text-xs text-gray-500 line-through">
                     ${(() => {
-                      let originalTotal = serviceBasePrice;
+                      let originalTotal = serviceBasePrice || 0;
                       if (travelMilesAmount) {
                         originalTotal += travelMilesAmount;
                       }
