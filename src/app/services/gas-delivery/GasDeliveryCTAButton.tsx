@@ -1,4 +1,5 @@
 "use client";
+import { useOnlineDiscount } from "@/hooks/useOnlineDiscount";
 
 export function GasDeliveryCTAButton() {
   const handleClick = () => {
@@ -19,7 +20,7 @@ export function GasDeliveryCTAButton() {
         animation: 'gradientShift 8s ease infinite',
       }}
     >
-      Order Online & Save 15%
+      Order Online & Save {discountText}
     </button>
   );
 }
@@ -43,7 +44,7 @@ export function GasDeliveryCTAButtonLarge() {
         animation: 'gradientShift 8s ease infinite',
       }}
     >
-      Order Online & Save 15%
+      Order Online & Save {discountText}
     </button>
   );
 }

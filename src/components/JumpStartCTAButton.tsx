@@ -1,6 +1,9 @@
 "use client";
+import { useOnlineDiscount } from "@/hooks/useOnlineDiscount";
 
 export default function JumpStartCTAButton() {
+  const { discountText } = useOnlineDiscount();
+
   const handleClick = () => {
     const popup = document.querySelector('[aria-label*="Get instant price"]') as HTMLButtonElement;
     if (popup) popup.click();
@@ -19,7 +22,7 @@ export default function JumpStartCTAButton() {
         animation: 'gradientShift 8s ease infinite',
       }}
     >
-      Order Online & Save 15%
+      Order Online & Save {discountText}
     </button>
   );
 }

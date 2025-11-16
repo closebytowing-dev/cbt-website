@@ -1,4 +1,5 @@
 "use client";
+import { useOnlineDiscount } from "@/hooks/useOnlineDiscount";
 
 export function WinchOutCTAButton() {
   const handleClick = () => {
@@ -22,7 +23,7 @@ export function WinchOutCTAButton() {
           animation: 'shimmer 3s infinite',
         }}
       />
-      <span className="relative z-10">💰 Order Online & Save 15%</span>
+      <span className="relative z-10">💰 Order Online & Save {discountText}</span>
     </button>
   );
 }
@@ -49,7 +50,7 @@ export function WinchOutCTAButtonLarge() {
           animation: 'shimmer 3s infinite',
         }}
       />
-      <span className="relative z-10">💰 Order Online & Save 15%</span>
+      <span className="relative z-10">💰 Order Online & Save {discountText}</span>
     </button>
   );
 }

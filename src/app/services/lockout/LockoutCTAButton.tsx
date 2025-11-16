@@ -1,4 +1,5 @@
 "use client";
+import { useOnlineDiscount } from "@/hooks/useOnlineDiscount";
 
 export function LockoutCTAButton() {
   const handleClick = () => {
@@ -20,7 +21,7 @@ export function LockoutCTAButton() {
         animation: 'gradientShift 8s ease infinite',
       }}
     >
-      Order Online & Save 15%
+      Order Online & Save {discountText}
     </button>
   );
 }
@@ -45,7 +46,7 @@ export function LockoutCTAButtonLarge() {
         animation: 'gradientShift 8s ease infinite',
       }}
     >
-      Order Online & Save 15%
+      Order Online & Save {discountText}
     </button>
   );
 }
