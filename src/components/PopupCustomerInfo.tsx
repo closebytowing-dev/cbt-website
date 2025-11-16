@@ -188,9 +188,9 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
 
         {/* Comprehensive Pricing Display */}
         {payload.priceBreakdown && payload.priceBreakdown.items && payload.priceBreakdown.items.length > 0 && (
-          <div className="w-full max-w-2xl mx-auto bg-white border-2 border-[#1e1e4a] rounded-lg shadow-lg">
+          <div className="w-full max-w-2xl mx-auto bg-white border-2 border-[#42b3ff] rounded-lg shadow-lg">
             {/* Header with Discount Info */}
-            <div className="px-4 py-3 rounded-t-lg bg-[#1e1e4a] text-white">
+            <div className="px-4 py-3 rounded-t-lg bg-[#42b3ff] text-white">
               <div className="flex items-center justify-between gap-3">
                 <div className="text-lg font-bold">Price Breakdown</div>
                 <div className="flex items-center gap-2">
