@@ -12,7 +12,17 @@ export async function POST(req: Request) {
 
     const { amount, service, customer_name, customer_phone, jobId, pickup_address } = body;
 
+    console.log("📥 Received payment link request:", {
+      amount,
+      service,
+      customer_name,
+      customer_phone,
+      jobId,
+      pickup_address
+    });
+
     if (!amount || amount <= 0) {
+      console.error("❌ Invalid amount:", amount);
       return new Response(JSON.stringify({ error: "Invalid amount" }), {
         status: 400,
         headers: { "content-type": "application/json" },
@@ -24,7 +34,18 @@ export async function POST(req: Request) {
     const locationId = process.env.NEXT_PUBLIC_SQUARE_LOCATION_ID;
     const environment = process.env.SQUARE_ENVIRONMENT === 'production' ? 'production' : 'sandbox';
 
+    console.log("💳 Square config:", {
+      hasAccessToken: !!accessToken,
+      locationId,
+      environment,
+      amountInCents
+    });
+
     if (!accessToken || !locationId) {
+      console.error("❌ Missing Square credentials:", {
+        hasAccessToken: !!accessToken,
+        hasLocationId: !!locationId
+      });
       return new Response(JSON.stringify({ error: "Square credentials not configured" }), {
         status: 500,
         headers: { "content-type": "application/json" },
@@ -73,6 +94,8 @@ export async function POST(req: Request) {
 
     // Note: We'll add paymentLinkId to redirect URL after creating the payment link
 
+    console.log("📤 Creating Square payment link...");
+
     const response = await fetch(squareApiUrl, {
       method: 'POST',
       headers: {
@@ -103,19 +126,29 @@ export async function POST(req: Request) {
 
     const result = await response.json();
 
+    console.log("Square API response status:", response.status);
+
     if (!response.ok) {
+      console.error("❌ Square API error:", {
+        status: response.status,
+        errors: result.errors,
+        result
+      });
       throw new Error(result.errors?.[0]?.detail || 'Square API error');
     }
 
     if (result.payment_link?.url) {
       const paymentLinkId = result.payment_link.id;
+      console.log("✅ Payment link created:", paymentLinkId);
 
       // Update job document with paymentLinkId if we have a jobId
       if (jobId) {
         try {
+          console.log("💾 Updating job with paymentLinkId:", jobId);
           await adminDb.collection("live_jobs").doc(jobId).update({
             paymentLinkId: paymentLinkId,
           });
+          console.log("✅ Job updated with paymentLinkId");
         } catch (error) {
           console.error("Failed to update job with paymentLinkId:", error);
           // Don't fail the request, just log the error
