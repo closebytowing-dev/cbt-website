@@ -73,7 +73,7 @@ export default function Reviews() {
   return (
     <section
       id="reviews"
-      className="relative z-20 w-full overflow-x-hidden bg-[#ffba42] py-10 sm:py-12 lg:py-14"  /* halved padding */
+      className="relative z-20 w-full overflow-x-hidden bg-[#ffba42] pt-6 sm:pt-8 lg:pt-10 pb-10 sm:pb-12 lg:pb-14"  /* reduced top padding */
     >
       <div className="mx-auto max-w-[1800px] px-4 sm:px-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
