@@ -132,15 +132,135 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
 
       {/* Light blue background container */}
       <div className="p-4 sm:p-6 flex flex-col gap-4 transition-all duration-200 rounded-b-lg" style={{ backgroundColor: "#f0f8ff", marginBottom: '8px' }}>
-        {/* Quick summary (optional context) */}
-        <div className="rounded-xl border-2 border-[#1e1e4a] bg-white px-4 py-3 text-sm text-[#1e1e4a]">
-        <div><b>Service:</b> {payload.service}</div>
-        <div><b>Pickup:</b> {payload.pickup.address}</div>
-        {payload.isTowing && payload.dropoff?.address && (
-          <div><b>Drop-off:</b> {payload.dropoff.address}</div>
+        {/* Service name display */}
+        {payload.service && (
+          <div className="text-lg sm:text-xl font-bold text-[#1e1e4a] text-center mb-2">
+            Selected service:&nbsp;<span className="font-extrabold">{payload.service}</span>
+          </div>
         )}
-        <div><b>Estimate:</b> ${payload.estimatedQuote}</div>
-      </div>
+
+        {/* Comprehensive Pricing Display */}
+        {payload.serviceBasePrice && (
+          <div className="w-full max-w-2xl mx-auto bg-white border-2 border-[#1e1e4a] rounded-lg shadow-lg">
+            {/* Header */}
+            <div className="bg-[#1e1e4a] text-white px-4 py-3 rounded-t-lg">
+              <div className="text-lg font-bold">Price Breakdown</div>
+            </div>
+
+            {/* Price Items */}
+            <div className="p-4 space-y-3">
+              {/* Service Base Price */}
+              <div className="flex justify-between items-center pb-3 border-b border-gray-200">
+                <div className="flex-1">
+                  <div className="text-base font-semibold text-[#1e1e4a]">
+                    {payload.service || "Service"}
+                  </div>
+                  <div className="text-xs text-gray-600">
+                    {payload.isTowing ? "Hook-up fee" : "On-site service fee"}
+                  </div>
+                </div>
+                <div className="flex flex-col items-end ml-4">
+                  <div className="text-lg font-bold text-[#1e1e4a]">
+                    ${Math.round(payload.serviceBasePrice * 0.85).toFixed(2)}
+                  </div>
+                  <div className="text-xs text-gray-500 line-through">
+                    ${payload.serviceBasePrice.toFixed(2)}
+                  </div>
+                </div>
+              </div>
+
+              {/* Travel Miles */}
+              {payload.baseTravelMilesRounded != null && payload.baseTravelMilesRounded > 0 && (() => {
+                const TRAVEL_RATE = 1.75;
+                const travelMilesAmount = payload.baseTravelMilesRounded * TRAVEL_RATE;
+                const travelMilesDiscounted = Math.round(travelMilesAmount * 0.85);
+                return (
+                  <div className="flex justify-between items-center pb-3 border-b border-gray-200">
+                    <div className="flex-1">
+                      <div className="text-base font-semibold text-[#42b3ff]">
+                        Travel Miles ({payload.baseTravelMilesRounded} mi)
+                      </div>
+                      <div className="text-xs text-gray-600">
+                        Distance from our location to pickup
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-end ml-4">
+                      <div className="text-lg font-bold text-[#42b3ff]">
+                        ${travelMilesDiscounted.toFixed(2)}
+                      </div>
+                      <div className="text-xs text-gray-500 line-through">
+                        ${travelMilesAmount.toFixed(2)}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })()}
+
+              {/* Tow Miles (only for towing services) */}
+              {payload.isTowing && payload.distanceMilesRounded != null && payload.distanceMilesRounded > 0 && (
+                <div className="flex justify-between items-center pb-3 border-b border-gray-200">
+                  <div className="flex-1">
+                    <div className="text-base font-semibold text-[#ffba42]">
+                      Tow Miles ({payload.distanceMilesRounded} mi)
+                    </div>
+                    <div className="text-xs text-gray-600">
+                      Distance from pickup to drop-off
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-end ml-4">
+                    <div className="text-lg font-bold text-[#ffba42]">
+                      ${Math.round(payload.distanceMilesRounded * 8 * 0.85).toFixed(2)}
+                    </div>
+                    <div className="text-xs text-gray-500 line-through">
+                      ${(payload.distanceMilesRounded * 8).toFixed(2)}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Total */}
+              <div className="flex justify-between items-center pt-2">
+                <div className="text-lg font-bold text-[#1e1e4a]">
+                  Total
+                </div>
+                <div className="flex flex-col items-end">
+                  <div className="text-xl font-bold text-green-600">
+                    ${(() => {
+                      const TRAVEL_RATE = 1.75;
+                      let total = Math.round(payload.serviceBasePrice * 0.85);
+                      if (payload.baseTravelMilesRounded && payload.baseTravelMilesRounded > 0) {
+                        const travelMilesAmount = payload.baseTravelMilesRounded * TRAVEL_RATE;
+                        total += Math.round(travelMilesAmount * 0.85);
+                      }
+                      if (payload.isTowing && payload.distanceMilesRounded) {
+                        total += Math.round(payload.distanceMilesRounded * 8 * 0.85);
+                      }
+                      return total.toFixed(2);
+                    })()}
+                  </div>
+                  <div className="text-xs text-gray-500 line-through">
+                    ${(() => {
+                      const TRAVEL_RATE = 1.75;
+                      let originalTotal = payload.serviceBasePrice;
+                      if (payload.baseTravelMilesRounded && payload.baseTravelMilesRounded > 0) {
+                        originalTotal += payload.baseTravelMilesRounded * TRAVEL_RATE;
+                      }
+                      if (payload.isTowing && payload.distanceMilesRounded) {
+                        originalTotal += payload.distanceMilesRounded * 8;
+                      }
+                      return originalTotal.toFixed(2);
+                    })()}
+                  </div>
+                </div>
+              </div>
+
+              {/* Discount Notice */}
+              <div className="text-xs font-semibold text-green-600 text-center pt-2 border-t border-gray-200">
+                ✓ 15% online discount applied to all charges
+              </div>
+            </div>
+          </div>
+        )}
 
       {/* Form fields */}
       <div className="rounded-xl border border-white/20 bg-white/70 p-4">
