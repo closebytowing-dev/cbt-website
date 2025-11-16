@@ -4,7 +4,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { initializePricing, quoteWithBreakdownAsync, applyOnlineDiscount } from "@/lib/pricing-client";
+import { initializePricing, quoteWithBreakdownAsync, applyOnlineDiscount, getOnlineDiscountRate } from "@/lib/pricing-client";
 
 export interface ServicePricing {
   standardPrice: number;
@@ -26,10 +26,9 @@ export function useServicePricing(
 ): ServicePricing {
   const [standardPrice, setStandardPrice] = useState<number>(0);
   const [onlinePrice, setOnlinePrice] = useState<number>(0);
+  const [discountPercentage, setDiscountPercentage] = useState<number>(15);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-
-  const discountPercentage = 15; // 15% online discount
 
   useEffect(() => {
     let isMounted = true;
@@ -50,11 +49,18 @@ export function useServicePricing(
         // Standard price is the base price from Firebase
         const standard = breakdown.base;
 
-        // Online price is discounted by 15%
-        const online = applyOnlineDiscount(standard, discountPercentage / 100);
+        // Get discount rate from Firebase
+        const discountRate = getOnlineDiscountRate();
+        const discountPercent = Math.round(discountRate * 100);
+
+        // Online price is discounted by the Firebase rate
+        const online = applyOnlineDiscount(standard, discountRate);
+
+        console.log(`📊 [useServicePricing] ${serviceName}: standard=$${standard}, discount=${discountPercent}%, online=$${online}`);
 
         setStandardPrice(standard);
         setOnlinePrice(online);
+        setDiscountPercentage(discountPercent);
       } catch (err: any) {
         if (!isMounted) return;
         console.error(`Error fetching pricing for ${serviceName}:`, err);
@@ -71,7 +77,7 @@ export function useServicePricing(
     return () => {
       isMounted = false;
     };
-  }, [serviceName, milesRounded, discountPercentage]);
+  }, [serviceName, milesRounded]);
 
   return {
     standardPrice,
