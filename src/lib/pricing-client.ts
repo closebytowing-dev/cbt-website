@@ -348,14 +348,19 @@ export function getOnlineDiscountRate(): number {
     const config = getConfigSync();
     const discountConfig = config.features?.pricing?.onlineDiscount;
 
+    console.log("🔍 [getOnlineDiscountRate] discountConfig:", discountConfig);
+
     if (discountConfig?.enabled && typeof discountConfig.rate === 'number') {
+      console.log("✅ [getOnlineDiscountRate] Returning rate:", discountConfig.rate);
       return discountConfig.rate;
     }
 
     // Fallback to 15% if not configured
+    console.log("⚠️ [getOnlineDiscountRate] Using fallback 0.15");
     return 0.15;
-  } catch {
+  } catch (error) {
     // Fallback to 15% if config not loaded
+    console.error("❌ [getOnlineDiscountRate] Config not loaded, using fallback:", error);
     return 0.15;
   }
 }

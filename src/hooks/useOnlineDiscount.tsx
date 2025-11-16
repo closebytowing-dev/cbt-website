@@ -14,10 +14,11 @@ export function useOnlineDiscount() {
   useEffect(() => {
     try {
       const rate = getOnlineDiscountRate();
+      console.log("🔍 [useOnlineDiscount] Fetched rate:", rate, "->", Math.round(rate * 100) + "%");
       setDiscountRate(rate);
       setDiscountPercentage(Math.round(rate * 100));
     } catch (error) {
-      console.error("Error fetching discount rate:", error);
+      console.error("❌ [useOnlineDiscount] Error fetching discount rate:", error);
       // Keep defaults if error
     }
   }, []);
