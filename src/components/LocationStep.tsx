@@ -122,11 +122,11 @@ export default function LocationStep(props: Props) {
             </div>
 
             {/* Travel Miles (only if pickup confirmed) */}
-            {pickupConfirmed && baseTravelMilesRounded !== null && baseTravelMilesRounded > 0 && travelMilesAmount && (
+            {pickupConfirmed && baseTravelMilesRounded !== null && baseTravelMilesRounded >= 0 && travelMilesAmount !== null && (
               <div className="flex justify-between items-center pb-3 border-b border-gray-200">
                 <div className="flex-1">
                   <div className="text-base font-semibold text-[#42b3ff]">
-                    Travel Miles
+                    {baseTravelMilesRounded} mi travel × $1.75
                   </div>
                   <div className="text-xs text-gray-600">
                     Distance from our location to pickup
@@ -152,7 +152,7 @@ export default function LocationStep(props: Props) {
                 <div className="text-xl font-bold text-green-600">
                   ${(() => {
                     let total = Math.round(serviceBasePrice * 0.85);
-                    if (pickupConfirmed && travelMilesAmount) {
+                    if (pickupConfirmed && travelMilesAmount !== null) {
                       total += Math.round(travelMilesAmount * 0.85);
                     }
                     return total.toFixed(2);
@@ -161,7 +161,7 @@ export default function LocationStep(props: Props) {
                 <div className="text-xs text-gray-500 line-through">
                   ${(() => {
                     let originalTotal = serviceBasePrice;
-                    if (pickupConfirmed && travelMilesAmount) {
+                    if (pickupConfirmed && travelMilesAmount !== null) {
                       originalTotal += travelMilesAmount;
                     }
                     return originalTotal.toFixed(2);
@@ -195,66 +195,13 @@ export default function LocationStep(props: Props) {
               autoComplete="off"
             />
 
-
+            {/* Share location and Drop Pin buttons hidden for v1 - will be fixed in v2 */}
+            {/*
             <div className="mt-3 grid grid-cols-2 gap-3">
-              <button
-                type="button"
-                onClick={shareCurrentLocation}
-                className="rounded-xl p-0 text-sm font-semibold shadow-lg border-2 border-blue-200 bg-gradient-to-b from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:shadow-md transition-all duration-200 flex items-center justify-center w-36 h-14"
-                disabled={isLocating}
-                title="Use GPS and fill the address automatically"
-              >
-                <div className="flex items-center gap-2 pr-2">
-                  <svg className="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                  </svg>
-                  {isLocating ? (
-                    "Locating…"
-                  ) : (
-                    <span className="text-left text-xs">
-                      <div>Share my current</div>
-                      <div>location</div>
-                    </span>
-                  )}
-                </div>
-              </button>
-              <button
-                type="button"
-                onClick={dropPinPlusCode}
-                className="rounded-xl p-0 text-sm font-semibold shadow-lg border-2 border-blue-200 bg-gradient-to-b from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:shadow-md transition-all duration-200 flex items-center justify-center w-36 h-14"
-                disabled={isLocating}
-                title="Open Google Maps with a pin and put your Plus Code in the box"
-              >
-                <div className="flex items-center gap-2 pr-2">
-                  <svg className="w-6 h-6" viewBox="0 0 24 24">
-                    <defs>
-                      <linearGradient id="pinGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style={{stopColor:'#ff4444', stopOpacity:1}} />
-                        <stop offset="100%" style={{stopColor:'#cc0000', stopOpacity:1}} />
-                      </linearGradient>
-                      <linearGradient id="shaftGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style={{stopColor:'#c0c0c0', stopOpacity:1}} />
-                        <stop offset="100%" style={{stopColor:'#808080', stopOpacity:1}} />
-                      </linearGradient>
-                    </defs>
-                    {/* Pin head */}
-                    <circle cx="12" cy="8" r="6" fill="url(#pinGradient)" />
-                    <circle cx="10" cy="6" r="1.5" fill="#ffffff" opacity="0.8" />
-                    {/* Pin shaft */}
-                    <rect x="11" y="14" width="2" height="8" fill="url(#shaftGradient)" rx="1" />
-                    <rect x="11.2" y="14" width="1.6" height="8" fill="#ffffff" opacity="0.3" />
-                  </svg>
-                  {isLocating ? (
-                    "Locating…"
-                  ) : (
-                    <span className="text-left text-xs">
-                      <div>Drop A Pin</div>
-                      <div>on Google Maps</div>
-                    </span>
-                  )}
-                </div>
-              </button>
+              <button ... Share my current location ... />
+              <button ... Drop A Pin on Google Maps ... />
             </div>
+            */}
 
             {geoError && (
               <div className="mt-2 text-sm text-red-700">{geoError}</div>

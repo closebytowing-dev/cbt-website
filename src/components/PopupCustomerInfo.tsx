@@ -111,7 +111,7 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
-          amount: calculateDiscountedTotal,
+          amount: discountedTotal,
           jobId: jobId,
           service: payload.service,
           customer_name: sanitizedName,
@@ -213,9 +213,23 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
             {/* Price Items */}
             <div className="p-4 space-y-3">
               {/* Render all breakdown items */}
+              {(() => {
+                console.log('='.repeat(80));
+                console.log('🔍 PopupCustomerInfo - Received breakdown:');
+                console.log('Service:', payload.service);
+                console.log('Number of breakdown items:', payload.priceBreakdown.items.length);
+                console.log('Breakdown items:');
+                payload.priceBreakdown.items.forEach((item, i) => {
+                  console.log(`  [${i}] ${item.label} = $${item.amount}`);
+                });
+                console.log('='.repeat(80));
+                return null;
+              })()}
               {payload.priceBreakdown.items.map((item: any, index: number) => {
                 // Skip the after-hours indicator line (amount = 0)
-                if (item.amount === 0) return null;
+                if (item.amount === 0) {
+                  return null;
+                }
 
                 // Determine color based on item label
                 const isTravel = item.label.toLowerCase().includes('travel');

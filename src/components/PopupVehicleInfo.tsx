@@ -69,10 +69,11 @@ export default function PopupVehicleInfo({
   // Check if form is valid
   const isValid = year.trim() !== "" && make.trim() !== "" && model.trim() !== "";
 
-  // Calculate pricing amounts
+  // Calculate pricing amounts using Firebase discount rate
   const TRAVEL_RATE = 1.75;
+  const discountRate = getOnlineDiscountRate();
   const travelMilesAmount = baseTravelMilesRounded && baseTravelMilesRounded > 0 ? baseTravelMilesRounded * TRAVEL_RATE : null;
-  const travelMilesDiscounted = travelMilesAmount ? Math.round(travelMilesAmount * 0.85) : null;
+  const travelMilesDiscounted = travelMilesAmount ? Math.round(travelMilesAmount * (1 - discountRate)) : null;
 
   // Debug logging
   console.log('PopupVehicleInfo Debug:', {
@@ -140,7 +141,7 @@ export default function PopupVehicleInfo({
                 </div>
                 <div className="flex flex-col items-end ml-4">
                   <div className="text-lg font-bold text-[#1e1e4a]">
-                    ${Math.round(serviceBasePrice * 0.85).toFixed(2)}
+                    ${Math.round(serviceBasePrice * (1 - discountRate)).toFixed(2)}
                   </div>
                   <div className="text-xs text-gray-500 line-through">
                     ${serviceBasePrice.toFixed(2)}
@@ -183,7 +184,7 @@ export default function PopupVehicleInfo({
                   </div>
                   <div className="flex flex-col items-end ml-4">
                     <div className="text-lg font-bold text-[#ffba42]">
-                      ${Math.round(distanceMilesRounded * 8 * 0.85).toFixed(2)}
+                      ${Math.round(distanceMilesRounded * 8 * (1 - discountRate)).toFixed(2)}
                     </div>
                     <div className="text-xs text-gray-500 line-through">
                       ${(distanceMilesRounded * 8).toFixed(2)}
@@ -200,12 +201,12 @@ export default function PopupVehicleInfo({
                 <div className="flex flex-col items-end">
                   <div className="text-xl font-bold text-green-600">
                     ${(() => {
-                      let total = Math.round(serviceBasePrice * 0.85);
+                      let total = Math.round(serviceBasePrice * (1 - discountRate));
                       if (travelMilesAmount && travelMilesDiscounted) {
                         total += travelMilesDiscounted;
                       }
                       if (isTowing && distanceMilesRounded) {
-                        total += Math.round(distanceMilesRounded * 8 * 0.85);
+                        total += Math.round(distanceMilesRounded * 8 * (1 - discountRate));
                       }
                       return total.toFixed(2);
                     })()}
