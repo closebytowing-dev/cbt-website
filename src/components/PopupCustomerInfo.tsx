@@ -250,8 +250,16 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
               </div>
 
               {/* Discount Notice */}
-              <div className="text-xs font-semibold text-green-600 text-center pt-2 border-t border-gray-200">
-                <span style={{ color: 'red' }}>💰</span> ✓ {Math.round(getOnlineDiscountRate() * 100)}% online discount applied to all charges
+              <div className="mt-2 mx-2 px-4 py-3 rounded-lg bg-green-50 border-2 border-green-300 text-center">
+                <div className="flex items-center justify-center gap-2">
+                  <span style={{ fontSize: '1.2em' }}>💰</span>
+                  <span className="text-sm font-bold text-green-900">
+                    {Math.round(getOnlineDiscountRate() * 100)}% Online Discount Applied
+                  </span>
+                </div>
+                <div className="text-xs text-green-700 mt-1">
+                  All prices shown include your online savings
+                </div>
               </div>
             </div>
           </div>
