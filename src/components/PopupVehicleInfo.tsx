@@ -135,7 +135,7 @@ export default function PopupVehicleInfo({
               </div>
 
               {/* Travel Miles */}
-              {baseTravelMilesRounded !== null && baseTravelMilesRounded > 0 && travelMilesAmount && (
+              {baseTravelMilesRounded != null && baseTravelMilesRounded > 0 && travelMilesAmount && (
                 <div className="flex justify-between items-center pb-3 border-b border-gray-200">
                   <div className="flex-1">
                     <div className="text-base font-semibold text-[#42b3ff]">
@@ -157,7 +157,7 @@ export default function PopupVehicleInfo({
               )}
 
               {/* Tow Miles (only for towing services) */}
-              {isTowing && distanceMilesRounded !== null && distanceMilesRounded > 0 && (
+              {isTowing && distanceMilesRounded != null && distanceMilesRounded > 0 && (
                 <div className="flex justify-between items-center pb-3 border-b border-gray-200">
                   <div className="flex-1">
                     <div className="text-base font-semibold text-[#ffba42]">
