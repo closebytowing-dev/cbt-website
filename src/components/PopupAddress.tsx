@@ -422,8 +422,11 @@ const isTowing = useMemo(
     // Pricing validation - ensure we have a quote before advancing
     const hasPricing = estimatedQuote > 0;
 
+    // For towing services, also ensure distance calculation is complete
+    const hasDistance = !isTowing || (distanceMilesRounded != null && distanceMilesRounded > 0);
+
     // Only address(es) and pricing need to be ready for Panel 2
-    const isComplete = hasPickup && hasDropoff && hasPricing;
+    const isComplete = hasPickup && hasDropoff && hasPricing && hasDistance;
 
     // Only advance if complete
     if (!isComplete) return;
