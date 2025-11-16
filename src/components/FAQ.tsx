@@ -1,11 +1,12 @@
 "use client";
 
+import { useOnlineDiscount } from "@/hooks/useOnlineDiscount";
 import "./PopupAnimations.css";
 
-// Source of truth for Q&A content
-const QA = [
+// Source of truth for Q&A content - Note: pricing answer is dynamically rendered with current discount
+const getQA = (discountPercentage: number) => [
   { q: "How fast can you get to me?", a: "Most calls in San Diego see 20-35 minute ETAs depending on traffic and distance. We text or call with updates if anything changes." },
-  { q: "How much does towing cost?", a: "Pricing varies based on distance and service type. Local tows typically start at $75-125. Roadside services like jump starts and lockouts are $75 online (save 15% from $88 regular price). Call (858) 999-9293 for an instant quote—we provide upfront, transparent pricing before we dispatch." },
+  { q: "How much does towing cost?", a: `Pricing varies based on distance and service type. Local tows typically start at $75-125. Roadside services like jump starts and lockouts are $75 online (save ${discountPercentage}% from $88 regular price). Call (858) 999-9293 for an instant quote—we provide upfront, transparent pricing before we dispatch.` },
   { q: "Do you work with insurance companies?", a: "Yes! We're experienced with all major insurance providers and roadside assistance programs. We provide detailed receipts and documentation for reimbursement. Many policies cover towing and roadside services—check your coverage and we'll help with the paperwork." },
   { q: "Do you tow EVs and AWD/low vehicles?", a: "Yes. We use flatbeds and trained operators for EVs, AWD, and low-clearance cars to avoid drivetrain or aero damage." },
   { q: "Are you licensed and insured?", a: "Absolutely. CloseBy Towing is fully licensed, bonded, and insured. Our drivers are professionally trained and background-checked. We carry comprehensive liability and cargo insurance to protect your vehicle during transport." },
@@ -14,7 +15,9 @@ const QA = [
   { q: "What areas do you cover?", a: "All across San Diego County—from Downtown to La Jolla, Chula Vista to Poway. If you are just outside the county, call us—we can often accommodate." },
   { q: "What payment methods do you accept?", a: "Most major cards (Visa, Mastercard, Amex, Discover) and contactless payments. Cash is accepted on-site. We provide detailed receipts for insurance and roadside assistance reimbursements." },
   { q: "What if my car is not drivable after an accident?", a: "We specialize in collision recovery and accident towing. Our team safely removes vehicles from accident scenes with proper equipment and provides all necessary documentation for insurance claims. Available 24/7 across San Diego." },
-];// Utility to create stable, URL-friendly IDs for deep-linking
+];
+
+// Utility to create stable, URL-friendly IDs for deep-linking
 function slugify(str: string) {
   return str
     .toLowerCase()
@@ -24,6 +27,9 @@ function slugify(str: string) {
 }
 
 export default function FAQ() {
+  const { discountText, discountPercentage } = useOnlineDiscount();
+  const QA = getQA(discountPercentage);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -120,7 +126,7 @@ export default function FAQ() {
                   transform: 'translateX(-100%)',
                 }}
               />
-              <span className="relative z-10">💰 Order Online & Save 15%</span>
+              <span className="relative z-10"><span style={{ color: 'red' }}>💰</span> Order Online & Save {discountText}</span>
             </button>
           </div>
           <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-white/70 px-2">
