@@ -61,7 +61,10 @@ export async function POST(req: Request) {
     const prePopulatedData: Record<string, unknown> = {};
 
     if (customer_phone) {
-      prePopulatedData.buyer_phone_number = customer_phone;
+      // Format phone number for Square (requires +1 prefix for US numbers)
+      const digitsOnly = customer_phone.replace(/\D/g, '');
+      const formattedPhone = digitsOnly.startsWith('1') ? `+${digitsOnly}` : `+1${digitsOnly}`;
+      prePopulatedData.buyer_phone_number = formattedPhone;
     }
 
     if (customer_name) {
