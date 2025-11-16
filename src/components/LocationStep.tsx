@@ -80,11 +80,6 @@ export default function LocationStep(props: Props) {
 
   return (
     <div className="p-4 sm:p-6 flex flex-col items-center justify-start gap-4 transition-all duration-200 rounded-b-lg" style={{ backgroundColor: "#f0f8ff", marginBottom: '8px' }}>
-      {/* Selected service (kept) */}
-      <div className="text-lg sm:text-xl font-bold text-[#1e1e4a] text-center">
-        Selected service:&nbsp;<span className="font-extrabold">{choice}</span>
-      </div>
-
       {/* Comprehensive Pricing Display */}
       {serviceBasePrice !== null && serviceBasePrice > 0 && (
         <div className="w-full max-w-2xl bg-white border-2 border-[#42b3ff] rounded-lg shadow-lg">
@@ -131,7 +126,7 @@ export default function LocationStep(props: Props) {
               <div className="flex justify-between items-center pb-3 border-b border-gray-200">
                 <div className="flex-1">
                   <div className="text-base font-semibold text-[#42b3ff]">
-                    Travel Miles ({baseTravelMilesRounded} mi)
+                    Travel Miles
                   </div>
                   <div className="text-xs text-gray-600">
                     Distance from our location to pickup

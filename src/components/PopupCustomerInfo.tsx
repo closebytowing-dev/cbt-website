@@ -31,18 +31,25 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
 
   const canSubmit = isValidName && isValidPhone;
 
-  // Calculate the actual discounted total that customer will pay
-  // Use estimatedQuote from payload which already includes time multipliers
-  const calculateDiscountedTotal = useMemo(() => {
-    if (!payload.estimatedQuote || payload.estimatedQuote <= 0) return 0;
+  // Calculate totals from breakdown items
+  const { originalTotal, discountedTotal } = useMemo(() => {
+    if (!payload.priceBreakdown?.items || payload.priceBreakdown.items.length === 0) {
+      return { originalTotal: 0, discountedTotal: 0 };
+    }
 
     // Get discount rate from Firebase (defaults to 15% if not configured)
     const discountRate = getOnlineDiscountRate();
 
-    // Apply online discount to the pre-calculated quote
-    // estimatedQuote already includes: base price + time multipliers + travel + tow miles
-    return Math.round(payload.estimatedQuote * (1 - discountRate));
-  }, [payload.estimatedQuote]);
+    // Sum all items (skip items with amount = 0)
+    const original = payload.priceBreakdown.items.reduce((sum: number, item: any) => {
+      return item.amount > 0 ? sum + item.amount : sum;
+    }, 0);
+
+    // Apply discount to total
+    const discounted = Math.round(original * (1 - discountRate));
+
+    return { originalTotal: original, discountedTotal: discounted };
+  }, [payload.priceBreakdown]);
 
   const requestTow = async () => {
     if (!canSubmit || isCreatingJob) return;
@@ -70,7 +77,7 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
         vehicle: `${payload.vehicle.year} ${payload.vehicle.make} ${payload.vehicle.model} • ${payload.vehicle.color}`,
         customer_name: sanitizedName,
         customer_phone: sanitizedPhone,
-        amountQuoted: calculateDiscountedTotal,
+        amountQuoted: discountedTotal,
       };
 
       console.log("📤 Creating job with data:", jobData);
@@ -179,13 +186,6 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
 
       {/* Light blue background container */}
       <div className="p-4 sm:p-6 flex flex-col gap-4 transition-all duration-200 rounded-b-lg" style={{ backgroundColor: "#f0f8ff", marginBottom: '8px' }}>
-        {/* Service name display */}
-        {payload.service && (
-          <div className="text-lg sm:text-xl font-bold text-[#1e1e4a] text-center mb-2">
-            Selected service:&nbsp;<span className="font-extrabold">{payload.service}</span>
-          </div>
-        )}
-
         {/* Comprehensive Pricing Display */}
         {payload.priceBreakdown && payload.priceBreakdown.items && payload.priceBreakdown.items.length > 0 && (
           <div className="w-full max-w-2xl mx-auto bg-white border-2 border-[#42b3ff] rounded-lg shadow-lg">
@@ -252,10 +252,10 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
                 </div>
                 <div className="flex flex-col items-end">
                   <div className="text-xl font-bold text-green-600">
-                    ${calculateDiscountedTotal.toFixed(2)}
+                    ${discountedTotal.toFixed(2)}
                   </div>
                   <div className="text-xs text-gray-500 line-through">
-                    ${payload.priceBreakdown.base.toFixed(2)}
+                    ${originalTotal.toFixed(2)}
                   </div>
                 </div>
               </div>

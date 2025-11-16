@@ -107,13 +107,6 @@ export default function PopupVehicleInfo({
 
       {/* Light blue background container */}
       <div className="p-4 sm:p-6 flex flex-col gap-4 transition-all duration-200 rounded-b-lg" style={{ backgroundColor: "#f0f8ff", marginBottom: '8px' }}>
-        {/* Service name display */}
-        {serviceName && (
-          <div className="text-lg sm:text-xl font-bold text-[#1e1e4a] text-center mb-2">
-            Selected service:&nbsp;<span className="font-extrabold">{serviceName}</span>
-          </div>
-        )}
-
         {/* Comprehensive Pricing Display */}
         {serviceBasePrice && (
           <div className="w-full max-w-2xl mx-auto bg-white border-2 border-[#42b3ff] rounded-lg shadow-lg">
@@ -160,7 +153,7 @@ export default function PopupVehicleInfo({
                 <div className="flex justify-between items-center pb-3 border-b border-gray-200">
                   <div className="flex-1">
                     <div className="text-base font-semibold text-[#42b3ff]">
-                      Travel Miles ({baseTravelMilesRounded} mi)
+                      Travel Miles
                     </div>
                     <div className="text-xs text-gray-600">
                       Distance from our location to pickup
