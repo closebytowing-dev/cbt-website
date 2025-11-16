@@ -14,11 +14,18 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
   const [phone, setPhone] = useState("");
   const [isCreatingJob, setIsCreatingJob] = useState(false);
 
-  // basic validation
-  const isValidName = useMemo(() => name.trim().length >= 2, [name]);
+  // Enhanced validation with better UX
+  const isValidName = useMemo(() => {
+    const trimmed = name.trim();
+    // At least 2 characters, contains at least one letter
+    return trimmed.length >= 2 && /[a-zA-Z]/.test(trimmed);
+  }, [name]);
+
   const isValidPhone = useMemo(() => {
-    const p = phone.replace(/[^\d+]/g, "").trim();
-    return p.length >= 7; // lightweight check; adjust as you like
+    // Remove all non-digit characters except +
+    const cleaned = phone.replace(/[^\d+]/g, "");
+    // Valid if 10+ digits (US format) or starts with + and has 10+ digits
+    return cleaned.length >= 10 || (cleaned.startsWith('+') && cleaned.length >= 11);
   }, [phone]);
 
   const canSubmit = isValidName && isValidPhone;
@@ -50,9 +57,17 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
     setIsCreatingJob(true);
 
     try {
-      // Sanitize customer inputs to remove problematic characters from copy-paste
-      const sanitizedName = name.trim().replace(/[\u200B-\u200D\uFEFF]/g, ''); // Remove zero-width spaces
-      const sanitizedPhone = phone.trim().replace(/[\u200B-\u200D\uFEFF]/g, ''); // Remove zero-width spaces
+      // Comprehensive sanitization of customer inputs
+      const sanitizedName = name
+        .trim()
+        .replace(/[\u200B-\u200D\uFEFF]/g, '') // Remove zero-width spaces
+        .replace(/\s+/g, ' ') // Normalize multiple spaces to single space
+        .replace(/[^\w\s\-'.]/g, ''); // Keep only letters, numbers, spaces, hyphens, apostrophes, and periods
+
+      const sanitizedPhone = phone
+        .trim()
+        .replace(/[\u200B-\u200D\uFEFF]/g, '') // Remove zero-width spaces
+        .replace(/[^\d+\-() ]/g, ''); // Keep only digits, +, -, (), and spaces
 
       // Prepare job data
       const jobData = {
@@ -313,9 +328,20 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              onPaste={(e) => {
+                // Auto-clean pasted content
+                e.preventDefault();
+                const pastedText = e.clipboardData.getData('text')
+                  .trim()
+                  .replace(/[\u200B-\u200D\uFEFF]/g, '')
+                  .replace(/\s+/g, ' ');
+                setName(pastedText);
+              }}
               className="h-12 rounded-xl border-2 border-[#1e1e4a] bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-[#1e1e4a]/30 focus:border-[#1e1e4a]"
               placeholder="Full name"
               autoComplete="name"
+              autoCapitalize="words"
+              spellCheck="false"
             />
           </div>
 
@@ -328,9 +354,19 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
               type="tel"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
+              onPaste={(e) => {
+                // Auto-clean pasted content
+                e.preventDefault();
+                const pastedText = e.clipboardData.getData('text')
+                  .trim()
+                  .replace(/[\u200B-\u200D\uFEFF]/g, '')
+                  .replace(/[^\d+\-() ]/g, '');
+                setPhone(pastedText);
+              }}
               className="h-12 rounded-xl border-2 border-[#1e1e4a] bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-[#1e1e4a]/30 focus:border-[#1e1e4a]"
               placeholder="(555) 123-4567"
               autoComplete="tel"
+              inputMode="tel"
             />
           </div>
         </div>
@@ -346,7 +382,12 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
             style={{
               boxShadow: '0 4px 20px rgba(255, 186, 66, 0.4), 0 0 30px rgba(255, 186, 66, 0.3)',
             }}
-            title={isCreatingJob ? "Creating job..." : "Request Now"}
+            title={
+              isCreatingJob ? "Creating job..." :
+              !isValidName ? "Please enter your full name" :
+              !isValidPhone ? "Please enter a valid phone number (10+ digits)" :
+              "Click to proceed to secure checkout"
+            }
           >
             {/* Animated shimmer effect */}
             <span
