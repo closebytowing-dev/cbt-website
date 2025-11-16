@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { getOnlineDiscountRate } from "@/lib/pricing-client";
+import { fetchConfig } from "@/lib/pricing-client";
 
 /**
  * Hook to get online discount rate and percentage from Firebase
@@ -12,15 +12,29 @@ export function useOnlineDiscount() {
   const [discountPercentage, setDiscountPercentage] = useState(15); // Default 15
 
   useEffect(() => {
-    try {
-      const rate = getOnlineDiscountRate();
-      console.log("🔍 [useOnlineDiscount] Fetched rate:", rate, "->", Math.round(rate * 100) + "%");
-      setDiscountRate(rate);
-      setDiscountPercentage(Math.round(rate * 100));
-    } catch (error) {
-      console.error("❌ [useOnlineDiscount] Error fetching discount rate:", error);
-      // Keep defaults if error
+    async function loadDiscount() {
+      try {
+        console.log("🔍 [useOnlineDiscount] Fetching config from Firebase...");
+        const config = await fetchConfig();
+        const discountConfig = config.features?.pricing?.onlineDiscount;
+
+        console.log("🔍 [useOnlineDiscount] discountConfig:", discountConfig);
+
+        if (discountConfig?.enabled && typeof discountConfig.rate === 'number') {
+          const rate = discountConfig.rate;
+          console.log("✅ [useOnlineDiscount] Setting rate:", rate, "->", Math.round(rate * 100) + "%");
+          setDiscountRate(rate);
+          setDiscountPercentage(Math.round(rate * 100));
+        } else {
+          console.log("⚠️ [useOnlineDiscount] Using default 15%");
+        }
+      } catch (error) {
+        console.error("❌ [useOnlineDiscount] Error fetching discount rate:", error);
+        // Keep defaults if error
+      }
     }
+
+    loadDiscount();
   }, []);
 
   return {
