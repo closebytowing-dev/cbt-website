@@ -554,13 +554,13 @@ export default function LeftPopup({
                 {stage === "choose" && (
                   <div className="flex justify-center">
                     <button
-                      onClick={() => setStage("address")}
+                      onClick={() => setPulseBanner(true)}
                       className={[
                         "relative inline-flex items-center justify-center gap-1 sm:gap-2 rounded-lg px-6 py-3 sm:px-12 sm:py-4 md:px-16 md:py-5 lg:px-20 lg:py-6 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-black select-none bg-[var(--banner)] overflow-hidden whitespace-nowrap w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl",
                         pulseBanner ? "animate-pulse" : "",
                         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/40",
                       ].join(" ")}
-                      aria-label="Start online and save fifteen percent"
+                      aria-label="Online booking special offer banner"
                     >
                       {/* Animated shimmer effect - flashlight sweep */}
                       <span
