@@ -38,6 +38,7 @@ const isTowing = useMemo(
   const [baseCoords, setBaseCoords] = useState<{ lat: number; lng: number } | null>(null);
   const [baseTravelMilesRounded, setBaseTravelMilesRounded] = useState<number | null>(null);
   const [travelMilesAmount, setTravelMilesAmount] = useState<number | null>(null);
+  const [serviceBasePrice, setServiceBasePrice] = useState<number | null>(null);
 
   const [year, setYear] = useState("");
   const [make, setMake] = useState("");
@@ -72,6 +73,19 @@ const isTowing = useMemo(
         setPricingError(error.message || "Unable to load pricing. Please call (858) 999-9293.");
       });
   }, []);
+
+  // Calculate service base price when pricing is ready
+  useEffect(() => {
+    if (!pricingReady) return;
+
+    try {
+      const breakdown = quoteWithBreakdown(choice);
+      setServiceBasePrice(breakdown.base);
+    } catch (error) {
+      console.error("Failed to calculate service base price:", error);
+      setServiceBasePrice(null);
+    }
+  }, [pricingReady, choice]);
 
   // ---------- Places Autocomplete ----------
   const initAutocompleteFor = useCallback(
@@ -524,6 +538,7 @@ const isTowing = useMemo(
           color={color}
           setColor={setColor}
           travelMilesAmount={travelMilesAmount}
+          serviceBasePrice={serviceBasePrice}
         />
       </div>
     </>

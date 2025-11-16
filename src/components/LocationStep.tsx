@@ -30,6 +30,7 @@ type Props = {
   model: string; setModel: (v: string) => void;
   color: string; setColor: (v: string) => void;
   travelMilesAmount?: number | null;
+  serviceBasePrice?: number | null;
 };
 
 export default function LocationStep(props: Props) {
@@ -45,6 +46,7 @@ export default function LocationStep(props: Props) {
     pricingError,
     year, setYear, make, setMake, model, setModel, color, setColor,
     travelMilesAmount,
+    serviceBasePrice,
   } = props;
 
   const [customMake, setCustomMake] = useState("");
@@ -81,6 +83,31 @@ export default function LocationStep(props: Props) {
       <div className="text-lg sm:text-xl font-bold text-[#1e1e4a] text-center">
         Selected service:&nbsp;<span className="font-extrabold">{choice}</span>
       </div>
+
+      {/* Service Base Price Display */}
+      {serviceBasePrice !== null && serviceBasePrice > 0 && (
+        <div className="w-full max-w-2xl bg-white border-2 border-[#1e1e4a] rounded-lg p-4 shadow-md">
+          <div className="flex justify-between items-center">
+            <div className="text-base font-semibold text-[#1e1e4a]">
+              {choice} - Base Service Fee
+            </div>
+            <div className="flex flex-col items-end">
+              <div className="text-lg font-bold text-[#1e1e4a]">
+                ${Math.round(serviceBasePrice * 0.85).toFixed(2)}
+              </div>
+              <div className="text-xs text-gray-500 line-through">
+                ${serviceBasePrice.toFixed(2)}
+              </div>
+            </div>
+          </div>
+          <div className="text-xs text-gray-600 mt-1">
+            {isTowing ? "Hook-up fee for towing service" : "On-site service fee"}
+          </div>
+          <div className="text-xs font-semibold text-green-600 mt-1">
+            15% online discount applied
+          </div>
+        </div>
+      )}
 
       {/* Travel Miles Price Display */}
       {pickupConfirmed && baseTravelMilesRounded !== null && travelMilesAmount !== null && travelMilesAmount > 0 && (
