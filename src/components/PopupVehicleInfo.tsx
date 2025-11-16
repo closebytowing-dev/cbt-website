@@ -116,19 +116,19 @@ export default function PopupVehicleInfo({
 
         {/* Comprehensive Pricing Display */}
         {serviceBasePrice && (
-          <div className="w-full max-w-2xl mx-auto bg-white border-2 border-green-300 rounded-lg shadow-lg">
+          <div className="w-full max-w-2xl mx-auto bg-white border-2 border-[#1e1e4a] rounded-lg shadow-lg">
             {/* Header with Discount Info */}
-            <div className="px-4 py-3 rounded-t-lg border-2 border-green-300" style={{ backgroundColor: '#f0f8ff' }}>
+            <div className="px-4 py-3 rounded-t-lg bg-[#1e1e4a] text-white">
               <div className="flex items-center justify-between gap-3">
-                <div className="text-lg font-bold text-[#1e1e4a]">Price Breakdown</div>
+                <div className="text-lg font-bold">Price Breakdown</div>
                 <div className="flex items-center gap-2">
                   <span style={{ fontSize: '1.2em' }}>💰</span>
-                  <span className="text-sm font-bold text-green-900">
+                  <span className="text-sm font-bold">
                     {Math.round(getOnlineDiscountRate() * 100)}% Online Discount Applied
                   </span>
                 </div>
               </div>
-              <div className="text-xs text-green-700 mt-1 text-center">
+              <div className="text-xs text-white/80 mt-1 text-center">
                 All prices shown include your online savings
               </div>
             </div>
