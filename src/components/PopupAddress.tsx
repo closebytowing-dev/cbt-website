@@ -37,6 +37,7 @@ const isTowing = useMemo(
 
   const [baseCoords, setBaseCoords] = useState<{ lat: number; lng: number } | null>(null);
   const [baseTravelMilesRounded, setBaseTravelMilesRounded] = useState<number | null>(null);
+  const [travelMilesAmount, setTravelMilesAmount] = useState<number | null>(null);
 
   const [year, setYear] = useState("");
   const [make, setMake] = useState("");
@@ -277,6 +278,16 @@ const isTowing = useMemo(
     );
   }, [pickupConfirmed, baseCoords, address]);
 
+  // Calculate travel miles amount (1.75 per mile)
+  useEffect(() => {
+    if (baseTravelMilesRounded !== null && baseTravelMilesRounded > 0) {
+      const TRAVEL_RATE = 1.75;
+      setTravelMilesAmount(baseTravelMilesRounded * TRAVEL_RATE);
+    } else {
+      setTravelMilesAmount(null);
+    }
+  }, [baseTravelMilesRounded]);
+
   // Pickup → Dropoff (tow)
   useEffect(() => {
     if (!isTowing || !pickupConfirmed || !dropoffConfirmed) return;
@@ -510,6 +521,7 @@ const isTowing = useMemo(
           setModel={setModel}
           color={color}
           setColor={setColor}
+          travelMilesAmount={travelMilesAmount}
         />
       </div>
     </>
