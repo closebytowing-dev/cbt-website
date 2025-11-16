@@ -89,12 +89,20 @@ export default function LocationStep(props: Props) {
             <div className="text-base font-semibold text-[#1e1e4a]">
               Travel Miles ({baseTravelMilesRounded} mi)
             </div>
-            <div className="text-lg font-bold text-[#42b3ff]">
-              ${travelMilesAmount.toFixed(2)}
+            <div className="flex flex-col items-end">
+              <div className="text-lg font-bold text-[#42b3ff]">
+                ${Math.round(travelMilesAmount * 0.85).toFixed(2)}
+              </div>
+              <div className="text-xs text-gray-500 line-through">
+                ${travelMilesAmount.toFixed(2)}
+              </div>
             </div>
           </div>
           <div className="text-xs text-gray-600 mt-1">
             Distance from our location to your pickup
+          </div>
+          <div className="text-xs font-semibold text-green-600 mt-1">
+            15% online discount applied
           </div>
         </div>
       )}
