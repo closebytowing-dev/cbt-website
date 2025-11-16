@@ -1,6 +1,7 @@
 "use client";
 import { RefObject, useEffect, useMemo, useState } from "react";
 import { YEARS, MAKES, MODELS_BY_MAKE, COLORS } from "../data/vehicleOptions";
+import { getOnlineDiscountRate } from "@/lib/pricing-client";
 
 type Props = {
   isTowing: boolean;
@@ -165,7 +166,7 @@ export default function LocationStep(props: Props) {
 
             {/* Discount Notice */}
             <div className="text-xs font-semibold text-green-600 text-center pt-2 border-t border-gray-200">
-              ✓ 15% online discount applied to all charges
+              <span style={{ color: 'red' }}>💰</span> ✓ {Math.round(getOnlineDiscountRate() * 100)}% online discount applied to all charges
             </div>
           </div>
         </div>

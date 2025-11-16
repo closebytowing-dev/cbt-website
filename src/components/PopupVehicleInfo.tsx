@@ -1,6 +1,7 @@
 "use client";
 import { useState, useMemo, useEffect } from "react";
 import { YEARS, MAKES, MODELS_BY_MAKE, COLORS } from "../data/vehicleOptions";
+import { getOnlineDiscountRate } from "@/lib/pricing-client";
 
 type Props = {
   year: string;
@@ -222,7 +223,7 @@ export default function PopupVehicleInfo({
 
               {/* Discount Notice */}
               <div className="text-xs font-semibold text-green-600 text-center pt-2 border-t border-gray-200">
-                ✓ 15% online discount applied to all charges
+                <span style={{ color: 'red' }}>💰</span> ✓ {Math.round(getOnlineDiscountRate() * 100)}% online discount applied to all charges
               </div>
             </div>
           </div>
