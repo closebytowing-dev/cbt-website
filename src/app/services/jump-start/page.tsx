@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import LeftPopup from "@/components/LeftPopup";
 import JumpStartCTAButton from "@/components/JumpStartCTAButton";
 import { useServicePricing, PriceDisplay } from "@/hooks/useServicePricing";
+import { useOnlineDiscount } from "@/hooks/useOnlineDiscount";
 
 const BANNER = "#ffba42";
 const BRAND = "#1e1e4a";
@@ -15,6 +16,7 @@ const ELECTRIC_CYAN = "#06b6d4";
 export default function JumpStartPage() {
   // Fetch dynamic pricing from Firebase
   const { standardPrice, onlinePrice, loading, error } = useServicePricing("Jump Start");
+  const { discountText } = useOnlineDiscount();
 
   useEffect(() => {
     document.title = "Jump Start Service | CloseBy Towing";
@@ -651,7 +653,7 @@ export default function JumpStartPage() {
                   transform: 'translateX(-100%)',
                 }}
               />
-              <span className="relative z-10">💰 Order Online & Save 15%</span>
+              <span className="relative z-10"><span style={{ color: 'red' }}>💰</span> Order Online & Save {discountText}</span>
             </button>
 
             <a
