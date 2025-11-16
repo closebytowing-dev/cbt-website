@@ -714,6 +714,10 @@ export default function LeftPopup({
                         setVehiclePayload({year, make, model, color});
                         setStage("customer");
                       }}
+                      isTowing={addressPayload.isTowing}
+                      baseTravelMilesRounded={addressPayload.baseTravelMilesRounded}
+                      distanceMilesRounded={addressPayload.distanceMilesRounded}
+                      serviceName={addressPayload.service}
                     />
                   ) : (
                     // Panel 2 — address step

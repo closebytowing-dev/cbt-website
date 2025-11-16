@@ -430,6 +430,7 @@ const isTowing = useMemo(
         color: ""
       },
       distanceMilesRounded,
+      baseTravelMilesRounded,
       estimatedQuote,
     };
 
@@ -444,6 +445,7 @@ const isTowing = useMemo(
     coords,
     dropoffCoords,
     distanceMilesRounded,
+    baseTravelMilesRounded,
     estimatedQuote,
     choice,
     onContinue,

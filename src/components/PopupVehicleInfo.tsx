@@ -13,6 +13,10 @@ type Props = {
   setColor: (v: string) => void;
   onBack: () => void;
   onContinue: () => void;
+  isTowing?: boolean;
+  baseTravelMilesRounded?: number | null;
+  distanceMilesRounded?: number | null;
+  serviceName?: string;
 };
 
 export default function PopupVehicleInfo({
@@ -26,6 +30,10 @@ export default function PopupVehicleInfo({
   setColor,
   onBack,
   onContinue,
+  isTowing,
+  baseTravelMilesRounded,
+  distanceMilesRounded,
+  serviceName,
 }: Props) {
   const [customMake, setCustomMake] = useState("");
   const [isCustomMake, setIsCustomMake] = useState(false);
@@ -58,6 +66,11 @@ export default function PopupVehicleInfo({
   // Check if form is valid
   const isValid = year.trim() !== "" && make.trim() !== "" && model.trim() !== "";
 
+  // Calculate pricing amounts
+  const TRAVEL_RATE = 1.75;
+  const travelMilesAmount = baseTravelMilesRounded && baseTravelMilesRounded > 0 ? baseTravelMilesRounded * TRAVEL_RATE : null;
+  const travelMilesDiscounted = travelMilesAmount ? Math.round(travelMilesAmount * 0.85) : null;
+
   return (
     <div className="w-full flex flex-col gap-3 relative">
       {/* Header + Back */}
@@ -82,6 +95,65 @@ export default function PopupVehicleInfo({
 
       {/* Light blue background container */}
       <div className="p-4 sm:p-6 flex flex-col gap-4 transition-all duration-200 rounded-b-lg" style={{ backgroundColor: "#f0f8ff", marginBottom: '8px' }}>
+        {/* Service name display */}
+        {serviceName && (
+          <div className="text-lg sm:text-xl font-bold text-[#1e1e4a] text-center mb-2">
+            Selected service:&nbsp;<span className="font-extrabold">{serviceName}</span>
+          </div>
+        )}
+
+        {/* Pricing Display */}
+        <div className="w-full max-w-2xl mx-auto flex flex-col gap-3">
+          {/* Travel Miles */}
+          {baseTravelMilesRounded !== null && baseTravelMilesRounded > 0 && travelMilesAmount && travelMilesDiscounted && (
+            <div className="bg-white border-2 border-[#42b3ff] rounded-lg p-4 shadow-md">
+              <div className="flex justify-between items-center">
+                <div className="text-base font-semibold text-[#1e1e4a]">
+                  Travel Miles ({baseTravelMilesRounded} mi)
+                </div>
+                <div className="flex flex-col items-end">
+                  <div className="text-lg font-bold text-[#42b3ff]">
+                    ${travelMilesDiscounted.toFixed(2)}
+                  </div>
+                  <div className="text-xs text-gray-500 line-through">
+                    ${travelMilesAmount.toFixed(2)}
+                  </div>
+                </div>
+              </div>
+              <div className="text-xs text-gray-600 mt-1">
+                Distance from our location to your pickup
+              </div>
+              <div className="text-xs font-semibold text-green-600 mt-1">
+                15% online discount applied
+              </div>
+            </div>
+          )}
+
+          {/* Tow Miles (only for towing services) */}
+          {isTowing && distanceMilesRounded !== null && distanceMilesRounded > 0 && (
+            <div className="bg-white border-2 border-[#ffba42] rounded-lg p-4 shadow-md">
+              <div className="flex justify-between items-center">
+                <div className="text-base font-semibold text-[#1e1e4a]">
+                  Tow Miles ({distanceMilesRounded} mi)
+                </div>
+                <div className="flex flex-col items-end">
+                  <div className="text-lg font-bold text-[#ffba42]">
+                    ${Math.round(distanceMilesRounded * 8 * 0.85).toFixed(2)}
+                  </div>
+                  <div className="text-xs text-gray-500 line-through">
+                    ${(distanceMilesRounded * 8).toFixed(2)}
+                  </div>
+                </div>
+              </div>
+              <div className="text-xs text-gray-600 mt-1">
+                Distance from pickup to drop-off location
+              </div>
+              <div className="text-xs font-semibold text-green-600 mt-1">
+                15% online discount applied
+              </div>
+            </div>
+          )}
+        </div>
         {/* Vehicle info fields */}
         <div className="w-full max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="flex flex-col gap-1">

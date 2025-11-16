@@ -15,5 +15,6 @@ export type AddressPayload = {
   dropoff?: AddressPoint;
   vehicle: VehicleInfo;
   distanceMilesRounded?: number | null;
+  baseTravelMilesRounded?: number | null;
   estimatedQuote: number;
 };
