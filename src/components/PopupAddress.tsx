@@ -445,6 +445,7 @@ const isTowing = useMemo(
       },
       distanceMilesRounded,
       baseTravelMilesRounded,
+      serviceBasePrice: serviceBasePrice || undefined,
       estimatedQuote,
     };
 
@@ -460,6 +461,7 @@ const isTowing = useMemo(
     dropoffCoords,
     distanceMilesRounded,
     baseTravelMilesRounded,
+    serviceBasePrice,
     estimatedQuote,
     choice,
     onContinue,

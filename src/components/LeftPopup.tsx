@@ -718,6 +718,7 @@ export default function LeftPopup({
                       baseTravelMilesRounded={addressPayload.baseTravelMilesRounded}
                       distanceMilesRounded={addressPayload.distanceMilesRounded}
                       serviceName={addressPayload.service}
+                      serviceBasePrice={addressPayload.serviceBasePrice}
                     />
                   ) : (
                     // Panel 2 — address step

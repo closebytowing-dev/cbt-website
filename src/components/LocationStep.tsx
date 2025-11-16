@@ -84,52 +84,89 @@ export default function LocationStep(props: Props) {
         Selected service:&nbsp;<span className="font-extrabold">{choice}</span>
       </div>
 
-      {/* Service Base Price Display */}
+      {/* Comprehensive Pricing Display */}
       {serviceBasePrice !== null && serviceBasePrice > 0 && (
-        <div className="w-full max-w-2xl bg-white border-2 border-[#1e1e4a] rounded-lg p-4 shadow-md">
-          <div className="flex justify-between items-center">
-            <div className="text-base font-semibold text-[#1e1e4a]">
-              {choice} - Base Service Fee
-            </div>
-            <div className="flex flex-col items-end">
-              <div className="text-lg font-bold text-[#1e1e4a]">
-                ${Math.round(serviceBasePrice * 0.85).toFixed(2)}
-              </div>
-              <div className="text-xs text-gray-500 line-through">
-                ${serviceBasePrice.toFixed(2)}
-              </div>
-            </div>
+        <div className="w-full max-w-2xl bg-white border-2 border-[#1e1e4a] rounded-lg shadow-lg">
+          {/* Header */}
+          <div className="bg-[#1e1e4a] text-white px-4 py-3 rounded-t-lg">
+            <div className="text-lg font-bold">Price Breakdown</div>
           </div>
-          <div className="text-xs text-gray-600 mt-1">
-            {isTowing ? "Hook-up fee for towing service" : "On-site service fee"}
-          </div>
-          <div className="text-xs font-semibold text-green-600 mt-1">
-            15% online discount applied
-          </div>
-        </div>
-      )}
 
-      {/* Travel Miles Price Display */}
-      {pickupConfirmed && baseTravelMilesRounded !== null && travelMilesAmount !== null && travelMilesAmount > 0 && (
-        <div className="w-full max-w-2xl bg-white border-2 border-[#42b3ff] rounded-lg p-4 shadow-md">
-          <div className="flex justify-between items-center">
-            <div className="text-base font-semibold text-[#1e1e4a]">
-              Travel Miles ({baseTravelMilesRounded} mi)
-            </div>
-            <div className="flex flex-col items-end">
-              <div className="text-lg font-bold text-[#42b3ff]">
-                ${Math.round(travelMilesAmount * 0.85).toFixed(2)}
+          {/* Price Items */}
+          <div className="p-4 space-y-3">
+            {/* Service Base Price */}
+            <div className="flex justify-between items-center pb-3 border-b border-gray-200">
+              <div className="flex-1">
+                <div className="text-base font-semibold text-[#1e1e4a]">
+                  {choice}
+                </div>
+                <div className="text-xs text-gray-600">
+                  {isTowing ? "Hook-up fee" : "On-site service fee"}
+                </div>
               </div>
-              <div className="text-xs text-gray-500 line-through">
-                ${travelMilesAmount.toFixed(2)}
+              <div className="flex flex-col items-end ml-4">
+                <div className="text-lg font-bold text-[#1e1e4a]">
+                  ${Math.round(serviceBasePrice * 0.85).toFixed(2)}
+                </div>
+                <div className="text-xs text-gray-500 line-through">
+                  ${serviceBasePrice.toFixed(2)}
+                </div>
               </div>
             </div>
-          </div>
-          <div className="text-xs text-gray-600 mt-1">
-            Distance from our location to your pickup
-          </div>
-          <div className="text-xs font-semibold text-green-600 mt-1">
-            15% online discount applied
+
+            {/* Travel Miles (only if pickup confirmed) */}
+            {pickupConfirmed && baseTravelMilesRounded !== null && baseTravelMilesRounded > 0 && travelMilesAmount && (
+              <div className="flex justify-between items-center pb-3 border-b border-gray-200">
+                <div className="flex-1">
+                  <div className="text-base font-semibold text-[#42b3ff]">
+                    Travel Miles ({baseTravelMilesRounded} mi)
+                  </div>
+                  <div className="text-xs text-gray-600">
+                    Distance from our location to pickup
+                  </div>
+                </div>
+                <div className="flex flex-col items-end ml-4">
+                  <div className="text-lg font-bold text-[#42b3ff]">
+                    ${Math.round(travelMilesAmount * 0.85).toFixed(2)}
+                  </div>
+                  <div className="text-xs text-gray-500 line-through">
+                    ${travelMilesAmount.toFixed(2)}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Total */}
+            <div className="flex justify-between items-center pt-2">
+              <div className="text-lg font-bold text-[#1e1e4a]">
+                Total
+              </div>
+              <div className="flex flex-col items-end">
+                <div className="text-xl font-bold text-green-600">
+                  ${(() => {
+                    let total = Math.round(serviceBasePrice * 0.85);
+                    if (pickupConfirmed && travelMilesAmount) {
+                      total += Math.round(travelMilesAmount * 0.85);
+                    }
+                    return total.toFixed(2);
+                  })()}
+                </div>
+                <div className="text-xs text-gray-500 line-through">
+                  ${(() => {
+                    let originalTotal = serviceBasePrice;
+                    if (pickupConfirmed && travelMilesAmount) {
+                      originalTotal += travelMilesAmount;
+                    }
+                    return originalTotal.toFixed(2);
+                  })()}
+                </div>
+              </div>
+            </div>
+
+            {/* Discount Notice */}
+            <div className="text-xs font-semibold text-green-600 text-center pt-2 border-t border-gray-200">
+              ✓ 15% online discount applied to all charges
+            </div>
           </div>
         </div>
       )}

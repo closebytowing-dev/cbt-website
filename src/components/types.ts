@@ -16,5 +16,6 @@ export type AddressPayload = {
   vehicle: VehicleInfo;
   distanceMilesRounded?: number | null;
   baseTravelMilesRounded?: number | null;
+  serviceBasePrice?: number;
   estimatedQuote: number;
 };

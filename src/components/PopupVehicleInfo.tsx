@@ -17,6 +17,7 @@ type Props = {
   baseTravelMilesRounded?: number | null;
   distanceMilesRounded?: number | null;
   serviceName?: string;
+  serviceBasePrice?: number;
 };
 
 export default function PopupVehicleInfo({
@@ -34,6 +35,7 @@ export default function PopupVehicleInfo({
   baseTravelMilesRounded,
   distanceMilesRounded,
   serviceName,
+  serviceBasePrice,
 }: Props) {
   const [customMake, setCustomMake] = useState("");
   const [isCustomMake, setIsCustomMake] = useState(false);
@@ -102,58 +104,120 @@ export default function PopupVehicleInfo({
           </div>
         )}
 
-        {/* Pricing Display */}
-        <div className="w-full max-w-2xl mx-auto flex flex-col gap-3">
-          {/* Travel Miles */}
-          {baseTravelMilesRounded !== null && baseTravelMilesRounded > 0 && travelMilesAmount && travelMilesDiscounted && (
-            <div className="bg-white border-2 border-[#42b3ff] rounded-lg p-4 shadow-md">
-              <div className="flex justify-between items-center">
-                <div className="text-base font-semibold text-[#1e1e4a]">
-                  Travel Miles ({baseTravelMilesRounded} mi)
-                </div>
-                <div className="flex flex-col items-end">
-                  <div className="text-lg font-bold text-[#42b3ff]">
-                    ${travelMilesDiscounted.toFixed(2)}
-                  </div>
-                  <div className="text-xs text-gray-500 line-through">
-                    ${travelMilesAmount.toFixed(2)}
-                  </div>
-                </div>
-              </div>
-              <div className="text-xs text-gray-600 mt-1">
-                Distance from our location to your pickup
-              </div>
-              <div className="text-xs font-semibold text-green-600 mt-1">
-                15% online discount applied
-              </div>
+        {/* Comprehensive Pricing Display */}
+        {serviceBasePrice && (
+          <div className="w-full max-w-2xl mx-auto bg-white border-2 border-[#1e1e4a] rounded-lg shadow-lg">
+            {/* Header */}
+            <div className="bg-[#1e1e4a] text-white px-4 py-3 rounded-t-lg">
+              <div className="text-lg font-bold">Price Breakdown</div>
             </div>
-          )}
 
-          {/* Tow Miles (only for towing services) */}
-          {isTowing && distanceMilesRounded !== null && distanceMilesRounded > 0 && (
-            <div className="bg-white border-2 border-[#ffba42] rounded-lg p-4 shadow-md">
-              <div className="flex justify-between items-center">
-                <div className="text-base font-semibold text-[#1e1e4a]">
-                  Tow Miles ({distanceMilesRounded} mi)
+            {/* Price Items */}
+            <div className="p-4 space-y-3">
+              {/* Service Base Price */}
+              <div className="flex justify-between items-center pb-3 border-b border-gray-200">
+                <div className="flex-1">
+                  <div className="text-base font-semibold text-[#1e1e4a]">
+                    {serviceName || "Service"}
+                  </div>
+                  <div className="text-xs text-gray-600">
+                    {isTowing ? "Hook-up fee" : "On-site service fee"}
+                  </div>
                 </div>
-                <div className="flex flex-col items-end">
-                  <div className="text-lg font-bold text-[#ffba42]">
-                    ${Math.round(distanceMilesRounded * 8 * 0.85).toFixed(2)}
+                <div className="flex flex-col items-end ml-4">
+                  <div className="text-lg font-bold text-[#1e1e4a]">
+                    ${Math.round(serviceBasePrice * 0.85).toFixed(2)}
                   </div>
                   <div className="text-xs text-gray-500 line-through">
-                    ${(distanceMilesRounded * 8).toFixed(2)}
+                    ${serviceBasePrice.toFixed(2)}
                   </div>
                 </div>
               </div>
-              <div className="text-xs text-gray-600 mt-1">
-                Distance from pickup to drop-off location
+
+              {/* Travel Miles */}
+              {baseTravelMilesRounded !== null && baseTravelMilesRounded > 0 && travelMilesAmount && (
+                <div className="flex justify-between items-center pb-3 border-b border-gray-200">
+                  <div className="flex-1">
+                    <div className="text-base font-semibold text-[#42b3ff]">
+                      Travel Miles ({baseTravelMilesRounded} mi)
+                    </div>
+                    <div className="text-xs text-gray-600">
+                      Distance from our location to pickup
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-end ml-4">
+                    <div className="text-lg font-bold text-[#42b3ff]">
+                      ${travelMilesDiscounted?.toFixed(2)}
+                    </div>
+                    <div className="text-xs text-gray-500 line-through">
+                      ${travelMilesAmount.toFixed(2)}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Tow Miles (only for towing services) */}
+              {isTowing && distanceMilesRounded !== null && distanceMilesRounded > 0 && (
+                <div className="flex justify-between items-center pb-3 border-b border-gray-200">
+                  <div className="flex-1">
+                    <div className="text-base font-semibold text-[#ffba42]">
+                      Tow Miles ({distanceMilesRounded} mi)
+                    </div>
+                    <div className="text-xs text-gray-600">
+                      Distance from pickup to drop-off
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-end ml-4">
+                    <div className="text-lg font-bold text-[#ffba42]">
+                      ${Math.round(distanceMilesRounded * 8 * 0.85).toFixed(2)}
+                    </div>
+                    <div className="text-xs text-gray-500 line-through">
+                      ${(distanceMilesRounded * 8).toFixed(2)}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Total */}
+              <div className="flex justify-between items-center pt-2">
+                <div className="text-lg font-bold text-[#1e1e4a]">
+                  Total
+                </div>
+                <div className="flex flex-col items-end">
+                  <div className="text-xl font-bold text-green-600">
+                    ${(() => {
+                      let total = Math.round(serviceBasePrice * 0.85);
+                      if (travelMilesAmount && travelMilesDiscounted) {
+                        total += travelMilesDiscounted;
+                      }
+                      if (isTowing && distanceMilesRounded) {
+                        total += Math.round(distanceMilesRounded * 8 * 0.85);
+                      }
+                      return total.toFixed(2);
+                    })()}
+                  </div>
+                  <div className="text-xs text-gray-500 line-through">
+                    ${(() => {
+                      let originalTotal = serviceBasePrice;
+                      if (travelMilesAmount) {
+                        originalTotal += travelMilesAmount;
+                      }
+                      if (isTowing && distanceMilesRounded) {
+                        originalTotal += distanceMilesRounded * 8;
+                      }
+                      return originalTotal.toFixed(2);
+                    })()}
+                  </div>
+                </div>
               </div>
-              <div className="text-xs font-semibold text-green-600 mt-1">
-                15% online discount applied
+
+              {/* Discount Notice */}
+              <div className="text-xs font-semibold text-green-600 text-center pt-2 border-t border-gray-200">
+                ✓ 15% online discount applied to all charges
               </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
         {/* Vehicle info fields */}
         <div className="w-full max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="flex flex-col gap-1">
