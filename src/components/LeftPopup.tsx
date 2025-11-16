@@ -458,7 +458,7 @@ export default function LeftPopup({
               className="h-full w-full overflow-y-auto overflow-x-hidden overscroll-contain scroll-smooth"
               style={{ WebkitOverflowScrolling: 'touch' }}
             >
-              <div className="w-full px-3 pt-3 pb-6 sm:pb-4 sm:p-6 md:p-7 lg:p-8">
+              <div className={`w-full px-3 pt-3 sm:p-6 md:p-7 lg:p-8 ${stage === "choose" ? "pb-3 sm:pb-4" : "pb-6 sm:pb-4"}`}>
                 {/* Progress Indicator - 4 Steps */}
                 <div className="mt-4 sm:mt-5 mb-3 sm:mb-4 flex justify-center">
                   <div className="w-full max-w-[320px] sm:max-w-md">
