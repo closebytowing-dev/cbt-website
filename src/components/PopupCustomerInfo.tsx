@@ -29,27 +29,39 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
     setIsCreatingJob(true);
 
     try {
+      // Prepare job data
+      const jobData = {
+        service: payload.service,
+        pickup: payload.pickup.address,
+        dropoff: payload.isTowing ? payload.dropoff?.address : undefined,
+        vehicle: `${payload.vehicle.year} ${payload.vehicle.make} ${payload.vehicle.model} • ${payload.vehicle.color}`,
+        customer_name: name,
+        customer_phone: phone,
+        amountQuoted: payload.estimatedQuote || 0,
+      };
+
+      console.log("📤 Creating job with data:", jobData);
+
       // Create job first
       const jobResponse = await fetch("/api/create-job", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          service: payload.service,
-          pickup: payload.pickup.address,
-          dropoff: payload.isTowing ? payload.dropoff?.address : undefined,
-          vehicle: `${payload.vehicle.year} ${payload.vehicle.make} ${payload.vehicle.model} • ${payload.vehicle.color}`,
-          customer_name: name,
-          customer_phone: phone,
-          amountQuoted: payload.estimatedQuote || 0,
-        }),
+        body: JSON.stringify(jobData),
       });
 
       if (!jobResponse.ok) {
-        throw new Error(`Failed to create job: ${jobResponse.status}`);
+        const errorData = await jobResponse.json().catch(() => ({}));
+        console.error("Job creation failed:", errorData);
+        throw new Error(`Failed to create job: ${errorData.error || jobResponse.status}`);
       }
 
       const jobData = await jobResponse.json();
       const jobId = jobData.jobId;
+
+      if (!jobId) {
+        console.error("No jobId returned from create-job API");
+        throw new Error("No job ID received from server");
+      }
 
       // Optional external hook
       onSubmit?.({ name, phone });
@@ -69,7 +81,9 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
       });
 
       if (!paymentLinkResponse.ok) {
-        throw new Error(`Failed to create payment link: ${paymentLinkResponse.status}`);
+        const errorData = await paymentLinkResponse.json().catch(() => ({}));
+        console.error("Payment link creation failed:", errorData);
+        throw new Error(`Failed to create payment link: ${errorData.error || paymentLinkResponse.status}`);
       }
 
       const paymentLinkData = await paymentLinkResponse.json();

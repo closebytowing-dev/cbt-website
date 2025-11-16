@@ -31,8 +31,23 @@ export async function POST(req: NextRequest) {
     try {
         const body = (await req.json()) as JobPayload;
 
+        console.log("📥 Received job creation request:", {
+            service: body.service,
+            pickup: body.pickup,
+            dropoff: body.dropoff,
+            customer_name: body.customer_name,
+            customer_phone: body.customer_phone,
+            vehicle: body.vehicle,
+            amountQuoted: body.amountQuoted
+        });
+
         // Minimal validation
         if (!body?.pickup || !body?.customer_name || !body?.customer_phone) {
+            console.error("❌ Validation failed - missing required fields:", {
+                hasPickup: !!body?.pickup,
+                hasCustomerName: !!body?.customer_name,
+                hasCustomerPhone: !!body?.customer_phone
+            });
             return new Response(JSON.stringify({ error: "Missing required fields (pickup, customer_name, customer_phone)" }), {
                 status: 400,
                 headers: { "content-type": "application/json" },
@@ -65,7 +80,9 @@ export async function POST(req: NextRequest) {
         if (body.model) docData.model = body.model;
         if (body.color) docData.color = body.color;
 
+        console.log("💾 Attempting to save job to Firestore...");
         const ref = await adminDb.collection("live_jobs").add(docData);
+        console.log("✅ Job created successfully with ID:", ref.id);
 
         return new Response(JSON.stringify({ ok: true, jobId: ref.id }), {
             status: 200,
@@ -74,7 +91,9 @@ export async function POST(req: NextRequest) {
     } catch (err: unknown) {
         // TODO: Add proper error logging service (e.g., Sentry)
         console.error("❌ Error in create-job API:", err);
-        return new Response(JSON.stringify({ error: "An error occurred processing your request" }), {
+        const errorMessage = err instanceof Error ? err.message : "An error occurred processing your request";
+        console.error("Error details:", errorMessage);
+        return new Response(JSON.stringify({ error: errorMessage }), {
             status: 500,
             headers: { "content-type": "application/json" },
         });
