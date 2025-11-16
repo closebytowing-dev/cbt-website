@@ -572,7 +572,7 @@ export default function LeftPopup({
                           transform: 'translateX(-100%)',
                         }}
                       />
-                      <span className="relative z-10"><span style={{ color: 'red' }}>💰</span> {bannerText}</span>
+                      <span className="relative z-10">{bannerText}</span>
                     </button>
                   </div>
                 )}
