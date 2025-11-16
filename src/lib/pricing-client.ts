@@ -341,10 +341,31 @@ export function quoteWithBreakdown(
 }
 
 /**
- * Apply online discount (15% by default)
+ * Get online discount rate from Firebase config
  */
-export function applyOnlineDiscount(amount: number, rate = 0.15): number {
-  return Math.round(amount * (1 - rate));
+export function getOnlineDiscountRate(): number {
+  try {
+    const config = getConfigSync();
+    const discountConfig = config.features?.pricing?.onlineDiscount;
+
+    if (discountConfig?.enabled && typeof discountConfig.rate === 'number') {
+      return discountConfig.rate;
+    }
+
+    // Fallback to 15% if not configured
+    return 0.15;
+  } catch {
+    // Fallback to 15% if config not loaded
+    return 0.15;
+  }
+}
+
+/**
+ * Apply online discount using rate from Firebase
+ */
+export function applyOnlineDiscount(amount: number, rate?: number): number {
+  const discountRate = rate !== undefined ? rate : getOnlineDiscountRate();
+  return Math.round(amount * (1 - discountRate));
 }
 
 function sum(arr: BreakdownItem[]) {

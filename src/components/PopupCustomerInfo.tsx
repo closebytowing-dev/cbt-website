@@ -1,6 +1,7 @@
 "use client";
 import { useState, useMemo } from "react";
 import type { AddressPayload } from "./types";
+import { getOnlineDiscountRate } from "@/lib/pricing-client";
 
 type Props = {
   payload: AddressPayload;
@@ -35,9 +36,12 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
   const calculateDiscountedTotal = useMemo(() => {
     if (!payload.estimatedQuote || payload.estimatedQuote <= 0) return 0;
 
-    // Apply 15% online discount to the pre-calculated quote
+    // Get discount rate from Firebase (defaults to 15% if not configured)
+    const discountRate = getOnlineDiscountRate();
+
+    // Apply online discount to the pre-calculated quote
     // estimatedQuote already includes: base price + time multipliers + travel + tow miles
-    return Math.round(payload.estimatedQuote * 0.85);
+    return Math.round(payload.estimatedQuote * (1 - discountRate));
   }, [payload.estimatedQuote]);
 
   const requestTow = async () => {
@@ -208,7 +212,8 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
                 const color = isTravel ? '#42b3ff' : isTow ? '#ffba42' : '#1e1e4a';
 
                 const originalAmount = item.amount;
-                const discountedAmount = Math.round(originalAmount * 0.85);
+                const discountRate = getOnlineDiscountRate();
+                const discountedAmount = Math.round(originalAmount * (1 - discountRate));
 
                 return (
                   <div key={index} className="flex justify-between items-center pb-3 border-b border-gray-200">
@@ -246,7 +251,7 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
 
               {/* Discount Notice */}
               <div className="text-xs font-semibold text-green-600 text-center pt-2 border-t border-gray-200">
-                ✓ 15% online discount applied to all charges
+                ✓ {Math.round(getOnlineDiscountRate() * 100)}% online discount applied to all charges
               </div>
             </div>
           </div>
