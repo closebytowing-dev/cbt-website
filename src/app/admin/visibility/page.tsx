@@ -174,12 +174,12 @@ export default function VisibilityPanel() {
                 <button
                   onClick={() => handleToggle('masterToggles', 'enableOnlineBooking')}
                   className={`relative inline-flex h-8 w-16 items-center rounded-full transition-colors ${
-                    config.masterToggles.enableOnlineBooking ? 'bg-yellow-400' : 'bg-gray-600'
+                    config.masterToggles?.enableOnlineBooking !== false ? 'bg-yellow-400' : 'bg-gray-600'
                   }`}
                 >
                   <span
                     className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform ${
-                      config.masterToggles.enableOnlineBooking ? 'translate-x-9' : 'translate-x-1'
+                      config.masterToggles?.enableOnlineBooking !== false ? 'translate-x-9' : 'translate-x-1'
                     }`}
                   />
                 </button>
