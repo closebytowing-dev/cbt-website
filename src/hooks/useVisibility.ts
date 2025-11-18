@@ -3,6 +3,9 @@
 import { useState, useEffect } from 'react';
 
 type VisibilityConfig = {
+  masterToggles: {
+    enableOnlineBooking: boolean;
+  };
   header: {
     logo: boolean;
     phoneButton: boolean;
@@ -38,6 +41,9 @@ type VisibilityConfig = {
 };
 
 const defaultConfig: VisibilityConfig = {
+  masterToggles: {
+    enableOnlineBooking: true,
+  },
   header: {
     logo: true,
     phoneButton: true,

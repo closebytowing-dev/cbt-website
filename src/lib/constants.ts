@@ -161,6 +161,10 @@ export const FEATURES = {
 
 // UI Visibility Control (managed via Admin Panel at /admin/visibility)
 export const UI_VISIBILITY = {
+  // Master toggle for all booking features
+  masterToggles: {
+    enableOnlineBooking: true, // Controls popup, banners, and online booking buttons
+  },
   header: {
     logo: true,
     phoneButton: true,

@@ -156,6 +156,38 @@ export default function VisibilityPanel() {
           </div>
         </div>
 
+        {/* Master Toggles - Prominent Section */}
+        <div className="mb-6">
+          <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border-2 border-yellow-400/50">
+            <h2 className="text-2xl font-bold text-yellow-400 mb-4 flex items-center gap-2">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Master Controls
+            </h2>
+            <div className="space-y-4">
+              <div className="flex items-center justify-between p-4 bg-white/10 rounded-lg">
+                <div>
+                  <span className="text-white font-semibold text-lg">Enable Online Booking</span>
+                  <p className="text-gray-300 text-sm mt-1">Controls popup, banners, and booking buttons site-wide</p>
+                </div>
+                <button
+                  onClick={() => handleToggle('masterToggles', 'enableOnlineBooking')}
+                  className={`relative inline-flex h-8 w-16 items-center rounded-full transition-colors ${
+                    config.masterToggles.enableOnlineBooking ? 'bg-yellow-400' : 'bg-gray-600'
+                  }`}
+                >
+                  <span
+                    className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform ${
+                      config.masterToggles.enableOnlineBooking ? 'translate-x-9' : 'translate-x-1'
+                    }`}
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Control Sections */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Header Section */}

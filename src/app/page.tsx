@@ -32,7 +32,7 @@ export default function Home() {
 
       {/* Left-side popup */}
       {config.homePage.faq && <FAQ />}
-      {config.popup.leftPopup && <LeftPopup />}
+      {config.masterToggles.enableOnlineBooking && config.popup.leftPopup && <LeftPopup />}
     </main>
   );
 }
