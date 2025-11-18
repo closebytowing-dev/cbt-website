@@ -7,12 +7,14 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { useRouter, usePathname } from "next/navigation";
+import { useVisibility } from "@/hooks/useVisibility";
 
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [companyName, setCompanyName] = useState<string>("");
   const router = useRouter();
   const pathname = usePathname();
+  const { config } = useVisibility();
 
   useEffect(() => {
     const auth = getAuth();
@@ -98,24 +100,26 @@ export default function Header() {
           </div>
 
           {/* Right: phone button */}
-          <div className="flex items-center">
-            <a
-              href="tel:+18589999293"
-              aria-label="Call CloseBy Towing (858) 999-9293"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/0 bg-transparent px-3 sm:px-3 py-2 text-white text-xl font-semibold leading-tight hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/40 active:scale-95 transition whitespace-nowrap"
-            >
-              <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" aria-hidden>
-                <path
-                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.08 4.18 2 2 0 014.06 2h3a2 2 0 012 1.72c.13.99.35 1.96.66 2.9a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.94.31 1.91.53 2.9.66A2 2 0 0122 16.92z"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span className="text-lg sm:text-2xl lg:text-2xl font-semibold">(858) 999-9293</span>
-            </a>
-          </div>
+          {config.header.phoneButton && (
+            <div className="flex items-center">
+              <a
+                href="tel:+18589999293"
+                aria-label="Call CloseBy Towing (858) 999-9293"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/0 bg-transparent px-3 sm:px-3 py-2 text-white text-xl font-semibold leading-tight hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/40 active:scale-95 transition whitespace-nowrap"
+              >
+                <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" aria-hidden>
+                  <path
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.08 4.18 2 2 0 014.06 2h3a2 2 0 012 1.72c.13.99.35 1.96.66 2.9a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.94.31 1.91.53 2.9.66A2 2 0 0122 16.92z"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span className="text-lg sm:text-2xl lg:text-2xl font-semibold">(858) 999-9293</span>
+              </a>
+            </div>
+          )}
         </div>
       </div>
 
@@ -168,19 +172,27 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-4 xl:gap-10 text-[1.0rem] font-semibold leading-none">
-              <ServicesMenu />
-              <Link href="/#reviews" className="hover:opacity-60">
-                Reviews
-              </Link>
-              <Link href="/#area" className="hover:opacity-60">
-                Service Area
-              </Link>
-              <Link href="/about" className="hover:opacity-60">
-                About
-              </Link>
-              <Link href="/contact" className="hover:opacity-60">
-                Contact
-              </Link>
+              {config.header.servicesMenu && <ServicesMenu />}
+              {config.header.reviewsLink && (
+                <Link href="/#reviews" className="hover:opacity-60">
+                  Reviews
+                </Link>
+              )}
+              {config.header.serviceAreaLink && (
+                <Link href="/#area" className="hover:opacity-60">
+                  Service Area
+                </Link>
+              )}
+              {config.header.aboutLink && (
+                <Link href="/about" className="hover:opacity-60">
+                  About
+                </Link>
+              )}
+              {config.header.contactLink && (
+                <Link href="/contact" className="hover:opacity-60">
+                  Contact
+                </Link>
+              )}
             </nav>
           </div>
 
@@ -228,41 +240,43 @@ export default function Header() {
           `}</style>
 
           {/* Right side: Dashboard/Logout or Login/Sign Up */}
-          <div className="flex items-center gap-2 sm:gap-4 ml-auto lg:mr-8">
-            {isLoggedIn ? (
-              <>
-                <Link
-                  href="/partners/dashboard"
-                  className="hidden lg:inline text-sm sm:text-base font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
-                >
-                  Dashboard
-                </Link>
-                <span className="hidden lg:inline text-[#1e1e4a]/30 text-base sm:text-lg">|</span>
-                <button
-                  onClick={handleLogout}
-                  className="hidden lg:inline text-sm sm:text-base font-semibold text-red-600 hover:text-red-700 hover:underline underline-offset-2 transition whitespace-nowrap"
-                >
-                  Logout
-                </button>
-              </>
-            ) : (
-              <>
-                <Link
-                  href="/partners/login"
-                  className="text-sm sm:text-base font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
-                >
-                  Login
-                </Link>
-                <span className="text-[#1e1e4a]/30 text-base sm:text-lg">|</span>
-                <Link
-                  href="/partners/signup"
-                  className="text-sm sm:text-base font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
-                >
-                  Sign Up
-                </Link>
-              </>
-            )}
-          </div>
+          {config.header.loginLinks && (
+            <div className="flex items-center gap-2 sm:gap-4 ml-auto lg:mr-8">
+              {isLoggedIn ? (
+                <>
+                  <Link
+                    href="/partners/dashboard"
+                    className="hidden lg:inline text-sm sm:text-base font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
+                  >
+                    Dashboard
+                  </Link>
+                  <span className="hidden lg:inline text-[#1e1e4a]/30 text-base sm:text-lg">|</span>
+                  <button
+                    onClick={handleLogout}
+                    className="hidden lg:inline text-sm sm:text-base font-semibold text-red-600 hover:text-red-700 hover:underline underline-offset-2 transition whitespace-nowrap"
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    href="/partners/login"
+                    className="text-sm sm:text-base font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
+                  >
+                    Login
+                  </Link>
+                  <span className="text-[#1e1e4a]/30 text-base sm:text-lg">|</span>
+                  <Link
+                    href="/partners/signup"
+                    className="text-sm sm:text-base font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </header>

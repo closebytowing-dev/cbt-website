@@ -158,3 +158,39 @@ export const FEATURES = {
   enableBookingForm: true,
   enableReviews: true,
 } as const;
+
+// UI Visibility Control (managed via Admin Panel at /admin/visibility)
+export const UI_VISIBILITY = {
+  header: {
+    logo: true,
+    phoneButton: true,
+    servicesMenu: true,
+    reviewsLink: true,
+    serviceAreaLink: true,
+    aboutLink: true,
+    contactLink: true,
+    loginLinks: true,
+  },
+  homePage: {
+    hero: true,
+    value: true,
+    reviews: true,
+    services: true,
+    serviceArea: true,
+    faq: true,
+  },
+  footer: {
+    mainFooter: true,
+    backToTop: true,
+    partnerLinks: true,
+  },
+  cta: {
+    phoneButtons: true,
+    onlineBookingButton: true,
+    whatsappButton: true,
+  },
+  popup: {
+    leftPopup: true,
+    mobileBottomBar: true,
+  },
+} as const;
