@@ -54,6 +54,33 @@ export default function VisibilityPanel() {
     });
   };
 
+  const handleToggleAll = () => {
+    if (!config) return;
+
+    // Check if all are currently enabled
+    const allEnabled =
+      config.customerRequestForm?.leftPopup !== false &&
+      config.customerRequestForm?.popupLauncher !== false &&
+      config.customerRequestForm?.saveBanners !== false;
+
+    // Toggle all to opposite state
+    const newValue = !allEnabled;
+    setConfig({
+      ...config,
+      customerRequestForm: {
+        leftPopup: newValue,
+        popupLauncher: newValue,
+        saveBanners: newValue,
+      },
+    });
+  };
+
+  // Check if all toggles are enabled
+  const allEnabled = config ?
+    config.customerRequestForm?.leftPopup !== false &&
+    config.customerRequestForm?.popupLauncher !== false &&
+    config.customerRequestForm?.saveBanners !== false : false;
+
   const handleSave = async () => {
     setSaving(true);
     setSaveMessage('');
@@ -142,6 +169,26 @@ export default function VisibilityPanel() {
               Customer Request Form
             </h2>
             <div className="space-y-4">
+              {/* Select All Toggle */}
+              <div className="flex items-center justify-between p-4 bg-yellow-400/20 rounded-lg border border-yellow-400/30">
+                <div>
+                  <span className="text-white font-semibold text-lg">Enable All</span>
+                  <p className="text-gray-300 text-sm mt-1">Toggle all customer request form elements</p>
+                </div>
+                <button
+                  onClick={handleToggleAll}
+                  className={`relative inline-flex h-8 w-16 items-center rounded-full transition-colors ${
+                    allEnabled ? 'bg-yellow-400' : 'bg-gray-600'
+                  }`}
+                >
+                  <span
+                    className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform ${
+                      allEnabled ? 'translate-x-9' : 'translate-x-1'
+                    }`}
+                  />
+                </button>
+              </div>
+
               {/* Left Popup Toggle */}
               <div className="flex items-center justify-between p-4 bg-white/10 rounded-lg">
                 <div>
