@@ -23,6 +23,12 @@ export function useVisibility() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Only fetch on client side
+    if (typeof window === 'undefined') {
+      setLoading(false);
+      return;
+    }
+
     async function fetchConfig() {
       try {
         const response = await fetch('/api/admin/visibility', {
