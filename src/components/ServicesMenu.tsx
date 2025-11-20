@@ -45,14 +45,15 @@ export default function ServicesMenu() {
       </button>
 
       <div
-        className={`absolute left-0 lg:left-1/2 lg:-translate-x-1/2 top-full mt-3 ${open ? "block" : "hidden"} z-50`}
+        className={`absolute left-0 right-auto lg:left-1/2 lg:-translate-x-1/2 top-full mt-3 ${open ? "block" : "hidden"} z-50`}
+        style={{ maxWidth: 'calc(100vw - 2rem)' }}
         onMouseEnter={() => {
           cancelClose();
           setOpen(true);
         }}
         onMouseLeave={scheduleClose}
       >
-        <div className="rounded-2xl shadow-2xl border border-black/10 bg-white min-w-[240px] sm:min-w-[280px] p-2">
+        <div className="rounded-2xl shadow-2xl border border-black/10 bg-white w-[240px] sm:w-[280px] p-2">
           <nav className="flex flex-col" aria-label="Services">
             {items.map((it) => (
               <Link
