@@ -7,6 +7,7 @@ import LeftPopup from "@/components/LeftPopup";
 import JumpStartCTAButton from "@/components/JumpStartCTAButton";
 import { useServicePricing, PriceDisplay } from "@/hooks/useServicePricing";
 import { useOnlineDiscount } from "@/hooks/useOnlineDiscount";
+import { useVisibility } from "@/hooks/useVisibility";
 
 const BANNER = "#ffba42";
 const BRAND = "#1e1e4a";
@@ -17,6 +18,8 @@ export default function JumpStartPage() {
   // Fetch dynamic pricing from Firebase
   const { standardPrice, onlinePrice, loading, error } = useServicePricing("Jump Start");
   const { discountText } = useOnlineDiscount();
+  const { config } = useVisibility();
+  const showBanners = config.customerRequestForm?.saveBanners !== false;
 
   useEffect(() => {
     document.title = "Jump Start Service | CloseBy Towing";
@@ -634,27 +637,29 @@ export default function JumpStartPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
-            <button
-              onClick={() => {
-                const launcherButton = document.querySelector('button[aria-label*="Get instant price"]') as HTMLButtonElement;
-                if (launcherButton) {
-                  launcherButton.click();
-                }
-              }}
-              className="relative px-14 py-7 rounded-2xl font-extrabold text-2xl bg-[#42b3ffff] text-black hover:brightness-110 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 overflow-hidden"
-              style={{
-                boxShadow: '0 0 20px rgba(66, 179, 255, 0.5), 0 0 40px rgba(66, 179, 255, 0.3)',
-              }}
-            >
-              <span
-                className="absolute inset-0 shimmer-effect"
-                style={{
-                  background: 'linear-gradient(90deg, transparent 0%, transparent 30%, rgba(255,255,255,0.9) 50%, transparent 70%, transparent 100%)',
-                  transform: 'translateX(-100%)',
+            {showBanners && (
+              <button
+                onClick={() => {
+                  const launcherButton = document.querySelector('button[aria-label*="Get instant price"]') as HTMLButtonElement;
+                  if (launcherButton) {
+                    launcherButton.click();
+                  }
                 }}
-              />
-              <span className="relative z-10"><span style={{ color: 'red' }}>💰</span> Order Online & Save {discountText}</span>
-            </button>
+                className="relative px-14 py-7 rounded-2xl font-extrabold text-2xl bg-[#42b3ffff] text-black hover:brightness-110 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 overflow-hidden"
+                style={{
+                  boxShadow: '0 0 20px rgba(66, 179, 255, 0.5), 0 0 40px rgba(66, 179, 255, 0.3)',
+                }}
+              >
+                <span
+                  className="absolute inset-0 shimmer-effect"
+                  style={{
+                    background: 'linear-gradient(90deg, transparent 0%, transparent 30%, rgba(255,255,255,0.9) 50%, transparent 70%, transparent 100%)',
+                    transform: 'translateX(-100%)',
+                  }}
+                />
+                <span className="relative z-10"><span style={{ color: 'red' }}>💰</span> Order Online & Save {discountText}</span>
+              </button>
+            )}
 
             <a
               href="tel:18589999293"

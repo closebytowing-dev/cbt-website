@@ -1,23 +1,28 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import type { Metadata } from "next";
 import LeftPopup from "@/components/LeftPopup";
-
-export const metadata: Metadata = {
-  title: "About CloseBy Towing | San Diego's Trusted Roadside Assistance Since 2020",
-  description: "Learn about CloseBy Towing - San Diego's premier 24/7 towing and roadside assistance company. Licensed, insured, and trusted by 10,000+ customers. Meet our team and discover our story.",
-  keywords: "about CloseBy Towing, San Diego towing company, licensed towing service, professional roadside assistance",
-  alternates: { canonical: "/about" },
-  openGraph: {
-    title: "About CloseBy Towing | San Diego's Trusted Roadside Assistance",
-    description: "Learn about San Diego's premier 24/7 towing and roadside assistance company. Licensed, insured, and trusted by 10,000+ customers.",
-    url: "https://closebytowing.com/about",
-    type: "website",
-    images: ["/hero/home-hero.webp"],
-  },
-};
+import { useVisibility } from "@/hooks/useVisibility";
+import { useOnlineDiscount } from "@/hooks/useOnlineDiscount";
+import { useEffect } from "react";
 
 export default function AboutPage() {
+  const { config } = useVisibility();
+  const { discountText } = useOnlineDiscount();
+  const showBanners = config.customerRequestForm?.saveBanners !== false;
+
+  useEffect(() => {
+    document.title = "About CloseBy Towing | San Diego's Trusted Roadside Assistance Since 2020";
+
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.setAttribute('name', 'description');
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute('content', "Learn about CloseBy Towing - San Diego's premier 24/7 towing and roadside assistance company. Licensed, insured, and trusted by 10,000+ customers. Meet our team and discover our story.");
+  }, []);
   const aboutSchema = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
@@ -229,12 +234,17 @@ export default function AboutPage() {
               >
                 📞 Call Now: (858) 999-9293
               </a>
-              <Link
-                href="/"
-                className="inline-block rounded-lg bg-white text-[#1e1e4a] px-8 py-4 font-bold hover:brightness-95 text-lg shadow-lg transition-all hover:scale-105 text-center"
-              >
-                💰 Order Online & Save 15%
-              </Link>
+              {showBanners && (
+                <button
+                  onClick={() => {
+                    const popup = document.querySelector('[aria-label*="Get instant price"]') as HTMLButtonElement;
+                    if (popup) popup.click();
+                  }}
+                  className="inline-block rounded-lg bg-white text-[#1e1e4a] px-8 py-4 font-bold hover:brightness-95 text-lg shadow-lg transition-all hover:scale-105 text-center"
+                >
+                  💰 Order Online & Save {discountText}
+                </button>
+              )}
             </div>
           </div>
         </section>

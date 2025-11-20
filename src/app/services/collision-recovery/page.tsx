@@ -6,6 +6,7 @@ import LeftPopup from "@/components/LeftPopup";
 import { useEffect } from "react";
 import { useServicePricing } from "@/hooks/useServicePricing";
 import { useOnlineDiscount } from "@/hooks/useOnlineDiscount";
+import { useVisibility } from "@/hooks/useVisibility";
 
 const BANNER = "#ffba42";
 const BRAND = "#1e1e4a";
@@ -14,6 +15,8 @@ export default function CollisionRecoveryPage() {
   // Fetch dynamic pricing from Firebase
   const { standardPrice, onlinePrice, loading, error } = useServicePricing("Collision Recovery");
   const { discountText } = useOnlineDiscount();
+  const { config } = useVisibility();
+  const showBanners = config.customerRequestForm?.saveBanners !== false;
 
   // Set document metadata
   useEffect(() => {
@@ -237,30 +240,32 @@ export default function CollisionRecoveryPage() {
                   </span>
                 </a>
 
-                <button
-                  onClick={() => {
-                    // Find and click the popup launcher button
-                    const launcherButton = document.querySelector('button[aria-label*="Get instant price"]') as HTMLButtonElement;
-                    if (launcherButton) {
-                      launcherButton.click();
-                    }
-                  }}
-                  className="relative px-12 py-7 rounded-2xl font-extrabold text-xl md:text-2xl bg-[#42b3ffff] text-black hover:brightness-110 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 overflow-hidden"
-                  style={{
-                    boxShadow: '0 0 20px rgba(66, 179, 255, 0.5), 0 0 40px rgba(66, 179, 255, 0.3)',
-                  }}
-                >
-                  {/* Animated shimmer effect */}
-                  <span
-                    className="absolute inset-0 shimmer-effect"
-                    style={{
-                      background: 'linear-gradient(90deg, transparent 0%, transparent 30%, rgba(255,255,255,0.9) 50%, transparent 70%, transparent 100%)',
-                      transform: 'translateX(-100%)',
+                {showBanners && (
+                  <button
+                    onClick={() => {
+                      // Find and click the popup launcher button
+                      const launcherButton = document.querySelector('button[aria-label*="Get instant price"]') as HTMLButtonElement;
+                      if (launcherButton) {
+                        launcherButton.click();
+                      }
                     }}
-                  />
-                  <span className="relative z-10 hidden sm:inline"><span style={{ color: 'red' }}>💰</span> Order Online & Save {discountText}</span>
-                  <span className="relative z-10 sm:hidden"><span style={{ color: 'red' }}>💰</span> Save {discountText}</span>
-                </button>
+                    className="relative px-12 py-7 rounded-2xl font-extrabold text-xl md:text-2xl bg-[#42b3ffff] text-black hover:brightness-110 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 overflow-hidden"
+                    style={{
+                      boxShadow: '0 0 20px rgba(66, 179, 255, 0.5), 0 0 40px rgba(66, 179, 255, 0.3)',
+                    }}
+                  >
+                    {/* Animated shimmer effect */}
+                    <span
+                      className="absolute inset-0 shimmer-effect"
+                      style={{
+                        background: 'linear-gradient(90deg, transparent 0%, transparent 30%, rgba(255,255,255,0.9) 50%, transparent 70%, transparent 100%)',
+                        transform: 'translateX(-100%)',
+                      }}
+                    />
+                    <span className="relative z-10 hidden sm:inline"><span style={{ color: 'red' }}>💰</span> Order Online & Save {discountText}</span>
+                    <span className="relative z-10 sm:hidden"><span style={{ color: 'red' }}>💰</span> Save {discountText}</span>
+                  </button>
+                )}
               </div>
 
               {/* Additional Contact Options */}
@@ -893,30 +898,32 @@ export default function CollisionRecoveryPage() {
 
             {/* Secondary CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <button
-                onClick={() => {
-                  // Find and click the popup launcher button
-                  const launcherButton = document.querySelector('button[aria-label*="Get instant price"]') as HTMLButtonElement;
-                  if (launcherButton) {
-                    launcherButton.click();
-                  }
-                }}
-                className="relative px-10 md:px-16 py-5 md:py-8 rounded-3xl font-extrabold text-xl md:text-3xl bg-[#42b3ffff] text-black hover:brightness-110 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-4 overflow-hidden w-full sm:w-auto"
-                style={{
-                  boxShadow: '0 0 20px rgba(66, 179, 255, 0.5), 0 0 40px rgba(66, 179, 255, 0.3)',
-                }}
-              >
-                {/* Animated shimmer effect */}
-                <span
-                  className="absolute inset-0 shimmer-effect"
-                  style={{
-                    background: 'linear-gradient(90deg, transparent 0%, transparent 30%, rgba(255,255,255,0.9) 50%, transparent 70%, transparent 100%)',
-                    transform: 'translateX(-100%)',
+              {showBanners && (
+                <button
+                  onClick={() => {
+                    // Find and click the popup launcher button
+                    const launcherButton = document.querySelector('button[aria-label*="Get instant price"]') as HTMLButtonElement;
+                    if (launcherButton) {
+                      launcherButton.click();
+                    }
                   }}
-                />
-                <span className="relative z-10 hidden sm:inline"><span style={{ color: 'red' }}>💰</span> Order Online & Save {discountText}</span>
-                <span className="relative z-10 sm:hidden"><span style={{ color: 'red' }}>💰</span> Save {discountText}</span>
-              </button>
+                  className="relative px-10 md:px-16 py-5 md:py-8 rounded-3xl font-extrabold text-xl md:text-3xl bg-[#42b3ffff] text-black hover:brightness-110 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-4 overflow-hidden w-full sm:w-auto"
+                  style={{
+                    boxShadow: '0 0 20px rgba(66, 179, 255, 0.5), 0 0 40px rgba(66, 179, 255, 0.3)',
+                  }}
+                >
+                  {/* Animated shimmer effect */}
+                  <span
+                    className="absolute inset-0 shimmer-effect"
+                    style={{
+                      background: 'linear-gradient(90deg, transparent 0%, transparent 30%, rgba(255,255,255,0.9) 50%, transparent 70%, transparent 100%)',
+                      transform: 'translateX(-100%)',
+                    }}
+                  />
+                  <span className="relative z-10 hidden sm:inline"><span style={{ color: 'red' }}>💰</span> Order Online & Save {discountText}</span>
+                  <span className="relative z-10 sm:hidden"><span style={{ color: 'red' }}>💰</span> Save {discountText}</span>
+                </button>
+              )}
 
               <a
                 href="https://wa.me/18589999293?text=I%20need%20emergency%20collision%20recovery"

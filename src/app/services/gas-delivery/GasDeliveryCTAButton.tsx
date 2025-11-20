@@ -1,13 +1,18 @@
 "use client";
 import { useOnlineDiscount } from "@/hooks/useOnlineDiscount";
+import { useVisibility } from "@/hooks/useVisibility";
 
 export function GasDeliveryCTAButton() {
   const { discountText } = useOnlineDiscount();
+  const { config } = useVisibility();
+  const showBanners = config.customerRequestForm?.saveBanners !== false;
 
   const handleClick = () => {
     const popup = document.querySelector('[aria-label*="Get instant price"]') as HTMLButtonElement;
     if (popup) popup.click();
   };
+
+  if (!showBanners) return null;
 
   return (
     <button
@@ -29,11 +34,15 @@ export function GasDeliveryCTAButton() {
 
 export function GasDeliveryCTAButtonLarge() {
   const { discountText } = useOnlineDiscount();
+  const { config } = useVisibility();
+  const showBanners = config.customerRequestForm?.saveBanners !== false;
 
   const handleClick = () => {
     const popup = document.querySelector('[aria-label*="Get instant price"]') as HTMLButtonElement;
     if (popup) popup.click();
   };
+
+  if (!showBanners) return null;
 
   return (
     <button

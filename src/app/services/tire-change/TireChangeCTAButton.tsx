@@ -1,13 +1,18 @@
 "use client";
 import { useOnlineDiscount } from "@/hooks/useOnlineDiscount";
+import { useVisibility } from "@/hooks/useVisibility";
 
 export function TireChangeCTAButton() {
   const { discountText } = useOnlineDiscount();
+  const { config } = useVisibility();
+  const showBanners = config.customerRequestForm?.saveBanners !== false;
 
   const handleClick = () => {
     const popup = document.querySelector('[aria-label*="Get instant price"]') as HTMLButtonElement;
     if (popup) popup.click();
   };
+
+  if (!showBanners) return null;
 
   return (
     <button
@@ -30,11 +35,15 @@ export function TireChangeCTAButton() {
 
 export function TireChangeCTAButtonLarge() {
   const { discountText } = useOnlineDiscount();
+  const { config } = useVisibility();
+  const showBanners = config.customerRequestForm?.saveBanners !== false;
 
   const handleClick = () => {
     const popup = document.querySelector('[aria-label*="Get instant price"]') as HTMLButtonElement;
     if (popup) popup.click();
   };
+
+  if (!showBanners) return null;
 
   return (
     <button
@@ -57,11 +66,15 @@ export function TireChangeCTAButtonLarge() {
 
 export function FinalCTAButton() {
   const { discountText } = useOnlineDiscount();
+  const { config } = useVisibility();
+  const showBanners = config.customerRequestForm?.saveBanners !== false;
 
   const handleClick = () => {
     const popup = document.querySelector('[aria-label*="Get instant price"]') as HTMLButtonElement;
     if (popup) popup.click();
   };
+
+  if (!showBanners) return null;
 
   return (
     <button

@@ -1,6 +1,7 @@
 "use client";
 
 import { useOnlineDiscount } from "@/hooks/useOnlineDiscount";
+import { useVisibility } from "@/hooks/useVisibility";
 import "./PopupAnimations.css";
 
 // Source of truth for Q&A content - Note: pricing answer is dynamically rendered with current discount
@@ -28,6 +29,8 @@ function slugify(str: string) {
 
 export default function FAQ() {
   const { discountText, discountPercentage } = useOnlineDiscount();
+  const { config } = useVisibility();
+  const showBanners = config.customerRequestForm?.saveBanners !== false;
   const QA = getQA(discountPercentage);
 
   const jsonLd = {
@@ -108,26 +111,28 @@ export default function FAQ() {
             >
               📞 Call Now: (858) 999-9293
             </a>
-            <button
-              onClick={() => {
-                const popup = document.querySelector('[aria-label*="Get instant price"]') as HTMLButtonElement;
-                if (popup) popup.click();
-              }}
-              className="w-full sm:w-auto relative rounded-lg bg-[#42b3ffff] text-black px-8 sm:px-10 py-3 sm:py-4 font-extrabold hover:brightness-110 text-base sm:text-lg shadow-lg transition-all hover:scale-105 text-center overflow-hidden"
-              style={{
-                boxShadow: '0 0 20px rgba(66, 179, 255, 0.5), 0 0 40px rgba(66, 179, 255, 0.3)',
-              }}
-            >
-              {/* Animated shimmer effect - flashlight sweep */}
-              <span
-                className="absolute inset-0 shimmer-effect"
-                style={{
-                  background: 'linear-gradient(90deg, transparent 0%, transparent 30%, rgba(255,255,255,0.9) 50%, transparent 70%, transparent 100%)',
-                  transform: 'translateX(-100%)',
+            {showBanners && (
+              <button
+                onClick={() => {
+                  const popup = document.querySelector('[aria-label*="Get instant price"]') as HTMLButtonElement;
+                  if (popup) popup.click();
                 }}
-              />
-              <span className="relative z-10"><span style={{ color: 'red' }}>💰</span> Order Online & Save {discountText}</span>
-            </button>
+                className="w-full sm:w-auto relative rounded-lg bg-[#42b3ffff] text-black px-8 sm:px-10 py-3 sm:py-4 font-extrabold hover:brightness-110 text-base sm:text-lg shadow-lg transition-all hover:scale-105 text-center overflow-hidden"
+                style={{
+                  boxShadow: '0 0 20px rgba(66, 179, 255, 0.5), 0 0 40px rgba(66, 179, 255, 0.3)',
+                }}
+              >
+                {/* Animated shimmer effect - flashlight sweep */}
+                <span
+                  className="absolute inset-0 shimmer-effect"
+                  style={{
+                    background: 'linear-gradient(90deg, transparent 0%, transparent 30%, rgba(255,255,255,0.9) 50%, transparent 70%, transparent 100%)',
+                    transform: 'translateX(-100%)',
+                  }}
+                />
+                <span className="relative z-10"><span style={{ color: 'red' }}>💰</span> Order Online & Save {discountText}</span>
+              </button>
+            )}
           </div>
           <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-white/70 px-2">
             Average response time: 20-35 minutes • Licensed & Insured • 4.9★ Rating
