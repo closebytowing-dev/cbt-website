@@ -1,19 +1,16 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useVisibility } from "@/hooks/useVisibility";
 
 export default function Footer() {
   const toTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
   const pathname = usePathname();
   const isDashboard = pathname?.startsWith("/partners/dashboard");
-  const { config } = useVisibility();
 
   return (
     <footer className="w-full text-white">
       {/* Main footer block */}
-      {config.footer.mainFooter && (
-        <div className={`bg-[#0d0d36] ${isDashboard ? "hidden md:block" : ""}`}>
+      <div className={`bg-[#0d0d36] ${isDashboard ? "hidden md:block" : ""}`}>
         <div className="mx-auto max-w-[1800px] px-4 sm:px-6 py-8 sm:py-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {/* Company info */}
@@ -77,8 +74,7 @@ export default function Footer() {
             </div>
 
             {/* Partners Section */}
-            {config.footer.partnerLinks && (
-              <div>
+            <div>
                 <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
                   <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
@@ -116,20 +112,17 @@ export default function Footer() {
                     Mechanic shops, body shops & auto services: Partner with us for exclusive referrals.
                   </p>
                 </div>
-              </div>
-            )}
+            </div>
           </div>
 
           <div className="mt-8 pt-6 border-t border-white/20 text-sm text-white/70 text-center">
             &copy; {new Date().getFullYear()} CloseBy Towing San Diego. All rights reserved. Licensed & Insured Towing Company.
           </div>
         </div>
-        </div>
-      )}
+      </div>
 
       {/* Slim lower bar with strong white borders and Back to top box (1.5× taller) */}
-      {config.footer.backToTop && (
-        <div className="bg-[#0d0d36] border-y-2 border-white">
+      <div className="bg-[#0d0d36] border-y-2 border-white">
         <div className="mx-auto max-w-[1600px]">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto]">
             {/* Left area with bold right divider */}
@@ -159,8 +152,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        </div>
-      )}
+      </div>
     </footer>
   );
 }

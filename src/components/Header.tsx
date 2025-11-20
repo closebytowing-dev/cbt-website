@@ -7,14 +7,12 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { useRouter, usePathname } from "next/navigation";
-import { useVisibility } from "@/hooks/useVisibility";
 
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [companyName, setCompanyName] = useState<string>("");
   const router = useRouter();
   const pathname = usePathname();
-  const { config } = useVisibility();
 
   useEffect(() => {
     const auth = getAuth();
@@ -100,8 +98,7 @@ export default function Header() {
           </div>
 
           {/* Right: phone button */}
-          {config.header.phoneButton && (
-            <div className="flex items-center">
+          <div className="flex items-center">
               <a
                 href="tel:+18589999293"
                 aria-label="Call CloseBy Towing (858) 999-9293"
@@ -118,8 +115,7 @@ export default function Header() {
                 </svg>
                 <span className="text-lg sm:text-2xl lg:text-2xl font-semibold">(858) 999-9293</span>
               </a>
-            </div>
-          )}
+          </div>
         </div>
       </div>
 
@@ -172,27 +168,19 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-4 xl:gap-10 text-[1.0rem] font-semibold leading-none">
-              {config.header.servicesMenu && <ServicesMenu />}
-              {config.header.reviewsLink && (
-                <Link href="/#reviews" className="hover:opacity-60">
-                  Reviews
-                </Link>
-              )}
-              {config.header.serviceAreaLink && (
-                <Link href="/#area" className="hover:opacity-60">
-                  Service Area
-                </Link>
-              )}
-              {config.header.aboutLink && (
-                <Link href="/about" className="hover:opacity-60">
-                  About
-                </Link>
-              )}
-              {config.header.contactLink && (
-                <Link href="/contact" className="hover:opacity-60">
-                  Contact
-                </Link>
-              )}
+              <ServicesMenu />
+              <Link href="/#reviews" className="hover:opacity-60">
+                Reviews
+              </Link>
+              <Link href="/#area" className="hover:opacity-60">
+                Service Area
+              </Link>
+              <Link href="/about" className="hover:opacity-60">
+                About
+              </Link>
+              <Link href="/contact" className="hover:opacity-60">
+                Contact
+              </Link>
             </nav>
           </div>
 
@@ -240,8 +228,7 @@ export default function Header() {
           `}</style>
 
           {/* Right side: Dashboard/Logout or Login/Sign Up */}
-          {config.header.loginLinks && (
-            <div className="flex items-center gap-2 sm:gap-4 ml-auto lg:mr-8">
+          <div className="flex items-center gap-2 sm:gap-4 ml-auto lg:mr-8">
               {isLoggedIn ? (
                 <>
                   <Link
@@ -275,8 +262,7 @@ export default function Header() {
                   </Link>
                 </>
               )}
-            </div>
-          )}
+          </div>
         </div>
       </div>
     </header>
