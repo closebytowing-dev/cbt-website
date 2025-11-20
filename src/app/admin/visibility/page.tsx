@@ -172,7 +172,7 @@ export default function VisibilityPanel() {
               {/* Select All Toggle */}
               <div className="flex items-center justify-between p-4 bg-yellow-400/20 rounded-lg border border-yellow-400/30">
                 <div>
-                  <span className="text-white font-semibold text-lg">Enable All</span>
+                  <span className="text-white font-semibold text-lg">{allEnabled ? 'Disable All' : 'Enable All'}</span>
                   <p className="text-gray-300 text-sm mt-1">Toggle all customer request form elements</p>
                 </div>
                 <button
@@ -192,7 +192,9 @@ export default function VisibilityPanel() {
               {/* Left Popup Toggle */}
               <div className="flex items-center justify-between p-4 bg-white/10 rounded-lg">
                 <div>
-                  <span className="text-white font-semibold text-lg">Left Popup</span>
+                  <span className="text-white font-semibold text-lg">
+                    {config.customerRequestForm?.leftPopup !== false ? 'Disable' : 'Enable'} Left Popup
+                  </span>
                   <p className="text-gray-300 text-sm mt-1">The customer booking and job request popup form</p>
                 </div>
                 <button
@@ -212,7 +214,9 @@ export default function VisibilityPanel() {
               {/* Popup Launcher Toggle */}
               <div className="flex items-center justify-between p-4 bg-white/10 rounded-lg">
                 <div>
-                  <span className="text-white font-semibold text-lg">Popup Launcher</span>
+                  <span className="text-white font-semibold text-lg">
+                    {config.customerRequestForm?.popupLauncher !== false ? 'Disable' : 'Enable'} Popup Launcher
+                  </span>
                   <p className="text-gray-300 text-sm mt-1">The button/icon that opens the left popup</p>
                 </div>
                 <button
@@ -232,7 +236,9 @@ export default function VisibilityPanel() {
               {/* Save Banners Toggle */}
               <div className="flex items-center justify-between p-4 bg-white/10 rounded-lg">
                 <div>
-                  <span className="text-white font-semibold text-lg">Save Percentage Banners</span>
+                  <span className="text-white font-semibold text-lg">
+                    {config.customerRequestForm?.saveBanners !== false ? 'Disable' : 'Enable'} Save Percentage Banners
+                  </span>
                   <p className="text-gray-300 text-sm mt-1">Banners site-wide that open the left popup when clicked</p>
                 </div>
                 <button
