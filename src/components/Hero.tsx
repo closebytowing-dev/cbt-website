@@ -1,9 +1,12 @@
 "use client";
 import Image from "next/image";
 import { useOnlineDiscount } from "@/hooks/useOnlineDiscount";
+import { useVisibility } from "@/hooks/useVisibility";
 import "./PopupAnimations.css";
 export default function Hero() {
   const { discountText } = useOnlineDiscount();
+  const { config } = useVisibility();
+  const showBanners = config.customerRequestForm?.saveBanners !== false;
   return (
     <section className="relative overflow-hidden bg-[#1e1e4a] text-white">
       <div className="mx-auto max-w-[1800px] px-6 min-h-[50vh] grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -35,26 +38,28 @@ export default function Hero() {
               📞 Call Now: (858) 999-9293
             </a>
             {/* Online Order CTA - opens the popup - shiny with moving light effect */}
-            <button
-              onClick={() => {
-                const popup = document.querySelector('[aria-label*="Get instant price"]') as HTMLButtonElement;
-                if (popup) popup.click();
-              }}
-              className="relative inline-block rounded-lg bg-[#42b3ffff] text-black px-8 py-4 font-extrabold hover:brightness-110 text-lg shadow-lg transition-all hover:scale-105 text-center overflow-hidden"
-              style={{
-                boxShadow: '0 0 20px rgba(66, 179, 255, 0.5), 0 0 40px rgba(66, 179, 255, 0.3)',
-              }}
-            >
-              {/* Animated shimmer effect - flashlight sweep */}
-              <span
-                className="absolute inset-0 shimmer-effect"
-                style={{
-                  background: 'linear-gradient(90deg, transparent 0%, transparent 30%, rgba(255,255,255,0.9) 50%, transparent 70%, transparent 100%)',
-                  transform: 'translateX(-100%)',
+            {showBanners && (
+              <button
+                onClick={() => {
+                  const popup = document.querySelector('[aria-label*="Get instant price"]') as HTMLButtonElement;
+                  if (popup) popup.click();
                 }}
-              />
-              <span className="relative z-10"><span style={{ color: 'red' }}>💰</span> Order Online & Save {discountText}</span>
-            </button>
+                className="relative inline-block rounded-lg bg-[#42b3ffff] text-black px-8 py-4 font-extrabold hover:brightness-110 text-lg shadow-lg transition-all hover:scale-105 text-center overflow-hidden"
+                style={{
+                  boxShadow: '0 0 20px rgba(66, 179, 255, 0.5), 0 0 40px rgba(66, 179, 255, 0.3)',
+                }}
+              >
+                {/* Animated shimmer effect - flashlight sweep */}
+                <span
+                  className="absolute inset-0 shimmer-effect"
+                  style={{
+                    background: 'linear-gradient(90deg, transparent 0%, transparent 30%, rgba(255,255,255,0.9) 50%, transparent 70%, transparent 100%)',
+                    transform: 'translateX(-100%)',
+                  }}
+                />
+                <span className="relative z-10"><span style={{ color: 'red' }}>💰</span> Order Online & Save {discountText}</span>
+              </button>
+            )}
           </div>
 
           {/* Trust badges */}

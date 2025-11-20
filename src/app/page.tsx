@@ -14,25 +14,21 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col overflow-x-hidden">
-      {config.homePage.hero && <Hero />}
-      {config.homePage.value && <Value />}
-      {config.homePage.reviews && (
-        <div id="reviews">
-          <Reviews />
-        </div>
-      )}
-      {config.homePage.services && <Services />}
+      <Hero />
+      <Value />
+      <div id="reviews">
+        <Reviews />
+      </div>
+      <Services />
 
       {/* Service area section - now visible on all devices */}
-      {config.homePage.serviceArea && (
-        <div id="area">
-          <ServiceArea />
-        </div>
-      )}
+      <div id="area">
+        <ServiceArea />
+      </div>
 
-      {/* Left-side popup */}
-      {config.homePage.faq && <FAQ />}
-      {config.masterToggles?.enableOnlineBooking !== false && config.popup.leftPopup && <LeftPopup />}
+      {/* FAQ and Left-side popup */}
+      <FAQ />
+      {config.customerRequestForm?.leftPopup !== false && <LeftPopup />}
     </main>
   );
 }

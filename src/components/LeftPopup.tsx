@@ -6,6 +6,7 @@ import type { AddressPayload } from "./types";
 import { ServiceIcon } from "./ServiceIcon";
 import { fetchConfig, applyOnlineDiscount } from "../lib/pricing-client";
 import { useOnlineDiscount } from "@/hooks/useOnlineDiscount";
+import { useVisibility } from "@/hooks/useVisibility";
 import "./PopupAnimations.css";
 
 
@@ -44,6 +45,12 @@ export default function LeftPopup({
   services,
 }: Props) {
   const { discountText } = useOnlineDiscount();
+  const { config: visibilityConfig } = useVisibility();
+
+  // Check if popup should be shown
+  const showPopup = visibilityConfig.customerRequestForm?.leftPopup !== false;
+  const showLauncher = visibilityConfig.customerRequestForm?.popupLauncher !== false;
+  const showBanners = visibilityConfig.customerRequestForm?.saveBanners !== false;
 
   const [open, setOpen] = useState(false);
   const [animateIn, setAnimateIn] = useState(false);
@@ -214,6 +221,9 @@ export default function LeftPopup({
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
+    // Don't auto-open if popup is disabled
+    if (!showPopup) return;
+
     // Check if user came from ad (UTM parameters)
     const urlParams = new URLSearchParams(window.location.search);
     const fromAd = urlParams.has('utm_source') || urlParams.has('gclid') || urlParams.has('fbclid');
@@ -233,7 +243,7 @@ export default function LeftPopup({
     }, fromAd ? 2000 : 500);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [showPopup]);
 
   // Lock body scroll when popup is open (mobile only)
   useEffect(() => {
@@ -350,10 +360,15 @@ export default function LeftPopup({
   const STAGGER_TOTAL_MS = 600; // Optimized from 3000ms - 80% faster!
   const bannerText = `Order Online & Save ${discountText}`;
 
+  // If popup is disabled, don't render anything
+  if (!showPopup) {
+    return null;
+  }
+
   return (
     <>
       {/* launcher - MASSIVE URGENT CTA */}
-      {!open && (
+      {!open && showLauncher && (
         <>
           {/* Mobile: Compact bottom bar */}
           <button
@@ -553,7 +568,7 @@ export default function LeftPopup({
                 </div>
 
                 {/* Banner - ONLY on Panel 1 (service selection) */}
-                {stage === "choose" && (
+                {stage === "choose" && showBanners && (
                   <div className="flex justify-center">
                     <button
                       onClick={() => setPulseBanner(true)}
