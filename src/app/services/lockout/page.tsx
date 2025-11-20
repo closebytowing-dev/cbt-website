@@ -184,15 +184,6 @@ export default function LockoutPage() {
 
               <p className="text-xl sm:text-2xl text-slate-600 leading-relaxed">
                 Professional car unlock service serving all of San Diego County.
-                <span className="inline-block mx-1 px-3 py-1 rounded-lg bg-green-50 border-2 border-green-300">
-                  <span className="font-black text-green-900">
-                    {loading ? "$... online" : `$${onlinePrice} online`}
-                  </span>
-                  <span className="text-sm text-green-700 ml-1">(save {discountText})</span>
-                </span>
-                or <span className="font-bold text-slate-700">
-                  {loading ? "$..." : `$${standardPrice}`} standard
-                </span>.
                 <span className="font-bold text-slate-900"> No damage. 100% guaranteed.</span>
               </p>
 
