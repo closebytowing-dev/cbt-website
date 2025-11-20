@@ -94,24 +94,6 @@ export default function GasDeliveryPage() {
               <span className="font-bold text-orange-400"> 20-35 minutes</span> arrival time.
             </p>
 
-            {/* Pricing */}
-            <div className="flex items-center gap-4 pt-4">
-              <div className="text-center">
-                <div className="inline-block px-3 py-1 rounded-lg bg-green-500/20 border-2 border-green-400/40 mb-2">
-                  <span className="text-sm text-green-300 font-bold">ONLINE RATE</span>
-                </div>
-                <div className="text-5xl font-black text-orange-400">
-                  <PriceDisplay price={onlinePrice} loading={loading} fallback="$..." />
-                </div>
-                <div className="text-sm text-green-300 font-semibold mt-1">Save 15%</div>
-              </div>
-              <div className="h-16 w-px bg-white/20"></div>
-              <div className="text-center">
-                <div className="text-5xl font-black text-orange-400">20-35</div>
-                <div className="text-sm text-white/60 mt-1">Minutes ETA</div>
-              </div>
-            </div>
-
             {/* Trust Indicators */}
             <div className="flex flex-wrap gap-4 pt-4">
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/20">
@@ -151,26 +133,6 @@ export default function GasDeliveryPage() {
                 </svg>
                 (858) 999-9293
               </a>
-            </div>
-
-            {/* Quick Stats */}
-            <div className="flex items-center gap-8 pt-4">
-              <div>
-                <p className="text-4xl font-black text-orange-400">
-                  {loading ? "$... + Gas" : `$${onlinePrice} + Gas`}
-                </p>
-                <p className="text-sm text-slate-400">Delivery Fee + Fuel Cost</p>
-              </div>
-              <div className="w-px h-12 bg-white/20"></div>
-              <div>
-                <p className="text-4xl font-black text-amber-400">20-35</p>
-                <p className="text-sm text-slate-400">Min Response</p>
-              </div>
-              <div className="w-px h-12 bg-white/20"></div>
-              <div>
-                <p className="text-4xl font-black text-yellow-400">24/7</p>
-                <p className="text-sm text-slate-400">Available</p>
-              </div>
             </div>
 
           </div>
