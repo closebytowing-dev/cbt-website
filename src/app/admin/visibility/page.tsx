@@ -4,8 +4,10 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 type VisibilityConfig = {
-  masterToggles?: {
-    enableOnlineBooking: boolean;
+  customerRequestForm?: {
+    leftPopup: boolean;
+    popupLauncher: boolean;
+    saveBanners: boolean;
   };
 };
 
@@ -37,14 +39,17 @@ export default function VisibilityPanel() {
     }
   };
 
-  const handleToggle = () => {
+  const handleToggle = (key: 'leftPopup' | 'popupLauncher' | 'saveBanners') => {
     if (!config) return;
 
-    const currentValue = config.masterToggles?.enableOnlineBooking !== false;
+    const currentValue = config.customerRequestForm?.[key] !== false;
     setConfig({
       ...config,
-      masterToggles: {
-        enableOnlineBooking: !currentValue,
+      customerRequestForm: {
+        leftPopup: config.customerRequestForm?.leftPopup !== false,
+        popupLauncher: config.customerRequestForm?.popupLauncher !== false,
+        saveBanners: config.customerRequestForm?.saveBanners !== false,
+        [key]: !currentValue,
       },
     });
   };
@@ -127,30 +132,71 @@ export default function VisibilityPanel() {
           </div>
         </div>
 
-        {/* Master Toggles - Prominent Section */}
+        {/* Customer Request Form Section */}
         <div className="mb-6">
           <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border-2 border-yellow-400/50">
             <h2 className="text-2xl font-bold text-yellow-400 mb-4 flex items-center gap-2">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              Master Controls
+              Customer Request Form
             </h2>
             <div className="space-y-4">
+              {/* Left Popup Toggle */}
               <div className="flex items-center justify-between p-4 bg-white/10 rounded-lg">
                 <div>
-                  <span className="text-white font-semibold text-lg">Enable Online Booking</span>
-                  <p className="text-gray-300 text-sm mt-1">Controls popup, banners, and booking buttons site-wide</p>
+                  <span className="text-white font-semibold text-lg">Left Popup</span>
+                  <p className="text-gray-300 text-sm mt-1">The customer booking and job request popup form</p>
                 </div>
                 <button
-                  onClick={handleToggle}
+                  onClick={() => handleToggle('leftPopup')}
                   className={`relative inline-flex h-8 w-16 items-center rounded-full transition-colors ${
-                    config.masterToggles?.enableOnlineBooking !== false ? 'bg-yellow-400' : 'bg-gray-600'
+                    config.customerRequestForm?.leftPopup !== false ? 'bg-yellow-400' : 'bg-gray-600'
                   }`}
                 >
                   <span
                     className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform ${
-                      config.masterToggles?.enableOnlineBooking !== false ? 'translate-x-9' : 'translate-x-1'
+                      config.customerRequestForm?.leftPopup !== false ? 'translate-x-9' : 'translate-x-1'
+                    }`}
+                  />
+                </button>
+              </div>
+
+              {/* Popup Launcher Toggle */}
+              <div className="flex items-center justify-between p-4 bg-white/10 rounded-lg">
+                <div>
+                  <span className="text-white font-semibold text-lg">Popup Launcher</span>
+                  <p className="text-gray-300 text-sm mt-1">The button/icon that opens the left popup</p>
+                </div>
+                <button
+                  onClick={() => handleToggle('popupLauncher')}
+                  className={`relative inline-flex h-8 w-16 items-center rounded-full transition-colors ${
+                    config.customerRequestForm?.popupLauncher !== false ? 'bg-yellow-400' : 'bg-gray-600'
+                  }`}
+                >
+                  <span
+                    className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform ${
+                      config.customerRequestForm?.popupLauncher !== false ? 'translate-x-9' : 'translate-x-1'
+                    }`}
+                  />
+                </button>
+              </div>
+
+              {/* Save Banners Toggle */}
+              <div className="flex items-center justify-between p-4 bg-white/10 rounded-lg">
+                <div>
+                  <span className="text-white font-semibold text-lg">Save Percentage Banners</span>
+                  <p className="text-gray-300 text-sm mt-1">Banners site-wide that open the left popup when clicked</p>
+                </div>
+                <button
+                  onClick={() => handleToggle('saveBanners')}
+                  className={`relative inline-flex h-8 w-16 items-center rounded-full transition-colors ${
+                    config.customerRequestForm?.saveBanners !== false ? 'bg-yellow-400' : 'bg-gray-600'
+                  }`}
+                >
+                  <span
+                    className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform ${
+                      config.customerRequestForm?.saveBanners !== false ? 'translate-x-9' : 'translate-x-1'
                     }`}
                   />
                 </button>
