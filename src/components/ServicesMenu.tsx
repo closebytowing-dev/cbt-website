@@ -45,8 +45,11 @@ export default function ServicesMenu() {
       </button>
 
       <div
-        className={`absolute left-0 right-auto lg:left-1/2 lg:-translate-x-1/2 top-full mt-3 ${open ? "block" : "hidden"} z-50`}
-        style={{ maxWidth: 'calc(100vw - 2rem)' }}
+        className={`absolute left-1/2 -translate-x-1/2 top-full mt-3 ${open ? "block" : "hidden"} z-50`}
+        style={{
+          left: 'clamp(1rem, 50%, calc(100vw - 240px - 1rem))',
+          transform: 'none'
+        }}
         onMouseEnter={() => {
           cancelClose();
           setOpen(true);
