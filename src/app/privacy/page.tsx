@@ -40,6 +40,7 @@ export default function PrivacyPolicyPage() {
 
   const sections = [
     { id: "information-collection", title: "Information We Collect", icon: "📋" },
+    { id: "driver-app", title: "Driver App Privacy", icon: "🚛" },
     { id: "how-we-use", title: "How We Use Your Information", icon: "🔧" },
     { id: "information-sharing", title: "Information Sharing", icon: "🤝" },
     { id: "data-security", title: "Data Security", icon: "🔒" },
@@ -293,6 +294,170 @@ export default function PrivacyPolicyPage() {
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                           </svg>
                           <span><strong>Cookies & Tracking:</strong> Session cookies, analytics cookies, preference cookies</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Section: Driver App Privacy */}
+              <section id="driver-app" className="scroll-mt-24">
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-10">
+                  <div className="flex items-start gap-4 mb-8">
+                    <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">
+                      🚛
+                    </div>
+                    <div>
+                      <h2 className="text-4xl font-black mb-4">Driver App Privacy</h2>
+                      <p className="text-slate-300 text-lg">
+                        This section applies specifically to drivers who use the CloseBy Towing Driver App. We collect additional information to facilitate job dispatch, tracking, and service delivery.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-6">
+                    {/* Driver Account Data */}
+                    <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-6">
+                      <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
+                        <span className="text-emerald-400">→</span>
+                        Driver Account Data
+                      </h3>
+                      <ul className="space-y-3 text-slate-300">
+                        <li className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span><strong>Personal Information:</strong> Name, email address, phone number</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span><strong>Login Credentials:</strong> Secure authentication tokens for app access</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span><strong>Driver Profile:</strong> Profile photo, vehicle information, and driver status</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Location Tracking */}
+                    <div className="bg-teal-500/10 border border-teal-500/30 rounded-2xl p-6">
+                      <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
+                        <span className="text-teal-400">→</span>
+                        Location Tracking
+                      </h3>
+                      <ul className="space-y-3 text-slate-300">
+                        <li className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span><strong>Real-Time GPS:</strong> Your location is tracked in real-time during active jobs for dispatch coordination</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span><strong>Dispatcher Access:</strong> Location data is shared with dispatchers to assign nearby jobs efficiently</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span><strong>Background Location:</strong> When you are on duty, the app may access your location in the background to provide accurate ETAs and job assignments</span>
+                        </li>
+                      </ul>
+                      <div className="mt-4 bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4">
+                        <p className="text-sm text-slate-300">
+                          <strong className="text-yellow-400">Note:</strong> Location tracking is only active when you are logged into the app and on duty. You can go off duty at any time to stop location sharing.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Job Photos */}
+                    <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-2xl p-6">
+                      <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
+                        <span className="text-cyan-400">→</span>
+                        Job Photos & Documentation
+                      </h3>
+                      <ul className="space-y-3 text-slate-300">
+                        <li className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span><strong>Photo Capture:</strong> Photos taken through the app for job documentation (vehicle condition, location verification)</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span><strong>Secure Storage:</strong> Photos are securely stored in Firebase Storage with encryption</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span><strong>Job Records:</strong> Photos are attached to job records for service verification and dispute resolution</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Push Notifications */}
+                    <div className="bg-violet-500/10 border border-violet-500/30 rounded-2xl p-6">
+                      <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
+                        <span className="text-violet-400">→</span>
+                        Push Notifications
+                      </h3>
+                      <ul className="space-y-3 text-slate-300">
+                        <li className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span><strong>FCM Tokens:</strong> We store Firebase Cloud Messaging tokens to send you job alerts and updates</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span><strong>Notification Types:</strong> New job assignments, job updates, dispatch messages, and system announcements</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span><strong>Preferences:</strong> You can manage notification settings within the app or your device settings</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Device Information */}
+                    <div className="bg-slate-500/10 border border-slate-500/30 rounded-2xl p-6">
+                      <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
+                        <span className="text-slate-400">→</span>
+                        Device Information
+                      </h3>
+                      <ul className="space-y-3 text-slate-300">
+                        <li className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span><strong>Device Type:</strong> Phone model and manufacturer for compatibility and support</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span><strong>Operating System:</strong> iOS/Android version for app optimization and troubleshooting</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span><strong>App Version:</strong> Current app version to ensure you have the latest features and security updates</span>
                         </li>
                       </ul>
                     </div>
