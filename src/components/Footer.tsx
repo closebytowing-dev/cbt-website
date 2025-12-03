@@ -73,45 +73,39 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Partners Section */}
+            {/* Support Section */}
             <div>
-                <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                  <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
-                  </svg>
-                  Partner Portal
-                </h3>
+                <h3 className="text-lg font-bold mb-4">Support</h3>
                 <nav className="flex flex-col gap-2 text-white/80">
-                  <a href="/partners/login" className="flex items-center gap-2 hover:text-blue-300 transition group">
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-                      <polyline points="10 17 15 12 10 7" />
-                      <line x1="15" y1="12" x2="3" y2="12" />
-                    </svg>
-                    Partner Login
-                  </a>
-                  <a href="/partners/signup" className="flex items-center gap-2 hover:text-blue-300 transition group">
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                      <circle cx="8.5" cy="7" r="4" />
-                      <line x1="20" y1="8" x2="20" y2="14" />
-                      <line x1="23" y1="11" x2="17" y2="11" />
-                    </svg>
-                    Become a Partner
-                  </a>
-                  <a href="/partners" className="flex items-center gap-2 hover:text-blue-300 transition group">
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                    </svg>
-                    Partner Benefits
-                  </a>
+                  <a href="/driver-support" className="hover:text-white transition">Driver App Support</a>
+                  <a href="/#faq" className="hover:text-white transition">Customer FAQ</a>
+                  <a href="/#area" className="hover:text-white transition">Service Area</a>
+                  <a href="/privacy" className="hover:text-white transition">Privacy Policy</a>
+                  <a href="/terms" className="hover:text-white transition">Terms of Service</a>
                 </nav>
-                <div className="mt-4 p-3 bg-blue-500/10 border border-blue-400/30 rounded-lg">
-                  <p className="text-xs text-blue-300 font-semibold mb-1">Join Our Network</p>
-                  <p className="text-xs text-white/70">
-                    Mechanic shops, body shops & auto services: Partner with us for exclusive referrals.
-                  </p>
+            </div>
+          </div>
+
+          {/* Partner Portal Box */}
+          <div className="mt-8 pt-6 border-t border-white/20">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-blue-500/10 border border-blue-400/30 rounded-xl p-4 sm:p-6">
+              <div className="flex items-center gap-3">
+                <svg className="w-8 h-8 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                </svg>
+                <div>
+                  <p className="text-white font-bold">Partner Portal</p>
+                  <p className="text-xs text-white/70">Mechanic shops, body shops & auto services: Partner with us for exclusive referrals.</p>
                 </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <a href="/partners/login" className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-lg transition">
+                  Partner Login
+                </a>
+                <a href="/partners/signup" className="px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-sm font-semibold rounded-lg border border-white/30 transition">
+                  Become a Partner
+                </a>
+              </div>
             </div>
           </div>
 
