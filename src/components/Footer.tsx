@@ -82,6 +82,7 @@ export default function Footer() {
                   <a href="/#area" className="hover:text-white transition">Service Area</a>
                   <a href="/privacy" className="hover:text-white transition">Privacy Policy</a>
                   <a href="/terms" className="hover:text-white transition">Terms of Service</a>
+                  <a href="https://dispatch.closebytowing.com" className="hover:text-white transition">Staff Portal</a>
                 </nav>
             </div>
           </div>

@@ -102,7 +102,7 @@ export default function PrivacyPolicyPage() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-indigo-500/20 border border-indigo-500/50 text-indigo-300 px-5 py-2 rounded-full font-semibold text-sm backdrop-blur-sm mb-8">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-            EFFECTIVE DATE: JANUARY 1, 2025
+            EFFECTIVE DATE: DECEMBER 3, 2025
           </div>
 
           {/* Main Headline */}
@@ -210,8 +210,8 @@ export default function PrivacyPolicyPage() {
                 </div>
                 <div className="bg-white/5 rounded-xl p-6 border border-white/10">
                   <p className="text-sm text-slate-400">
-                    <strong className="text-indigo-400">Last Updated:</strong> January 1, 2025 •
-                    <strong className="text-indigo-400 ml-3">Effective Date:</strong> January 1, 2025
+                    <strong className="text-indigo-400">Last Updated:</strong> December 3, 2025 •
+                    <strong className="text-indigo-400 ml-3">Effective Date:</strong> December 3, 2025
                   </p>
                 </div>
               </div>
@@ -341,6 +341,40 @@ export default function PrivacyPolicyPage() {
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                           </svg>
                           <span><strong>Driver Profile:</strong> Profile photo, vehicle information, and driver status</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Biometric Authentication */}
+                    <div className="bg-indigo-500/10 border border-indigo-500/30 rounded-2xl p-6">
+                      <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
+                        <span className="text-indigo-400">→</span>
+                        Biometric Authentication (Face ID / Touch ID)
+                      </h3>
+                      <ul className="space-y-3 text-slate-300">
+                        <li className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span><strong>Optional Authentication:</strong> On-device biometric authentication (Face ID / Touch ID) may be used solely to unlock a driver account more quickly and securely</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span><strong>No Biometric Data Collection:</strong> CloseBy Towing does not collect, store, process, or have access to any biometric data or face images</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span><strong>Device-Level Security:</strong> All biometric verification is handled entirely by the device's operating system and Apple's Secure Enclave. The app only receives a simple "success" or "failure" result</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <svg className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span><strong>User Control:</strong> Drivers may disable Face ID / Touch ID for the app at any time in their device settings</span>
                         </li>
                       </ul>
                     </div>
