@@ -179,8 +179,8 @@ export default function PartnerSignupPage() {
         {/* Arrow Banners - Stacked vertically, left of auth card */}
         <div className="hidden lg:flex flex-col gap-6 mt-[20vh] flex-shrink-0">
           {/* Blue Banner - Arrow pointing RIGHT */}
-          <div className="relative overflow-hidden animate-energy-pulse flex-shrink-0">
-            <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 px-14 py-8 pr-28 rounded-l-2xl shadow-2xl border-2 border-blue-400/50 relative w-[480px]">
+          <div className="relative animate-energy-pulse flex-shrink-0 mr-[50px]">
+            <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 px-14 py-8 pr-12 rounded-l-2xl shadow-2xl border-2 border-blue-400/50 border-r-0 relative w-[480px] overflow-hidden">
               {/* Light sweep effect */}
               <div className="absolute inset-0 overflow-hidden rounded-l-2xl">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 animate-light-sweep-blue"></div>
@@ -190,15 +190,15 @@ export default function PartnerSignupPage() {
                 Earn <span className="font-semibold text-white">10-20% commission</span> on every referral
               </p>
             </div>
-            {/* Arrow pointing right */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[calc(100%-1px)] w-0 h-0 border-t-[70px] border-t-transparent border-b-[70px] border-b-transparent border-l-[50px] border-l-blue-500"></div>
+            {/* Arrow pointing right - fully visible */}
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full w-0 h-0 border-t-[70px] border-t-transparent border-b-[70px] border-b-transparent border-l-[50px] border-l-blue-500"></div>
           </div>
 
           {/* Green Banner - Arrow pointing LEFT */}
-          <div className="relative overflow-hidden animate-energy-pulse pl-14 flex-shrink-0">
-            {/* Arrow pointing left */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[calc(100%-15px)] w-0 h-0 border-t-[70px] border-t-transparent border-b-[70px] border-b-transparent border-r-[50px] border-r-green-700"></div>
-            <div className="bg-gradient-to-l from-green-700 via-green-600 to-green-500 px-14 py-8 pl-28 rounded-r-2xl shadow-2xl border-2 border-green-400/50 relative w-[480px]">
+          <div className="relative animate-energy-pulse ml-[50px] flex-shrink-0">
+            {/* Arrow pointing left - fully visible */}
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full w-0 h-0 border-t-[70px] border-t-transparent border-b-[70px] border-b-transparent border-r-[50px] border-r-green-700"></div>
+            <div className="bg-gradient-to-l from-green-700 via-green-600 to-green-500 px-14 py-8 pl-12 rounded-r-2xl shadow-2xl border-2 border-green-400/50 border-l-0 relative w-[480px] overflow-hidden">
               {/* Light sweep effect */}
               <div className="absolute inset-0 overflow-hidden rounded-r-2xl">
                 <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/30 to-transparent skew-x-12 animate-light-sweep-green"></div>
