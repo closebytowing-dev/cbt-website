@@ -177,9 +177,9 @@ export default function PartnerSignupPage() {
       <div className="relative z-10 flex items-start justify-end min-w-max px-8 lg:px-16 pt-4 gap-4">
 
         {/* Arrow Banners - Stacked vertically, left of auth card */}
-        <div className="hidden lg:flex flex-col gap-6 mt-[20vh] flex-shrink-0">
+        <div className="hidden lg:flex flex-col gap-6 mt-[20vh] flex-shrink-0 -mr-[50px]">
           {/* Blue Banner - Arrow pointing RIGHT */}
-          <div className="relative animate-energy-pulse flex-shrink-0 mr-[50px]">
+          <div className="relative animate-energy-pulse flex-shrink-0">
             <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 px-14 py-8 pr-12 rounded-l-2xl shadow-2xl border-2 border-blue-400/50 border-r-0 relative w-[480px] overflow-hidden">
               {/* Light sweep effect */}
               <div className="absolute inset-0 overflow-hidden rounded-l-2xl">
@@ -195,7 +195,7 @@ export default function PartnerSignupPage() {
           </div>
 
           {/* Green Banner - Arrow pointing LEFT */}
-          <div className="relative animate-energy-pulse ml-[50px] flex-shrink-0">
+          <div className="relative animate-energy-pulse flex-shrink-0">
             {/* Arrow pointing left - fully visible */}
             <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full w-0 h-0 border-t-[70px] border-t-transparent border-b-[70px] border-b-transparent border-r-[50px] border-r-green-700"></div>
             <div className="bg-gradient-to-l from-green-700 via-green-600 to-green-500 px-14 py-8 pl-12 rounded-r-2xl shadow-2xl border-2 border-green-400/50 border-l-0 relative w-[480px] overflow-hidden">
