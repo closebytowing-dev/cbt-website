@@ -75,7 +75,7 @@ export default function Header() {
           </div>
 
           {/* Desktop: logo on left */}
-          <div className="hidden lg:flex items-center">
+          <div className="hidden lg:flex items-center -ml-2">
             <Image
               src="/images/logo/closeby_logo_96x96.webp"
               alt="CloseBy Towing logo"

@@ -222,11 +222,6 @@ export default function PartnerSignupPage() {
             />
           </div>
 
-          {/* Header - No gap from logo */}
-          <div className="bg-gray-500/30 py-4 px-8 border-b border-white/10">
-            <h2 className="text-2xl font-bold text-gray-900 text-center">Become a Partner</h2>
-          </div>
-
           {/* Form Content */}
           <div className="p-8">
             {/* Error Message */}
@@ -387,25 +382,25 @@ export default function PartnerSignupPage() {
                 Already a partner?{" "}
                 <a
                   href="/partners/signin"
-                  className="text-blue-600 hover:text-blue-500 font-semibold transition"
+                  className="text-white hover:text-gray-200 font-semibold transition"
                 >
                   Sign In
+                </a>
+              </p>
+
+              {/* Help text */}
+              <p className="text-center text-gray-700 text-sm">
+                Need help?{" "}
+                <a
+                  href="tel:+18589999293"
+                  className="text-white hover:text-gray-200 font-semibold transition"
+                >
+                  (858) 999-9293
                 </a>
               </p>
             </form>
           </div>
         </div>
-
-        {/* Help text below card */}
-        <p className="text-center text-gray-300 text-sm mt-6 drop-shadow">
-          Need help?{" "}
-          <a
-            href="tel:+18589999293"
-            className="text-white font-semibold hover:underline"
-          >
-            (858) 999-9293
-          </a>
-        </p>
       </div>
 
       {/* Tier Cards - Right side of page */}
