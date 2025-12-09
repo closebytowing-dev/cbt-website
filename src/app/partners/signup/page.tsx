@@ -174,48 +174,87 @@ export default function PartnerSignupPage() {
       </div>
 
       {/* Main Content - Fixed sizes, horizontal scroll if needed */}
-      <div className="relative z-10 flex items-start justify-end min-w-max px-8 lg:px-16 pt-4 gap-4">
+      <div className="relative z-10 flex items-start justify-end min-w-max px-8 lg:px-16 pt-4">
 
-        {/* Arrow Banners - Stacked vertically, left of auth card */}
-        <div className="hidden lg:flex flex-col gap-6 mt-[20vh] flex-shrink-0 -mr-[50px]">
-          {/* Blue Banner - Arrow pointing RIGHT */}
-          <div className="relative animate-energy-pulse flex-shrink-0">
-            <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 px-14 py-8 pr-12 rounded-l-2xl shadow-2xl border-2 border-blue-400/50 border-r-0 relative w-[480px] overflow-hidden">
-              {/* Light sweep effect */}
-              <div className="absolute inset-0 overflow-hidden rounded-l-2xl">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 animate-light-sweep-blue"></div>
+        {/* Right side container - Auth Card + Tier Cards - with banners positioned relative to it */}
+        <div className="flex flex-col items-end gap-8 flex-shrink-0 relative">
+          {/* Arrow Banners - Absolutely positioned to the left of auth card */}
+          <div className="hidden lg:flex flex-col gap-6 absolute right-[70%] top-[7vh]">
+            {/* Blue Banner - Arrow pointing RIGHT */}
+            <div className="relative animate-energy-pulse flex-shrink-0">
+              <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 px-14 py-10 pr-12 rounded-l-2xl shadow-2xl border-2 border-blue-400/50 border-r-0 relative w-[480px] overflow-hidden">
+                {/* Light sweep effect */}
+                <div className="absolute inset-0 overflow-hidden rounded-l-2xl">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 animate-light-sweep-blue"></div>
+                </div>
+                <h3 className="text-3xl font-bold text-white mb-3 relative z-10">You Send Us Tows</h3>
+                <p className="text-blue-100 text-lg relative z-10 mb-4">
+                  Earn <span className="font-semibold text-white">10-20% commission</span> on every referral
+                </p>
+                <ul className="space-y-2 relative z-10">
+                  <li className="flex items-center gap-2 text-blue-100">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Quick 30-second referral form</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-blue-100">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Track all your referrals in real-time</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-blue-100">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Get paid weekly or faster</span>
+                  </li>
+                </ul>
               </div>
-              <h3 className="text-3xl font-bold text-white mb-2 relative z-10">You Send Us Tows</h3>
-              <p className="text-blue-100 text-lg relative z-10">
-                Earn <span className="font-semibold text-white">10-20% commission</span> on every referral
-              </p>
+              {/* Arrow pointing right - touching the signup form */}
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full w-0 h-0 border-t-[100px] border-t-transparent border-b-[100px] border-b-transparent border-l-[60px] border-l-blue-500"></div>
             </div>
-            {/* Arrow pointing right - fully visible */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full w-0 h-0 border-t-[70px] border-t-transparent border-b-[70px] border-b-transparent border-l-[50px] border-l-blue-500"></div>
-          </div>
 
-          {/* Green Banner - Arrow pointing LEFT */}
-          <div className="relative animate-energy-pulse flex-shrink-0">
-            {/* Arrow pointing left - fully visible */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full w-0 h-0 border-t-[70px] border-t-transparent border-b-[70px] border-b-transparent border-r-[50px] border-r-green-700"></div>
-            <div className="bg-gradient-to-l from-green-700 via-green-600 to-green-500 px-14 py-8 pl-12 rounded-r-2xl shadow-2xl border-2 border-green-400/50 border-l-0 relative w-[480px] overflow-hidden">
-              {/* Light sweep effect */}
-              <div className="absolute inset-0 overflow-hidden rounded-r-2xl">
-                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/30 to-transparent skew-x-12 animate-light-sweep-green"></div>
+            {/* Green Banner - Arrow pointing LEFT */}
+            <div className="relative animate-energy-pulse flex-shrink-0">
+              {/* Arrow pointing left - fully visible */}
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full w-0 h-0 border-t-[100px] border-t-transparent border-b-[100px] border-b-transparent border-r-[60px] border-r-green-700"></div>
+              <div className="bg-gradient-to-l from-green-700 via-green-600 to-green-500 px-14 py-10 pl-12 rounded-r-2xl shadow-2xl border-2 border-green-400/50 border-l-0 relative w-[480px] overflow-hidden">
+                {/* Light sweep effect */}
+                <div className="absolute inset-0 overflow-hidden rounded-r-2xl">
+                  <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/30 to-transparent skew-x-12 animate-light-sweep-green"></div>
+                </div>
+                <div className="flex items-center gap-4 mb-3 relative z-10">
+                  <h3 className="text-3xl font-bold text-white">We Send You Work</h3>
+                  <span className="text-lg font-extrabold text-white bg-white/20 px-3 py-1 rounded-lg">FREE</span>
+                </div>
+                <p className="text-green-100 text-lg relative z-10 mb-4">
+                  We send customers <span className="font-semibold text-white">straight to you</span>
+                </p>
+                <ul className="space-y-2 relative z-10">
+                  <li className="flex items-center gap-2 text-green-100">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Free leads from our towing customers</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-green-100">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>No fees or hidden charges</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-green-100">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Grow your business effortlessly</span>
+                  </li>
+                </ul>
               </div>
-              <div className="flex items-center gap-4 mb-2 relative z-10">
-                <h3 className="text-3xl font-bold text-white">We Send You Work</h3>
-                <span className="text-lg font-extrabold text-white bg-white/20 px-3 py-1 rounded-lg">FREE</span>
-              </div>
-              <p className="text-green-100 text-lg relative z-10">
-                We send customers <span className="font-semibold text-white">straight to you</span>
-              </p>
             </div>
           </div>
-        </div>
-
-        {/* Right side container - Auth Card + Tier Cards */}
-        <div className="flex flex-col items-end gap-8 flex-shrink-0">
         {/* Auth Card - Fixed width, never shrinks */}
         <div className="w-[512px] flex-shrink-0">
           <div className="bg-gray-200/30 backdrop-blur-[2px] rounded-2xl shadow-2xl overflow-hidden border border-white/40">
