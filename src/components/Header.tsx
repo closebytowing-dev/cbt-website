@@ -45,7 +45,7 @@ export default function Header() {
     const auth = getAuth();
     try {
       await signOut(auth);
-      router.push("/");
+      router.push("/partners/signin");
     } catch (error) {
       console.error("Logout error:", error);
     }
