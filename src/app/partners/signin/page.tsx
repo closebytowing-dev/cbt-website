@@ -248,7 +248,7 @@ export default function PartnerSigninPage() {
 
       {/* Right Side Panel - 28% width, full height */}
       <div className="ml-auto w-full md:w-[32%] lg:w-[28%] min-h-screen relative z-10">
-        <div className="h-full bg-gray-700/40 backdrop-blur-xl flex flex-col">
+        <div className="h-full bg-white/10 backdrop-blur-md flex flex-col">
           {/* Form Content */}
           <div className="flex-1 flex flex-col justify-center px-6 md:px-10 lg:px-12 py-8">
             {/* Header with icon */}
