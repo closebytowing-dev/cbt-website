@@ -212,7 +212,7 @@ export default function PartnerSignupPage() {
         <div className="bg-gray-200/30 backdrop-blur-[2px] rounded-2xl shadow-2xl overflow-hidden border border-white/40">
           {/* Header */}
           <div className="bg-white/10 py-4 px-8 border-b border-white/10">
-            <h2 className="text-xl font-bold text-white text-center">Become a Partner</h2>
+            <h2 className="text-xl font-bold text-gray-900 text-center">Become a Partner</h2>
           </div>
 
           {/* Form Content */}
@@ -229,7 +229,7 @@ export default function PartnerSignupPage() {
               <div>
                 <label
                   htmlFor="businessName"
-                  className="block text-sm font-medium text-gray-300 mb-2"
+                  className="block text-sm font-medium text-gray-900 mb-2"
                 >
                   Business Name
                 </label>
@@ -248,7 +248,7 @@ export default function PartnerSignupPage() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-300 mb-2"
+                  className="block text-sm font-medium text-gray-900 mb-2"
                 >
                   Email
                 </label>
@@ -267,7 +267,7 @@ export default function PartnerSignupPage() {
               <div>
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium text-gray-300 mb-2"
+                  className="block text-sm font-medium text-gray-900 mb-2"
                 >
                   Password
                 </label>
@@ -323,7 +323,7 @@ export default function PartnerSignupPage() {
                   <div className="w-full border-t border-gray-600"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-3 bg-gray-900/80 text-gray-400">or continue with</span>
+                  <span className="px-3 bg-white/60 text-gray-700">or continue with</span>
                 </div>
               </div>
 
@@ -383,11 +383,11 @@ export default function PartnerSignupPage() {
               </button>
 
               {/* Already have account link */}
-              <p className="text-center text-gray-400 text-sm">
+              <p className="text-center text-gray-900 text-sm">
                 Already a partner?{" "}
                 <a
                   href="/partners/signin"
-                  className="text-blue-400 hover:text-blue-300 font-semibold transition"
+                  className="text-blue-600 hover:text-blue-500 font-semibold transition"
                 >
                   Sign In
                 </a>
