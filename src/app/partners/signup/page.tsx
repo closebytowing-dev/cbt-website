@@ -185,8 +185,8 @@ export default function PartnerSignupPage() {
               <div className="absolute inset-0 overflow-hidden rounded-l-2xl">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 animate-light-sweep-blue"></div>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-2 relative z-10">You Send Us Tows</h3>
-              <p className="text-blue-100 text-base relative z-10">
+              <h3 className="text-3xl font-bold text-white mb-2 relative z-10">You Send Us Tows</h3>
+              <p className="text-blue-100 text-lg relative z-10">
                 Earn <span className="font-semibold text-white">10-20% commission</span> on every referral
               </p>
             </div>
@@ -204,10 +204,10 @@ export default function PartnerSignupPage() {
                 <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/30 to-transparent skew-x-12 animate-light-sweep-green"></div>
               </div>
               <div className="flex items-center gap-4 mb-2 relative z-10">
-                <h3 className="text-2xl font-bold text-white">We Send You Work</h3>
-                <span className="text-base font-extrabold text-white bg-white/20 px-3 py-1 rounded-lg">FREE</span>
+                <h3 className="text-3xl font-bold text-white">We Send You Work</h3>
+                <span className="text-lg font-extrabold text-white bg-white/20 px-3 py-1 rounded-lg">FREE</span>
               </div>
-              <p className="text-green-100 text-base relative z-10">
+              <p className="text-green-100 text-lg relative z-10">
                 We send customers <span className="font-semibold text-white">straight to you</span>
               </p>
             </div>
