@@ -397,7 +397,7 @@ export default function PartnerSignupPage() {
       </div>
 
       {/* Tier Cards - Right side of page */}
-      <div className="absolute top-[70%] -translate-y-1/2 right-16 lg:right-24 z-10 grid grid-cols-3 gap-4">
+      <div className="absolute top-[70%] -translate-y-1/2 right-8 lg:right-16 z-10 grid grid-cols-3 gap-4">
         {/* Silver */}
         <div className="bg-gradient-to-br from-gray-400 to-gray-500 rounded-2xl p-6 text-white shadow-2xl w-72">
           <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
