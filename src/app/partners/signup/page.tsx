@@ -411,7 +411,7 @@ export default function PartnerSignupPage() {
       {/* Tier Cards - Right side of page */}
       <div className="absolute top-[70%] -translate-y-1/2 right-8 lg:right-16 z-10 grid grid-cols-3 gap-4">
         {/* Silver */}
-        <div className="bg-gradient-to-br from-gray-400 to-gray-500 rounded-2xl p-6 text-white shadow-2xl w-72">
+        <div className="bg-gray-400/40 backdrop-blur-[2px] border border-gray-300/50 rounded-2xl p-6 text-white shadow-2xl w-72">
           <h4 className="font-bold text-lg text-center mb-1">Silver Partner</h4>
           <p className="text-xs text-white/70 text-center mb-4">Starting Tier</p>
           <div className="text-5xl font-bold text-center mb-1">10%</div>
@@ -439,7 +439,7 @@ export default function PartnerSignupPage() {
         </div>
 
         {/* Gold */}
-        <div className="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl p-6 text-white shadow-2xl w-72">
+        <div className="bg-yellow-500/40 backdrop-blur-[2px] border border-yellow-400/50 rounded-2xl p-6 text-white shadow-2xl w-72">
           <h4 className="font-bold text-lg text-center mb-1">Gold Partner</h4>
           <p className="text-xs text-white/70 text-center mb-4">Best Value</p>
           <div className="text-5xl font-bold text-center mb-1">15%</div>
@@ -473,7 +473,7 @@ export default function PartnerSignupPage() {
         </div>
 
         {/* Platinum */}
-        <div className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-2xl p-6 text-white shadow-2xl w-72">
+        <div className="bg-purple-500/40 backdrop-blur-[2px] border border-purple-400/50 rounded-2xl p-6 text-white shadow-2xl w-72">
           <h4 className="font-bold text-lg text-center mb-1">Platinum Partner</h4>
           <p className="text-xs text-white/70 text-center mb-4">Elite Level</p>
           <div className="text-5xl font-bold text-center mb-1">20%</div>
