@@ -180,7 +180,7 @@ export default function PartnerSignupPage() {
         <div className="hidden lg:flex flex-col gap-6 mt-[20vh] flex-shrink-0">
           {/* Blue Banner - Arrow pointing RIGHT */}
           <div className="relative overflow-hidden animate-energy-pulse flex-shrink-0">
-            <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 px-14 py-8 pr-24 rounded-l-2xl shadow-2xl border-2 border-blue-400/50 relative w-[420px]">
+            <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 px-14 py-8 pr-28 rounded-l-2xl shadow-2xl border-2 border-blue-400/50 relative w-[480px]">
               {/* Light sweep effect */}
               <div className="absolute inset-0 overflow-hidden rounded-l-2xl">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 animate-light-sweep-blue"></div>
@@ -191,14 +191,14 @@ export default function PartnerSignupPage() {
               </p>
             </div>
             {/* Arrow pointing right */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[calc(100%-1px)] w-0 h-0 border-t-[60px] border-t-transparent border-b-[60px] border-b-transparent border-l-[42px] border-l-blue-500"></div>
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[calc(100%-1px)] w-0 h-0 border-t-[70px] border-t-transparent border-b-[70px] border-b-transparent border-l-[50px] border-l-blue-500"></div>
           </div>
 
           {/* Green Banner - Arrow pointing LEFT */}
-          <div className="relative overflow-hidden animate-energy-pulse pl-12 flex-shrink-0">
+          <div className="relative overflow-hidden animate-energy-pulse pl-14 flex-shrink-0">
             {/* Arrow pointing left */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[calc(100%-13px)] w-0 h-0 border-t-[60px] border-t-transparent border-b-[60px] border-b-transparent border-r-[42px] border-r-green-700"></div>
-            <div className="bg-gradient-to-l from-green-700 via-green-600 to-green-500 px-14 py-8 pl-24 rounded-r-2xl shadow-2xl border-2 border-green-400/50 relative w-[420px]">
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[calc(100%-15px)] w-0 h-0 border-t-[70px] border-t-transparent border-b-[70px] border-b-transparent border-r-[50px] border-r-green-700"></div>
+            <div className="bg-gradient-to-l from-green-700 via-green-600 to-green-500 px-14 py-8 pl-28 rounded-r-2xl shadow-2xl border-2 border-green-400/50 relative w-[480px]">
               {/* Light sweep effect */}
               <div className="absolute inset-0 overflow-hidden rounded-r-2xl">
                 <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/30 to-transparent skew-x-12 animate-light-sweep-green"></div>
