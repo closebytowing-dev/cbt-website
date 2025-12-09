@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import {
   getAuth,
@@ -81,7 +81,7 @@ export default function PartnerSignupPage() {
         updatedAt: serverTimestamp(),
       };
 
-      await addDoc(collection(db, "partners"), partnerData);
+      await setDoc(doc(db, "partners", userCredential.user.uid), partnerData);
       router.push("/partners/dashboard/request");
     } catch (error: unknown) {
       console.error("Error creating partner:", error);
@@ -138,7 +138,7 @@ export default function PartnerSignupPage() {
         updatedAt: serverTimestamp(),
       };
 
-      await addDoc(collection(db, "partners"), partnerData);
+      await setDoc(doc(db, "partners", user.uid), partnerData);
       router.push("/partners/dashboard/request");
     } catch (error: unknown) {
       console.error("Google sign-up error:", error);
