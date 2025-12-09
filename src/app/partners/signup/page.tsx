@@ -209,7 +209,7 @@ export default function PartnerSignupPage() {
 
       {/* Auth Card - Right side */}
       <div className="relative z-10 w-full max-w-md mr-8 lg:mr-16 mt-4 mb-auto">
-        <div className="bg-gray-200/30 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden border border-white/40">
+        <div className="bg-gray-200/30 backdrop-blur-[2px] rounded-2xl shadow-2xl overflow-hidden border border-white/40">
           {/* Header */}
           <div className="bg-white/10 py-4 px-8 border-b border-white/10">
             <h2 className="text-xl font-bold text-white text-center">Become a Partner</h2>
