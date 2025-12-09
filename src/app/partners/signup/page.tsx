@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
@@ -16,6 +16,7 @@ import {
 
 export default function PartnerSignupPage() {
   const router = useRouter();
+  const isPopupOpen = useRef(false);
 
   const [formData, setFormData] = useState({
     businessName: "",
@@ -95,13 +96,19 @@ export default function PartnerSignupPage() {
   };
 
   const handleGoogleSignUp = async () => {
+    // Prevent multiple popup invocations
+    if (isPopupOpen.current) return;
+    isPopupOpen.current = true;
+
     setIsGoogleLoading(true);
     setError("");
 
     try {
       const auth = getAuth();
-      await setPersistence(auth, browserLocalPersistence);
       const provider = new GoogleAuthProvider();
+
+      // Set persistence first, then open popup
+      await setPersistence(auth, browserLocalPersistence);
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
 
@@ -142,6 +149,7 @@ export default function PartnerSignupPage() {
       }
     } finally {
       setIsGoogleLoading(false);
+      isPopupOpen.current = false;
     }
   };
 

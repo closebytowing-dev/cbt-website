@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -19,6 +19,7 @@ import { db } from "@/lib/firebase";
 
 export default function PartnerSigninPage() {
   const router = useRouter();
+  const isPopupOpen = useRef(false);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -114,16 +115,20 @@ export default function PartnerSigninPage() {
   };
 
   const handleGoogleSignIn = async () => {
+    // Prevent multiple popup invocations
+    if (isPopupOpen.current) return;
+    isPopupOpen.current = true;
+
     setIsSubmitting(true);
     setError("");
 
     try {
       const auth = getAuth();
+      const provider = new GoogleAuthProvider();
 
       // Set persistence to LOCAL - keeps user logged in even after browser closes
       await setPersistence(auth, browserLocalPersistence);
 
-      const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
 
@@ -164,6 +169,7 @@ export default function PartnerSigninPage() {
       setError("Google sign-in failed. Please try again.");
     } finally {
       setIsSubmitting(false);
+      isPopupOpen.current = false;
     }
   };
 
