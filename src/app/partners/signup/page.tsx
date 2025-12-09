@@ -168,13 +168,44 @@ export default function PartnerSignupPage() {
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-10">
             <h1 className="text-4xl sm:text-5xl font-bold text-[#1e1e4a] mb-4">
-              Join Our Referral Partner Network
+              Partner With CloseBy - Send & Receive Jobs
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Refer customers and earn generous commissions based on your referral volume
+              You send us tows, we send you repairs. Everybody wins.
             </p>
+          </div>
+
+          {/* Two-Way Partnership Section */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl shadow-xl p-8 border-2 border-blue-200">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
+                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-[#1e1e4a]">You Send Us Tows</h3>
+              </div>
+              <p className="text-gray-700">
+                Your customer needs a tow? Call us. Earn <span className="font-semibold text-blue-600">10-20% commission</span> on every referral.
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl shadow-xl p-8 border-2 border-green-200">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center shadow-lg">
+                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-[#1e1e4a]">We Send You Work</h3>
+              </div>
+              <p className="text-gray-700">
+                Our customers need repairs? We send them <span className="font-semibold text-green-600">straight to you</span>.
+              </p>
+            </div>
           </div>
 
           {/* Membership Tiers */}
@@ -319,6 +350,90 @@ export default function PartnerSignupPage() {
               </div>
             </div>
 
+            {/* Inline Signup Form */}
+            <form onSubmit={handleSubmit} className="mt-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-6 sm:p-8">
+              <div className="text-center mb-6">
+                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">Join the Network</h2>
+                <p className="text-blue-100 text-sm sm:text-base">Sign up now and get instant access to start referring customers</p>
+              </div>
+
+              <div className="flex flex-col lg:flex-row gap-3 items-end">
+                <div className="flex-1 w-full">
+                  <label htmlFor="businessName" className="block text-xs font-semibold text-blue-100 mb-1">
+                    Business Name
+                  </label>
+                  <input
+                    type="text"
+                    id="businessName"
+                    name="businessName"
+                    required
+                    value={formData.businessName}
+                    onChange={handleInputChange}
+                    className="w-full h-12 rounded-lg border-0 bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-white/30"
+                    placeholder="Your Business Name"
+                  />
+                </div>
+
+                <div className="flex-1 w-full">
+                  <label htmlFor="email" className="block text-xs font-semibold text-blue-100 mb-1">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full h-12 rounded-lg border-0 bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-white/30"
+                    placeholder="you@email.com"
+                  />
+                </div>
+
+                <div className="flex-1 w-full">
+                  <label htmlFor="password" className="block text-xs font-semibold text-blue-100 mb-1">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                    value={formData.password}
+                    onChange={handleInputChange}
+                    className="w-full h-12 rounded-lg border-0 bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-white/30"
+                    placeholder="6+ characters"
+                    minLength={6}
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full lg:w-auto bg-white text-blue-600 px-8 h-12 rounded-lg font-bold text-base shadow-lg hover:bg-blue-50 focus:outline-none focus:ring-4 focus:ring-white/30 transition disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center gap-2 justify-center">
+                      <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      Signing up...
+                    </span>
+                  ) : (
+                    "Join Now →"
+                  )}
+                </button>
+              </div>
+
+              <p className="text-center text-blue-100 text-sm mt-4">
+                Already have an account?{" "}
+                <Link href="/partners/login" className="text-white font-semibold hover:underline">
+                  Log in
+                </Link>
+              </p>
+            </form>
+
             <div className="mt-8 bg-blue-50 border-2 border-blue-200 rounded-xl p-6 text-center">
               <p className="text-blue-800 font-semibold mb-2">
                 Your tier is automatically upgraded based on monthly referral volume!
@@ -329,115 +444,37 @@ export default function PartnerSignupPage() {
             </div>
           </div>
 
-          {/* Simplified Signup Form */}
-          <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-2xl p-8 sm:p-12 mb-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1e1e4a] mb-3 text-center tracking-tight">Start Earning Today</h2>
-            <p className="text-lg text-gray-600 text-center mb-8">Sign up now and get instant access to start referring customers immediately</p>
-
-            <div className="max-w-md mx-auto space-y-6">
-              <div>
-                <label htmlFor="businessName" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Business Name *
-                </label>
-                <input
-                  type="text"
-                  id="businessName"
-                  name="businessName"
-                  required
-                  value={formData.businessName}
-                  onChange={handleInputChange}
-                  className="w-full h-12 rounded-xl border-2 border-gray-300 bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500"
-                  placeholder="Your Auto Shop"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full h-12 rounded-xl border-2 border-gray-300 bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500"
-                  placeholder="contact@yourshop.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Password *
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  required
-                  value={formData.password}
-                  onChange={handleInputChange}
-                  className="w-full h-12 rounded-xl border-2 border-gray-300 bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500"
-                  placeholder="At least 6 characters"
-                  minLength={6}
-                />
-                <p className="text-xs text-gray-500 mt-1">Use this to log in to your partner dashboard</p>
-              </div>
-
-              {/* Submit Button */}
-              <div className="flex flex-col items-center gap-4 pt-4">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-16 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? (
-                    <span className="flex items-center gap-2 justify-center">
-                      <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                      </svg>
-                      Submitting...
-                    </span>
-                  ) : (
-                    "Join Partner Network →"
-                  )}
-                </button>
-                <p className="text-sm text-gray-500">
-                  Already have an account?{" "}
-                  <Link href="/partners/login" className="text-blue-600 hover:text-blue-700 font-semibold">
-                    Log in
-                  </Link>
-                </p>
-              </div>
-            </div>
-          </form>
-
           {/* How It Works */}
           <div className="bg-white rounded-2xl shadow-xl p-8">
-            <h2 className="text-2xl font-bold text-[#1e1e4a] mb-6 text-center">How the Referral Program Works</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <h2 className="text-2xl font-bold text-[#1e1e4a] mb-6 text-center">How the Partnership Works</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-blue-600">1</span>
                 </div>
-                <h3 className="font-bold text-lg mb-2">Customer Needs Towing</h3>
-                <p className="text-sm text-gray-600">When your customer needs towing, call our dedicated partner line</p>
+                <h3 className="font-bold text-lg mb-2">You Send Us a Tow</h3>
+                <p className="text-sm text-gray-600">Your customer needs towing? Call us.</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-blue-600">2</span>
                 </div>
                 <h3 className="font-bold text-lg mb-2">We Handle Everything</h3>
-                <p className="text-sm text-gray-600">We dispatch a truck, handle the tow, and take care of the customer</p>
+                <p className="text-sm text-gray-600">We dispatch a truck and take care of your customer</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-blue-600">3</span>
                 </div>
                 <h3 className="font-bold text-lg mb-2">You Get Paid</h3>
-                <p className="text-sm text-gray-600">Earn your referral fee - tracked automatically in your dashboard</p>
+                <p className="text-sm text-gray-600">Earn your referral fee - tracked in your dashboard</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-green-600">4</span>
+                </div>
+                <h3 className="font-bold text-lg mb-2">We Send You Work</h3>
+                <p className="text-sm text-gray-600">Our customer needs repairs? We send them to you.</p>
               </div>
             </div>
           </div>
