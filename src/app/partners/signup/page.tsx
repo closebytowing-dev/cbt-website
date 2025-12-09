@@ -160,9 +160,9 @@ export default function PartnerSignupPage() {
   return (
     <>
     {/* Hero Section */}
-    <div className="min-h-screen relative flex items-start overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
+    <div className="min-h-screen relative overflow-x-auto">
+      {/* Background Image - Only this squeezes */}
+      <div className="absolute inset-0 min-w-full">
         <Image
           src="/images/partner-signup-bg.webp"
           alt="Partner with CloseBy Towing"
@@ -173,14 +173,14 @@ export default function PartnerSignupPage() {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* Main Content - Banners + Auth Card side by side */}
-      <div className="relative z-10 flex items-start justify-end w-full pr-8 lg:pr-16 pt-4 gap-6">
+      {/* Main Content - Fixed sizes, horizontal scroll if needed */}
+      <div className="relative z-10 flex items-start justify-end min-w-max px-8 lg:px-16 pt-4 gap-6">
 
         {/* Arrow Banners - Stacked vertically, left of auth card */}
-        <div className="hidden lg:flex flex-col gap-6 mt-[20vh] ml-[50%]">
+        <div className="hidden lg:flex flex-col gap-6 mt-[20vh] flex-shrink-0">
           {/* Blue Banner - Arrow pointing RIGHT */}
-          <div className="relative overflow-hidden animate-energy-pulse">
-            <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 px-14 py-8 pr-24 rounded-l-2xl shadow-2xl border-2 border-blue-400/50 relative min-w-[420px]">
+          <div className="relative overflow-hidden animate-energy-pulse flex-shrink-0">
+            <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 px-14 py-8 pr-24 rounded-l-2xl shadow-2xl border-2 border-blue-400/50 relative w-[420px]">
               {/* Light sweep effect */}
               <div className="absolute inset-0 overflow-hidden rounded-l-2xl">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 animate-light-sweep-blue"></div>
@@ -195,10 +195,10 @@ export default function PartnerSignupPage() {
           </div>
 
           {/* Green Banner - Arrow pointing LEFT */}
-          <div className="relative overflow-hidden animate-energy-pulse pl-12">
+          <div className="relative overflow-hidden animate-energy-pulse pl-12 flex-shrink-0">
             {/* Arrow pointing left */}
             <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[calc(100%-13px)] w-0 h-0 border-t-[60px] border-t-transparent border-b-[60px] border-b-transparent border-r-[42px] border-r-green-700"></div>
-            <div className="bg-gradient-to-l from-green-700 via-green-600 to-green-500 px-14 py-8 pl-24 rounded-r-2xl shadow-2xl border-2 border-green-400/50 relative min-w-[420px]">
+            <div className="bg-gradient-to-l from-green-700 via-green-600 to-green-500 px-14 py-8 pl-24 rounded-r-2xl shadow-2xl border-2 border-green-400/50 relative w-[420px]">
               {/* Light sweep effect */}
               <div className="absolute inset-0 overflow-hidden rounded-r-2xl">
                 <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/30 to-transparent skew-x-12 animate-light-sweep-green"></div>
@@ -215,9 +215,9 @@ export default function PartnerSignupPage() {
         </div>
 
         {/* Right side container - Auth Card + Tier Cards */}
-        <div className="flex flex-col items-end gap-8">
-        {/* Auth Card */}
-        <div className="w-full max-w-lg">
+        <div className="flex flex-col items-end gap-8 flex-shrink-0">
+        {/* Auth Card - Fixed width, never shrinks */}
+        <div className="w-[512px] flex-shrink-0">
           <div className="bg-gray-200/30 backdrop-blur-[2px] rounded-2xl shadow-2xl overflow-hidden border border-white/40">
           {/* Logo - Full width, cropped top/bottom empty space */}
           <div className="overflow-hidden">
@@ -391,10 +391,10 @@ export default function PartnerSignupPage() {
         </div>
         </div>
 
-        {/* Tier Cards - Below Auth Card */}
-        <div className="grid grid-cols-3 gap-4">
+        {/* Tier Cards - Below Auth Card - Fixed widths */}
+        <div className="flex gap-4 flex-shrink-0">
         {/* Silver */}
-        <div className="bg-gray-400/40 backdrop-blur-[2px] border border-gray-300/50 rounded-2xl p-6 text-white shadow-2xl w-72">
+        <div className="bg-gray-400/40 backdrop-blur-[2px] border border-gray-300/50 rounded-2xl p-6 text-white shadow-2xl w-72 flex-shrink-0">
           <h4 className="font-bold text-lg text-center mb-1">Silver Partner</h4>
           <p className="text-xs text-white/70 text-center mb-4">Starting Tier</p>
           <div className="text-5xl font-bold text-center mb-1">10%</div>
@@ -422,7 +422,7 @@ export default function PartnerSignupPage() {
         </div>
 
         {/* Gold */}
-        <div className="bg-yellow-500/40 backdrop-blur-[2px] border border-yellow-400/50 rounded-2xl p-6 text-white shadow-2xl w-72">
+        <div className="bg-yellow-500/40 backdrop-blur-[2px] border border-yellow-400/50 rounded-2xl p-6 text-white shadow-2xl w-72 flex-shrink-0">
           <h4 className="font-bold text-lg text-center mb-1">Gold Partner</h4>
           <p className="text-xs text-white/70 text-center mb-4">Best Value</p>
           <div className="text-5xl font-bold text-center mb-1">15%</div>
@@ -456,7 +456,7 @@ export default function PartnerSignupPage() {
         </div>
 
         {/* Platinum */}
-        <div className="bg-purple-500/40 backdrop-blur-[2px] border border-purple-400/50 rounded-2xl p-6 text-white shadow-2xl w-72">
+        <div className="bg-purple-500/40 backdrop-blur-[2px] border border-purple-400/50 rounded-2xl p-6 text-white shadow-2xl w-72 flex-shrink-0">
           <h4 className="font-bold text-lg text-center mb-1">Platinum Partner</h4>
           <p className="text-xs text-white/70 text-center mb-4">Elite Level</p>
           <div className="text-5xl font-bold text-center mb-1">20%</div>
