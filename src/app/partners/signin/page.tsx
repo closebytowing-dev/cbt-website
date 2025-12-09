@@ -230,7 +230,7 @@ export default function PartnerSigninPage() {
       <div className="relative z-10 w-full max-w-xl h-[85vh] min-h-[700px] max-h-[900px]">
         <div className="h-full bg-gray-200/40 backdrop-blur-[2px] rounded-2xl border border-white/30 shadow-2xl flex flex-col overflow-hidden">
           {/* Form Content */}
-          <div className="flex-1 flex flex-col px-8 md:px-10 py-6 overflow-y-auto">
+          <div className="flex-1 flex flex-col justify-end px-8 md:px-10 py-6 overflow-y-auto">
             {/* Header */}
             <div className="text-center mb-6">
               <h1 className="text-2xl font-bold text-gray-900">Welcome Back</h1>
