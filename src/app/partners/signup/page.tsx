@@ -173,37 +173,34 @@ export default function PartnerSignupPage() {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* Two-Way Partnership Boxes - Left side of signup */}
-      <div className="absolute z-10 left-[25%] top-4 p-8">
-        <div className="max-w-md">
-          <div className="grid grid-cols-1 gap-6">
-            {/* You Send Us Tows - Arrow pointing right */}
-            <div className="relative animate-energy-pulse" style={{ clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)' }}>
-              <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 py-8 px-6 shadow-xl overflow-hidden">
-                <h3 className="text-2xl font-bold text-white mb-3 pr-10">You Send Us Tows</h3>
-                <p className="text-blue-100 text-base pr-10">
-                  Your customer needs a tow? Call us. Earn <span className="font-semibold text-white">10-20% commission</span> on every referral.
-                </p>
-                {/* Light sweep effect - inside the clipped container */}
-                <div className="absolute inset-0 w-1/2 h-[200%] bg-gradient-to-r from-transparent via-white/50 to-transparent animate-light-sweep-blue pointer-events-none"></div>
-              </div>
-            </div>
-
-            {/* We Send You Work - Arrow pointing left */}
-            <div className="relative animate-energy-pulse" style={{ clipPath: 'polygon(40px 0, 100% 0, 100% 100%, 40px 100%, 0 50%)' }}>
-              <div className="bg-gradient-to-l from-green-700 via-green-600 to-green-500 py-8 px-6 shadow-xl overflow-hidden">
-                <div className="flex items-center justify-between mb-3 pl-10">
-                  <h3 className="text-2xl font-bold text-white">We Send You Work</h3>
-                  <span className="text-3xl font-extrabold text-white bg-white/20 px-3 py-1 rounded-lg shadow-lg">FREE</span>
-                </div>
-                <p className="text-green-100 text-base pl-10">
-                  Our customers need repairs? We send them <span className="font-semibold text-white">straight to you</span>.
-                </p>
-                {/* Light sweep effect - inside the clipped container */}
-                <div className="absolute inset-0 w-1/2 h-[200%] bg-gradient-to-r from-transparent via-white/50 to-transparent animate-light-sweep-green pointer-events-none"></div>
-              </div>
-            </div>
+      {/* Speech Bubble - Blue (You Send Us Tows) */}
+      <div className="absolute z-10 left-[35%] top-[20%] hidden lg:block">
+        <div className="relative">
+          <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-6 w-80 shadow-2xl border-2 border-blue-400/50">
+            <h3 className="text-xl font-bold text-white mb-2">You Send Us Tows</h3>
+            <p className="text-blue-100 text-sm">
+              Your customer needs a tow? Call us. Earn <span className="font-semibold text-white">10-20% commission</span> on every referral.
+            </p>
           </div>
+          {/* Speech bubble tail - pointing down-right */}
+          <div className="absolute -bottom-4 right-8 w-0 h-0 border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-t-[20px] border-t-blue-700"></div>
+        </div>
+      </div>
+
+      {/* Speech Bubble - Green (We Send You Work) */}
+      <div className="absolute z-10 left-[22%] top-[20%] hidden lg:block">
+        <div className="relative">
+          <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-2xl p-6 w-80 shadow-2xl border-2 border-green-400/50">
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-xl font-bold text-white">We Send You Work</h3>
+              <span className="text-lg font-extrabold text-white bg-white/20 px-2 py-0.5 rounded-lg">FREE</span>
+            </div>
+            <p className="text-green-100 text-sm">
+              Our customers need repairs? We send them <span className="font-semibold text-white">straight to you</span>.
+            </p>
+          </div>
+          {/* Speech bubble tail - pointing down-left */}
+          <div className="absolute -bottom-4 left-8 w-0 h-0 border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-t-[20px] border-t-green-700"></div>
         </div>
       </div>
 
