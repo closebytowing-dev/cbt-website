@@ -60,10 +60,10 @@ export default function Header() {
           <div className="flex items-center lg:hidden">
             <Link href="/" className="flex items-center gap-2">
               <Image
-                src="/_archive/CloseBy-Towing-Logo.webp"
+                src="/images/logo/closeby_logo_64x64.webp"
                 alt="CloseBy Towing logo"
-                width={96}
-                height={96}
+                width={64}
+                height={64}
                 className="w-auto h-8"
                 priority
               />
@@ -77,7 +77,7 @@ export default function Header() {
           {/* Desktop: logo on left */}
           <div className="hidden lg:flex items-center">
             <Image
-              src="/_archive/CloseBy-Towing-Logo.webp"
+              src="/images/logo/closeby_logo_96x96.webp"
               alt="CloseBy Towing logo"
               width={96}
               height={96}

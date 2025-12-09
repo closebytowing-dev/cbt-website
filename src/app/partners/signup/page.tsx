@@ -1,39 +1,49 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  setPersistence,
+  browserLocalPersistence,
+} from "firebase/auth";
 
 export default function PartnerSignupPage() {
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     businessName: "",
     email: "",
     password: "",
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [isGoogleLoading, setIsGoogleLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setError("");
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError("");
 
     try {
-      // Validate password length
       if (formData.password.length < 6) {
-        alert("Password must be at least 6 characters long.");
+        setError("Password must be at least 6 characters long.");
         setIsSubmitting(false);
         return;
       }
 
-      // Create Firebase Auth account
       const auth = getAuth();
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -42,23 +52,21 @@ export default function PartnerSignupPage() {
       );
 
       const userId = userCredential.user.uid;
-      console.log("Firebase Auth user created with UID:", userId);
 
-      // Prepare partner data for Firestore
       const partnerData = {
-        userId: userId, // Link to Firebase Auth user
+        userId: userId,
         address: "",
         commissionOwed: 0,
-        commissionRate: 10, // Default to Silver tier (10%)
+        commissionRate: 10,
         companyName: formData.businessName,
         contactName: "",
         createdAt: serverTimestamp(),
         email: formData.email,
         notes: "",
-        paymentMethod: "check", // Default payment method
+        paymentMethod: "check",
         pendingJobs: [],
         phone: "",
-        status: "active", // Auto-approve - verify when they submit first request
+        status: "active",
         totalCommissionEarned: 0,
         totalPaid: 0,
         totalReferrals: 0,
@@ -66,437 +74,615 @@ export default function PartnerSignupPage() {
         updatedAt: serverTimestamp(),
       };
 
-      // Save to Firestore partners collection
-      const docRef = await addDoc(collection(db, "partners"), partnerData);
-      console.log("Partner document created with ID:", docRef.id);
-
-      setSubmitted(true);
-    } catch (error: any) {
+      await addDoc(collection(db, "partners"), partnerData);
+      router.push("/partners/dashboard/request");
+    } catch (error: unknown) {
       console.error("Error creating partner:", error);
+      const firebaseError = error as { code?: string };
 
-      // Provide more specific error messages
-      let errorMessage = "There was an error submitting your application. ";
-
-      if (error.code === 'auth/email-already-in-use') {
-        errorMessage += "An account with this email already exists. Please try logging in or use a different email.";
-      } else if (error.code === 'auth/invalid-email') {
-        errorMessage += "Please enter a valid email address.";
-      } else if (error.code === 'auth/weak-password') {
-        errorMessage += "Password is too weak. Please use at least 6 characters.";
-      } else if (error.code === 'permission-denied') {
-        errorMessage += "Please contact us directly at (858) 999-9293 or info@closebytowing.com to complete your registration.";
-      } else if (error.code === 'unavailable') {
-        errorMessage += "Please check your internet connection and try again.";
+      if (firebaseError.code === "auth/email-already-in-use") {
+        setError("An account with this email already exists. Try signing in.");
+      } else if (firebaseError.code === "auth/invalid-email") {
+        setError("Please enter a valid email address.");
+      } else if (firebaseError.code === "auth/weak-password") {
+        setError("Password is too weak. Please use at least 6 characters.");
       } else {
-        errorMessage += "Please try again or contact us at (858) 999-9293.";
+        setError("Something went wrong. Please try again.");
       }
-
-      alert(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  if (submitted) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
-        <div className="container mx-auto px-4 py-16">
-          <div className="max-w-2xl mx-auto">
-            <div className="bg-white rounded-2xl shadow-2xl p-8 sm:p-12 text-center">
-              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-4">Welcome to Our Partner Network!</h1>
-              <p className="text-lg text-gray-600 mb-4">
-                Your account has been created successfully! You can now log in to your partner dashboard.
-              </p>
-              <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-6">
-                <p className="text-sm text-green-800 font-semibold mb-2">Your Login Credentials:</p>
-                <p className="text-sm text-green-700">
-                  <strong>Email:</strong> {formData.email}
+  const handleGoogleSignUp = async () => {
+    setIsGoogleLoading(true);
+    setError("");
+
+    try {
+      const auth = getAuth();
+      await setPersistence(auth, browserLocalPersistence);
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+
+      // Create partner record in Firestore
+      const partnerData = {
+        userId: user.uid,
+        address: "",
+        commissionOwed: 0,
+        commissionRate: 10,
+        companyName: user.displayName || "",
+        contactName: user.displayName || "",
+        createdAt: serverTimestamp(),
+        email: user.email || "",
+        notes: "",
+        paymentMethod: "check",
+        pendingJobs: [],
+        phone: user.phoneNumber || "",
+        status: "active",
+        totalCommissionEarned: 0,
+        totalPaid: 0,
+        totalReferrals: 0,
+        totalRevenue: 0,
+        updatedAt: serverTimestamp(),
+      };
+
+      await addDoc(collection(db, "partners"), partnerData);
+      router.push("/partners/dashboard/request");
+    } catch (error: unknown) {
+      console.error("Google sign-up error:", error);
+      const firebaseError = error as { code?: string };
+
+      if (firebaseError.code === "auth/popup-closed-by-user") {
+        setError("Sign-up was cancelled. Please try again.");
+      } else if (firebaseError.code === "auth/account-exists-with-different-credential") {
+        setError("An account already exists with this email. Try signing in instead.");
+      } else {
+        setError("Something went wrong with Google sign-up. Please try again.");
+      }
+    } finally {
+      setIsGoogleLoading(false);
+    }
+  };
+
+  return (
+    <>
+    {/* Hero Section */}
+    <div className="min-h-screen relative flex items-start overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/partner-signup-bg.webp"
+          alt="Partner with CloseBy Towing"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
+
+      {/* Two-Way Partnership Boxes - Left side of signup */}
+      <div className="relative z-10 flex-1 flex items-start justify-end p-8 lg:pr-4 lg:pl-16 mt-16">
+        <div className="max-w-md">
+          <div className="grid grid-cols-1 gap-6">
+            {/* You Send Us Tows - Arrow pointing right */}
+            <div className="relative animate-energy-pulse" style={{ clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)' }}>
+              <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 py-8 px-6 shadow-xl overflow-hidden">
+                <h3 className="text-2xl font-bold text-white mb-3 pr-10">You Send Us Tows</h3>
+                <p className="text-blue-100 text-base pr-10">
+                  Your customer needs a tow? Call us. Earn <span className="font-semibold text-white">10-20% commission</span> on every referral.
                 </p>
-                <p className="text-sm text-green-700 mt-1">
-                  <strong>Password:</strong> The password you just created
+                {/* Light sweep effect - inside the clipped container */}
+                <div className="absolute inset-0 w-1/2 h-[200%] bg-gradient-to-r from-transparent via-white/50 to-transparent animate-light-sweep-blue pointer-events-none"></div>
+              </div>
+            </div>
+
+            {/* We Send You Work - Arrow pointing left */}
+            <div className="relative animate-energy-pulse" style={{ clipPath: 'polygon(40px 0, 100% 0, 100% 100%, 40px 100%, 0 50%)' }}>
+              <div className="bg-gradient-to-l from-green-700 via-green-600 to-green-500 py-8 px-6 shadow-xl overflow-hidden">
+                <div className="flex items-center justify-between mb-3 pl-10">
+                  <h3 className="text-2xl font-bold text-white">We Send You Work</h3>
+                  <span className="text-3xl font-extrabold text-white bg-white/20 px-3 py-1 rounded-lg shadow-lg">FREE</span>
+                </div>
+                <p className="text-green-100 text-base pl-10">
+                  Our customers need repairs? We send them <span className="font-semibold text-white">straight to you</span>.
                 </p>
-              </div>
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
-                <p className="text-sm text-blue-800 font-semibold mb-2">You're All Set! 🎉</p>
-                <ul className="text-sm text-blue-700 space-y-2 text-left">
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-500 mt-0.5">•</span>
-                    <span>Your account is active and ready to use</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-500 mt-0.5">•</span>
-                    <span>Submit your first referral right away</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-500 mt-0.5">•</span>
-                    <span>We'll call you after your first request to verify your business</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-500 mt-0.5">•</span>
-                    <span>Start earning {partnerData?.commissionRate || 10}% commission on all referrals!</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/partners/dashboard/request"
-                  className="inline-block bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-blue-700 transition"
-                >
-                  Go to Dashboard →
-                </Link>
-                <Link
-                  href="/"
-                  className="inline-block bg-gray-200 text-gray-800 px-8 py-3 rounded-xl font-semibold hover:bg-gray-300 transition"
-                >
-                  Back to Home
-                </Link>
+                {/* Light sweep effect - inside the clipped container */}
+                <div className="absolute inset-0 w-1/2 h-[200%] bg-gradient-to-r from-transparent via-white/50 to-transparent animate-light-sweep-green pointer-events-none"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    );
-  }
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 py-12">
-      <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto">
+      {/* Auth Card - Right side */}
+      <div className="relative z-10 w-full max-w-md mr-8 lg:mr-16 mt-16 mb-auto">
+        <div className="bg-blue-950/95 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden border border-blue-800/50">
           {/* Header */}
-          <div className="text-center mb-10">
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#1e1e4a] mb-4">
-              Partner With CloseBy - Send & Receive Jobs
-            </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              You send us tows, we send you repairs. Everybody wins.
-            </p>
+          <div className="bg-blue-900/50 py-4 px-8 border-b border-blue-800/50">
+            <h2 className="text-xl font-bold text-white text-center">Become a Partner</h2>
           </div>
 
-          {/* Two-Way Partnership Section */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl shadow-xl p-8 border-2 border-blue-200">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-[#1e1e4a]">You Send Us Tows</h3>
+          {/* Form Content */}
+          <div className="p-8">
+            {/* Error Message */}
+            {error && (
+              <div className="mb-6 bg-red-500/20 border border-red-500/50 rounded-lg p-3">
+                <p className="text-sm text-red-300">{error}</p>
               </div>
-              <p className="text-gray-700">
-                Your customer needs a tow? Call us. Earn <span className="font-semibold text-blue-600">10-20% commission</span> on every referral.
-              </p>
-            </div>
+            )}
 
-            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl shadow-xl p-8 border-2 border-green-200">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center shadow-lg">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-[#1e1e4a]">We Send You Work</h3>
-              </div>
-              <p className="text-gray-700">
-                Our customers need repairs? We send them <span className="font-semibold text-green-600">straight to you</span>.
-              </p>
-            </div>
-          </div>
-
-          {/* Membership Tiers */}
-          <div className="mb-12">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Silver Tier */}
-              <div className="bg-gradient-to-br from-gray-400 to-gray-500 rounded-2xl shadow-xl p-6 text-white transform hover:scale-105 transition">
-                <div className="flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                    </svg>
-                  </div>
-                </div>
-                <h3 className="text-2xl font-bold text-center mb-2">Silver Partner</h3>
-                <p className="text-center text-white/90 text-sm mb-4">Starting Tier</p>
-                <div className="bg-white/20 rounded-xl p-4 mb-4">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold mb-1">10%</div>
-                    <div className="text-sm text-white/80">of service fee</div>
-                  </div>
-                </div>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                    </svg>
-                    <span>0-10 referrals/month</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                    </svg>
-                    <span>Weekly payments</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                    </svg>
-                    <span>Partner dashboard access</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Gold Tier */}
-              <div className="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl shadow-xl p-6 text-white transform hover:scale-105 transition border-4 border-yellow-300">
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-yellow-300 text-yellow-900 px-4 py-1 rounded-full text-xs font-bold">
-                  POPULAR
-                </div>
-                <div className="flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                    </svg>
-                  </div>
-                </div>
-                <h3 className="text-2xl font-bold text-center mb-2">Gold Partner</h3>
-                <p className="text-center text-white/90 text-sm mb-4">Best Value</p>
-                <div className="bg-white/20 rounded-xl p-4 mb-4">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold mb-1">15%</div>
-                    <div className="text-sm text-white/80">of service fee</div>
-                  </div>
-                </div>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                    </svg>
-                    <span>11-25 referrals/month</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                    </svg>
-                    <span>Priority support line</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                    </svg>
-                    <span>Bi-weekly payments</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                    </svg>
-                    <span>Monthly bonus opportunities</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Platinum Tier */}
-              <div className="bg-gradient-to-br from-purple-600 to-purple-800 rounded-2xl shadow-xl p-6 text-white transform hover:scale-105 transition">
-                <div className="flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                    </svg>
-                  </div>
-                </div>
-                <h3 className="text-2xl font-bold text-center mb-2">Platinum Partner</h3>
-                <p className="text-center text-white/90 text-sm mb-4">Elite Level</p>
-                <div className="bg-white/20 rounded-xl p-4 mb-4">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold mb-1">20%</div>
-                    <div className="text-sm text-white/80">of service fee</div>
-                  </div>
-                </div>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                    </svg>
-                    <span>26+ referrals/month</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                    </svg>
-                    <span>Dedicated account manager</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                    </svg>
-                    <span>Same-day payments</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                    </svg>
-                    <span>Exclusive bonus programs</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                    </svg>
-                    <span>Marketing materials provided</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Inline Signup Form */}
-            <form onSubmit={handleSubmit} className="mt-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-6 sm:p-8">
-              <div className="text-center mb-6">
-                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">Join the Network</h2>
-                <p className="text-blue-100 text-sm sm:text-base">Sign up now and get instant access to start referring customers</p>
-              </div>
-
-              <div className="flex flex-col lg:flex-row gap-3 items-end">
-                <div className="flex-1 w-full">
-                  <label htmlFor="businessName" className="block text-xs font-semibold text-blue-100 mb-1">
-                    Business Name
-                  </label>
-                  <input
-                    type="text"
-                    id="businessName"
-                    name="businessName"
-                    required
-                    value={formData.businessName}
-                    onChange={handleInputChange}
-                    className="w-full h-12 rounded-lg border-0 bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-white/30"
-                    placeholder="Your Business Name"
-                  />
-                </div>
-
-                <div className="flex-1 w-full">
-                  <label htmlFor="email" className="block text-xs font-semibold text-blue-100 mb-1">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full h-12 rounded-lg border-0 bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-white/30"
-                    placeholder="you@email.com"
-                  />
-                </div>
-
-                <div className="flex-1 w-full">
-                  <label htmlFor="password" className="block text-xs font-semibold text-blue-100 mb-1">
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    required
-                    value={formData.password}
-                    onChange={handleInputChange}
-                    className="w-full h-12 rounded-lg border-0 bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-white/30"
-                    placeholder="6+ characters"
-                    minLength={6}
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full lg:w-auto bg-white text-blue-600 px-8 h-12 rounded-lg font-bold text-base shadow-lg hover:bg-blue-50 focus:outline-none focus:ring-4 focus:ring-white/30 transition disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+            {/* Sign Up Form */}
+            <form onSubmit={handleSignUp} className="space-y-5">
+              <div>
+                <label
+                  htmlFor="businessName"
+                  className="block text-sm font-medium text-gray-300 mb-2"
                 >
-                  {isSubmitting ? (
-                    <span className="flex items-center gap-2 justify-center">
-                      <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                      </svg>
-                      Signing up...
-                    </span>
-                  ) : (
-                    "Join Now →"
-                  )}
-                </button>
+                  Business Name
+                </label>
+                <input
+                  type="text"
+                  id="businessName"
+                  name="businessName"
+                  required
+                  value={formData.businessName}
+                  onChange={handleInputChange}
+                  className="w-full h-12 rounded-lg bg-white border border-gray-300 px-4 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="Your Business Name"
+                />
               </div>
 
-              <p className="text-center text-blue-100 text-sm mt-4">
-                Already have an account?{" "}
-                <Link href="/partners/login" className="text-white font-semibold hover:underline">
-                  Log in
-                </Link>
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-300 mb-2"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full h-12 rounded-lg bg-white border border-gray-300 px-4 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="you@email.com"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-300 mb-2"
+                >
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  required
+                  value={formData.password}
+                  onChange={handleInputChange}
+                  className="w-full h-12 rounded-lg bg-white border border-gray-300 px-4 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="6+ characters"
+                  minLength={6}
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting || isGoogleLoading}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-bold text-lg transition disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <svg
+                      className="animate-spin h-5 w-5"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                        fill="none"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
+                    </svg>
+                    Creating Account...
+                  </span>
+                ) : (
+                  "Join Now"
+                )}
+              </button>
+
+              {/* Divider */}
+              <div className="relative my-4">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-gray-600"></div>
+                </div>
+                <div className="relative flex justify-center text-sm">
+                  <span className="px-3 bg-blue-950 text-gray-400">or continue with</span>
+                </div>
+              </div>
+
+              {/* Google Sign Up Button */}
+              <button
+                type="button"
+                onClick={handleGoogleSignUp}
+                disabled={isGoogleLoading || isSubmitting}
+                className="w-full bg-white hover:bg-gray-100 text-gray-800 py-3 rounded-lg font-semibold text-base transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+              >
+                {isGoogleLoading ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <svg
+                      className="animate-spin h-5 w-5 text-gray-600"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                        fill="none"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
+                    </svg>
+                    Signing up...
+                  </span>
+                ) : (
+                  <>
+                    <svg className="w-5 h-5" viewBox="0 0 24 24">
+                      <path
+                        fill="#4285F4"
+                        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                      />
+                      <path
+                        fill="#34A853"
+                        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                      />
+                      <path
+                        fill="#FBBC05"
+                        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                      />
+                      <path
+                        fill="#EA4335"
+                        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                      />
+                    </svg>
+                    Sign up with Google
+                  </>
+                )}
+              </button>
+
+              {/* Already have account link */}
+              <p className="text-center text-gray-400 text-sm">
+                Already a partner?{" "}
+                <a
+                  href="/partners/signin"
+                  className="text-blue-400 hover:text-blue-300 font-semibold transition"
+                >
+                  Sign In
+                </a>
               </p>
             </form>
-
-            <div className="mt-8 bg-blue-50 border-2 border-blue-200 rounded-xl p-6 text-center">
-              <p className="text-blue-800 font-semibold mb-2">
-                Your tier is automatically upgraded based on monthly referral volume!
-              </p>
-              <p className="text-sm text-blue-700">
-                Start at Silver and work your way up to Platinum for maximum earnings. Tiers are calculated monthly.
-              </p>
-            </div>
           </div>
+        </div>
 
-          {/* How It Works */}
-          <div className="bg-white rounded-2xl shadow-xl p-8">
-            <h2 className="text-2xl font-bold text-[#1e1e4a] mb-6 text-center">How the Partnership Works</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-blue-600">1</span>
-                </div>
-                <h3 className="font-bold text-lg mb-2">You Send Us a Tow</h3>
-                <p className="text-sm text-gray-600">Your customer needs towing? Call us.</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-blue-600">2</span>
-                </div>
-                <h3 className="font-bold text-lg mb-2">We Handle Everything</h3>
-                <p className="text-sm text-gray-600">We dispatch a truck and take care of your customer</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-blue-600">3</span>
-                </div>
-                <h3 className="font-bold text-lg mb-2">You Get Paid</h3>
-                <p className="text-sm text-gray-600">Earn your referral fee - tracked in your dashboard</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-green-600">4</span>
-                </div>
-                <h3 className="font-bold text-lg mb-2">We Send You Work</h3>
-                <p className="text-sm text-gray-600">Our customer needs repairs? We send them to you.</p>
-              </div>
-            </div>
-          </div>
+        {/* Help text below card */}
+        <p className="text-center text-gray-300 text-sm mt-6 drop-shadow">
+          Need help?{" "}
+          <a
+            href="tel:+18589999293"
+            className="text-white font-semibold hover:underline"
+          >
+            (858) 999-9293
+          </a>
+        </p>
+      </div>
 
-          {/* Contact Info */}
-          <div className="mt-12 text-center text-gray-600">
-            <p className="text-sm mb-2">
-              Questions about the referral program?
-            </p>
-            <p className="text-sm">
-              Call us at{" "}
-              <a href="tel:+18589999293" className="text-blue-600 hover:text-blue-700 font-semibold">
-                (858) 999-9293
-              </a>
-              {" "}or email{" "}
-              <a href="mailto:info@closebytowing.com" className="text-blue-600 hover:text-blue-700 font-semibold">
-                info@closebytowing.com
-              </a>
-            </p>
+      {/* Tier Cards - Right side of page */}
+      <div className="absolute top-[75%] -translate-y-1/2 right-16 lg:right-24 z-10 grid grid-cols-3 gap-4">
+        {/* Silver */}
+        <div className="bg-gradient-to-br from-gray-400 to-gray-500 rounded-2xl p-6 text-white shadow-2xl w-72">
+          <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+            <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
           </div>
+          <h4 className="font-bold text-lg text-center mb-1">Silver Partner</h4>
+          <p className="text-xs text-white/70 text-center mb-4">Starting Tier</p>
+          <div className="text-5xl font-bold text-center mb-1">10%</div>
+          <p className="text-sm text-white/80 text-center mb-4">of service fee</p>
+          <ul className="space-y-2 text-sm">
+            <li className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+              0-10 referrals/month
+            </li>
+            <li className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Weekly payments
+            </li>
+            <li className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Partner dashboard access
+            </li>
+          </ul>
+        </div>
+
+        {/* Gold */}
+        <div className="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl p-6 text-white shadow-2xl w-72">
+          <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+            <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+          </div>
+          <h4 className="font-bold text-lg text-center mb-1">Gold Partner</h4>
+          <p className="text-xs text-white/70 text-center mb-4">Best Value</p>
+          <div className="text-5xl font-bold text-center mb-1">15%</div>
+          <p className="text-sm text-white/80 text-center mb-4">of service fee</p>
+          <ul className="space-y-2 text-sm">
+            <li className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+              11-25 referrals/month
+            </li>
+            <li className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Priority support line
+            </li>
+            <li className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Bi-weekly payments
+            </li>
+            <li className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Monthly bonus opportunities
+            </li>
+          </ul>
+        </div>
+
+        {/* Platinum */}
+        <div className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-2xl p-6 text-white shadow-2xl w-72">
+          <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+            <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+          </div>
+          <h4 className="font-bold text-lg text-center mb-1">Platinum Partner</h4>
+          <p className="text-xs text-white/70 text-center mb-4">Elite Level</p>
+          <div className="text-5xl font-bold text-center mb-1">20%</div>
+          <p className="text-sm text-white/80 text-center mb-4">of service fee</p>
+          <ul className="space-y-2 text-sm">
+            <li className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+              26+ referrals/month
+            </li>
+            <li className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Dedicated account manager
+            </li>
+            <li className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Same-day payments
+            </li>
+            <li className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Exclusive bonus programs
+            </li>
+            <li className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Marketing materials provided
+            </li>
+          </ul>
         </div>
       </div>
     </div>
+
+    {/* How It Works Section */}
+    <section className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-24 px-6">
+      <div className="max-w-6xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            How Our Partnership Works
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            A simple, profitable relationship that benefits both of us. Here&apos;s exactly how it works.
+          </p>
+        </div>
+
+        {/* Two Paths */}
+        <div className="grid md:grid-cols-2 gap-16 mb-20">
+          {/* Path 1: You Send Us Tows */}
+          <div className="relative">
+            <div className="bg-gradient-to-br from-blue-900/50 to-blue-800/30 backdrop-blur-sm rounded-3xl p-10 border border-blue-500/20">
+              <div className="flex items-center gap-5 mb-10">
+                <div className="w-20 h-20 rounded-2xl bg-blue-600 flex items-center justify-center">
+                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                </div>
+                <h3 className="text-3xl font-bold text-white">You Send Us Tows</h3>
+              </div>
+
+              {/* Steps */}
+              <div className="space-y-8">
+                <div className="flex gap-5">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl">1</div>
+                  <div>
+                    <h4 className="text-xl font-semibold text-white mb-2">Customer Needs a Tow</h4>
+                    <p className="text-gray-300 text-lg">Your customer&apos;s car breaks down or needs transport and you don&apos;t offer towing services.</p>
+                  </div>
+                </div>
+                <div className="flex gap-5">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl">2</div>
+                  <div>
+                    <h4 className="text-xl font-semibold text-white mb-2">Submit a Quick Form</h4>
+                    <p className="text-gray-300 text-lg">Your shop is already set as the destination. Just enter pickup location and customer phone - <span className="text-blue-400 font-semibold">that&apos;s it!</span></p>
+                  </div>
+                </div>
+                <div className="flex gap-5">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl">3</div>
+                  <div>
+                    <h4 className="text-xl font-semibold text-white mb-2">Get Paid Commission</h4>
+                    <p className="text-gray-300 text-lg">Earn <span className="text-blue-400 font-semibold">10-20% of the service fee</span> for every successful referral.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Commission highlight */}
+              <div className="mt-10 p-5 bg-blue-600/20 rounded-xl border border-blue-500/30">
+                <p className="text-blue-300 text-base">
+                  <span className="font-semibold">Example:</span> Refer a $150 tow = earn $15-$30 commission. It adds up fast!
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Path 2: We Send You Work */}
+          <div className="relative">
+            <div className="bg-gradient-to-br from-green-900/50 to-green-800/30 backdrop-blur-sm rounded-3xl p-10 border border-green-500/20">
+              <div className="flex items-center gap-5 mb-10">
+                <div className="w-20 h-20 rounded-2xl bg-green-600 flex items-center justify-center">
+                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <div className="flex items-center gap-4">
+                  <h3 className="text-3xl font-bold text-white">We Send You Work</h3>
+                  <span className="text-2xl font-extrabold text-white bg-green-600 px-4 py-2 rounded-lg">FREE</span>
+                </div>
+              </div>
+
+              {/* Steps */}
+              <div className="space-y-8">
+                <div className="flex gap-5">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white font-bold text-xl">1</div>
+                  <div>
+                    <h4 className="text-xl font-semibold text-white mb-2">We Tow a Vehicle</h4>
+                    <p className="text-gray-300 text-lg">A customer&apos;s car needs repairs after we tow it - transmission, engine, body work, etc.</p>
+                  </div>
+                </div>
+                <div className="flex gap-5">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white font-bold text-xl">2</div>
+                  <div>
+                    <h4 className="text-xl font-semibold text-white mb-2">We Recommend You</h4>
+                    <p className="text-gray-300 text-lg">We send the customer directly to your shop as a trusted partner.</p>
+                  </div>
+                </div>
+                <div className="flex gap-5">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white font-bold text-xl">3</div>
+                  <div>
+                    <h4 className="text-xl font-semibold text-white mb-2">You Get New Business</h4>
+                    <p className="text-gray-300 text-lg">New customers walk through your door - <span className="text-green-400 font-semibold">completely free</span> for you.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Free highlight */}
+              <div className="mt-10 p-5 bg-green-600/20 rounded-xl border border-green-500/30">
+                <p className="text-green-300 text-base">
+                  <span className="font-semibold">No fees, no catch:</span> We send you business because happy customers make us all successful.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Why Partner Section */}
+        <div className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 backdrop-blur-sm rounded-3xl p-10 border border-gray-600/30">
+          <h3 className="text-3xl font-bold text-white text-center mb-12">Why Businesses Partner With Us</h3>
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-2xl bg-yellow-500/20 flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h4 className="text-lg font-semibold text-white mb-2">Passive Income</h4>
+              <p className="text-gray-400 text-sm">Earn money from customers you couldn&apos;t serve anyway</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-2xl bg-purple-500/20 flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h4 className="text-lg font-semibold text-white mb-2">New Customers</h4>
+              <p className="text-gray-400 text-sm">We bring you business you never would have found</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-2xl bg-blue-500/20 flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h4 className="text-lg font-semibold text-white mb-2">Trusted Network</h4>
+              <p className="text-gray-400 text-sm">Join San Diego&apos;s most reliable towing partner network</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-2xl bg-green-500/20 flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h4 className="text-lg font-semibold text-white mb-2">Fast Payments</h4>
+              <p className="text-gray-400 text-sm">Get paid weekly, bi-weekly, or same-day based on tier</p>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-16">
+          <p className="text-gray-400 mb-6">Ready to start earning?</p>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-10 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-blue-500/25"
+          >
+            Sign Up Now - It&apos;s Free
+          </button>
+        </div>
+      </div>
+    </section>
+    </>
   );
 }
