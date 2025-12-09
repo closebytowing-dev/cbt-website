@@ -177,7 +177,7 @@ export default function PartnerSignupPage() {
       <div className="relative z-10 flex items-start justify-end w-full pr-8 lg:pr-16 pt-4 gap-6">
 
         {/* Arrow Banners - Stacked vertically, left of auth card */}
-        <div className="hidden lg:flex flex-col gap-6 mt-4 ml-[70%]">
+        <div className="hidden lg:flex flex-col gap-6 mt-[20vh] ml-[50%]">
           {/* Blue Banner - Arrow pointing RIGHT */}
           <div className="relative overflow-hidden animate-energy-pulse">
             <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 px-14 py-8 pr-24 rounded-l-2xl shadow-2xl border-2 border-blue-400/50 relative min-w-[420px]">
