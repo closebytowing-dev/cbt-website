@@ -214,7 +214,7 @@ export default function PartnerSigninPage() {
   }
 
   return (
-    <div className="min-h-screen relative flex items-center justify-center overflow-hidden">
+    <div className="min-h-screen relative flex items-center justify-center overflow-hidden pt-0 -mt-[5vh]">
       {/* Full-width Background Image */}
       <div className="absolute inset-0">
         <Image
