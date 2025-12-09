@@ -174,7 +174,7 @@ export default function PartnerSignupPage() {
       </div>
 
       {/* Two-Way Partnership Boxes - Left side of signup */}
-      <div className="absolute z-10 left-8 lg:left-16 top-4 p-8">
+      <div className="absolute z-10 left-[25%] top-4 p-8">
         <div className="max-w-md">
           <div className="grid grid-cols-1 gap-6">
             {/* You Send Us Tows - Arrow pointing right */}
