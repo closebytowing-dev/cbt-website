@@ -162,7 +162,7 @@ export default function PartnerSignupPage() {
       </div>
 
       {/* Two-Way Partnership Boxes - Left side of signup */}
-      <div className="relative z-10 flex-1 flex items-start justify-end p-8 lg:pr-4 lg:pl-16 mt-16">
+      <div className="relative z-10 flex-1 flex items-start justify-end p-8 lg:pr-4 lg:pl-16 mt-4">
         <div className="max-w-md">
           <div className="grid grid-cols-1 gap-6">
             {/* You Send Us Tows - Arrow pointing right */}
@@ -196,7 +196,7 @@ export default function PartnerSignupPage() {
       </div>
 
       {/* Auth Card - Right side */}
-      <div className="relative z-10 w-full max-w-md mr-8 lg:mr-16 mt-16 mb-auto">
+      <div className="relative z-10 w-full max-w-md mr-8 lg:mr-16 mt-4 mb-auto">
         <div className="bg-blue-950/95 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden border border-blue-800/50">
           {/* Header */}
           <div className="bg-blue-900/50 py-4 px-8 border-b border-blue-800/50">
