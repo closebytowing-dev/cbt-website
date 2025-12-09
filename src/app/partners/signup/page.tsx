@@ -9,29 +9,14 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 export default function PartnerSignupPage() {
   const [formData, setFormData] = useState({
     businessName: "",
-    businessType: "",
-    contactName: "",
     email: "",
-    phone: "",
-    address: "",
     password: "",
-    confirmPassword: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const businessTypes = [
-    "Mechanic Shop",
-    "Body Shop",
-    "Auto Repair",
-    "Tire Shop",
-    "Collision Center",
-    "Glass Repair",
-    "Other"
-  ];
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
@@ -41,13 +26,6 @@ export default function PartnerSignupPage() {
     setIsSubmitting(true);
 
     try {
-      // Validate passwords match
-      if (formData.password !== formData.confirmPassword) {
-        alert("Passwords do not match. Please try again.");
-        setIsSubmitting(false);
-        return;
-      }
-
       // Validate password length
       if (formData.password.length < 6) {
         alert("Password must be at least 6 characters long.");
@@ -69,17 +47,17 @@ export default function PartnerSignupPage() {
       // Prepare partner data for Firestore
       const partnerData = {
         userId: userId, // Link to Firebase Auth user
-        address: formData.address,
+        address: "",
         commissionOwed: 0,
         commissionRate: 10, // Default to Silver tier (10%)
         companyName: formData.businessName,
-        contactName: formData.contactName,
+        contactName: "",
         createdAt: serverTimestamp(),
         email: formData.email,
-        notes: `Business Type: ${formData.businessType}`,
+        notes: "",
         paymentMethod: "check", // Default payment method
         pendingJobs: [],
-        phone: formData.phone,
+        phone: "",
         status: "active", // Auto-approve - verify when they submit first request
         totalCommissionEarned: 0,
         totalPaid: 0,
@@ -343,7 +321,7 @@ export default function PartnerSignupPage() {
 
             <div className="mt-8 bg-blue-50 border-2 border-blue-200 rounded-xl p-6 text-center">
               <p className="text-blue-800 font-semibold mb-2">
-                🎯 Your tier is automatically upgraded based on monthly referral volume!
+                Your tier is automatically upgraded based on monthly referral volume!
               </p>
               <p className="text-sm text-blue-700">
                 Start at Silver and work your way up to Platinum for maximum earnings. Tiers are calculated monthly.
@@ -351,8 +329,93 @@ export default function PartnerSignupPage() {
             </div>
           </div>
 
+          {/* Simplified Signup Form */}
+          <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-2xl p-8 sm:p-12 mb-12">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1e1e4a] mb-3 text-center tracking-tight">Start Earning Today</h2>
+            <p className="text-lg text-gray-600 text-center mb-8">Sign up now and get instant access to start referring customers immediately</p>
+
+            <div className="max-w-md mx-auto space-y-6">
+              <div>
+                <label htmlFor="businessName" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Business Name *
+                </label>
+                <input
+                  type="text"
+                  id="businessName"
+                  name="businessName"
+                  required
+                  value={formData.businessName}
+                  onChange={handleInputChange}
+                  className="w-full h-12 rounded-xl border-2 border-gray-300 bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500"
+                  placeholder="Your Auto Shop"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full h-12 rounded-xl border-2 border-gray-300 bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500"
+                  placeholder="contact@yourshop.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Password *
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  required
+                  value={formData.password}
+                  onChange={handleInputChange}
+                  className="w-full h-12 rounded-xl border-2 border-gray-300 bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500"
+                  placeholder="At least 6 characters"
+                  minLength={6}
+                />
+                <p className="text-xs text-gray-500 mt-1">Use this to log in to your partner dashboard</p>
+              </div>
+
+              {/* Submit Button */}
+              <div className="flex flex-col items-center gap-4 pt-4">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-16 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center gap-2 justify-center">
+                      <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      Submitting...
+                    </span>
+                  ) : (
+                    "Join Partner Network →"
+                  )}
+                </button>
+                <p className="text-sm text-gray-500">
+                  Already have an account?{" "}
+                  <Link href="/partners/login" className="text-blue-600 hover:text-blue-700 font-semibold">
+                    Log in
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </form>
+
           {/* How It Works */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-6">
+          <div className="bg-white rounded-2xl shadow-xl p-8">
             <h2 className="text-2xl font-bold text-[#1e1e4a] mb-6 text-center">How the Referral Program Works</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
@@ -378,175 +441,6 @@ export default function PartnerSignupPage() {
               </div>
             </div>
           </div>
-
-          {/* Simplified Form */}
-          <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-2xl p-8 sm:p-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1e1e4a] mb-3 text-center tracking-tight">Start Earning Today</h2>
-            <p className="text-lg text-gray-600 text-center mb-8">Sign up now and get instant access to start referring customers immediately</p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <label htmlFor="businessName" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Business Name *
-                </label>
-                <input
-                  type="text"
-                  id="businessName"
-                  name="businessName"
-                  required
-                  value={formData.businessName}
-                  onChange={handleInputChange}
-                  className="w-full h-12 rounded-xl border-2 border-gray-300 bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500"
-                  placeholder="Your Auto Shop"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="businessType" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Business Type *
-                </label>
-                <select
-                  id="businessType"
-                  name="businessType"
-                  required
-                  value={formData.businessType}
-                  onChange={handleInputChange}
-                  className="w-full h-12 rounded-xl border-2 border-gray-300 bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500"
-                >
-                  <option value="">Select type...</option>
-                  {businessTypes.map(type => (
-                    <option key={type} value={type}>{type}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="contactName" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Your Name *
-                </label>
-                <input
-                  type="text"
-                  id="contactName"
-                  name="contactName"
-                  required
-                  value={formData.contactName}
-                  onChange={handleInputChange}
-                  className="w-full h-12 rounded-xl border-2 border-gray-300 bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500"
-                  placeholder="John Smith"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Phone Number *
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  className="w-full h-12 rounded-xl border-2 border-gray-300 bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500"
-                  placeholder="(858) 123-4567"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full h-12 rounded-xl border-2 border-gray-300 bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500"
-                  placeholder="contact@yourshop.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="address" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Business Address *
-                </label>
-                <input
-                  type="text"
-                  id="address"
-                  name="address"
-                  required
-                  value={formData.address}
-                  onChange={handleInputChange}
-                  className="w-full h-12 rounded-xl border-2 border-gray-300 bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500"
-                  placeholder="123 Main St, San Diego, CA 92101"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Create Password *
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  required
-                  value={formData.password}
-                  onChange={handleInputChange}
-                  className="w-full h-12 rounded-xl border-2 border-gray-300 bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500"
-                  placeholder="At least 6 characters"
-                  minLength={6}
-                />
-                <p className="text-xs text-gray-500 mt-1">Use this to log in to your partner dashboard</p>
-              </div>
-
-              <div>
-                <label htmlFor="confirmPassword" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Confirm Password *
-                </label>
-                <input
-                  type="password"
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  required
-                  value={formData.confirmPassword}
-                  onChange={handleInputChange}
-                  className="w-full h-12 rounded-xl border-2 border-gray-300 bg-white px-4 text-base focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500"
-                  placeholder="Re-enter your password"
-                  minLength={6}
-                />
-              </div>
-            </div>
-
-            {/* Submit Button */}
-            <div className="flex flex-col items-center gap-4">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full md:w-auto bg-gradient-to-r from-blue-600 to-blue-700 text-white px-16 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? (
-                  <span className="flex items-center gap-2 justify-center">
-                    <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                    </svg>
-                    Submitting...
-                  </span>
-                ) : (
-                  "Join Partner Network →"
-                )}
-              </button>
-              <Link
-                href="/"
-                className="text-gray-600 hover:text-gray-900 font-semibold transition text-sm"
-              >
-                ← Back to Home
-              </Link>
-            </div>
-          </form>
 
           {/* Contact Info */}
           <div className="mt-12 text-center text-gray-600">
