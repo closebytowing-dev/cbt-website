@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
@@ -17,6 +17,12 @@ import {
 export default function PartnerSignupPage() {
   const router = useRouter();
   const isPopupOpen = useRef(false);
+
+  // Set persistence once on component mount
+  useEffect(() => {
+    const auth = getAuth();
+    setPersistence(auth, browserLocalPersistence);
+  }, []);
 
   const [formData, setFormData] = useState({
     businessName: "",
@@ -107,8 +113,6 @@ export default function PartnerSignupPage() {
       const auth = getAuth();
       const provider = new GoogleAuthProvider();
 
-      // Set persistence first, then open popup
-      await setPersistence(auth, browserLocalPersistence);
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
 

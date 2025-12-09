@@ -61,6 +61,12 @@ export default function PartnerSigninPage() {
     }
   }, []);
 
+  // Set persistence once on component mount
+  useEffect(() => {
+    const auth = getAuth();
+    setPersistence(auth, browserLocalPersistence);
+  }, []);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -125,9 +131,6 @@ export default function PartnerSigninPage() {
     try {
       const auth = getAuth();
       const provider = new GoogleAuthProvider();
-
-      // Set persistence to LOCAL - keeps user logged in even after browser closes
-      await setPersistence(auth, browserLocalPersistence);
 
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
