@@ -177,37 +177,37 @@ export default function PartnerSignupPage() {
       <div className="relative z-10 flex items-start justify-end w-full pr-8 lg:pr-16 pt-4 gap-6">
 
         {/* Arrow Banners - Stacked vertically, left of auth card */}
-        <div className="hidden lg:flex flex-col gap-4 mt-4">
+        <div className="hidden lg:flex flex-col gap-6 mt-4 ml-[70%]">
           {/* Blue Banner - Arrow pointing RIGHT */}
           <div className="relative overflow-hidden animate-energy-pulse">
-            <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 px-8 py-5 pr-16 rounded-l-2xl shadow-2xl border-2 border-blue-400/50 relative">
+            <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 px-14 py-8 pr-24 rounded-l-2xl shadow-2xl border-2 border-blue-400/50 relative min-w-[420px]">
               {/* Light sweep effect */}
               <div className="absolute inset-0 overflow-hidden rounded-l-2xl">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 animate-light-sweep-blue"></div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-1 relative z-10">You Send Us Tows</h3>
-              <p className="text-blue-100 text-sm relative z-10">
+              <h3 className="text-2xl font-bold text-white mb-2 relative z-10">You Send Us Tows</h3>
+              <p className="text-blue-100 text-base relative z-10">
                 Earn <span className="font-semibold text-white">10-20% commission</span> on every referral
               </p>
             </div>
             {/* Arrow pointing right */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[calc(100%-1px)] w-0 h-0 border-t-[44px] border-t-transparent border-b-[44px] border-b-transparent border-l-[30px] border-l-blue-500"></div>
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[calc(100%-1px)] w-0 h-0 border-t-[60px] border-t-transparent border-b-[60px] border-b-transparent border-l-[42px] border-l-blue-500"></div>
           </div>
 
           {/* Green Banner - Arrow pointing LEFT */}
-          <div className="relative overflow-hidden animate-energy-pulse pl-8">
+          <div className="relative overflow-hidden animate-energy-pulse pl-12">
             {/* Arrow pointing left */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[calc(100%-9px)] w-0 h-0 border-t-[44px] border-t-transparent border-b-[44px] border-b-transparent border-r-[30px] border-r-green-700"></div>
-            <div className="bg-gradient-to-l from-green-700 via-green-600 to-green-500 px-8 py-5 pl-16 rounded-r-2xl shadow-2xl border-2 border-green-400/50 relative">
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[calc(100%-13px)] w-0 h-0 border-t-[60px] border-t-transparent border-b-[60px] border-b-transparent border-r-[42px] border-r-green-700"></div>
+            <div className="bg-gradient-to-l from-green-700 via-green-600 to-green-500 px-14 py-8 pl-24 rounded-r-2xl shadow-2xl border-2 border-green-400/50 relative min-w-[420px]">
               {/* Light sweep effect */}
               <div className="absolute inset-0 overflow-hidden rounded-r-2xl">
                 <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/30 to-transparent skew-x-12 animate-light-sweep-green"></div>
               </div>
-              <div className="flex items-center gap-3 mb-1 relative z-10">
-                <h3 className="text-xl font-bold text-white">We Send You Work</h3>
-                <span className="text-sm font-extrabold text-white bg-white/20 px-2 py-0.5 rounded-lg">FREE</span>
+              <div className="flex items-center gap-4 mb-2 relative z-10">
+                <h3 className="text-2xl font-bold text-white">We Send You Work</h3>
+                <span className="text-base font-extrabold text-white bg-white/20 px-3 py-1 rounded-lg">FREE</span>
               </div>
-              <p className="text-green-100 text-sm relative z-10">
+              <p className="text-green-100 text-base relative z-10">
                 We send customers <span className="font-semibold text-white">straight to you</span>
               </p>
             </div>
@@ -217,7 +217,7 @@ export default function PartnerSignupPage() {
         {/* Right side container - Auth Card + Tier Cards */}
         <div className="flex flex-col items-end gap-8">
         {/* Auth Card */}
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-lg">
           <div className="bg-gray-200/30 backdrop-blur-[2px] rounded-2xl shadow-2xl overflow-hidden border border-white/40">
           {/* Logo - Full width, cropped top/bottom empty space */}
           <div className="overflow-hidden">
