@@ -217,7 +217,7 @@ export default function PartnerSignupPage() {
               alt="CloseBy Towing"
               width={400}
               height={400}
-              className="w-[80%] h-auto mx-auto -my-[15%]"
+              className="w-[80%] h-auto mx-auto -my-[20%]"
               priority
             />
           </div>
@@ -377,27 +377,6 @@ export default function PartnerSignupPage() {
                 )}
               </button>
 
-              {/* Already have account link */}
-              <p className="text-center text-gray-900 text-sm">
-                Already a partner?{" "}
-                <a
-                  href="/partners/signin"
-                  className="text-white hover:text-gray-200 font-semibold transition"
-                >
-                  Sign In
-                </a>
-              </p>
-
-              {/* Help text */}
-              <p className="text-center text-gray-700 text-sm">
-                Need help?{" "}
-                <a
-                  href="tel:+18589999293"
-                  className="text-white hover:text-gray-200 font-semibold transition"
-                >
-                  (858) 999-9293
-                </a>
-              </p>
             </form>
           </div>
         </div>
