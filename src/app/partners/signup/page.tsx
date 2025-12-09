@@ -207,9 +207,11 @@ export default function PartnerSignupPage() {
         </div>
       </div>
 
-      {/* Auth Card - Right side */}
-      <div className="relative z-10 w-full max-w-md mr-8 lg:mr-16 mt-4 mb-auto">
-        <div className="bg-gray-200/30 backdrop-blur-[2px] rounded-2xl shadow-2xl overflow-hidden border border-white/40">
+      {/* Right side container - Auth Card + Tier Cards */}
+      <div className="relative z-10 flex flex-col items-end mr-8 lg:mr-16 mt-4 gap-8">
+        {/* Auth Card */}
+        <div className="w-full max-w-md">
+          <div className="bg-gray-200/30 backdrop-blur-[2px] rounded-2xl shadow-2xl overflow-hidden border border-white/40">
           {/* Logo - Full width, cropped top/bottom empty space */}
           <div className="overflow-hidden">
             <Image
@@ -380,10 +382,10 @@ export default function PartnerSignupPage() {
             </form>
           </div>
         </div>
-      </div>
+        </div>
 
-      {/* Tier Cards - Right side of page */}
-      <div className="absolute top-[70%] -translate-y-1/2 right-8 lg:right-16 z-10 grid grid-cols-3 gap-4">
+        {/* Tier Cards - Below Auth Card */}
+        <div className="grid grid-cols-3 gap-4">
         {/* Silver */}
         <div className="bg-gray-400/40 backdrop-blur-[2px] border border-gray-300/50 rounded-2xl p-6 text-white shadow-2xl w-72">
           <h4 className="font-bold text-lg text-center mb-1">Silver Partner</h4>
@@ -484,6 +486,7 @@ export default function PartnerSignupPage() {
               Marketing materials provided
             </li>
           </ul>
+        </div>
         </div>
       </div>
     </div>
