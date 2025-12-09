@@ -248,7 +248,7 @@ export default function PartnerSigninPage() {
 
       {/* Right Side Panel - 28% width, full height */}
       <div className="ml-auto w-full md:w-[32%] lg:w-[28%] min-h-screen relative z-10">
-        <div className="h-full bg-gradient-to-b from-[#0f172a] via-[#1e1e4a] to-[#0f172a] backdrop-blur-md flex flex-col">
+        <div className="h-full bg-gray-900/60 backdrop-blur-xl flex flex-col">
           {/* Form Content */}
           <div className="flex-1 flex flex-col justify-center px-6 md:px-10 lg:px-12 py-8">
             {/* Header with icon */}
@@ -401,7 +401,7 @@ export default function PartnerSigninPage() {
                   <div className="w-full border-t border-white/10"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-4 bg-[#1e1e4a] text-gray-500 uppercase text-xs tracking-wider">or continue with</span>
+                  <span className="px-4 bg-gray-900/80 text-gray-500 uppercase text-xs tracking-wider">or continue with</span>
                 </div>
               </div>
 
