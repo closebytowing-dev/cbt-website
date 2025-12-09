@@ -174,10 +174,10 @@ export default function PartnerSignupPage() {
       </div>
 
       {/* Main Content - Fixed sizes, horizontal scroll if needed */}
-      <div className="relative z-10 flex items-start justify-end min-w-max px-8 lg:px-16 pt-4 gap-6">
+      <div className="relative z-10 flex items-start justify-end min-w-max px-8 lg:px-16 pt-4 gap-4">
 
         {/* Arrow Banners - Stacked vertically, left of auth card */}
-        <div className="hidden lg:flex flex-col gap-6 mt-[20vh] flex-shrink-0 ml-[30%]">
+        <div className="hidden lg:flex flex-col gap-6 mt-[20vh] flex-shrink-0">
           {/* Blue Banner - Arrow pointing RIGHT */}
           <div className="relative animate-energy-pulse flex-shrink-0 mr-[50px]">
             <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 px-14 py-8 pr-12 rounded-l-2xl shadow-2xl border-2 border-blue-400/50 border-r-0 relative w-[480px] overflow-hidden">
