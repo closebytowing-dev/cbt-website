@@ -227,7 +227,7 @@ export default function PartnerSigninPage() {
       </div>
 
       {/* Floating Login Container - Right side */}
-      <div className="relative z-10 w-full max-w-xl h-[65vh] min-h-[500px] max-h-[600px]">
+      <div className="relative z-10 w-full max-w-xl h-[72vh] min-h-[550px] max-h-[660px]">
         <div className="h-full bg-gray-200/40 backdrop-blur-[2px] rounded-2xl border border-white/30 shadow-2xl flex flex-col overflow-hidden">
           {/* Form Content */}
           <div className="flex-1 flex flex-col justify-end px-8 md:px-10 py-6 overflow-y-auto">
