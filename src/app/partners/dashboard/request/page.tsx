@@ -654,11 +654,12 @@ export default function RequestTowPage() {
                   {partnerData?.companyName || "Partner"}
                 </h1>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
+                {/* Dashboard link - Hidden on mobile (shown in subheader), visible on desktop */}
                 <Link
                   href="/partners/dashboard"
                   onClick={(e) => handleNavigation(e, "/partners/dashboard")}
-                  className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 transition text-sm font-medium"
+                  className="hidden md:flex px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 transition text-sm font-medium"
                 >
                   Dashboard
                 </Link>
@@ -676,26 +677,11 @@ export default function RequestTowPage() {
               </div>
             </div>
 
-            {/* Quick Stats */}
-            <div className="grid grid-cols-3 gap-3 mt-5">
-              <div className="bg-white/10 backdrop-blur rounded-xl p-3 text-center">
-                <p className="text-2xl font-bold">{partnerData?.totalReferrals || 0}</p>
-                <p className="text-xs text-blue-200">Referrals</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur rounded-xl p-3 text-center">
-                <p className="text-2xl font-bold">${(partnerData?.totalCommissionEarned || 0).toFixed(0)}</p>
-                <p className="text-xs text-blue-200">Earned</p>
-              </div>
-              <div className="bg-emerald-500/20 backdrop-blur rounded-xl p-3 text-center border border-emerald-400/30">
-                <p className="text-2xl font-bold text-emerald-300">{partnerData?.commissionRate || 10}%</p>
-                <p className="text-xs text-emerald-200">Your Rate</p>
-              </div>
-            </div>
           </div>
         </div>
 
         {/* Main Content */}
-        <div className="max-w-4xl mx-auto px-4 mt-4 pb-8">
+        <div className="max-w-4xl mx-auto px-4 mt-8 pb-8">
           {/* Request Form Card */}
           <div className="bg-white rounded-3xl shadow-xl border-2 border-slate-300 overflow-hidden">
             <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4">
@@ -1001,6 +987,18 @@ export default function RequestTowPage() {
                 }
               </button>
             </form>
+          </div>
+
+          {/* Stats Cards */}
+          <div className="grid grid-cols-2 gap-3 mt-6">
+            <div className="bg-white rounded-2xl shadow-md border border-slate-200 p-4 text-center">
+              <p className="text-3xl font-bold text-slate-800">${(partnerData?.totalCommissionEarned || 0).toFixed(0)}</p>
+              <p className="text-sm text-slate-500 mt-1">Total Earned</p>
+            </div>
+            <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl shadow-md border border-emerald-200 p-4 text-center">
+              <p className="text-3xl font-bold text-emerald-600">{partnerData?.commissionRate || 10}%</p>
+              <p className="text-sm text-emerald-600 mt-1">Your Rate</p>
+            </div>
           </div>
 
           {/* Quick Help */}

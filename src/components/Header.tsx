@@ -129,10 +129,22 @@ export default function Header() {
               <ServicesMenu />
             </nav>
 
-            {/* Hamburger Menu Button - Mobile only, shown when logged in */}
+            {/* Mobile navigation links - shown when logged in */}
             {isLoggedIn && (
               <>
                 <span className="text-[#1e1e4a]/30 text-base sm:text-lg lg:hidden mx-2">|</span>
+
+                {/* Dashboard link - Mobile only */}
+                <Link
+                  href="/partners/dashboard"
+                  className="lg:hidden text-sm font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
+                >
+                  Dashboard
+                </Link>
+
+                <span className="text-[#1e1e4a]/30 text-base sm:text-lg lg:hidden mx-2">|</span>
+
+                {/* Hamburger Menu Button - Mobile only */}
                 <button
                   id="dashboard-menu-toggle"
                   type="button"
@@ -150,19 +162,6 @@ export default function Header() {
                   </svg>
                   <span className="text-xs font-semibold">Menu</span>
                 </button>
-                <span className="text-[#1e1e4a]/30 text-base sm:text-lg lg:hidden mx-2">|</span>
-
-                {/* Request Tow link - Mobile only, shown when on dashboard home page */}
-                {pathname === "/partners/dashboard" && (
-                  <>
-                    <Link
-                      href="/partners/dashboard/request"
-                      className="lg:hidden text-sm font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
-                    >
-                      Request Tow
-                    </Link>
-                  </>
-                )}
               </>
             )}
 
