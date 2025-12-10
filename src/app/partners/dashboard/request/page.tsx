@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import { getAuth } from "firebase/auth";
-import { collection, query, where, getDocs, addDoc, serverTimestamp } from "firebase/firestore";
+import { collection, query, where, getDocs, addDoc, updateDoc, doc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import Script from "next/script";
 import { YEARS, MAKES, MODELS_BY_MAKE } from "@/data/vehicleOptions";
@@ -82,6 +82,15 @@ export default function RequestTowPage() {
   const autocompletePickupRef = useRef<google.maps.places.Autocomplete | null>(null);
   const inputRefDropoff = useRef<HTMLInputElement | null>(null);
   const autocompleteDropoffRef = useRef<google.maps.places.Autocomplete | null>(null);
+
+  // Dropoff shop selector state
+  const [showShopOption, setShowShopOption] = useState(false);
+  const dropoffContainerRef = useRef<HTMLDivElement | null>(null);
+
+  // Business name modal state
+  const [showBusinessNameModal, setShowBusinessNameModal] = useState(false);
+  const [businessNameInput, setBusinessNameInput] = useState("");
+  const [savingBusinessName, setSavingBusinessName] = useState(false);
 
   // Toast notification helper
   const showToast = useCallback((message: string, type: ToastType = "info") => {
@@ -170,6 +179,18 @@ export default function RequestTowPage() {
     return () => window.removeEventListener("beforeunload", handleBeforeUnload);
   }, [hasUnsavedChanges]);
 
+  // Close shop option dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropoffContainerRef.current && !dropoffContainerRef.current.contains(e.target as Node)) {
+        setShowShopOption(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -224,6 +245,11 @@ export default function RequestTowPage() {
           dropoffLocation: partnerAddress,
         }));
         initialFormState.current.dropoffLocation = partnerAddress;
+
+        // Check if business name is missing and show modal
+        if (!partnerDocData.companyName || partnerDocData.companyName.trim() === "") {
+          setShowBusinessNameModal(true);
+        }
       }
     } catch (error) {
       console.error("Error fetching partner data:", error);
@@ -376,6 +402,43 @@ export default function RequestTowPage() {
     } else {
       setFormData(prev => ({ ...prev, [name]: value }));
       clearFieldError(name);
+    }
+  };
+
+  // Handle selecting the partner's shop as dropoff location
+  const handleSelectShop = useCallback(() => {
+    if (partnerData?.address) {
+      setFormData(prev => ({ ...prev, dropoffLocation: partnerData.address }));
+      clearFieldError("dropoffLocation");
+      setShowShopOption(false);
+    }
+  }, [partnerData, clearFieldError]);
+
+  // Handle saving business name
+  const handleSaveBusinessName = async () => {
+    if (!businessNameInput.trim() || !partnerData?.id) return;
+
+    setSavingBusinessName(true);
+    try {
+      const partnerRef = doc(db, "partners", partnerData.id);
+      await updateDoc(partnerRef, {
+        companyName: businessNameInput.trim(),
+        updatedAt: serverTimestamp(),
+      });
+
+      // Update local state
+      setPartnerData((prev: any) => ({
+        ...prev,
+        companyName: businessNameInput.trim(),
+      }));
+
+      setShowBusinessNameModal(false);
+      showToast("Business name saved successfully!", "success");
+    } catch (error) {
+      console.error("Error saving business name:", error);
+      showToast("Failed to save business name. Please try again.", "error");
+    } finally {
+      setSavingBusinessName(false);
     }
   };
 
@@ -636,24 +699,27 @@ export default function RequestTowPage() {
           {/* Request Form Card */}
           <div className="bg-white rounded-3xl shadow-xl border-2 border-slate-300 overflow-hidden">
             <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <div>
-                  <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd"/>
-                    </svg>
-                    New Request
-                  </h2>
-                  <p className="text-blue-100 text-sm mt-1">This is a tow request for your customer</p>
-                </div>
-                <div className="flex bg-white/20 rounded-xl p-1">
+              <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd"/>
+                </svg>
+                New Request
+              </h2>
+              <p className="text-blue-100 text-sm mt-1">This is a tow request for your customer</p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="p-6 space-y-5">
+              {/* Service Type Toggle */}
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-2">Service Type *</label>
+                <div className="flex bg-slate-200 rounded-xl p-1.5 gap-1">
                   <button
                     type="button"
                     onClick={() => setRequestType("asap")}
-                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+                    className={`flex-1 px-4 py-3 rounded-lg text-sm font-bold transition-all ${
                       requestType === "asap"
-                        ? "bg-white text-blue-600 shadow-md"
-                        : "text-white hover:bg-white/10"
+                        ? "bg-blue-600 text-white shadow-md"
+                        : "bg-white text-slate-700 border-2 border-slate-300 hover:border-blue-400 hover:bg-blue-50"
                     }`}
                   >
                     ASAP Service
@@ -661,19 +727,17 @@ export default function RequestTowPage() {
                   <button
                     type="button"
                     onClick={() => setRequestType("scheduled")}
-                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+                    className={`flex-1 px-4 py-3 rounded-lg text-sm font-bold transition-all ${
                       requestType === "scheduled"
-                        ? "bg-white text-blue-600 shadow-md"
-                        : "text-white hover:bg-white/10"
+                        ? "bg-blue-600 text-white shadow-md"
+                        : "bg-white text-slate-700 border-2 border-slate-300 hover:border-blue-400 hover:bg-blue-50"
                     }`}
                   >
                     Schedule Call
                   </button>
                 </div>
               </div>
-            </div>
 
-            <form onSubmit={handleSubmit} className="p-6 space-y-5">
               {/* Schedule Date/Time - Only show when scheduled is selected */}
               {requestType === "scheduled" && (
                 <div className={`bg-blue-50 border-2 rounded-2xl p-4 ${
@@ -731,7 +795,7 @@ export default function RequestTowPage() {
                     value={formData.customerPhone}
                     onChange={handleInputChange}
                     className={`w-full h-12 rounded-xl border-2 px-4 text-lg focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition ${
-                      validationErrors.customerPhone ? "border-red-400 bg-red-50/50" : "border-slate-200"
+                      validationErrors.customerPhone ? "border-red-400 bg-red-50/50" : "border-slate-400"
                     }`}
                     placeholder="(858) 123-4567"
                   />
@@ -751,7 +815,7 @@ export default function RequestTowPage() {
                     name="customerName"
                     value={formData.customerName}
                     onChange={handleInputChange}
-                    className="w-full h-12 rounded-xl border-2 border-slate-200 px-4 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition"
+                    className="w-full h-12 rounded-xl border-2 border-slate-400 px-4 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition"
                     placeholder="Optional"
                   />
                 </div>
@@ -767,7 +831,7 @@ export default function RequestTowPage() {
                       value={formData.vehicleYear}
                       onChange={handleInputChange}
                       className={`w-full h-12 rounded-xl border-2 px-3 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 ${
-                        validationErrors.vehicleYear ? "border-red-400 bg-red-50/50" : "border-slate-200"
+                        validationErrors.vehicleYear ? "border-red-400 bg-red-50/50" : "border-slate-400"
                       }`}
                     >
                       <option value="">Year</option>
@@ -780,7 +844,7 @@ export default function RequestTowPage() {
                       value={formData.vehicleMake}
                       onChange={handleInputChange}
                       className={`w-full h-12 rounded-xl border-2 px-3 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 ${
-                        validationErrors.vehicleMake ? "border-red-400 bg-red-50/50" : "border-slate-200"
+                        validationErrors.vehicleMake ? "border-red-400 bg-red-50/50" : "border-slate-400"
                       }`}
                     >
                       <option value="">Make</option>
@@ -794,7 +858,7 @@ export default function RequestTowPage() {
                       onChange={handleInputChange}
                       disabled={!formData.vehicleMake}
                       className={`w-full h-12 rounded-xl border-2 px-3 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 disabled:bg-slate-50 ${
-                        validationErrors.vehicleModel ? "border-red-400 bg-red-50/50" : "border-slate-200"
+                        validationErrors.vehicleModel ? "border-red-400 bg-red-50/50" : "border-slate-400"
                       }`}
                     >
                       <option value="">{formData.vehicleMake ? "Model" : "Select Make"}</option>
@@ -819,7 +883,7 @@ export default function RequestTowPage() {
                   name="serviceType"
                   value={formData.serviceType}
                   onChange={handleInputChange}
-                  className="w-full h-12 rounded-xl border-2 border-slate-200 px-4 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500"
+                  className="w-full h-12 rounded-xl border-2 border-slate-400 px-4 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500"
                 >
                   {serviceTypes.map(s => <option key={s} value={s}>{s}</option>)}
                 </select>
@@ -836,7 +900,7 @@ export default function RequestTowPage() {
                     value={formData.pickupLocation}
                     onChange={handleInputChange}
                     className={`w-full h-12 rounded-xl border-2 px-4 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 ${
-                      validationErrors.pickupLocation ? "border-red-400 bg-red-50/50" : "border-slate-200"
+                      validationErrors.pickupLocation ? "border-red-400 bg-red-50/50" : "border-slate-400"
                     }`}
                     placeholder="Where is the vehicle?"
                     autoComplete="off"
@@ -850,7 +914,7 @@ export default function RequestTowPage() {
                     </p>
                   )}
                 </div>
-                <div>
+                <div ref={dropoffContainerRef} className="relative">
                   <label className="block text-sm font-semibold text-slate-700 mb-2">
                     Drop-off <span className="text-slate-400 font-normal">(Your Shop)</span>
                   </label>
@@ -860,11 +924,40 @@ export default function RequestTowPage() {
                     name="dropoffLocation"
                     value={formData.dropoffLocation}
                     onChange={handleInputChange}
+                    onFocus={() => setShowShopOption(true)}
                     className={`w-full h-12 rounded-xl border-2 px-4 bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 ${
-                      validationErrors.dropoffLocation ? "border-red-400 bg-red-50/50" : "border-slate-200"
+                      validationErrors.dropoffLocation ? "border-red-400 bg-red-50/50" : "border-slate-400"
                     }`}
                     autoComplete="off"
                   />
+
+                  {/* Shop Quick Select Dropdown */}
+                  {showShopOption && partnerData?.companyName && partnerData?.address && (
+                    <div className="absolute z-50 w-full mt-1 bg-white rounded-xl shadow-lg border-2 border-slate-200 overflow-hidden">
+                      <button
+                        type="button"
+                        onClick={handleSelectShop}
+                        className="w-full px-4 py-3 flex items-center gap-3 hover:bg-blue-50 transition-colors text-left"
+                      >
+                        <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                          </svg>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="font-semibold text-slate-900 truncate">{partnerData.companyName}</p>
+                          <p className="text-sm text-slate-500 truncate">{partnerData.address}</p>
+                        </div>
+                        <span className="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded-full flex-shrink-0">
+                          Your Shop
+                        </span>
+                      </button>
+                      <div className="border-t border-slate-100 px-4 py-2">
+                        <p className="text-xs text-slate-400">Or type to search another address...</p>
+                      </div>
+                    </div>
+                  )}
+
                   {validationErrors.dropoffLocation && (
                     <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -957,6 +1050,74 @@ export default function RequestTowPage() {
                   className="flex-1 py-2.5 rounded-xl font-semibold text-white bg-red-500 hover:bg-red-600 transition"
                 >
                   Leave
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Business Name Modal */}
+        {showBusinessNameModal && (
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+            <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full overflow-hidden animate-[fadeIn_0.2s_ease-out]">
+              {/* Header */}
+              <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-5">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white">Welcome!</h3>
+                    <p className="text-blue-100 text-sm">Let&apos;s complete your profile</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6">
+                <p className="text-slate-600 mb-5">
+                  What&apos;s the name of your business? This will be shown on your tow requests.
+                </p>
+
+                <div className="mb-6">
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Business Name
+                  </label>
+                  <input
+                    type="text"
+                    value={businessNameInput}
+                    onChange={(e) => setBusinessNameInput(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && businessNameInput.trim()) {
+                        handleSaveBusinessName();
+                      }
+                    }}
+                    className="w-full h-12 rounded-xl border-2 border-slate-300 px-4 text-lg focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition"
+                    placeholder="e.g., Mike's Auto Repair"
+                    autoFocus
+                  />
+                </div>
+
+                <button
+                  onClick={handleSaveBusinessName}
+                  disabled={!businessNameInput.trim() || savingBusinessName}
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3.5 rounded-xl font-bold text-base shadow-lg hover:shadow-xl hover:from-blue-700 hover:to-blue-800 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                >
+                  {savingBusinessName ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      Saving...
+                    </>
+                  ) : (
+                    <>
+                      Continue
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                      </svg>
+                    </>
+                  )}
                 </button>
               </div>
             </div>
