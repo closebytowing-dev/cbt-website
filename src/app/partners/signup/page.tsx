@@ -32,6 +32,7 @@ export default function PartnerSignupPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
   const [error, setError] = useState("");
+  const [showCreatingAccount, setShowCreatingAccount] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -82,7 +83,14 @@ export default function PartnerSignupPage() {
       };
 
       await setDoc(doc(db, "partners", userCredential.user.uid), partnerData);
-      router.push("/partners/dashboard/request");
+
+      // Show creating account overlay
+      setShowCreatingAccount(true);
+
+      // Wait 3 seconds then redirect
+      setTimeout(() => {
+        router.push("/partners/dashboard/request");
+      }, 3000);
     } catch (error: unknown) {
       console.error("Error creating partner:", error);
       const firebaseError = error as { code?: string };
@@ -139,7 +147,14 @@ export default function PartnerSignupPage() {
       };
 
       await setDoc(doc(db, "partners", user.uid), partnerData);
-      router.push("/partners/dashboard/request");
+
+      // Show creating account overlay
+      setShowCreatingAccount(true);
+
+      // Wait 3 seconds then redirect
+      setTimeout(() => {
+        router.push("/partners/dashboard/request");
+      }, 3000);
     } catch (error: unknown) {
       console.error("Google sign-up error:", error);
       const firebaseError = error as { code?: string };
@@ -159,6 +174,49 @@ export default function PartnerSignupPage() {
 
   return (
     <>
+    {/* Full-screen Creating Account Overlay */}
+    {showCreatingAccount && (
+      <div className="fixed inset-0 z-[9999] bg-gradient-to-br from-[#0f172a] via-[#1e3a5f] to-[#0f172a] flex flex-col items-center justify-center">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 flex flex-col items-center">
+          {/* Stylish spinner */}
+          <div className="relative w-24 h-24 mb-8">
+            {/* Outer ring */}
+            <div className="absolute inset-0 border-4 border-blue-500/20 rounded-full"></div>
+            {/* Spinning ring */}
+            <div className="absolute inset-0 border-4 border-transparent border-t-cyan-400 border-r-blue-500 rounded-full animate-spin" style={{ animationDuration: '1s' }}></div>
+            {/* Inner spinning ring */}
+            <div className="absolute inset-2 border-4 border-transparent border-b-cyan-300 border-l-blue-400 rounded-full animate-spin" style={{ animationDuration: '1.5s', animationDirection: 'reverse' }}></div>
+            {/* Center dot */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-4 h-4 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full animate-pulse"></div>
+            </div>
+          </div>
+
+          {/* Text */}
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 text-center">
+            Creating your account
+          </h2>
+          <p className="text-gray-400 text-lg text-center">
+            Setting up your partner dashboard...
+          </p>
+
+          {/* Progress dots */}
+          <div className="flex gap-2 mt-8">
+            <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
+            <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+            <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+          </div>
+        </div>
+      </div>
+    )}
+
     {/* Hero Section */}
     <div className="min-h-screen relative overflow-x-auto">
       {/* Background Image - Only this squeezes */}
