@@ -672,14 +672,6 @@ export default function TowingPage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-600/20 via-transparent to-transparent"></div>
 
         <div className="relative mx-auto max-w-[1400px] text-center space-y-12">
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-red-500/20 border border-red-400/30 mb-6">
-            <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
-            </span>
-            <span className="text-red-400 font-bold text-sm uppercase tracking-wider">Available Right Now</span>
-          </div>
-
           <h2 className="text-6xl lg:text-8xl font-black text-white leading-tight">
             Need a Tow?
             <span className="block mt-4 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent">

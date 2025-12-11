@@ -126,16 +126,6 @@ export default function CollisionRecoveryPage() {
 
       <LeftPopup />
 
-      {/* Live Availability Indicator */}
-      <div className="fixed top-4 right-4 z-50 bg-red-600 text-white px-6 py-3 rounded-full shadow-2xl animate-pulse hidden md:block">
-        <div className="flex items-center gap-3">
-          <div className="relative">
-            <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-            <div className="absolute inset-0 w-3 h-3 bg-green-400 rounded-full animate-ping"></div>
-          </div>
-          <span className="font-bold text-sm">3 trucks available NOW in your area</span>
-        </div>
-      </div>
 
       {/* Sticky Mobile CTA Bar */}
       <div className="fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-r from-red-600 to-orange-600 p-4 shadow-2xl lg:hidden">

@@ -252,16 +252,6 @@ export default function WinchOutPage() {
                   </a>
                 </div>
 
-                {/* Real-time Availability */}
-                <div className="inline-flex items-center gap-3 bg-emerald-500/20 backdrop-blur-sm border border-emerald-400/50 px-4 py-3 rounded-xl">
-                  <div className="relative">
-                    <div className="w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div>
-                    <div className="absolute inset-0 w-3 h-3 bg-emerald-400 rounded-full animate-ping"></div>
-                  </div>
-                  <p className="text-sm font-medium text-emerald-100">
-                    <span className="font-bold">5 recovery trucks</span> currently available in your area
-                  </p>
-                </div>
               </div>
 
               {/* Right Hero Image */}
