@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'PLACEHOLDER_ADD_YOUR_GOOGLE_SEARCH_CONSOLE_CODE', // TODO: Replace with actual verification code from Google Search Console
+    google: 'NuvmaUv1oZ7lJ-IVnLmHPKX3S99iZ7ueWG2iaFQXITM',
   },
   alternates: {
     canonical: '/',
