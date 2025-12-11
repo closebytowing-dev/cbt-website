@@ -4,7 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import type { AddressPayload } from "./types";
 import { ServiceIcon } from "./ServiceIcon";
-import { fetchConfig, applyOnlineDiscount } from "../lib/pricing-client";
+// Firebase imports removed to prevent loading on homepage
+// Pricing is fetched lazily when popup opens
 import { useOnlineDiscount } from "@/hooks/useOnlineDiscount";
 import { useVisibility } from "@/hooks/useVisibility";
 import "./PopupAnimations.css";
@@ -57,95 +58,16 @@ export default function LeftPopup({
   const [stage, setStage] = useState<Stage>("choose");
   const [choice, setChoice] = useState<string>("");
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [firebaseServices, setFirebaseServices] = useState<any[]>([]);
-  const [loadingPrices, setLoadingPrices] = useState(true);
 
-  // Fetch services from Firebase on mount
-  useEffect(() => {
-    fetchConfig()
-      .then((config) => {
-        const servicesArray: any[] = [];
+  // Hardcoded services - no Firebase fetch to avoid loading on homepage
+  // Prices are calculated server-side when user submits request
 
-        // Services to hide from customers (used for backend calculations only)
-        const HIDDEN_SERVICES = new Set(['Travel Miles', 'Tow Miles']);
-
-        // Preferred display order
-        const SERVICE_ORDER = [
-          'Local Towing',
-          'Jump Start',
-          'Lockout Service',
-          'Fuel Delivery',
-          'Impound',
-          'Tire Change',
-          'Winch-Out / Recovery',
-          'Collision Recovery',
-          'Long-Distance Towing'
-        ];
-
-        // Convert services object to array with pricing
-        Object.keys(config.services).forEach((key) => {
-          const service = config.services[key];
-
-          // Skip lowercase duplicate keys
-          if (key !== service.name) return;
-
-          // Skip internal/backend services
-          if (HIDDEN_SERVICES.has(service.name)) return;
-
-          // Calculate base price and discounted price
-          let basePrice = 0;
-          if (service.type === 'towing') {
-            // For towing: hookup + minimum miles
-            basePrice = service.hookupFee + (service.perMileRate * service.minimumMiles);
-          } else if (service.basePrice) {
-            // For roadside services
-            basePrice = service.basePrice;
-          }
-
-          const discountedPrice = applyOnlineDiscount(basePrice);
-
-          servicesArray.push({
-            name: service.name,
-            price: `from $${discountedPrice}`,
-            originalPrice: `from $${basePrice}`,
-            basePrice: discountedPrice,
-            originalBasePrice: basePrice
-          });
-        });
-
-        // Sort services by preferred order
-        servicesArray.sort((a, b) => {
-          const indexA = SERVICE_ORDER.indexOf(a.name);
-          const indexB = SERVICE_ORDER.indexOf(b.name);
-
-          // If both are in the order list, sort by position
-          if (indexA !== -1 && indexB !== -1) {
-            return indexA - indexB;
-          }
-          // If only A is in the list, put it first
-          if (indexA !== -1) return -1;
-          // If only B is in the list, put it first
-          if (indexB !== -1) return 1;
-          // If neither is in the list, maintain original order
-          return 0;
-        });
-
-        setFirebaseServices(servicesArray);
-        setLoadingPrices(false);
-      })
-      .catch((error) => {
-        console.error("Failed to load services from Firebase:", error);
-        setLoadingPrices(false);
-      });
-  }, []);
-
-  // Complete service list - use Firebase services or fallback to hardcoded
+  // Hardcoded service list - prices are calculated server-side when user submits
   const allServices = useMemo(
     () => {
       if (services) return services;
-      if (firebaseServices.length > 0) return firebaseServices;
 
-      // Fallback hardcoded services (ordered to match SERVICE_ORDER)
+      // Hardcoded services (ordered by display preference)
       return [
         { name: "Local Towing", price: "from $75", originalPrice: "from $88" },
         { name: "Jump Start", price: "from $75", originalPrice: "from $88" },
@@ -158,7 +80,7 @@ export default function LeftPopup({
         { name: "Long-Distance Towing", price: "from $125", originalPrice: "from $147" },
       ];
     },
-    [services, firebaseServices]
+    [services]
   );
 
   // Filtered service list based on search query

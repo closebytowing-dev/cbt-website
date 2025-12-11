@@ -2,11 +2,11 @@
 import ServicesMenu from "@/components/ServicesMenu";
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-import { collection, query, where, getDocs } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+import { useEffect, useState, useCallback } from "react";
 import { useRouter, usePathname } from "next/navigation";
+
+// Firebase imports are lazy-loaded to prevent loading on homepage
+// Only load when checking auth state on partner pages
 
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -15,41 +15,64 @@ export default function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const auth = getAuth();
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      setIsLoggedIn(!!user);
+    // Only check Firebase auth on partner pages to prevent loading on homepage
+    const isPartnerPage = pathname?.startsWith('/partners');
+    if (!isPartnerPage) return;
 
-      if (user) {
-        // Fetch partner data to get company name
-        try {
-          const partnersRef = collection(db, "partners");
-          const q = query(partnersRef, where("userId", "==", user.uid));
-          const querySnapshot = await getDocs(q);
+    let unsubscribe: (() => void) | undefined;
 
-          if (!querySnapshot.empty) {
-            const partnerDoc = querySnapshot.docs[0];
-            const partnerData = partnerDoc.data();
-            setCompanyName(partnerData.companyName || "");
+    // Dynamically import Firebase only when needed
+    const initFirebaseAuth = async () => {
+      try {
+        const { getAuth, onAuthStateChanged } = await import("firebase/auth");
+        const { collection, query, where, getDocs } = await import("firebase/firestore");
+        const { db } = await import("@/lib/firebase");
+
+        const auth = getAuth();
+        unsubscribe = onAuthStateChanged(auth, async (user) => {
+          setIsLoggedIn(!!user);
+
+          if (user) {
+            // Fetch partner data to get company name
+            try {
+              const partnersRef = collection(db, "partners");
+              const q = query(partnersRef, where("userId", "==", user.uid));
+              const querySnapshot = await getDocs(q);
+
+              if (!querySnapshot.empty) {
+                const partnerDoc = querySnapshot.docs[0];
+                const partnerData = partnerDoc.data();
+                setCompanyName(partnerData.companyName || "");
+              }
+            } catch (error) {
+              console.error("Error fetching partner data:", error);
+            }
+          } else {
+            setCompanyName("");
           }
-        } catch (error) {
-          console.error("Error fetching partner data:", error);
-        }
-      } else {
-        setCompanyName("");
+        });
+      } catch (error) {
+        console.error("Error initializing Firebase auth:", error);
       }
-    });
-    return () => unsubscribe();
-  }, []);
+    };
 
-  const handleLogout = async () => {
-    const auth = getAuth();
+    initFirebaseAuth();
+
+    return () => {
+      if (unsubscribe) unsubscribe();
+    };
+  }, [pathname]);
+
+  const handleLogout = useCallback(async () => {
     try {
+      const { getAuth, signOut } = await import("firebase/auth");
+      const auth = getAuth();
       await signOut(auth);
       router.push("/partners/signin");
     } catch (error) {
       console.error("Logout error:", error);
     }
-  };
+  }, [router]);
 
   return (
     <header className="sticky top-0 z-50 w-full">
