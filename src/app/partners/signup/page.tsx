@@ -218,14 +218,14 @@ export default function PartnerSignupPage() {
     )}
 
     {/* Hero Section */}
-    <div className="min-h-[110vh] relative overflow-x-auto">
+    <div className="min-h-[95vh] relative overflow-x-auto">
       {/* Background Image - Only this squeezes */}
       <div className="absolute inset-0 min-w-full">
         <Image
           src="/images/partner-signup-bg.webp"
           alt="Partner with CloseBy Towing"
           fill
-          className="object-cover"
+          className="object-cover object-top"
           priority
         />
         <div className="absolute inset-0 bg-black/40" />
@@ -480,276 +480,442 @@ export default function PartnerSignupPage() {
       </div>
     </div>
 
-    {/* Tier Cards - Positioned on right side, stacking vertically and overlapping into value section */}
-    <div className="absolute right-[5%] top-[70%] z-40 flex flex-col gap-6 hidden lg:flex">
-        {/* Platinum - 20% */}
-        <div className="bg-purple-500/40 backdrop-blur-[2px] border border-purple-400/50 rounded-2xl p-6 text-white shadow-2xl w-[32rem] flex-shrink-0">
-          <h4 className="font-bold text-xl text-center mb-4">Platinum Partner</h4>
-          <div className="text-6xl font-bold text-center mb-1">20%</div>
-          <p className="text-base text-white/80 text-center mb-4">of service fee</p>
-          <ul className="space-y-2 text-base grid grid-cols-2 gap-x-4">
-            <li className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-              </svg>
-              26+ referrals/month
-            </li>
-            <li className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-              </svg>
-              Dedicated account manager
-            </li>
-            <li className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-              </svg>
-              Same-day payments
-            </li>
-            <li className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-              </svg>
-              Exclusive bonus programs
-            </li>
-            <li className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-              </svg>
-              Marketing materials provided
-            </li>
-          </ul>
-        </div>
+    {/* ═══════════════════════════════════════════════════════════════════════════════
+        MAGNIFICENT BRIDGE SECTION - Where Hero Meets Value
+        A revolutionary design that creates visual poetry between sections
+    ═══════════════════════════════════════════════════════════════════════════════ */}
 
-        {/* Gold - 15% */}
-        <div className="bg-yellow-500/40 backdrop-blur-[2px] border border-yellow-400/50 rounded-2xl p-6 text-white shadow-2xl w-[32rem] flex-shrink-0">
-          <h4 className="font-bold text-xl text-center mb-4">Gold Partner</h4>
-          <div className="text-6xl font-bold text-center mb-1">15%</div>
-          <p className="text-base text-white/80 text-center mb-4">of service fee</p>
-          <ul className="space-y-2 text-base grid grid-cols-2 gap-x-4">
-            <li className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-              </svg>
-              11-25 referrals/month
-            </li>
-            <li className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-              </svg>
-              Priority support line
-            </li>
-            <li className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-              </svg>
-              Bi-weekly payments
-            </li>
-            <li className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-              </svg>
-              Monthly bonus opportunities
-            </li>
-          </ul>
-        </div>
+    {/* The Grand Transition - Flowing Wave with Embedded Header */}
+    <div className="relative z-30 -mt-[20vh]">
+      {/* Animated SVG Wave Transition */}
+      <div className="absolute inset-x-0 top-[120px] h-[150px] overflow-hidden">
+        <svg
+          className="absolute w-full h-full"
+          viewBox="0 0 1440 300"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#1e1e4a" stopOpacity="0.9">
+                <animate attributeName="stop-color" values="#1e1e4a;#2d2d6a;#1e1e4a" dur="4s" repeatCount="indefinite"/>
+              </stop>
+              <stop offset="50%" stopColor="#2d2d6a" stopOpacity="0.95">
+                <animate attributeName="stop-color" values="#2d2d6a;#1e1e4a;#2d2d6a" dur="4s" repeatCount="indefinite"/>
+              </stop>
+              <stop offset="100%" stopColor="#1e1e4a" stopOpacity="0.9">
+                <animate attributeName="stop-color" values="#1e1e4a;#2d2d6a;#1e1e4a" dur="4s" repeatCount="indefinite"/>
+              </stop>
+            </linearGradient>
+            <linearGradient id="shimmerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="white" stopOpacity="0">
+                <animate attributeName="offset" values="-0.5;1.5" dur="3s" repeatCount="indefinite"/>
+              </stop>
+              <stop offset="50%" stopColor="white" stopOpacity="0.1">
+                <animate attributeName="offset" values="0;2" dur="3s" repeatCount="indefinite"/>
+              </stop>
+              <stop offset="100%" stopColor="white" stopOpacity="0">
+                <animate attributeName="offset" values="0.5;2.5" dur="3s" repeatCount="indefinite"/>
+              </stop>
+            </linearGradient>
+          </defs>
+          {/* Main wave */}
+          <path
+            d="M0,100 C360,200 720,0 1080,100 C1260,150 1380,80 1440,100 L1440,300 L0,300 Z"
+            fill="url(#waveGradient)"
+          >
+            <animate
+              attributeName="d"
+              values="M0,100 C360,200 720,0 1080,100 C1260,150 1380,80 1440,100 L1440,300 L0,300 Z;
+                      M0,120 C360,20 720,180 1080,80 C1260,40 1380,120 1440,80 L1440,300 L0,300 Z;
+                      M0,100 C360,200 720,0 1080,100 C1260,150 1380,80 1440,100 L1440,300 L0,300 Z"
+              dur="8s"
+              repeatCount="indefinite"
+            />
+          </path>
+          {/* Shimmer overlay */}
+          <path
+            d="M0,100 C360,200 720,0 1080,100 C1260,150 1380,80 1440,100 L1440,300 L0,300 Z"
+            fill="url(#shimmerGradient)"
+          >
+            <animate
+              attributeName="d"
+              values="M0,100 C360,200 720,0 1080,100 C1260,150 1380,80 1440,100 L1440,300 L0,300 Z;
+                      M0,120 C360,20 720,180 1080,80 C1260,40 1380,120 1440,80 L1440,300 L0,300 Z;
+                      M0,100 C360,200 720,0 1080,100 C1260,150 1380,80 1440,100 L1440,300 L0,300 Z"
+              dur="8s"
+              repeatCount="indefinite"
+            />
+          </path>
+        </svg>
+      </div>
 
-        {/* Silver - 10% */}
-        <div className="bg-gray-400/40 backdrop-blur-[2px] border border-gray-300/50 rounded-2xl p-6 text-white shadow-2xl w-[32rem] flex-shrink-0">
-          <h4 className="font-bold text-xl text-center mb-4">Silver Partner</h4>
-          <div className="text-6xl font-bold text-center mb-1">10%</div>
-          <p className="text-base text-white/80 text-center mb-4">of service fee</p>
-          <ul className="space-y-2 text-base grid grid-cols-2 gap-x-4">
-            <li className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-              </svg>
-              0-10 referrals/month
-            </li>
-            <li className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-              </svg>
-              Weekly payments
-            </li>
-            <li className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-              </svg>
-              Partner dashboard access
-            </li>
-          </ul>
-        </div>
-    </div>
+      {/* The Floating Header - Embedded in the wave */}
+      <div className="relative z-40 flex justify-center lg:justify-end lg:pr-[25%] pt-2">
+        <div className="relative group">
+          {/* Glowing orb behind header */}
+          <div className="absolute -inset-10 bg-gradient-to-r from-blue-500/20 via-purple-500/30 to-pink-500/20 rounded-full blur-3xl opacity-60 group-hover:opacity-80 transition-opacity duration-700 animate-pulse"></div>
 
-    {/* Section Header - floats into hero */}
-    <div className="relative z-30 -mt-[28vh] flex justify-center">
-      <div className="bg-white rounded-t-2xl px-10 pt-8 pb-12 shadow-2xl border border-gray-200 border-b-0 text-center max-w-2xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
-          How Our Partnership Works
-        </h2>
-        <p className="text-lg text-gray-600">
-          A simple, profitable relationship that benefits both of us. Here&apos;s exactly how it works.
-        </p>
+          {/* Main header card with glass morphism */}
+          <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl px-12 py-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4)] border border-white/50 text-center max-w-3xl overflow-hidden">
+            {/* Animated border glow */}
+            <div className="absolute inset-0 rounded-3xl">
+              <div className="absolute inset-[-2px] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-3xl opacity-20 blur-sm animate-spin-slow"></div>
+            </div>
+
+            {/* Floating particles inside */}
+            <div className="absolute inset-0 overflow-hidden rounded-3xl">
+              <div className="absolute w-2 h-2 bg-blue-400 rounded-full top-4 left-8 animate-float-slow opacity-40"></div>
+              <div className="absolute w-1.5 h-1.5 bg-purple-400 rounded-full top-12 right-12 animate-float-medium opacity-50"></div>
+              <div className="absolute w-1 h-1 bg-pink-400 rounded-full bottom-8 left-1/4 animate-float-fast opacity-40"></div>
+              <div className="absolute w-2 h-2 bg-cyan-400 rounded-full bottom-6 right-1/3 animate-float-slow opacity-30"></div>
+            </div>
+
+            {/* Content */}
+            <div className="relative z-10">
+              <h2 className="text-4xl md:text-5xl font-black bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent mb-4 leading-tight">
+                How Our Partnership Works
+              </h2>
+              <p className="text-lg text-gray-600 max-w-xl mx-auto leading-relaxed">
+                A simple, profitable relationship that benefits both of us. Here&apos;s exactly how it works.
+              </p>
+
+                          </div>
+          </div>
+
+          {/* Connection lines flowing down */}
+          <div className="absolute left-1/2 -translate-x-1/2 top-full w-1 h-16 bg-gradient-to-b from-gray-300 to-transparent"></div>
+        </div>
       </div>
     </div>
 
-    {/* How It Works Section */}
-    <section className="bg-white pt-20 pb-24 px-6 relative z-20">
-      <div className="max-w-6xl mx-auto">
+    {/* Main Value Section with Integrated Tier Cards */}
+    <section className="relative bg-gradient-to-b from-[#1e1e4a] via-[#1a1a40] to-white pt-32 pb-24 px-6 overflow-hidden">
+      {/* Ambient background effects */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-1/2 w-[800px] h-[400px] bg-white/50 rounded-full blur-3xl"></div>
+      </div>
 
-        {/* Two Paths */}
-            <div className="grid md:grid-cols-2 gap-8 mb-20 lg:max-w-[55%]">
-              {/* Path 1: You Send Us Tows */}
-              <div className="relative">
-                <div className="bg-blue-50 rounded-3xl p-10 border border-blue-200">
-                  <div className="flex items-center gap-5 mb-10">
-                    <div className="w-20 h-20 rounded-2xl bg-blue-600 flex items-center justify-center">
-                      <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+      <div className="max-w-7xl mx-auto relative z-10">
+
+        {/* ═══ TIER CARDS - Horizontal Premium Display ═══ */}
+        <div className="mb-24">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-white mb-3">Choose Your Partnership Tier</h3>
+            <p className="text-gray-400">The more you refer, the more you earn</p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {/* Silver Tier */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-400 to-gray-600 rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
+              <div className="relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-xl rounded-3xl p-8 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gray-400/20 to-transparent rounded-full blur-2xl"></div>
+                <div className="relative">
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="text-gray-400 text-sm font-medium uppercase tracking-wider">Silver</span>
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-gray-300 to-gray-500 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                       </svg>
                     </div>
-                    <h3 className="text-3xl font-bold text-black">You Send Us Tows</h3>
                   </div>
-
-                  {/* Steps */}
-                  <div className="space-y-8">
-                    <div className="flex gap-5">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl">1</div>
-                      <div>
-                        <h4 className="text-xl font-semibold text-black mb-2">Customer Needs a Tow</h4>
-                        <p className="text-gray-700 text-lg">Your customer&apos;s car breaks down or needs transport and you don&apos;t offer towing services.</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-5">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl">2</div>
-                      <div>
-                        <h4 className="text-xl font-semibold text-black mb-2">Submit a Quick Form</h4>
-                        <p className="text-gray-700 text-lg">Your shop is already set as the destination. Just enter pickup location and customer phone - <span className="text-blue-600 font-semibold">that&apos;s it!</span></p>
-                      </div>
-                    </div>
-                    <div className="flex gap-5">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl">3</div>
-                      <div>
-                        <h4 className="text-xl font-semibold text-black mb-2">Get Paid Commission</h4>
-                        <p className="text-gray-700 text-lg">Earn <span className="text-blue-600 font-semibold">10-20% of the service fee</span> for every successful referral.</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Commission highlight */}
-                  <div className="mt-10 p-5 bg-blue-100 rounded-xl border border-blue-300">
-                    <p className="text-blue-800 text-base">
-                      <span className="font-semibold">Example:</span> Refer a $150 tow = earn $15-$30 commission. It adds up fast!
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Path 2: We Send You Work */}
-              <div className="relative">
-                <div className="bg-green-50 rounded-3xl p-10 border border-green-200">
-                  <div className="flex items-center gap-5 mb-10">
-                    <div className="w-20 h-20 rounded-2xl bg-green-600 flex items-center justify-center">
-                      <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                      </svg>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <h3 className="text-3xl font-bold text-black">We Send You Work</h3>
-                      <span className="text-2xl font-extrabold text-white bg-green-600 px-4 py-2 rounded-lg">FREE</span>
-                    </div>
-                  </div>
-
-                  {/* Steps */}
-                  <div className="space-y-8">
-                    <div className="flex gap-5">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white font-bold text-xl">1</div>
-                      <div>
-                        <h4 className="text-xl font-semibold text-black mb-2">We Tow a Vehicle</h4>
-                        <p className="text-gray-700 text-lg">A customer&apos;s car needs repairs after we tow it - transmission, engine, body work, etc.</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-5">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white font-bold text-xl">2</div>
-                      <div>
-                        <h4 className="text-xl font-semibold text-black mb-2">We Recommend You</h4>
-                        <p className="text-gray-700 text-lg">We send the customer directly to your shop as a trusted partner.</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-5">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white font-bold text-xl">3</div>
-                      <div>
-                        <h4 className="text-xl font-semibold text-black mb-2">You Get New Business</h4>
-                        <p className="text-gray-700 text-lg">New customers walk through your door - <span className="text-green-600 font-semibold">completely free</span> for you.</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Free highlight */}
-                  <div className="mt-10 p-5 bg-green-100 rounded-xl border border-green-300">
-                    <p className="text-green-800 text-base">
-                      <span className="font-semibold">No fees, no catch:</span> We send you business because happy customers make us all successful.
-                    </p>
-                  </div>
+                  <div className="text-7xl font-black text-white mb-2 tracking-tight">10<span className="text-4xl">%</span></div>
+                  <p className="text-gray-400 mb-6">Commission per referral</p>
+                  <div className="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent mb-6"></div>
+                  <ul className="space-y-3 text-gray-300 text-sm">
+                    <li className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                      0-10 referrals/month
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                      Weekly payments
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                      Partner dashboard access
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
 
-            {/* Why Partner Section */}
-            <div className="bg-gray-100 rounded-3xl p-10 border border-gray-200">
-              <h3 className="text-3xl font-bold text-black text-center mb-12">Why Businesses Partner With Us</h3>
-              <div className="grid md:grid-cols-4 gap-8">
-                <div className="text-center">
-                  <div className="w-16 h-16 rounded-2xl bg-yellow-100 flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+            {/* Gold Tier - Featured */}
+            <div className="group relative lg:-mt-4 lg:mb-4">
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-3xl blur-xl opacity-40 group-hover:opacity-60 transition-opacity"></div>
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-yellow-400 to-amber-500 text-black text-xs font-bold px-4 py-1 rounded-full shadow-lg">
+                MOST POPULAR
+              </div>
+              <div className="relative bg-gradient-to-br from-yellow-900/80 to-amber-950/80 backdrop-blur-xl rounded-3xl p-8 border-2 border-yellow-500/50 hover:border-yellow-400/70 transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-yellow-500/20">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-yellow-400/20 to-transparent rounded-full blur-2xl"></div>
+                <div className="relative">
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="text-yellow-400 text-sm font-medium uppercase tracking-wider">Gold</span>
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-yellow-400 to-amber-600 flex items-center justify-center shadow-lg shadow-yellow-500/30">
+                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                      </svg>
+                    </div>
                   </div>
-                  <h4 className="text-lg font-semibold text-black mb-2">Passive Income</h4>
-                  <p className="text-gray-600 text-sm">Earn money from customers you couldn&apos;t serve anyway</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 rounded-2xl bg-purple-100 flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                  </div>
-                  <h4 className="text-lg font-semibold text-black mb-2">New Customers</h4>
-                  <p className="text-gray-600 text-sm">We bring you business you never would have found</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                  </div>
-                  <h4 className="text-lg font-semibold text-black mb-2">Trusted Network</h4>
-                  <p className="text-gray-600 text-sm">Join San Diego&apos;s most reliable towing partner network</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 rounded-2xl bg-green-100 flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <h4 className="text-lg font-semibold text-black mb-2">Fast Payments</h4>
-                  <p className="text-gray-600 text-sm">Get paid weekly, bi-weekly, or same-day based on tier</p>
+                  <div className="text-7xl font-black text-white mb-2 tracking-tight">15<span className="text-4xl">%</span></div>
+                  <p className="text-yellow-200/70 mb-6">Commission per referral</p>
+                  <div className="h-px bg-gradient-to-r from-transparent via-yellow-500/50 to-transparent mb-6"></div>
+                  <ul className="space-y-3 text-yellow-100/90 text-sm">
+                    <li className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                      11-25 referrals/month
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                      Bi-weekly payments
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                      Priority support line
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                      Monthly bonus opportunities
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
+
+            {/* Platinum Tier */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-violet-600 rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
+              <div className="relative bg-gradient-to-br from-purple-900/80 to-violet-950/80 backdrop-blur-xl rounded-3xl p-8 border border-purple-500/30 hover:border-purple-400/50 transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/20">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-400/20 to-transparent rounded-full blur-2xl"></div>
+                <div className="relative">
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="text-purple-400 text-sm font-medium uppercase tracking-wider">Platinum</span>
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-400 to-violet-600 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="text-7xl font-black text-white mb-2 tracking-tight">20<span className="text-4xl">%</span></div>
+                  <p className="text-purple-200/70 mb-6">Commission per referral</p>
+                  <div className="h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent mb-6"></div>
+                  <ul className="space-y-3 text-purple-100/90 text-sm">
+                    <li className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                      26+ referrals/month
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                      Same-day payments
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                      Dedicated account manager
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                      Exclusive bonus programs
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                      Marketing materials
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ═══ TWO PATHS SECTION ═══ */}
+        <div className="grid lg:grid-cols-2 gap-8 mb-20">
+          {/* Path 1: You Send Us Tows */}
+          <div className="group relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-3xl blur-[72px] opacity-20 group-hover:opacity-30 transition-opacity"></div>
+            <div className="relative bg-white rounded-3xl p-10 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500">
+              <div className="flex items-center gap-5 mb-10">
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900">You Send Us Tows</h3>
+              </div>
+
+              <div className="space-y-8">
+                <div className="flex gap-5">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-xl shadow-lg">1</div>
+                  <div>
+                    <h4 className="text-xl font-semibold text-gray-900 mb-2">Customer Needs a Tow</h4>
+                    <p className="text-gray-600 text-lg">Your customer&apos;s car breaks down or needs transport and you don&apos;t offer towing services.</p>
+                  </div>
+                </div>
+                <div className="flex gap-5">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-xl shadow-lg">2</div>
+                  <div>
+                    <h4 className="text-xl font-semibold text-gray-900 mb-2">Submit a Quick Form</h4>
+                    <p className="text-gray-600 text-lg">Your shop is already set as the destination. Just enter pickup location and customer phone - <span className="text-blue-600 font-semibold">that&apos;s it!</span></p>
+                  </div>
+                </div>
+                <div className="flex gap-5">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-xl shadow-lg">3</div>
+                  <div>
+                    <h4 className="text-xl font-semibold text-gray-900 mb-2">Get Paid Commission</h4>
+                    <p className="text-gray-600 text-lg">Earn <span className="text-blue-600 font-semibold">10-20% of the service fee</span> for every successful referral.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-10 p-5 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl border border-blue-200">
+                <p className="text-blue-800 text-base">
+                  <span className="font-semibold">Example:</span> Refer a $150 tow = earn $15-$30 commission. It adds up fast!
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Path 2: We Send You Work */}
+          <div className="group relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity"></div>
+            <div className="relative bg-white rounded-3xl p-10 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500">
+              <div className="flex items-center gap-5 mb-10">
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center shadow-lg shadow-green-500/30">
+                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <div className="flex items-center gap-4">
+                  <h3 className="text-3xl font-bold text-gray-900">We Send You Work</h3>
+                  <span className="text-xl font-extrabold text-white bg-gradient-to-r from-green-500 to-emerald-600 px-4 py-2 rounded-lg shadow-lg shadow-green-500/30">FREE</span>
+                </div>
+              </div>
+
+              <div className="space-y-8">
+                <div className="flex gap-5">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white font-bold text-xl shadow-lg">1</div>
+                  <div>
+                    <h4 className="text-xl font-semibold text-gray-900 mb-2">We Tow a Vehicle</h4>
+                    <p className="text-gray-600 text-lg">A customer&apos;s car needs repairs after we tow it - transmission, engine, body work, etc.</p>
+                  </div>
+                </div>
+                <div className="flex gap-5">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white font-bold text-xl shadow-lg">2</div>
+                  <div>
+                    <h4 className="text-xl font-semibold text-gray-900 mb-2">We Recommend You</h4>
+                    <p className="text-gray-600 text-lg">We send the customer directly to your shop as a trusted partner.</p>
+                  </div>
+                </div>
+                <div className="flex gap-5">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white font-bold text-xl shadow-lg">3</div>
+                  <div>
+                    <h4 className="text-xl font-semibold text-gray-900 mb-2">You Get New Business</h4>
+                    <p className="text-gray-600 text-lg">New customers walk through your door - <span className="text-green-600 font-semibold">completely free</span> for you.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-10 p-5 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200">
+                <p className="text-green-800 text-base">
+                  <span className="font-semibold">No fees, no catch:</span> We send you business because happy customers make us all successful.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ═══ WHY PARTNER SECTION ═══ */}
+        <div className="relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-gray-200 rounded-3xl"></div>
+          <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-12 border border-gray-200 shadow-xl">
+            <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">Why Businesses Partner With Us</h3>
+            <div className="grid md:grid-cols-4 gap-8">
+              <div className="text-center group">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-500 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-yellow-500/30 group-hover:scale-110 transition-transform">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">Passive Income</h4>
+                <p className="text-gray-600 text-sm">Earn money from customers you couldn&apos;t serve anyway</p>
+              </div>
+              <div className="text-center group">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-400 to-violet-500 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-purple-500/30 group-hover:scale-110 transition-transform">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">New Customers</h4>
+                <p className="text-gray-600 text-sm">We bring you business you never would have found</p>
+              </div>
+              <div className="text-center group">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-500/30 group-hover:scale-110 transition-transform">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">Trusted Network</h4>
+                <p className="text-gray-600 text-sm">Join San Diego&apos;s most reliable towing partner network</p>
+              </div>
+              <div className="text-center group">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-green-500/30 group-hover:scale-110 transition-transform">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">Fast Payments</h4>
+                <p className="text-gray-600 text-sm">Get paid weekly, bi-weekly, or same-day based on tier</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* CTA */}
         <div className="text-center mt-16">
           <p className="text-gray-600 mb-6">Ready to start earning?</p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-10 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-blue-500/25"
+            className="group relative bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white px-12 py-5 rounded-2xl font-bold text-lg transition-all shadow-xl hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-105"
           >
-            Sign Up Now - It&apos;s Free
+            <span className="relative z-10">Sign Up Now - It&apos;s Free</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity"></div>
           </button>
         </div>
       </div>
+
+      {/* Custom animations */}
+      <style jsx>{`
+        @keyframes float-slow {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-10px) rotate(5deg); }
+        }
+        @keyframes float-medium {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-15px) rotate(-5deg); }
+        }
+        @keyframes float-fast {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-8px); }
+        }
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        .animate-float-slow {
+          animation: float-slow 6s ease-in-out infinite;
+        }
+        .animate-float-medium {
+          animation: float-medium 4s ease-in-out infinite;
+        }
+        .animate-float-fast {
+          animation: float-fast 3s ease-in-out infinite;
+        }
+        .animate-spin-slow {
+          animation: spin-slow 20s linear infinite;
+        }
+      `}</style>
     </section>
     </>
   );
