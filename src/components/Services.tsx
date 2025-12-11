@@ -25,7 +25,7 @@ const services: Service[] = [
     key: "collision",
     title: "Collision Recovery",
     icon: "🚨",
-    img: "/services/flatbed.jpg",
+    img: "/services/collision-recovery.webp",
     blurb:
       "Accident? We provide fast, professional collision towing and recovery. Safe removal from accident scenes, insurance-friendly documentation, and careful transport to your preferred location. Available 24/7 across San Diego.",
     link: "/services/collision-recovery",
