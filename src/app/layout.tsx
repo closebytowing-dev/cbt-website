@@ -110,12 +110,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+        {/* Preconnect to critical third-party origins */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://connect.facebook.net" />
+
         {/* Preload critical hero image for LCP optimization */}
         <link
           rel="preload"
           as="image"
           href="/hero/home-hero.webp"
           type="image/webp"
+          fetchPriority="high"
         />
 
         {/* Business Schema - critical for SEO */}

@@ -1,10 +1,9 @@
 // src/lib/firebase.ts
-// Client-side Firebase configuration
+// Client-side Firebase configuration with lazy loading for performance
 
-import { initializeApp, getApps } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
-// import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check"; // Disabled - not needed
+import { initializeApp, getApps, type FirebaseApp } from "firebase/app";
+import { getFirestore, type Firestore } from "firebase/firestore";
+import { getAuth, type Auth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -15,39 +14,50 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase (only once)
-const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+// Lazy initialization - only initialize when actually needed
+let _app: FirebaseApp | null = null;
+let _db: Firestore | null = null;
+let _auth: Auth | null = null;
 
-// Firebase App Check - DISABLED
-// Why: Not needed for this use case. The website has:
-// - Public pricing data (anyone can read)
-// - Secure API routes for job creation (server-side validation)
-// - Square payment API (already secure)
-// - Firestore rules prevent abuse
-//
-// Enable App Check only if you experience:
-// - High bot traffic costs
-// - Abuse of Firebase services
-// - DDoS attacks on Firestore
-//
-// To enable: Get reCAPTCHA key from Firebase Console → App Check (not google.com/recaptcha)
-/*
-if (typeof window !== 'undefined' && process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY) {
-  try {
-    initializeAppCheck(app, {
-      provider: new ReCaptchaV3Provider(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY),
-      isTokenAutoRefreshEnabled: true
-    });
-    console.log('✅ Firebase App Check enabled');
-  } catch (error) {
-    console.warn('⚠️ App Check failed:', error);
+// Get Firebase app instance (lazy init)
+function getApp(): FirebaseApp {
+  if (!_app) {
+    _app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
   }
+  return _app;
 }
-*/
-console.log('ℹ️ Firebase App Check is DISABLED (not needed for this use case)');
 
-// Initialize Firestore
-export const db = getFirestore(app);
+// Export lazy-initialized instances
+// These will only initialize Firebase when first accessed
+export const db: Firestore = new Proxy({} as Firestore, {
+  get(_, prop) {
+    if (!_db) {
+      _db = getFirestore(getApp());
+    }
+    return (_db as Record<string | symbol, unknown>)[prop];
+  },
+});
 
-// Initialize Firebase Auth
-export const auth = getAuth(app);
+export const auth: Auth = new Proxy({} as Auth, {
+  get(_, prop) {
+    if (!_auth) {
+      _auth = getAuth(getApp());
+    }
+    return (_auth as Record<string | symbol, unknown>)[prop];
+  },
+});
+
+// For cases where you need the actual instance (not proxy)
+export function getFirestoreInstance(): Firestore {
+  if (!_db) {
+    _db = getFirestore(getApp());
+  }
+  return _db;
+}
+
+export function getAuthInstance(): Auth {
+  if (!_auth) {
+    _auth = getAuth(getApp());
+  }
+  return _auth;
+}
