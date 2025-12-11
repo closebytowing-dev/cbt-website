@@ -597,7 +597,7 @@ export default function PartnerSignupPage() {
     </div>
 
     {/* How It Works Section */}
-    <section className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-24 px-6">
+    <section className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-24 px-6 -mt-[20vh] relative z-20">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-20">
