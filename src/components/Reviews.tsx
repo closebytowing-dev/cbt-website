@@ -60,7 +60,7 @@ function Card({ r }: { r: Review }) {
         <div className="font-semibold">{r.name}</div>
         <Stars n={r.rating ?? 5} />
       </div>
-      {r.when ? <p className="mt-1 text-sm text-[#0d0d36]/70">{r.when}</p> : null}
+      {r.when ? <p className="mt-1 text-sm text-[#0d0d36]/80">{r.when}</p> : null}
       <p className="mt-3 text-[1.05rem] leading-snug">{r.text}</p>
     </article>
   );
@@ -91,13 +91,13 @@ export default function Reviews() {
                 ))}
               </div>
             </div>
-            <div className="border-l-2 border-[#1e1e4a]/20 pl-3 sm:pl-4">
-              <div className="text-xs sm:text-sm font-semibold text-[#1e1e4a]/70">Based on</div>
+            <div className="border-l-2 border-[#1e1e4a]/30 pl-3 sm:pl-4">
+              <div className="text-xs sm:text-sm font-semibold text-[#1e1e4a]">Based on</div>
               <div className="text-lg sm:text-xl font-bold text-[#1e1e4a]">1,247+ Reviews</div>
               <div className="flex gap-1.5 sm:gap-2 mt-1">
-                <span className="text-xs font-semibold text-[#1e1e4a]/60">Google</span>
-                <span className="text-xs font-semibold text-[#1e1e4a]/60">Yelp</span>
-                <span className="text-xs font-semibold text-[#1e1e4a]/60">Facebook</span>
+                <span className="text-xs font-bold text-[#1e1e4a]/80">Google</span>
+                <span className="text-xs font-bold text-[#1e1e4a]/80">Yelp</span>
+                <span className="text-xs font-bold text-[#1e1e4a]/80">Facebook</span>
               </div>
             </div>
           </div>

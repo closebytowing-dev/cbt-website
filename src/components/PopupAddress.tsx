@@ -162,24 +162,17 @@ const isTowing = useMemo(
   const reverseGeocode = useCallback(
     async (lat: number, lng: number) => {
       try {
-        console.log('🔄 [Reverse Geocode] Starting...', { lat, lng });
         if (!window.google?.maps?.Geocoder) {
-          console.log('❌ [Reverse Geocode] Google Geocoder not available');
           return;
         }
         const geocoder = new window.google.maps.Geocoder();
         const { results } = await geocoder.geocode({ location: { lat, lng } });
         if (results && results[0]) {
           const address = results[0].formatted_address;
-          console.log('✅ [Reverse Geocode] Got address:', address);
           onAddressChange(address);
           setPickupConfirmed(true);
-          console.log('✅ [Reverse Geocode] Set pickup confirmed to true');
-        } else {
-          console.log('❌ [Reverse Geocode] No results');
         }
-      } catch (error) {
-        console.error("❌ [Reverse Geocode] Failed:", error);
+      } catch {
         // Silent fail - geocoding is not critical, user can still enter address manually
       }
     },
@@ -280,21 +273,10 @@ const isTowing = useMemo(
   // ---------- Distances ----------
   // Base → Pickup (travel)
   useEffect(() => {
-    console.log('🗺️ [Travel Distance Calc] Check:', {
-      pickupConfirmed,
-      hasBaseCoords: !!baseCoords,
-      hasAddress: !!address,
-      hasGoogleMaps: !!(window.google?.maps?.DirectionsService),
-    });
-
     if (!pickupConfirmed) return;
     if (!baseCoords) return;
     if (!address) return;
     if (!process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || !window.google?.maps?.DirectionsService) return;
-
-    console.log('🗺️ [Travel Distance Calc] Calculating distance from base to pickup...');
-    console.log('  From:', baseCoords);
-    console.log('  To:', address);
 
     const directions = new google.maps.DirectionsService();
     directions.route(
@@ -305,13 +287,11 @@ const isTowing = useMemo(
       },
       (result, status) => {
         if (status !== google.maps.DirectionsStatus.OK || !result) {
-          console.log('❌ [Travel Distance Calc] Failed:', status);
           return;
         }
         const meters = result.routes[0].legs.reduce((sum, leg) => sum + (leg.distance?.value ?? 0), 0);
         const miles = meters / 1609.344;
         const rounded = Math.ceil(miles);
-        console.log('✅ [Travel Distance Calc] Result:', rounded, 'mi (raw:', miles.toFixed(2), 'mi)');
         setBaseTravelMilesRounded(rounded);
       }
     );
@@ -330,21 +310,8 @@ const isTowing = useMemo(
 
   // Pickup → Dropoff (tow)
   useEffect(() => {
-    console.log('🚗 [Tow Distance Calc] Check:', {
-      isTowing,
-      pickupConfirmed,
-      dropoffConfirmed,
-      hasAddress: !!address,
-      hasDropoff: !!dropoff,
-      hasGoogleMaps: !!(window.google?.maps?.DirectionsService),
-    });
-
     if (!isTowing || !pickupConfirmed || !dropoffConfirmed) return;
     if (!process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || !window.google?.maps?.DirectionsService) return;
-
-    console.log('🚗 [Tow Distance Calc] Calculating distance from pickup to dropoff...');
-    console.log('  From:', address);
-    console.log('  To:', dropoff);
 
     const directions = new google.maps.DirectionsService();
     directions.route(
@@ -355,13 +322,11 @@ const isTowing = useMemo(
       },
       (result, status) => {
         if (status !== google.maps.DirectionsStatus.OK || !result) {
-          console.log('❌ [Tow Distance Calc] Failed:', status);
           return;
         }
         const meters = result.routes[0].legs.reduce((sum, leg) => sum + (leg.distance?.value ?? 0), 0);
         const miles = meters / 1609.344;
         const rounded = Math.ceil(miles);
-        console.log('✅ [Tow Distance Calc] Result:', rounded, 'mi (raw:', miles.toFixed(2), 'mi)');
         setDistanceMilesRounded(rounded);
       }
     );
@@ -422,52 +387,19 @@ const isTowing = useMemo(
 
   // Towing (FINAL): Hook-up + $8/mi × tow + Travel after destination confirmed
   useEffect(() => {
-    console.log('🔵 [P2 Final Breakdown Check]', {
-      pricingReady,
-      isTowing,
-      pickupConfirmed,
-      dropoffConfirmed,
-      distanceMilesRounded,
-      baseTravelMilesRounded,
-    });
-
-    if (!pricingReady) {
-      console.log('  ⏸️ Waiting for pricing to be ready');
-      return;
-    }
-    if (!isTowing) {
-      console.log('  ⏸️ Not a towing service');
-      return;
-    }
-    if (!pickupConfirmed || !dropoffConfirmed) {
-      console.log('  ⏸️ Waiting for both pickup and dropoff confirmation');
-      return;
-    }
-    if (distanceMilesRounded == null) {
-      console.log('  ⏸️ Waiting for tow distance calculation');
-      return;
-    }
+    if (!pricingReady) return;
+    if (!isTowing) return;
+    if (!pickupConfirmed || !dropoffConfirmed) return;
+    if (distanceMilesRounded == null) return;
     // IMPORTANT: Accept 0 as a valid travel distance
-    if (baseTravelMilesRounded == null) {
-      console.log('  ⏸️ Waiting for travel distance calculation (baseTravelMilesRounded is null)');
-      return;
-    }
-
-    console.log('🔵 [P2 Final Breakdown] Calculating final breakdown with tow miles...');
-    console.log('  - Tow distance:', distanceMilesRounded, 'mi');
-    console.log('  - Travel distance:', baseTravelMilesRounded, 'mi');
+    if (baseTravelMilesRounded == null) return;
 
     try {
       const breakdown = quoteWithTravel(choice, distanceMilesRounded, baseTravelMilesRounded);
-      console.log('✅ [P2 Final Breakdown] Created breakdown with', breakdown.items.length, 'items:');
-      breakdown.items.forEach((item, i) => {
-        console.log(`  [${i}] ${item.label} = $${item.amount}`);
-      });
       setEstimatedQuote(breakdown.base);
       setPriceBreakdown(breakdown);
       setPricingError(null);
     } catch (error: any) {
-      console.error("❌ [P2 Final Breakdown] Pricing calculation error:", error);
       setPricingError(error.message || "Unable to calculate pricing. Please call (858) 999-9293.");
       setEstimatedQuote(0);
       setPriceBreakdown(null);
@@ -519,23 +451,6 @@ const isTowing = useMemo(
     // Only address(es) and pricing need to be ready for Panel 2
     const isComplete = hasPickup && hasDropoff && hasPricing && hasDistance && hasFinalBreakdown;
 
-    // DEBUG: Log all conditions
-    if (isTowing && dropoffConfirmed) {
-      console.log('🟡 [P2 Auto-Advance Check] Conditions:');
-      console.log('  ✓ hasPickup:', hasPickup);
-      console.log('  ✓ hasDropoff:', hasDropoff);
-      console.log('  ✓ hasPricing:', hasPricing, '(quote:', estimatedQuote, ')');
-      console.log('  ✓ hasDistance:', hasDistance, '(miles:', distanceMilesRounded, ')');
-      console.log('  ✓ hasFinalBreakdown:', hasFinalBreakdown, '(items:', priceBreakdown?.items?.length || 0, ')');
-      console.log('  → isComplete:', isComplete);
-      if (priceBreakdown?.items) {
-        console.log('  Current breakdown items:');
-        priceBreakdown.items.forEach((item, i) => {
-          console.log(`    [${i}] ${item.label} = $${item.amount}`);
-        });
-      }
-    }
-
     // Only advance if complete
     if (!isComplete) return;
 
@@ -560,18 +475,6 @@ const isTowing = useMemo(
       estimatedQuote,
       priceBreakdown,
     };
-
-    // DEBUG: Log complete payload with all breakdown items
-    console.log('='.repeat(80));
-    console.log('📦 PopupAddress - Creating payload with breakdown:');
-    console.log('Service:', choice);
-    console.log('Number of breakdown items:', priceBreakdown?.items?.length || 0);
-    console.log('Breakdown items:');
-    priceBreakdown?.items?.forEach((item, i) => {
-      console.log(`  [${i}] ${item.label} = $${item.amount}`);
-    });
-    console.log('Total:', priceBreakdown?.base);
-    console.log('='.repeat(80));
 
     // Advance to Panel 3 (vehicle info)
     onContinue(payload);
@@ -669,32 +572,10 @@ const isTowing = useMemo(
         />
 
         {/* Continue button */}
-        {(() => {
-          // Track button disabled state
-          const isButtonDisabled = !(
-            pickupConfirmed &&
-            address.trim().length > 0 &&
-            (!isTowing || (dropoffConfirmed && dropoff.trim().length > 0)) &&
-            estimatedQuote > 0 &&
-            (!isTowing || (distanceMilesRounded != null && distanceMilesRounded > 0)) &&
-            (!isTowing || (priceBreakdown && priceBreakdown.items && priceBreakdown.items.length >= 3))
-          );
-
-          // Log button state for debugging
-          if (isTowing && dropoffConfirmed) {
-            console.log('🔘 [P2 Continue Button State]');
-            console.log('  Disabled:', isButtonDisabled);
-            console.log('  Breakdown items count:', priceBreakdown?.items?.length || 0);
-          }
-
-          return null;
-        })()}
         <div className="flex justify-center mt-6">
           <button
             type="button"
             onClick={() => {
-              console.log('🟢 [P2 Continue Button] Clicked');
-
               // Manually trigger advance if conditions are met
               const hasPickup = pickupConfirmed && address.trim().length > 0;
               const hasDropoff = !isTowing || (dropoffConfirmed && dropoff.trim().length > 0);
@@ -705,13 +586,6 @@ const isTowing = useMemo(
                 priceBreakdown.items &&
                 priceBreakdown.items.length >= 3
               );
-
-              console.log('  Conditions at click time:');
-              console.log('    hasPickup:', hasPickup);
-              console.log('    hasDropoff:', hasDropoff);
-              console.log('    hasPricing:', hasPricing);
-              console.log('    hasDistance:', hasDistance);
-              console.log('    hasFinalBreakdown:', hasFinalBreakdown, '(items:', priceBreakdown?.items?.length || 0, ')');
 
               if (hasPickup && hasDropoff && hasPricing && hasDistance && hasFinalBreakdown) {
                 // Mark as advanced to prevent auto-advance from firing again
@@ -735,17 +609,6 @@ const isTowing = useMemo(
                   estimatedQuote,
                   priceBreakdown,
                 };
-
-                console.log('='.repeat(80));
-                console.log('📦 PopupAddress - Manual continue clicked:');
-                console.log('Service:', choice);
-                console.log('Number of breakdown items:', priceBreakdown?.items?.length || 0);
-                console.log('Breakdown items:');
-                priceBreakdown?.items?.forEach((item, i) => {
-                  console.log(`  [${i}] ${item.label} = $${item.amount}`);
-                });
-                console.log('Total:', priceBreakdown?.base);
-                console.log('='.repeat(80));
 
                 onContinue(payload);
               }

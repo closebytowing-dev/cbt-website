@@ -15,7 +15,6 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would integrate with your email service (SendGrid, etc.)
-    console.log("Form submitted:", formData);
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 5000);
   };
@@ -275,6 +274,7 @@ export default function ContactPage() {
                   alt="CloseBy Towing service area map - San Diego County"
                   fill
                   className="object-cover"
+                  loading="lazy"
                 />
               </div>
             </div>

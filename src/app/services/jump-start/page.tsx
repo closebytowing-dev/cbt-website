@@ -420,6 +420,7 @@ export default function JumpStartPage() {
                   src="/services/jump-start-ev.webp"
                   alt="Hybrid and Electric Vehicle Jump Start Service"
                   className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
             </div>

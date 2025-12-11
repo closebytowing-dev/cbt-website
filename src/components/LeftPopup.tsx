@@ -57,6 +57,12 @@ export default function LeftPopup({
   const [stage, setStage] = useState<Stage>("choose");
   const [choice, setChoice] = useState<string>("");
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile once on mount to avoid layout thrashing
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 640);
+  }, []);
 
   // Hardcoded services - no Firebase fetch to avoid loading on homepage
   // Prices are calculated server-side when user submits request
@@ -87,19 +93,12 @@ export default function LeftPopup({
     // Services to hide on mobile by default
     const mobileHiddenServices = ['Emergency Roadside Assistance', 'Long Distance Towing', 'Long-Distance Towing'];
 
-    // Check if we're on mobile (you can use window.innerWidth or a breakpoint)
-    const isMobile = typeof window !== 'undefined' && window.innerWidth < 640; // sm breakpoint
-
-    let filteredServices = allServices;
-
     // If no search query and on mobile, hide specific services
     if (!searchQuery.trim() && isMobile) {
-      filteredServices = allServices.filter(item => {
+      return allServices.filter(item => {
         const serviceName = typeof item === 'string' ? item : item.name;
         return !mobileHiddenServices.includes(serviceName);
       });
-      console.log('🔍 MOBILE SERVICE ORDER:', filteredServices.map(s => typeof s === 'string' ? s : s.name));
-      return filteredServices;
     }
 
     // If there's a search query, filter normally (includes hidden services if they match)
@@ -111,9 +110,8 @@ export default function LeftPopup({
       });
     }
 
-    console.log('🔍 DESKTOP SERVICE ORDER:', allServices.map(s => typeof s === 'string' ? s : s.name));
     return allServices;
-  }, [allServices, searchQuery]);
+  }, [allServices, searchQuery, isMobile]);
 
   const [address, setAddress] = useState("");
   const [coords, setCoords] = useState<{ lat: number; lng: number } | null>(null);
@@ -169,32 +167,28 @@ export default function LeftPopup({
   // Lock body scroll when popup is open (mobile only)
   useEffect(() => {
     if (typeof window === 'undefined') return;
+    if (!open || !isMobile) return;
 
-    // Only lock on mobile devices (below sm breakpoint)
-    const isMobile = window.innerWidth < 640;
+    // Save current scroll position
+    const scrollY = window.scrollY;
 
-    if (open && isMobile) {
-      // Save current scroll position
-      const scrollY = window.scrollY;
+    // Lock body scroll
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
 
-      // Lock body scroll
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
-      document.body.style.overflow = 'hidden';
+    return () => {
+      // Restore body scroll
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
 
-      return () => {
-        // Restore body scroll
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
-        document.body.style.overflow = '';
-
-        // Restore scroll position
-        window.scrollTo(0, scrollY);
-      };
-    }
-  }, [open]);
+      // Restore scroll position
+      window.scrollTo(0, scrollY);
+    };
+  }, [open, isMobile]);
 
   // Trigger list entrance after panel is visible
   useEffect(() => {

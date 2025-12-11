@@ -56,7 +56,6 @@ export function useServicePricing(
         // Online price is discounted by the Firebase rate
         const online = applyOnlineDiscount(standard, discountRate);
 
-        console.log(`📊 [useServicePricing] ${serviceName}: standard=$${standard}, discount=${discountPercent}%, online=$${online}`);
 
         setStandardPrice(standard);
         setOnlinePrice(online);

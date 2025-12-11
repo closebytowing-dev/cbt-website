@@ -80,7 +80,6 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
         amountQuoted: discountedTotal,
       };
 
-      console.log("📤 Creating job with data:", jobData);
 
       // Create job first
       const jobResponse = await fetch("/api/create-job", {
@@ -213,18 +212,6 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
             {/* Price Items */}
             <div className="p-4 space-y-3">
               {/* Render all breakdown items */}
-              {(() => {
-                console.log('='.repeat(80));
-                console.log('🔍 PopupCustomerInfo - Received breakdown:');
-                console.log('Service:', payload.service);
-                console.log('Number of breakdown items:', payload.priceBreakdown.items.length);
-                console.log('Breakdown items:');
-                payload.priceBreakdown.items.forEach((item, i) => {
-                  console.log(`  [${i}] ${item.label} = $${item.amount}`);
-                });
-                console.log('='.repeat(80));
-                return null;
-              })()}
               {payload.priceBreakdown.items.map((item: any, index: number) => {
                 // Skip the after-hours indicator line (amount = 0)
                 if (item.amount === 0) {

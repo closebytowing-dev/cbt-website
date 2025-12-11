@@ -369,6 +369,7 @@ export default function TireChangePage() {
                 quality={85}
                 className="absolute inset-0 w-full h-full object-cover"
                 sizes="(max-width: 1400px) 100vw, 1400px"
+                loading="lazy"
               />
             </div>
           </div>
@@ -441,6 +442,7 @@ export default function TireChangePage() {
                 quality={85}
                 className="absolute inset-0 w-full h-full object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                loading="lazy"
               />
             </div>
 
