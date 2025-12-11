@@ -240,7 +240,7 @@ export default function PartnerSignupPage() {
           <div className="hidden lg:flex flex-col gap-6 absolute right-[108%] top-[5.5vh]">
             {/* Blue Banner */}
             <div className="relative flex-shrink-0">
-              <div className="bg-black/30 backdrop-blur-[1px] px-14 py-10 rounded-2xl shadow-2xl relative w-[504px] overflow-hidden">
+              <div className="bg-black/40 backdrop-blur-md px-14 py-10 rounded-2xl shadow-2xl relative w-[504px] overflow-hidden">
                 <h3 className="text-4xl font-bold text-white mb-3 relative z-10 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">You Send Us Tows</h3>
                 <p className="text-white text-xl relative z-10 mb-4 drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">
                   Earn <span className="font-extrabold text-white bg-black px-3 py-1 rounded-lg drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">10-20%</span> commission on every referral
@@ -270,7 +270,7 @@ export default function PartnerSignupPage() {
 
             {/* Green Banner */}
             <div className="relative flex-shrink-0">
-              <div className="bg-black/30 backdrop-blur-[1px] px-14 py-10 rounded-2xl shadow-2xl relative w-[504px] overflow-hidden">
+              <div className="bg-black/40 backdrop-blur-md px-14 py-10 rounded-2xl shadow-2xl relative w-[504px] overflow-hidden">
                 <div className="flex items-center gap-4 mb-3 relative z-10">
                   <h3 className="text-4xl font-bold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">We Send You Work</h3>
                   <span className="text-xl font-extrabold text-white bg-black px-3 py-1 rounded-lg drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">FREE</span>
@@ -612,14 +612,17 @@ export default function PartnerSignupPage() {
           <div className="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {/* Silver Tier */}
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#C0C0C0] to-[#A8A8A8] rounded-3xl blur-xl opacity-40 group-hover:opacity-60 transition-opacity"></div>
-              <div className="relative bg-gradient-to-br from-[#F8F8F8] via-[#D8D8D8] to-[#A8A8A8] backdrop-blur-xl rounded-3xl p-8 border border-[#E0E0E0] hover:border-white transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-white/40 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#C0C0C0] to-[#A8A8A8] rounded-3xl blur-xl opacity-50 group-hover:opacity-70 transition-opacity"></div>
+              <div className="relative bg-gradient-to-br from-[#F8F8F8] via-[#E8E8E8] to-[#C0C0C0] backdrop-blur-xl rounded-3xl p-8 border border-[#E0E0E0] hover:border-white transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-white/60 overflow-hidden">
                 {/* Metallic shine overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-transparent to-white/20 pointer-events-none"></div>
-                {/* Diagonal shine streak */}
-                <div className="absolute -top-20 -left-20 w-40 h-[200%] bg-gradient-to-r from-transparent via-white/40 to-transparent rotate-[30deg] pointer-events-none group-hover:translate-x-[400px] transition-transform duration-1000"></div>
-                {/* Top highlight */}
-                <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-white/50 to-transparent rounded-t-3xl pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-white/70 via-white/20 to-white/30 pointer-events-none"></div>
+                {/* Multiple diagonal shine streaks for extra shimmer */}
+                <div className="absolute -top-20 -left-20 w-40 h-[200%] bg-gradient-to-r from-transparent via-white/50 to-transparent rotate-[30deg] pointer-events-none group-hover:translate-x-[400px] transition-transform duration-1000"></div>
+                <div className="absolute -top-40 -left-10 w-20 h-[200%] bg-gradient-to-r from-transparent via-white/30 to-transparent rotate-[25deg] pointer-events-none group-hover:translate-x-[450px] transition-transform duration-700"></div>
+                {/* Top highlight - enhanced */}
+                <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/60 via-white/20 to-transparent rounded-t-3xl pointer-events-none"></div>
+                {/* Edge highlights */}
+                <div className="absolute inset-0 rounded-3xl border border-white/40 pointer-events-none"></div>
                 <div className="relative">
                   <div className="flex items-center justify-between mb-6">
                     <span className="text-gray-700 text-sm font-medium uppercase tracking-wider">Silver</span>
@@ -652,14 +655,21 @@ export default function PartnerSignupPage() {
 
             {/* Gold Tier - Featured */}
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700] to-[#B8860B] rounded-3xl blur-xl opacity-50 group-hover:opacity-70 transition-opacity"></div>
-              <div className="relative bg-gradient-to-br from-[#FFF8DC] via-[#FFD700] to-[#CD9B1D] backdrop-blur-xl rounded-3xl p-8 border-2 border-[#FFE55C] hover:border-[#FFF8DC] transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#FFD700]/50 overflow-hidden">
-                {/* Metallic shine overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#FFFACD]/70 via-transparent to-[#DAA520]/30 pointer-events-none"></div>
-                {/* Diagonal shine streak */}
-                <div className="absolute -top-20 -left-20 w-40 h-[200%] bg-gradient-to-r from-transparent via-[#FFFACD]/50 to-transparent rotate-[30deg] pointer-events-none group-hover:translate-x-[400px] transition-transform duration-1000"></div>
-                {/* Top highlight */}
-                <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-[#FFFACD]/60 to-transparent rounded-t-3xl pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700] to-[#B8860B] rounded-3xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity"></div>
+              <div className="relative bg-gradient-to-br from-[#FFFACD] via-[#FFD700] to-[#DAA520] backdrop-blur-xl rounded-3xl p-8 border-2 border-[#FFE55C] hover:border-[#FFFACD] transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#FFD700]/70 overflow-hidden">
+                {/* Metallic shine overlay - extra bright for gold */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#FFFACD]/80 via-[#FFD700]/30 to-[#FFFACD]/40 pointer-events-none"></div>
+                {/* Multiple diagonal shine streaks for maximum shimmer */}
+                <div className="absolute -top-20 -left-20 w-48 h-[200%] bg-gradient-to-r from-transparent via-[#FFFACD]/70 to-transparent rotate-[30deg] pointer-events-none group-hover:translate-x-[400px] transition-transform duration-1000"></div>
+                <div className="absolute -top-40 -left-10 w-24 h-[200%] bg-gradient-to-r from-transparent via-white/50 to-transparent rotate-[25deg] pointer-events-none group-hover:translate-x-[450px] transition-transform duration-700"></div>
+                <div className="absolute -top-60 left-10 w-16 h-[200%] bg-gradient-to-r from-transparent via-[#FFFACD]/40 to-transparent rotate-[35deg] pointer-events-none group-hover:translate-x-[380px] transition-transform duration-1200"></div>
+                {/* Top highlight - extra enhanced for gold */}
+                <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-[#FFFACD]/70 via-[#FFD700]/30 to-transparent rounded-t-3xl pointer-events-none"></div>
+                {/* Edge highlights - golden glow */}
+                <div className="absolute inset-0 rounded-3xl border border-[#FFFACD]/60 pointer-events-none"></div>
+                {/* Sparkle effect */}
+                <div className="absolute top-4 right-8 w-2 h-2 bg-white rounded-full opacity-80 animate-pulse pointer-events-none"></div>
+                <div className="absolute top-12 right-16 w-1.5 h-1.5 bg-white rounded-full opacity-60 animate-pulse pointer-events-none" style={{animationDelay: '0.5s'}}></div>
                 <div className="relative">
                   <div className="flex items-center justify-between mb-6">
                     <span className="text-[#8B6914] text-sm font-medium uppercase tracking-wider">Gold</span>
@@ -706,35 +716,35 @@ export default function PartnerSignupPage() {
                 <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-white/40 to-transparent rounded-t-3xl pointer-events-none"></div>
                 <div className="relative">
                   <div className="flex items-center justify-between mb-6">
-                    <span className="text-white/90 text-sm font-medium uppercase tracking-wider">Platinum</span>
+                    <span className="text-gray-700 text-sm font-medium uppercase tracking-wider">Platinum</span>
                     <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#D1D5DB] to-[#6B7280] flex items-center justify-center shadow-lg">
                       <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                       </svg>
                     </div>
                   </div>
-                  <div className="text-7xl font-black text-white mb-2 tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">20<span className="text-4xl">%</span></div>
-                  <p className="text-gray-200 mb-6">Commission per referral</p>
+                  <div className="text-7xl font-black text-gray-800 mb-2 tracking-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.5)]">20<span className="text-4xl">%</span></div>
+                  <p className="text-gray-600 mb-6">Commission per referral</p>
                   <div className="h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent mb-6"></div>
-                  <ul className="space-y-3 text-gray-100 text-sm">
+                  <ul className="space-y-3 text-gray-700 text-sm">
                     <li className="flex items-center gap-3">
-                      <svg className="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                      <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
                       26+ referrals/month
                     </li>
                     <li className="flex items-center gap-3">
-                      <svg className="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                      <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
                       Same-day payments
                     </li>
                     <li className="flex items-center gap-3">
-                      <svg className="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                      <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
                       Dedicated account manager
                     </li>
                     <li className="flex items-center gap-3">
-                      <svg className="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                      <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
                       Exclusive bonus programs
                     </li>
                     <li className="flex items-center gap-3">
-                      <svg className="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                      <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
                       Marketing materials
                     </li>
                   </ul>
