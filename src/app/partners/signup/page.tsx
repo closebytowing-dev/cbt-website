@@ -593,8 +593,8 @@ export default function PartnerSignupPage() {
     </div>
 
     {/* Section Header - floats into hero */}
-    <div className="relative z-30 -mt-[28vh] flex justify-center mb-8">
-      <div className="bg-white rounded-2xl px-10 py-8 shadow-2xl border border-gray-200 text-center max-w-2xl">
+    <div className="relative z-30 -mt-[28vh] flex justify-center">
+      <div className="bg-white rounded-t-2xl px-10 pt-8 pb-12 shadow-2xl border border-gray-200 border-b-0 text-center max-w-2xl">
         <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
           How Our Partnership Works
         </h2>
@@ -605,7 +605,7 @@ export default function PartnerSignupPage() {
     </div>
 
     {/* How It Works Section */}
-    <section className="bg-white pt-10 pb-24 px-6 relative z-20">
+    <section className="bg-white pt-0 pb-24 px-6 relative z-20">
       <div className="max-w-6xl mx-auto">
 
         {/* Two Paths */}
