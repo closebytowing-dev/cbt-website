@@ -72,7 +72,7 @@ export default function ServicesMenu() {
     <div className="relative">
       <button
         ref={buttonRef}
-        className="hover:opacity-60 font-semibold text-[1.1rem] leading-none"
+        className="hover:opacity-60 font-semibold text-[1.35rem] leading-none"
         aria-haspopup="true"
         aria-expanded={open}
         onMouseEnter={handleOpen}

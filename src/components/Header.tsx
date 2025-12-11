@@ -90,7 +90,7 @@ export default function Header() {
           <div className="hidden lg:block absolute left-2">
             <Link
               href="/"
-              className="font-bold tracking-tight text-4xl whitespace-nowrap"
+              className="font-bold tracking-tight text-[1.8rem] whitespace-nowrap"
             >
               <span className="text-red-500">CloseBy</span>
             </Link>
@@ -125,7 +125,7 @@ export default function Header() {
           <div className="hidden lg:block absolute left-2">
             <Link
               href="/"
-              className="font-bold tracking-tight text-4xl text-[#1e1e4a] opacity-90 whitespace-nowrap"
+              className="font-bold tracking-tight text-[1.8rem] text-[#1e1e4a] opacity-90 whitespace-nowrap"
             >
               Towing
             </Link>
