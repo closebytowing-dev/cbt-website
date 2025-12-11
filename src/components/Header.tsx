@@ -54,8 +54,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full">
       {/* Top dark bar (reduced height ~40%) */}
-      <div className="bg-[#1e1e4a] text-white">
-        <div className="mx-auto max-w-[1800px] px-4 sm:px-6 h-[4.5rem] flex items-center justify-between relative">
+      <div className="bg-[#1e1e4a] text-white relative">
+        <div className="mx-auto max-w-[1800px] px-4 sm:px-6 h-[5rem] flex items-center justify-between relative">
           {/* Left: logo (mobile) and brand text (desktop center) */}
           <div className="flex items-center lg:hidden">
             <Link href="/" className="flex items-center gap-2">
@@ -74,31 +74,30 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Desktop: logo on left */}
-          <div className="hidden lg:flex items-center -ml-2">
+          {/* Desktop: Oversized logo that spans both bars */}
+          <Link href="/" className="hidden lg:block absolute -left-28 top-[90%] -translate-y-[50%] z-50">
             <Image
-              src="/images/logo/closeby_logo_96x96.webp"
+              src="/images/main-logo.webp"
               alt="CloseBy Towing logo"
-              width={96}
-              height={96}
-              className="w-auto h-10 sm:h-13"
+              width={500}
+              height={500}
+              className="w-36 h-36 object-contain drop-shadow-lg"
               priority
             />
-          </div>
+          </Link>
 
-          {/* Desktop: brand text centered */}
-          <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2">
+          {/* Desktop: brand text next to logo */}
+          <div className="hidden lg:block absolute left-2">
             <Link
               href="/"
-              className="font-bold tracking-tight text-xl sm:text-3xl whitespace-nowrap"
+              className="font-bold tracking-tight text-4xl whitespace-nowrap"
             >
-              <span className="text-red-500">CloseBy</span>{" "}
-              <span className="opacity-90">Towing</span>
+              <span className="text-red-500">CloseBy</span>
             </Link>
           </div>
 
-          {/* Right: phone button */}
-          <div className="flex items-center">
+          {/* Right: phone button - absolutely positioned */}
+          <div className="absolute -right-14 sm:-right-12 flex items-center">
               <a
                 href="tel:+18589999293"
                 aria-label="Call CloseBy Towing (858) 999-9293"
@@ -121,28 +120,38 @@ export default function Header() {
 
       {/* Subnav bar (reduced height) */}
       <div className="bg-white text-[#1e1e4a] border-t border-[#1e1e4a]/10">
-        <div className="mx-auto max-w-[1800px] px-4 sm:px-6 h-12 flex items-center justify-between relative">
-          {/* Left side: Hamburger Menu (Mobile when logged in) or Desktop Navigation */}
-          <div className="flex items-center">
+        <div className="mx-auto max-w-[1800px] px-4 sm:px-6 h-12 flex items-center justify-center relative">
+          {/* Desktop: "Towing" text under CloseBy */}
+          <div className="hidden lg:block absolute left-2">
+            <Link
+              href="/"
+              className="font-bold tracking-tight text-4xl text-[#1e1e4a] opacity-90 whitespace-nowrap"
+            >
+              Towing
+            </Link>
+          </div>
+
+          {/* Left side: Mobile Navigation */}
+          <div className="lg:hidden absolute left-4 flex items-center">
             {/* Mobile Navigation - Services link */}
-            <nav className="lg:hidden flex items-center">
+            <nav className="flex items-center">
               <ServicesMenu />
             </nav>
 
             {/* Mobile navigation links - shown when logged in */}
             {isLoggedIn && (
               <>
-                <span className="text-[#1e1e4a]/30 text-base sm:text-lg lg:hidden mx-2">|</span>
+                <span className="text-[#1e1e4a]/30 text-base sm:text-lg mx-2">|</span>
 
                 {/* Dashboard link - Mobile only */}
                 <Link
                   href="/partners/dashboard"
-                  className="lg:hidden text-sm font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
+                  className="text-sm font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
                 >
                   Dashboard
                 </Link>
 
-                <span className="text-[#1e1e4a]/30 text-base sm:text-lg lg:hidden mx-2">|</span>
+                <span className="text-[#1e1e4a]/30 text-base sm:text-lg mx-2">|</span>
 
                 {/* Hamburger Menu Button - Mobile only */}
                 <button
@@ -154,7 +163,7 @@ export default function Header() {
                     const event = new CustomEvent('toggle-dashboard-menu');
                     window.dispatchEvent(event);
                   }}
-                  className="lg:hidden text-gray-600 hover:text-gray-900 flex items-center gap-1.5 px-2 py-1.5 rounded hover:bg-gray-100"
+                  className="text-gray-600 hover:text-gray-900 flex items-center gap-1.5 px-2 py-1.5 rounded hover:bg-gray-100"
                   aria-label="Toggle dashboard menu"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -164,33 +173,33 @@ export default function Header() {
                 </button>
               </>
             )}
-
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-4 xl:gap-10 text-[1.0rem] font-semibold leading-none">
-              <ServicesMenu />
-              <Link href="/#reviews" className="hover:opacity-60">
-                Reviews
-              </Link>
-              <Link href="/#area" className="hover:opacity-60">
-                Service Area
-              </Link>
-              <Link href="/about" className="hover:opacity-60">
-                About
-              </Link>
-              <Link href="/contact" className="hover:opacity-60">
-                Contact
-              </Link>
-            </nav>
           </div>
 
-          {/* Center: Company name (when logged in) - Desktop only */}
+          {/* Center: Desktop Navigation - absolutely centered */}
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-10 text-[1.35rem] font-semibold leading-none absolute left-1/2 transform -translate-x-1/2">
+            <ServicesMenu />
+            <Link href="/#reviews" className="hover:opacity-60">
+              Reviews
+            </Link>
+            <Link href="/#area" className="hover:opacity-60">
+              Service Area
+            </Link>
+            <Link href="/about" className="hover:opacity-60">
+              About
+            </Link>
+            <Link href="/contact" className="hover:opacity-60">
+              Contact
+            </Link>
+          </nav>
+
+          {/* Company name (when logged in) - show below nav on desktop */}
           {isLoggedIn && companyName && (
-            <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2">
+            <div className="hidden lg:block absolute right-[200px]">
               <div className="relative animate-pulse-slow">
-                <div className="text-xl xl:text-2xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap tracking-wider bg-[length:200%_auto] animate-gradient">
+                <div className="text-lg font-extrabold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap tracking-wider bg-[length:200%_auto] animate-gradient">
                   {companyName}
                 </div>
-                <div className="absolute inset-0 text-xl xl:text-2xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap tracking-wider blur-sm opacity-50 animate-glow">
+                <div className="absolute inset-0 text-lg font-extrabold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap tracking-wider blur-sm opacity-50 animate-glow">
                   {companyName}
                 </div>
               </div>
@@ -227,19 +236,19 @@ export default function Header() {
           `}</style>
 
           {/* Right side: Dashboard/Logout or Login/Sign Up */}
-          <div className="flex items-center gap-2 sm:gap-4 ml-auto lg:mr-8">
+          <div className="flex items-center gap-2 sm:gap-4 ml-auto lg:-mr-12">
               {isLoggedIn ? (
                 <>
                   <Link
                     href="/partners/dashboard"
-                    className="hidden lg:inline text-sm sm:text-base font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
+                    className="hidden lg:inline text-lg sm:text-xl font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
                   >
                     Dashboard
                   </Link>
-                  <span className="hidden lg:inline text-[#1e1e4a]/30 text-base sm:text-lg">|</span>
+                  <span className="hidden lg:inline text-[#1e1e4a]/30 text-xl sm:text-2xl">|</span>
                   <button
                     onClick={handleLogout}
-                    className="hidden lg:inline text-sm sm:text-base font-semibold text-red-600 hover:text-red-700 hover:underline underline-offset-2 transition whitespace-nowrap"
+                    className="hidden lg:inline text-lg sm:text-xl font-semibold text-red-600 hover:text-red-700 hover:underline underline-offset-2 transition whitespace-nowrap"
                   >
                     Logout
                   </button>
@@ -248,14 +257,14 @@ export default function Header() {
                 <>
                   <Link
                     href="/partners/login"
-                    className="text-sm sm:text-base font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
+                    className="text-xl sm:text-[1.35rem] font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
                   >
                     Login
                   </Link>
-                  <span className="text-[#1e1e4a]/30 text-base sm:text-lg">|</span>
+                  <span className="text-[#1e1e4a]/30 text-xl sm:text-2xl">|</span>
                   <Link
                     href="/partners/signup"
-                    className="text-sm sm:text-base font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
+                    className="text-xl sm:text-[1.35rem] font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
                   >
                     Sign Up
                   </Link>
