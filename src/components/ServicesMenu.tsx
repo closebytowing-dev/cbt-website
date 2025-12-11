@@ -15,10 +15,7 @@ const items = [
 
 export default function ServicesMenu() {
   const [open, setOpen] = useState(false);
-  const [dropdownStyle, setDropdownStyle] = useState<React.CSSProperties>({});
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const cancelClose = () => {
     if (closeTimer.current) {
@@ -26,68 +23,35 @@ export default function ServicesMenu() {
       closeTimer.current = null;
     }
   };
+
   const scheduleClose = () => {
     cancelClose();
     closeTimer.current = setTimeout(() => setOpen(false), 180);
   };
 
-  const getDropdownPosition = () => {
-    if (typeof window === 'undefined' || !buttonRef.current || !dropdownRef.current) return {};
-
-    const buttonRect = buttonRef.current.getBoundingClientRect();
-    const dropdownWidth = dropdownRef.current.offsetWidth || 280;
-    const viewportWidth = window.innerWidth;
-
-    // Try to center under button
-    let leftPosition = buttonRect.left + (buttonRect.width / 2) - (dropdownWidth / 2);
-
-    // Ensure it doesn't overflow left
-    const minLeft = 16; // 1rem
-    if (leftPosition < minLeft) {
-      leftPosition = minLeft;
-    }
-
-    // Ensure it doesn't overflow right
-    const maxLeft = viewportWidth - dropdownWidth - 16; // 1rem margin
-    if (leftPosition > maxLeft) {
-      leftPosition = maxLeft;
-    }
-
-    return {
-      left: `${leftPosition}px`,
-      top: `${buttonRect.bottom + 12}px` // 12px = 0.75rem (mt-3)
-    };
-  };
-
   const handleOpen = () => {
     cancelClose();
     setOpen(true);
-    // Update position after state change
-    requestAnimationFrame(() => {
-      setDropdownStyle(getDropdownPosition());
-    });
   };
 
   return (
-    <div className="relative">
+    <div
+      className="relative"
+      onMouseEnter={handleOpen}
+      onMouseLeave={scheduleClose}
+    >
       <button
-        ref={buttonRef}
         className="hover:opacity-60 font-semibold text-[1.35rem] leading-none"
         aria-haspopup="true"
         aria-expanded={open}
-        onMouseEnter={handleOpen}
-        onMouseLeave={scheduleClose}
         onFocus={handleOpen}
       >
         Services
       </button>
 
+      {/* Dropdown - positioned absolutely relative to parent */}
       <div
-        ref={dropdownRef}
-        className={`fixed ${open ? "block" : "hidden"} z-50`}
-        style={dropdownStyle}
-        onMouseEnter={handleOpen}
-        onMouseLeave={scheduleClose}
+        className={`absolute left-1/2 -translate-x-1/2 top-full mt-3 z-50 ${open ? "block" : "hidden"}`}
       >
         <div className="rounded-2xl shadow-2xl border border-black/10 bg-white w-[240px] sm:w-[280px] p-2">
           <nav className="flex flex-col" aria-label="Services">
