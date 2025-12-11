@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -109,8 +110,40 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        {/* Google Tag Manager */}
+        {/* Preload critical hero image for LCP optimization */}
+        <link
+          rel="preload"
+          as="image"
+          href="/hero/home-hero.webp"
+          type="image/webp"
+        />
+
+        {/* Business Schema - critical for SEO */}
         <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
+        />
+      </head>
+      <body className="overflow-x-hidden">
+        {/* Google Tag Manager (noscript fallback) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+            height="0"
+            width="0"
+            style={{display: 'none', visibility: 'hidden'}}
+            title="Google Tag Manager"
+          />
+        </noscript>
+
+        <Header />
+        {children}
+        <Footer />
+
+        {/* Google Tag Manager - deferred loading */}
+        <Script
+          id="gtm-script"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -120,9 +153,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
 
-        {/* Google Analytics 4 */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z2H3Z3WNJV"></script>
-        <script
+        {/* Google Analytics 4 - deferred loading */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-Z2H3Z3WNJV"
+          strategy="lazyOnload"
+        />
+        <Script
+          id="ga4-config"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -131,8 +169,10 @@ gtag('config', 'G-Z2H3Z3WNJV');`
           }}
         />
 
-        {/* Facebook Pixel */}
-        <script
+        {/* Facebook Pixel - deferred loading */}
+        <Script
+          id="fb-pixel"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -146,15 +186,11 @@ fbq('init', 'YOUR_PIXEL_ID');
 fbq('track', 'PageView');`
           }}
         />
-        <noscript>
-          <img height="1" width="1" style={{display: 'none'}}
-            src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
-            alt=""
-          />
-        </noscript>
 
-        {/* Microsoft Clarity - Free Heatmaps & Session Recordings */}
-        <script
+        {/* Microsoft Clarity - deferred loading */}
+        <Script
+          id="clarity-script"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `(function(c,l,a,r,i,t,y){
 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -163,27 +199,6 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window, document, "clarity", "script", "YOUR_CLARITY_ID");`
           }}
         />
-
-        {/* Business Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
-        />
-      </head>
-      <body className="overflow-x-hidden">
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-            height="0"
-            width="0"
-            style={{display: 'none', visibility: 'hidden'}}
-          />
-        </noscript>
-
-        <Header />
-        {children}
-        <Footer />
       </body>
     </html>
   );
