@@ -597,14 +597,14 @@ export default function PartnerSignupPage() {
     </div>
 
     {/* How It Works Section */}
-    <section className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-24 px-6 -mt-[20vh] relative z-20">
+    <section className="bg-white pt-10 pb-24 px-6 -mt-[20vh] relative z-20">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
             How Our Partnership Works
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             A simple, profitable relationship that benefits both of us. Here&apos;s exactly how it works.
           </p>
         </div>
@@ -613,14 +613,14 @@ export default function PartnerSignupPage() {
         <div className="grid md:grid-cols-2 gap-16 mb-20">
           {/* Path 1: You Send Us Tows */}
           <div className="relative">
-            <div className="bg-gradient-to-br from-blue-900/50 to-blue-800/30 backdrop-blur-sm rounded-3xl p-10 border border-blue-500/20">
+            <div className="bg-blue-50 rounded-3xl p-10 border border-blue-200">
               <div className="flex items-center gap-5 mb-10">
                 <div className="w-20 h-20 rounded-2xl bg-blue-600 flex items-center justify-center">
                   <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                   </svg>
                 </div>
-                <h3 className="text-3xl font-bold text-white">You Send Us Tows</h3>
+                <h3 className="text-3xl font-bold text-black">You Send Us Tows</h3>
               </div>
 
               {/* Steps */}
@@ -628,29 +628,29 @@ export default function PartnerSignupPage() {
                 <div className="flex gap-5">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl">1</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-white mb-2">Customer Needs a Tow</h4>
-                    <p className="text-gray-300 text-lg">Your customer&apos;s car breaks down or needs transport and you don&apos;t offer towing services.</p>
+                    <h4 className="text-xl font-semibold text-black mb-2">Customer Needs a Tow</h4>
+                    <p className="text-gray-700 text-lg">Your customer&apos;s car breaks down or needs transport and you don&apos;t offer towing services.</p>
                   </div>
                 </div>
                 <div className="flex gap-5">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl">2</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-white mb-2">Submit a Quick Form</h4>
-                    <p className="text-gray-300 text-lg">Your shop is already set as the destination. Just enter pickup location and customer phone - <span className="text-blue-400 font-semibold">that&apos;s it!</span></p>
+                    <h4 className="text-xl font-semibold text-black mb-2">Submit a Quick Form</h4>
+                    <p className="text-gray-700 text-lg">Your shop is already set as the destination. Just enter pickup location and customer phone - <span className="text-blue-600 font-semibold">that&apos;s it!</span></p>
                   </div>
                 </div>
                 <div className="flex gap-5">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl">3</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-white mb-2">Get Paid Commission</h4>
-                    <p className="text-gray-300 text-lg">Earn <span className="text-blue-400 font-semibold">10-20% of the service fee</span> for every successful referral.</p>
+                    <h4 className="text-xl font-semibold text-black mb-2">Get Paid Commission</h4>
+                    <p className="text-gray-700 text-lg">Earn <span className="text-blue-600 font-semibold">10-20% of the service fee</span> for every successful referral.</p>
                   </div>
                 </div>
               </div>
 
               {/* Commission highlight */}
-              <div className="mt-10 p-5 bg-blue-600/20 rounded-xl border border-blue-500/30">
-                <p className="text-blue-300 text-base">
+              <div className="mt-10 p-5 bg-blue-100 rounded-xl border border-blue-300">
+                <p className="text-blue-800 text-base">
                   <span className="font-semibold">Example:</span> Refer a $150 tow = earn $15-$30 commission. It adds up fast!
                 </p>
               </div>
@@ -659,7 +659,7 @@ export default function PartnerSignupPage() {
 
           {/* Path 2: We Send You Work */}
           <div className="relative">
-            <div className="bg-gradient-to-br from-green-900/50 to-green-800/30 backdrop-blur-sm rounded-3xl p-10 border border-green-500/20">
+            <div className="bg-green-50 rounded-3xl p-10 border border-green-200">
               <div className="flex items-center gap-5 mb-10">
                 <div className="w-20 h-20 rounded-2xl bg-green-600 flex items-center justify-center">
                   <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -667,7 +667,7 @@ export default function PartnerSignupPage() {
                   </svg>
                 </div>
                 <div className="flex items-center gap-4">
-                  <h3 className="text-3xl font-bold text-white">We Send You Work</h3>
+                  <h3 className="text-3xl font-bold text-black">We Send You Work</h3>
                   <span className="text-2xl font-extrabold text-white bg-green-600 px-4 py-2 rounded-lg">FREE</span>
                 </div>
               </div>
@@ -677,29 +677,29 @@ export default function PartnerSignupPage() {
                 <div className="flex gap-5">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white font-bold text-xl">1</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-white mb-2">We Tow a Vehicle</h4>
-                    <p className="text-gray-300 text-lg">A customer&apos;s car needs repairs after we tow it - transmission, engine, body work, etc.</p>
+                    <h4 className="text-xl font-semibold text-black mb-2">We Tow a Vehicle</h4>
+                    <p className="text-gray-700 text-lg">A customer&apos;s car needs repairs after we tow it - transmission, engine, body work, etc.</p>
                   </div>
                 </div>
                 <div className="flex gap-5">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white font-bold text-xl">2</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-white mb-2">We Recommend You</h4>
-                    <p className="text-gray-300 text-lg">We send the customer directly to your shop as a trusted partner.</p>
+                    <h4 className="text-xl font-semibold text-black mb-2">We Recommend You</h4>
+                    <p className="text-gray-700 text-lg">We send the customer directly to your shop as a trusted partner.</p>
                   </div>
                 </div>
                 <div className="flex gap-5">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white font-bold text-xl">3</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-white mb-2">You Get New Business</h4>
-                    <p className="text-gray-300 text-lg">New customers walk through your door - <span className="text-green-400 font-semibold">completely free</span> for you.</p>
+                    <h4 className="text-xl font-semibold text-black mb-2">You Get New Business</h4>
+                    <p className="text-gray-700 text-lg">New customers walk through your door - <span className="text-green-600 font-semibold">completely free</span> for you.</p>
                   </div>
                 </div>
               </div>
 
               {/* Free highlight */}
-              <div className="mt-10 p-5 bg-green-600/20 rounded-xl border border-green-500/30">
-                <p className="text-green-300 text-base">
+              <div className="mt-10 p-5 bg-green-100 rounded-xl border border-green-300">
+                <p className="text-green-800 text-base">
                   <span className="font-semibold">No fees, no catch:</span> We send you business because happy customers make us all successful.
                 </p>
               </div>
@@ -708,51 +708,51 @@ export default function PartnerSignupPage() {
         </div>
 
         {/* Why Partner Section */}
-        <div className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 backdrop-blur-sm rounded-3xl p-10 border border-gray-600/30">
-          <h3 className="text-3xl font-bold text-white text-center mb-12">Why Businesses Partner With Us</h3>
+        <div className="bg-gray-100 rounded-3xl p-10 border border-gray-200">
+          <h3 className="text-3xl font-bold text-black text-center mb-12">Why Businesses Partner With Us</h3>
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 rounded-2xl bg-yellow-500/20 flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-16 h-16 rounded-2xl bg-yellow-100 flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h4 className="text-lg font-semibold text-white mb-2">Passive Income</h4>
-              <p className="text-gray-400 text-sm">Earn money from customers you couldn&apos;t serve anyway</p>
+              <h4 className="text-lg font-semibold text-black mb-2">Passive Income</h4>
+              <p className="text-gray-600 text-sm">Earn money from customers you couldn&apos;t serve anyway</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 rounded-2xl bg-purple-500/20 flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-16 h-16 rounded-2xl bg-purple-100 flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
-              <h4 className="text-lg font-semibold text-white mb-2">New Customers</h4>
-              <p className="text-gray-400 text-sm">We bring you business you never would have found</p>
+              <h4 className="text-lg font-semibold text-black mb-2">New Customers</h4>
+              <p className="text-gray-600 text-sm">We bring you business you never would have found</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 rounded-2xl bg-blue-500/20 flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h4 className="text-lg font-semibold text-white mb-2">Trusted Network</h4>
-              <p className="text-gray-400 text-sm">Join San Diego&apos;s most reliable towing partner network</p>
+              <h4 className="text-lg font-semibold text-black mb-2">Trusted Network</h4>
+              <p className="text-gray-600 text-sm">Join San Diego&apos;s most reliable towing partner network</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 rounded-2xl bg-green-500/20 flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-16 h-16 rounded-2xl bg-green-100 flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h4 className="text-lg font-semibold text-white mb-2">Fast Payments</h4>
-              <p className="text-gray-400 text-sm">Get paid weekly, bi-weekly, or same-day based on tier</p>
+              <h4 className="text-lg font-semibold text-black mb-2">Fast Payments</h4>
+              <p className="text-gray-600 text-sm">Get paid weekly, bi-weekly, or same-day based on tier</p>
             </div>
           </div>
         </div>
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <p className="text-gray-400 mb-6">Ready to start earning?</p>
+          <p className="text-gray-600 mb-6">Ready to start earning?</p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-10 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-blue-500/25"
