@@ -16,7 +16,7 @@ const services: Service[] = [
     key: "flatbed",
     title: "Flatbed / Wheel-Lift Towing",
     icon: "🚚",
-    img: "/services/flatbed.jpg",
+    img: "/services/flatbed.webp",
     blurb:
       "Need luxury or all-wheel-drive towing? Our flatbeds protect low-clearance vehicles and long-distance transports. Wheel-lift is great for tight spots and quick moves. Damage-free equipment, soft straps, and careful loading.",
     link: "/services/towing",
@@ -34,7 +34,7 @@ const services: Service[] = [
     key: "jump",
     title: "Jump Start Service",
     icon: "⚡",
-    img: "/services/jump.jpg",
+    img: "/services/jump.webp",
     blurb:
       "Dead battery? We bring the power to you. Surge-protected boosters and safe hookup procedures. Fast arrival across San Diego, day or night. No membership required — just a quick, professional jump to get you rolling again.",
     link: "/services/jump-start",
@@ -43,7 +43,7 @@ const services: Service[] = [
     key: "lockout",
     title: "Lock-Out Service",
     icon: "🔑",
-    img: "/services/lockout.jpg",
+    img: "/services/lockout.webp",
     blurb:
       "Locked out of your car? Don't break a window. Our techs unlock vehicles quickly and without damage using pro air-wedge and long-reach tools. We service all makes and models. One quick call gets you back in your car.",
     link: "/services/lockout",
@@ -52,7 +52,7 @@ const services: Service[] = [
     key: "fuel",
     title: "Gas/Diesel Delivery",
     icon: "⛽",
-    img: "/services/fuel.jpg",
+    img: "/services/fuel.webp",
     blurb:
       "Out of gas? Stuck on empty? We deliver gasoline or diesel straight to your location anywhere in San Diego. No need to leave your car — we'll bring it to you, get you fueled, and send you safely on your way.",
     link: "/services/gas-delivery",
@@ -61,7 +61,7 @@ const services: Service[] = [
     key: "tire",
     title: "Flat Tire Service",
     icon: "🛞",
-    img: "/services/tire.jpg",
+    img: "/services/tire.webp",
     blurb:
       "Flat tire? We can install your spare, reinflate, or assist with a safe swap on the shoulder. Lug nuts torqued to spec and a quick safety check before you roll. Friendly help when changing a tire feels overwhelming.",
     link: "/services/tire-change",
@@ -70,7 +70,7 @@ const services: Service[] = [
     key: "winch",
     title: "Winching / Winch-Out",
     icon: "🧭",
-    img: "/services/winch.jpg",
+    img: "/services/winch.webp",
     blurb:
       "Stuck in sand, mud, or a driveway dip? We handle light recoveries from tight areas without vehicle damage. AWD, low-profile, and tricky angles welcome — we assess on arrival and recover carefully to get you moving again.",
     link: "/services/winch-out",
