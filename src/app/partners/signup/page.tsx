@@ -241,25 +241,25 @@ export default function PartnerSignupPage() {
             {/* Blue Banner */}
             <div className="relative flex-shrink-0">
               <div className="bg-black/40 backdrop-blur-md px-14 py-10 rounded-2xl shadow-2xl relative w-[504px] overflow-hidden">
-                <h3 className="text-4xl font-bold text-white mb-3 relative z-10 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">You Send Us Tows</h3>
-                <p className="text-white text-xl relative z-10 mb-4 drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">
-                  Earn <span className="font-extrabold text-white bg-black px-3 py-1 rounded-lg drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">10-20%</span> commission on every referral
+                <h3 className="text-4xl font-bold text-white mb-3 relative z-10">You Send Us Tows</h3>
+                <p className="text-white text-xl relative z-10 mb-4">
+                  Earn <span className="font-extrabold text-white bg-black px-3 py-1 rounded-lg">10-20%</span> commission on every referral
                 </p>
                 <ul className="space-y-2 relative z-10">
-                  <li className="flex items-center gap-2 text-white text-lg drop-shadow-[0_0_6px_rgba(255,255,255,0.4)]">
-                    <svg className="w-6 h-6 text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center gap-2 text-white text-lg">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Quick 30-second referral form</span>
                   </li>
-                  <li className="flex items-center gap-2 text-white text-lg drop-shadow-[0_0_6px_rgba(255,255,255,0.4)]">
-                    <svg className="w-6 h-6 text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center gap-2 text-white text-lg">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Track all your referrals in real-time</span>
                   </li>
-                  <li className="flex items-center gap-2 text-white text-lg drop-shadow-[0_0_6px_rgba(255,255,255,0.4)]">
-                    <svg className="w-6 h-6 text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center gap-2 text-white text-lg">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Get paid weekly or faster</span>
@@ -272,27 +272,27 @@ export default function PartnerSignupPage() {
             <div className="relative flex-shrink-0">
               <div className="bg-black/40 backdrop-blur-md px-14 py-10 rounded-2xl shadow-2xl relative w-[504px] overflow-hidden">
                 <div className="flex items-center gap-4 mb-3 relative z-10">
-                  <h3 className="text-4xl font-bold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">We Send You Work</h3>
-                  <span className="text-xl font-extrabold text-white bg-black px-3 py-1 rounded-lg drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">FREE</span>
+                  <h3 className="text-4xl font-bold text-white">We Send You Work</h3>
+                  <span className="text-xl font-extrabold text-white bg-black px-3 py-1 rounded-lg">FREE</span>
                 </div>
-                <p className="text-white text-xl relative z-10 mb-4 drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">
-                  We send customers <span className="font-semibold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]">straight to you</span>
+                <p className="text-white text-xl relative z-10 mb-4">
+                  We send customers <span className="font-semibold text-white">straight to you</span>
                 </p>
                 <ul className="space-y-2 relative z-10">
-                  <li className="flex items-center gap-2 text-white text-lg drop-shadow-[0_0_6px_rgba(255,255,255,0.4)]">
-                    <svg className="w-6 h-6 text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center gap-2 text-white text-lg">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Free leads from our towing customers</span>
                   </li>
-                  <li className="flex items-center gap-2 text-white text-lg drop-shadow-[0_0_6px_rgba(255,255,255,0.4)]">
-                    <svg className="w-6 h-6 text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center gap-2 text-white text-lg">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     <span>No fees or hidden charges</span>
                   </li>
-                  <li className="flex items-center gap-2 text-white text-lg drop-shadow-[0_0_6px_rgba(255,255,255,0.4)]">
-                    <svg className="w-6 h-6 text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center gap-2 text-white text-lg">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Grow your business effortlessly</span>
