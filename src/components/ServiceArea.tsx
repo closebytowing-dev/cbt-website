@@ -132,14 +132,14 @@ export default function ServiceArea() {
             </button>
           </div>
 
-          {/* Map Image */}
+          {/* Map Image - lazy loaded since below the fold */}
           <Image
             src="/service-area/san-diego-service-area.webp"
             alt="San Diego service area map"
             width={1920}
             height={614}
             className="w-full h-auto rounded-3xl shadow-2xl shadow-black/50"
-            priority
+            loading="lazy"
           />
         </div>
       </div>

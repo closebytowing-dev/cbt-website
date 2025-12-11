@@ -231,23 +231,8 @@ export default function LeftPopup({
     }
   }, [stage, choice]);
 
-  // Track form abandonment
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const handleBeforeUnload = () => {
-      if (stage !== 'choose' && (window as any).gtag) {
-        (window as any).gtag('event', 'booking_abandoned', {
-          event_category: 'conversion_funnel',
-          event_label: stage,
-          service: choice
-        });
-      }
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
-  }, [stage, choice]);
+  // Form abandonment tracking removed to enable back/forward cache
+  // Analytics for abandonment can be tracked via page visibility API instead if needed
 
   // Clear progress when popup is closed
   useEffect(() => {
