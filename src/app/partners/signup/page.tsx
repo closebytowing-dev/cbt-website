@@ -237,33 +237,29 @@ export default function PartnerSignupPage() {
         {/* Right side container - Auth Card + Tier Cards - with banners positioned relative to it */}
         <div className="flex flex-col items-end gap-8 flex-shrink-0 relative">
           {/* Banners - Absolutely positioned to the left of auth card */}
-          <div className="hidden lg:flex flex-col gap-6 absolute right-[70%] top-[7vh]">
+          <div className="hidden lg:flex flex-col gap-6 absolute right-[105%] top-[7vh]">
             {/* Blue Banner */}
-            <div className="relative animate-energy-pulse flex-shrink-0">
-              <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 px-14 py-10 rounded-2xl shadow-2xl border-2 border-blue-400/50 relative w-[480px] overflow-hidden">
-                {/* Light sweep effect */}
-                <div className="absolute inset-0 overflow-hidden rounded-2xl">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 animate-light-sweep-blue"></div>
-                </div>
-                <h3 className="text-3xl font-bold text-white mb-3 relative z-10">You Send Us Tows</h3>
-                <p className="text-blue-100 text-lg relative z-10 mb-4">
-                  Earn <span className="font-semibold text-white">10-20% commission</span> on every referral
+            <div className="relative flex-shrink-0">
+              <div className="bg-black/30 backdrop-blur-[1px] px-14 py-10 rounded-2xl shadow-2xl relative w-[480px] overflow-hidden">
+                <h3 className="text-4xl font-bold text-white mb-3 relative z-10 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">You Send Us Tows</h3>
+                <p className="text-white text-xl relative z-10 mb-4 drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">
+                  Earn <span className="font-extrabold text-white bg-black px-3 py-1 rounded-lg drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">10-20%</span> commission on every referral
                 </p>
                 <ul className="space-y-2 relative z-10">
-                  <li className="flex items-center gap-2 text-blue-100">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center gap-2 text-white text-lg drop-shadow-[0_0_6px_rgba(255,255,255,0.4)]">
+                    <svg className="w-6 h-6 text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Quick 30-second referral form</span>
                   </li>
-                  <li className="flex items-center gap-2 text-blue-100">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center gap-2 text-white text-lg drop-shadow-[0_0_6px_rgba(255,255,255,0.4)]">
+                    <svg className="w-6 h-6 text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Track all your referrals in real-time</span>
                   </li>
-                  <li className="flex items-center gap-2 text-blue-100">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center gap-2 text-white text-lg drop-shadow-[0_0_6px_rgba(255,255,255,0.4)]">
+                    <svg className="w-6 h-6 text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Get paid weekly or faster</span>
@@ -273,34 +269,30 @@ export default function PartnerSignupPage() {
             </div>
 
             {/* Green Banner */}
-            <div className="relative animate-energy-pulse flex-shrink-0">
-              <div className="bg-gradient-to-l from-green-700 via-green-600 to-green-500 px-14 py-10 rounded-2xl shadow-2xl border-2 border-green-400/50 relative w-[480px] overflow-hidden">
-                {/* Light sweep effect */}
-                <div className="absolute inset-0 overflow-hidden rounded-2xl">
-                  <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/30 to-transparent skew-x-12 animate-light-sweep-green"></div>
-                </div>
+            <div className="relative flex-shrink-0">
+              <div className="bg-black/30 backdrop-blur-[1px] px-14 py-10 rounded-2xl shadow-2xl relative w-[480px] overflow-hidden">
                 <div className="flex items-center gap-4 mb-3 relative z-10">
-                  <h3 className="text-3xl font-bold text-white">We Send You Work</h3>
-                  <span className="text-lg font-extrabold text-white bg-white/20 px-3 py-1 rounded-lg">FREE</span>
+                  <h3 className="text-4xl font-bold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">We Send You Work</h3>
+                  <span className="text-xl font-extrabold text-white bg-black px-3 py-1 rounded-lg drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">FREE</span>
                 </div>
-                <p className="text-green-100 text-lg relative z-10 mb-4">
-                  We send customers <span className="font-semibold text-white">straight to you</span>
+                <p className="text-white text-xl relative z-10 mb-4 drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">
+                  We send customers <span className="font-semibold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]">straight to you</span>
                 </p>
                 <ul className="space-y-2 relative z-10">
-                  <li className="flex items-center gap-2 text-green-100">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center gap-2 text-white text-lg drop-shadow-[0_0_6px_rgba(255,255,255,0.4)]">
+                    <svg className="w-6 h-6 text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Free leads from our towing customers</span>
                   </li>
-                  <li className="flex items-center gap-2 text-green-100">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center gap-2 text-white text-lg drop-shadow-[0_0_6px_rgba(255,255,255,0.4)]">
+                    <svg className="w-6 h-6 text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     <span>No fees or hidden charges</span>
                   </li>
-                  <li className="flex items-center gap-2 text-green-100">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li className="flex items-center gap-2 text-white text-lg drop-shadow-[0_0_6px_rgba(255,255,255,0.4)]">
+                    <svg className="w-6 h-6 text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Grow your business effortlessly</span>
@@ -484,63 +476,77 @@ export default function PartnerSignupPage() {
         </div>
         </div>
 
-        {/* Tier Cards - Below Auth Card - Fixed widths */}
-        <div className="flex gap-4 flex-shrink-0">
-        {/* Silver */}
-        <div className="bg-gray-400/40 backdrop-blur-[2px] border border-gray-300/50 rounded-2xl p-6 text-white shadow-2xl w-72 flex-shrink-0">
-          <h4 className="font-bold text-lg text-center mb-1">Silver Partner</h4>
-          <p className="text-xs text-white/70 text-center mb-4">Starting Tier</p>
-          <div className="text-5xl font-bold text-center mb-1">10%</div>
-          <p className="text-sm text-white/80 text-center mb-4">of service fee</p>
-          <ul className="space-y-2 text-sm">
+        </div>
+      </div>
+    </div>
+
+    {/* Tier Cards - Positioned on right side, stacking vertically and overlapping into value section */}
+    <div className="absolute right-[5%] top-[70%] z-40 flex flex-col gap-6 hidden lg:flex">
+        {/* Platinum - 20% */}
+        <div className="bg-purple-500/40 backdrop-blur-[2px] border border-purple-400/50 rounded-2xl p-6 text-white shadow-2xl w-[32rem] flex-shrink-0">
+          <h4 className="font-bold text-xl text-center mb-4">Platinum Partner</h4>
+          <div className="text-6xl font-bold text-center mb-1">20%</div>
+          <p className="text-base text-white/80 text-center mb-4">of service fee</p>
+          <ul className="space-y-2 text-base grid grid-cols-2 gap-x-4">
             <li className="flex items-center gap-2">
-              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
               </svg>
-              0-10 referrals/month
+              26+ referrals/month
             </li>
             <li className="flex items-center gap-2">
-              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
               </svg>
-              Weekly payments
+              Dedicated account manager
             </li>
             <li className="flex items-center gap-2">
-              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
               </svg>
-              Partner dashboard access
+              Same-day payments
+            </li>
+            <li className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Exclusive bonus programs
+            </li>
+            <li className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Marketing materials provided
             </li>
           </ul>
         </div>
 
-        {/* Gold */}
-        <div className="bg-yellow-500/40 backdrop-blur-[2px] border border-yellow-400/50 rounded-2xl p-6 text-white shadow-2xl w-72 flex-shrink-0">
-          <h4 className="font-bold text-lg text-center mb-1">Gold Partner</h4>
-          <p className="text-xs text-white/70 text-center mb-4">Best Value</p>
-          <div className="text-5xl font-bold text-center mb-1">15%</div>
-          <p className="text-sm text-white/80 text-center mb-4">of service fee</p>
-          <ul className="space-y-2 text-sm">
+        {/* Gold - 15% */}
+        <div className="bg-yellow-500/40 backdrop-blur-[2px] border border-yellow-400/50 rounded-2xl p-6 text-white shadow-2xl w-[32rem] flex-shrink-0">
+          <h4 className="font-bold text-xl text-center mb-4">Gold Partner</h4>
+          <div className="text-6xl font-bold text-center mb-1">15%</div>
+          <p className="text-base text-white/80 text-center mb-4">of service fee</p>
+          <ul className="space-y-2 text-base grid grid-cols-2 gap-x-4">
             <li className="flex items-center gap-2">
-              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
               </svg>
               11-25 referrals/month
             </li>
             <li className="flex items-center gap-2">
-              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
               </svg>
               Priority support line
             </li>
             <li className="flex items-center gap-2">
-              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
               </svg>
               Bi-weekly payments
             </li>
             <li className="flex items-center gap-2">
-              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
               </svg>
               Monthly bonus opportunities
@@ -548,48 +554,32 @@ export default function PartnerSignupPage() {
           </ul>
         </div>
 
-        {/* Platinum */}
-        <div className="bg-purple-500/40 backdrop-blur-[2px] border border-purple-400/50 rounded-2xl p-6 text-white shadow-2xl w-72 flex-shrink-0">
-          <h4 className="font-bold text-lg text-center mb-1">Platinum Partner</h4>
-          <p className="text-xs text-white/70 text-center mb-4">Elite Level</p>
-          <div className="text-5xl font-bold text-center mb-1">20%</div>
-          <p className="text-sm text-white/80 text-center mb-4">of service fee</p>
-          <ul className="space-y-2 text-sm">
+        {/* Silver - 10% */}
+        <div className="bg-gray-400/40 backdrop-blur-[2px] border border-gray-300/50 rounded-2xl p-6 text-white shadow-2xl w-[32rem] flex-shrink-0">
+          <h4 className="font-bold text-xl text-center mb-4">Silver Partner</h4>
+          <div className="text-6xl font-bold text-center mb-1">10%</div>
+          <p className="text-base text-white/80 text-center mb-4">of service fee</p>
+          <ul className="space-y-2 text-base grid grid-cols-2 gap-x-4">
             <li className="flex items-center gap-2">
-              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
               </svg>
-              26+ referrals/month
+              0-10 referrals/month
             </li>
             <li className="flex items-center gap-2">
-              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
               </svg>
-              Dedicated account manager
+              Weekly payments
             </li>
             <li className="flex items-center gap-2">
-              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
               </svg>
-              Same-day payments
-            </li>
-            <li className="flex items-center gap-2">
-              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-              </svg>
-              Exclusive bonus programs
-            </li>
-            <li className="flex items-center gap-2">
-              <svg className="w-4 h-4 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-              </svg>
-              Marketing materials provided
+              Partner dashboard access
             </li>
           </ul>
         </div>
-        </div>
-        </div>
-      </div>
     </div>
 
     {/* Section Header - floats into hero */}
@@ -605,11 +595,11 @@ export default function PartnerSignupPage() {
     </div>
 
     {/* How It Works Section */}
-    <section className="bg-white pt-0 pb-24 px-6 relative z-20">
+    <section className="bg-white pt-20 pb-24 px-6 relative z-20">
       <div className="max-w-6xl mx-auto">
 
         {/* Two Paths */}
-            <div className="grid md:grid-cols-2 gap-16 mb-20">
+            <div className="grid md:grid-cols-2 gap-8 mb-20 lg:max-w-[55%]">
               {/* Path 1: You Send Us Tows */}
               <div className="relative">
                 <div className="bg-blue-50 rounded-3xl p-10 border border-blue-200">
