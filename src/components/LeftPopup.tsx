@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import type { AddressPayload } from "./types";
-import { ServiceIcon } from "./ServiceIcon";
 // Firebase imports removed to prevent loading on homepage
 // Pricing is fetched lazily when popup opens
 import { useOnlineDiscount } from "@/hooks/useOnlineDiscount";

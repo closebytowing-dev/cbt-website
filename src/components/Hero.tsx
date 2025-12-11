@@ -95,6 +95,8 @@ export default function Hero() {
             priority
             sizes="(max-width: 1024px) 100vw, 50vw"
             fetchPriority="high"
+            placeholder="blur"
+            blurDataURL="data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAwCdASoUAAwAP3Gixlk0rCejsAgCkC4JZQDKACKki8RZ3rsuoAAA/IvZXW7V2XxoSfiTxMBlmuFH1hQzvKTCg9OfhVUf8FHAbSHuZGiAAA=="
           />
         </div>
       </div>
