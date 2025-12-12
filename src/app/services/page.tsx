@@ -742,27 +742,28 @@ export default function ServicesPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, idx) => (
-              <AnimatedText key={service.id} delay={idx * 100}>
-                <Link href={service.href} className={`group block ${idx === 0 ? 'md:col-span-2 md:row-span-2' : ''}`}>
-                  <TiltCard className={`relative overflow-hidden rounded-3xl ${idx === 0 ? 'aspect-[16/9] md:aspect-[4/3]' : 'aspect-[4/3]'}`}>
+              <AnimatedText key={service.id} delay={idx * 100} className={idx === 0 ? 'md:col-span-2 md:row-span-2' : ''}>
+                <Link href={service.href} className="group block h-full">
+                  <div className={`relative overflow-hidden rounded-3xl h-full ${idx === 0 ? 'aspect-[16/9] md:aspect-auto md:min-h-[500px]' : 'aspect-[4/3]'}`}>
                     <Image
                       src={service.image}
                       alt={service.name}
                       fill
+                      sizes={idx === 0 ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
 
                     {/* Content overlay */}
                     <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
-                      <div className="absolute top-6 right-6">
+                      <div className="absolute top-6 right-6 z-10">
                         <span className={`px-4 py-2 rounded-xl bg-gradient-to-r ${service.color} text-white text-sm font-bold shadow-lg`}>
                           {service.price}
                         </span>
                       </div>
 
-                      <div>
-                        <h3 className={`font-black mb-2 ${idx === 0 ? 'text-4xl md:text-5xl' : 'text-2xl md:text-3xl'}`}>
+                      <div className="relative z-10">
+                        <h3 className={`font-black mb-2 text-white ${idx === 0 ? 'text-4xl md:text-5xl' : 'text-2xl md:text-3xl'}`}>
                           {service.name}
                         </h3>
                         <p className="text-white/70 mb-4 line-clamp-2">{service.tagline}</p>
@@ -786,7 +787,7 @@ export default function ServicesPage() {
 
                     {/* Hover glow */}
                     <div className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity bg-gradient-to-t ${service.color}`} />
-                  </TiltCard>
+                  </div>
                 </Link>
               </AnimatedText>
             ))}
