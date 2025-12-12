@@ -12,6 +12,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 1.0,
   };
 
+  // Services landing page
+  const servicesLanding = {
+    url: `${base}/services`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.9,
+  };
+
   // Main service pages - high priority
   const servicePages = [
     { path: "services/towing", priority: 0.9 },
@@ -42,5 +50,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: page.priority,
   }));
 
-  return [homepage, ...servicePages, ...infoPages];
+  return [homepage, servicesLanding, ...servicePages, ...infoPages];
 }
