@@ -651,28 +651,30 @@ export default function ServicesPage() {
           {/* Featured service showcase */}
           <div className="relative mb-20">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Image side with reveal animation */}
-              <TiltCard className="relative aspect-[4/3] rounded-3xl overflow-hidden">
-                <ImageReveal
+              {/* Image side */}
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden">
+                <Image
                   src={services[activeService].image}
                   alt={services[activeService].name}
-                  className="absolute inset-0"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover transition-all duration-500"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
                 {/* Floating price tag */}
-                <div className="absolute top-6 right-6 px-4 py-2 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 animate-float">
+                <div className="absolute top-6 right-6 px-4 py-2 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 animate-float z-10">
                   <span className="text-2xl font-black text-[#ffba42]">{services[activeService].price}</span>
                 </div>
 
                 {/* Service badge */}
-                <div className="absolute bottom-6 left-6">
+                <div className="absolute bottom-6 left-6 z-10">
                   <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r ${services[activeService].color} shadow-lg`}>
                     <span className="text-white font-bold">{services[activeService].name}</span>
                   </div>
                 </div>
-              </TiltCard>
+              </div>
 
               {/* Content side */}
               <div className="space-y-8">
