@@ -37,14 +37,14 @@ export default function CollisionRecoveryPage() {
     "@graph": [
       {
         "@type": "EmergencyService",
-        "@id": "https://closebytowing.com/services/collision-recovery#service",
+        "@id": "https://www.closebytowing.com/services/collision-recovery#service",
         "name": "CloseBy Towing - Emergency Collision Recovery",
         "description": "24/7 emergency collision recovery and accident towing service in San Diego County with less than 25 minute response time",
         "serviceType": ["Collision Recovery", "Accident Towing", "Emergency Vehicle Recovery"],
         "provider": {
           "@type": "LocalBusiness",
           "name": "CloseBy Towing",
-          "@id": "https://closebytowing.com#organization",
+          "@id": "https://www.closebytowing.com#organization",
           "telephone": "+1-858-999-9293",
           "address": {
             "@type": "PostalAddress",
@@ -92,25 +92,25 @@ export default function CollisionRecoveryPage() {
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://closebytowing.com/services/collision-recovery#breadcrumb",
+        "@id": "https://www.closebytowing.com/services/collision-recovery#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://closebytowing.com"
+            "item": "https://www.closebytowing.com"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Services",
-            "item": "https://closebytowing.com/services"
+            "item": "https://www.closebytowing.com/services"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Collision Recovery",
-            "item": "https://closebytowing.com/services/collision-recovery"
+            "item": "https://www.closebytowing.com/services/collision-recovery"
           }
         ]
       }

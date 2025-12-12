@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://closebytowing.com'),
+  metadataBase: new URL('https://www.closebytowing.com'),
   title: "CloseBy Towing San Diego | 24/7 Emergency Towing & Roadside Assistance",
   description: "Fast, reliable 24/7 towing and roadside assistance in San Diego. Jump starts, tire changes, fuel delivery, lockout service, and collision recovery. Call (858) 999-9293 for immediate help!",
   keywords: "towing San Diego, roadside assistance, emergency towing, jump start, tire change, fuel delivery, lockout service, collision recovery, 24/7 towing, San Diego towing company",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "CloseBy Towing San Diego | 24/7 Emergency Towing & Roadside Assistance",
     description: "Fast, reliable 24/7 towing and roadside assistance in San Diego. Available now!",
-    url: "https://closebytowing.com",
+    url: "https://www.closebytowing.com",
     siteName: "CloseBy Towing",
     images: [
       {
@@ -56,13 +56,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const businessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://closebytowing.com",
+    "@id": "https://www.closebytowing.com",
     "name": "CloseBy Towing San Diego",
-    "image": "https://closebytowing.com/logo.png",
+    "image": "https://www.closebytowing.com/logo.png",
     "description": "Fast, reliable 24/7 towing and roadside assistance in San Diego. Licensed and insured towing company providing emergency towing, jump starts, tire changes, fuel delivery, lockout service, and collision recovery.",
     "telephone": "+1-858-999-9293",
     "email": "info@closebytowing.com",
-    "url": "https://closebytowing.com",
+    "url": "https://www.closebytowing.com",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",

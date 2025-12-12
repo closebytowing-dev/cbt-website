@@ -359,7 +359,7 @@ export default function ServicesPage() {
       "@type": "LocalBusiness",
       "name": "CloseBy Towing",
       "telephone": "+1-858-999-9293",
-      "url": "https://closebytowing.com",
+      "url": "https://www.closebytowing.com",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "San Diego",
@@ -386,7 +386,7 @@ export default function ServicesPage() {
           "@type": "Service",
           "name": service.name,
           "description": service.description,
-          "url": `https://closebytowing.com${service.href}`
+          "url": `https://www.closebytowing.com${service.href}`
         }
       }))
     }
@@ -396,8 +396,8 @@ export default function ServicesPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://closebytowing.com" },
-      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://closebytowing.com/services" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.closebytowing.com" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.closebytowing.com/services" }
     ]
   };
 

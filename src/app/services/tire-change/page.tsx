@@ -41,7 +41,7 @@ export default function TireChangePage() {
       "@type": "LocalBusiness",
       name: "CloseBy Towing",
       telephone: "+1-858-999-9293",
-      url: "https://closebytowing.com",
+      url: "https://www.closebytowing.com",
       address: {
         "@type": "PostalAddress",
         addressLocality: "San Diego",
@@ -55,7 +55,7 @@ export default function TireChangePage() {
     },
     availableChannel: {
       "@type": "ServiceChannel",
-      serviceUrl: "https://closebytowing.com/services/tire-change",
+      serviceUrl: "https://www.closebytowing.com/services/tire-change",
       servicePhone: {
         "@type": "ContactPoint",
         telephone: "+1-858-999-9293",

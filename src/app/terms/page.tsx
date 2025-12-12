@@ -692,11 +692,11 @@ export default function TermsPage() {
             "@type": "WebPage",
             "name": "Terms of Service",
             "description": "Terms of Service and SMS program terms for CloseBy Towing San Diego",
-            "url": "https://closebytowing.com/terms",
+            "url": "https://www.closebytowing.com/terms",
             "publisher": {
               "@type": "Organization",
               "name": "CloseBy Towing",
-              "url": "https://closebytowing.com"
+              "url": "https://www.closebytowing.com"
             },
             "datePublished": "2025-01-01",
             "dateModified": "2025-01-01",
