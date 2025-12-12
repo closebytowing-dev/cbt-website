@@ -428,11 +428,8 @@ export default function ServicesPage() {
       {/* CINEMATIC HERO SECTION */}
       {/* ============================================ */}
       <section ref={heroRef} className="relative min-h-screen overflow-hidden">
-        {/* Full-screen background image with parallax */}
-        <div
-          className="absolute inset-0 scale-110"
-          style={{ transform: `translateY(${scrollY * 0.3}px) scale(1.1)` }}
-        >
+        {/* Full-screen background image - static for smooth experience */}
+        <div className="absolute inset-0">
           <Image
             src="/services/services-hero.webp"
             alt="CloseBy Towing professional flatbed truck with vehicle on San Diego skyline at sunset"
@@ -449,22 +446,23 @@ export default function ServicesPage() {
           <div className="absolute inset-0 bg-gradient-to-tr from-[#ffba42]/10 via-transparent to-orange-500/10 mix-blend-overlay" />
         </div>
 
-        {/* Animated light rays */}
+        {/* Subtle animated light rays - CSS animation only, no scroll dependency */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div
-            className="absolute top-0 right-1/4 w-[600px] h-[800px] opacity-20"
+            className="absolute top-0 right-1/4 w-[600px] h-[800px] opacity-20 animate-pulse-slow"
             style={{
               background: 'linear-gradient(180deg, rgba(255,186,66,0.3) 0%, transparent 70%)',
-              transform: `rotate(15deg) translateY(${scrollY * -0.2}px)`,
+              transform: 'rotate(15deg)',
               filter: 'blur(40px)',
             }}
           />
           <div
-            className="absolute top-0 right-1/3 w-[400px] h-[600px] opacity-15"
+            className="absolute top-0 right-1/3 w-[400px] h-[600px] opacity-15 animate-pulse-slow"
             style={{
               background: 'linear-gradient(180deg, rgba(255,186,66,0.4) 0%, transparent 60%)',
-              transform: `rotate(25deg) translateY(${scrollY * -0.15}px)`,
+              transform: 'rotate(25deg)',
               filter: 'blur(30px)',
+              animationDelay: '1s',
             }}
           />
         </div>
@@ -1065,6 +1063,11 @@ export default function ServicesPage() {
           50% { background-position: 100% 50%; }
         }
 
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 0.15; }
+          50% { opacity: 0.25; }
+        }
+
         .animate-float {
           animation: float 6s ease-in-out infinite;
         }
@@ -1072,6 +1075,10 @@ export default function ServicesPage() {
         .animate-gradient-x {
           background-size: 200% 200%;
           animation: gradient-x 3s ease infinite;
+        }
+
+        .animate-pulse-slow {
+          animation: pulse-slow 4s ease-in-out infinite;
         }
       `}</style>
 
