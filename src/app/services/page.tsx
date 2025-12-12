@@ -93,7 +93,7 @@ function TiltCard({ children, className = "" }: { children: React.ReactNode; cla
   return (
     <div
       ref={cardRef}
-      className={`transition-transform duration-200 ease-out ${className}`}
+      className={`relative transition-transform duration-200 ease-out ${className}`}
       style={{ transform }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -101,7 +101,7 @@ function TiltCard({ children, className = "" }: { children: React.ReactNode; cla
       {children}
       {/* Glare effect */}
       <div
-        className="absolute inset-0 pointer-events-none rounded-3xl transition-opacity duration-300"
+        className="absolute inset-0 pointer-events-none rounded-3xl transition-opacity duration-300 z-10"
         style={{
           background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(255,255,255,${glare.opacity}), transparent 50%)`,
         }}
