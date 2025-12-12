@@ -264,6 +264,7 @@ const services = [
     features: ["Insurance Direct", "Scene Documentation", "24/7 Emergency"],
     price: "From $125",
     color: "from-slate-600 to-slate-800",
+    hasNewHeroImage: true,
   },
 ];
 
@@ -424,117 +425,214 @@ export default function ServicesPage() {
       </div>
 
       {/* ============================================ */}
-      {/* HERO SECTION */}
+      {/* CINEMATIC HERO SECTION */}
       {/* ============================================ */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Animated grid background */}
-        <div className="absolute inset-0 opacity-20">
+      <section ref={heroRef} className="relative min-h-screen overflow-hidden">
+        {/* Full-screen background image with parallax */}
+        <div
+          className="absolute inset-0 scale-110"
+          style={{ transform: `translateY(${scrollY * 0.3}px) scale(1.1)` }}
+        >
+          <Image
+            src="/services/services-hero.webp"
+            alt="CloseBy Towing professional flatbed truck with vehicle on San Diego skyline at sunset"
+            fill
+            className="object-cover object-center"
+            priority
+            quality={90}
+          />
+          {/* Cinematic overlays */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent" />
+          {/* Golden hour color grading overlay */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#ffba42]/10 via-transparent to-orange-500/10 mix-blend-overlay" />
+        </div>
+
+        {/* Animated light rays */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div
-            className="absolute inset-0"
+            className="absolute top-0 right-1/4 w-[600px] h-[800px] opacity-20"
             style={{
-              backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`,
-              backgroundSize: '100px 100px',
-              transform: `translateY(${scrollY * 0.1}px)`,
+              background: 'linear-gradient(180deg, rgba(255,186,66,0.3) 0%, transparent 70%)',
+              transform: `rotate(15deg) translateY(${scrollY * -0.2}px)`,
+              filter: 'blur(40px)',
+            }}
+          />
+          <div
+            className="absolute top-0 right-1/3 w-[400px] h-[600px] opacity-15"
+            style={{
+              background: 'linear-gradient(180deg, rgba(255,186,66,0.4) 0%, transparent 60%)',
+              transform: `rotate(25deg) translateY(${scrollY * -0.15}px)`,
+              filter: 'blur(30px)',
             }}
           />
         </div>
 
-        {/* Floating orbs with parallax */}
-        <div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-[128px]"
-          style={{ transform: `translate(${scrollY * 0.05}px, ${scrollY * -0.05}px)` }}
-        />
-        <div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/20 rounded-full blur-[128px]"
-          style={{ transform: `translate(${scrollY * -0.05}px, ${scrollY * 0.05}px)` }}
-        />
-        <div
-          className="absolute top-1/2 right-1/3 w-64 h-64 bg-purple-500/20 rounded-full blur-[100px]"
-          style={{ transform: `translate(${scrollY * 0.03}px, ${scrollY * -0.03}px)` }}
-        />
+        {/* Floating particles over the hero */}
+        <div className="absolute inset-0 pointer-events-none">
+          {[...Array(30)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute rounded-full"
+              style={{
+                width: Math.random() * 3 + 1 + "px",
+                height: Math.random() * 3 + 1 + "px",
+                left: Math.random() * 100 + "%",
+                top: Math.random() * 100 + "%",
+                background: Math.random() > 0.5 ? 'rgba(255,186,66,0.6)' : 'rgba(255,255,255,0.4)',
+                animation: `float-particle ${Math.random() * 15 + 10}s linear infinite`,
+                animationDelay: `-${Math.random() * 10}s`,
+              }}
+            />
+          ))}
+        </div>
 
-        {/* Hero content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-          <AnimatedText delay={0}>
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 mb-8">
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-              </span>
-              <span className="text-sm font-medium text-white/80">Available 24/7 Across San Diego</span>
-            </div>
-          </AnimatedText>
-
-          <AnimatedText delay={100}>
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tight mb-8">
-              <span className="block text-white/90">Roadside</span>
-              <span className="block bg-gradient-to-r from-[#ffba42] via-amber-400 to-orange-500 bg-clip-text text-transparent animate-gradient-x">
-                Excellence
-              </span>
-            </h1>
-          </AnimatedText>
-
-          <AnimatedText delay={200}>
-            <p className="text-xl md:text-2xl text-white/60 max-w-3xl mx-auto mb-12">
-              Premium roadside assistance that arrives fast and delivers perfection.
-              <span className="text-white font-semibold"> 7 specialized services</span> designed for every emergency.
-            </p>
-          </AnimatedText>
-
-          <AnimatedText delay={300}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href="tel:+18589999293"
-                className="group relative px-10 py-5 rounded-2xl font-bold text-xl overflow-hidden transform hover:scale-105 transition-transform"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#ffba42] to-orange-500" />
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500" style={{ background: 'radial-gradient(circle at center, white, transparent 70%)' }} />
-                <span className="relative flex items-center gap-3 text-black">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                  </svg>
-                  (858) 999-9293
-                </span>
-              </a>
-              <button
-                onClick={() => servicesRef.current?.scrollIntoView({ behavior: 'smooth' })}
-                className="group px-10 py-5 rounded-2xl font-bold text-xl bg-white/5 backdrop-blur-xl border border-white/20 hover:bg-white/10 hover:border-white/40 transition-all transform hover:scale-105"
-              >
-                <span className="flex items-center gap-3">
-                  Explore Services
-                  <svg className="w-5 h-5 group-hover:translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </AnimatedText>
-
-          {/* Animated Stats */}
-          <div ref={statsInView.ref} className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            {[
-              { value: responseTime, suffix: "-35 min", label: "Response Time" },
-              { value: customers.toLocaleString(), suffix: "+", label: "Happy Customers" },
-              { value: (rating / 10).toFixed(1), suffix: "/5", label: "Star Rating" },
-              { value: years, suffix: "+ Years", label: "Experience" },
-            ].map((stat, idx) => (
-              <AnimatedText key={idx} delay={400 + idx * 100}>
-                <div className="text-center p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-[#ffba42]/50 transition-colors">
-                  <div className="text-3xl md:text-4xl font-black text-white">
-                    {stat.value}<span className="text-[#ffba42]">{stat.suffix}</span>
-                  </div>
-                  <div className="text-sm text-white/50 mt-1">{stat.label}</div>
+        {/* Hero content - positioned left for cinematic asymmetry */}
+        <div className="relative z-10 min-h-screen flex items-center">
+          <div className="max-w-7xl mx-auto px-6 py-32 w-full">
+            <div className="max-w-2xl">
+              <AnimatedText delay={0}>
+                <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-black/30 backdrop-blur-xl border border-white/20 mb-8 shadow-2xl">
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                  </span>
+                  <span className="text-sm font-semibold text-white">Available 24/7 Across San Diego</span>
                 </div>
               </AnimatedText>
-            ))}
+
+              <AnimatedText delay={100}>
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tight mb-6">
+                  <span className="block text-white drop-shadow-2xl">Premium</span>
+                  <span className="block bg-gradient-to-r from-[#ffba42] via-amber-400 to-orange-500 bg-clip-text text-transparent animate-gradient-x drop-shadow-2xl">
+                    Roadside
+                  </span>
+                  <span className="block text-white/90 drop-shadow-2xl">Services</span>
+                </h1>
+              </AnimatedText>
+
+              <AnimatedText delay={200}>
+                <p className="text-lg md:text-xl text-white/80 max-w-xl mb-10 leading-relaxed drop-shadow-lg">
+                  San Diego's most trusted towing company. Fast response, transparent pricing, and
+                  <span className="text-[#ffba42] font-semibold"> 7 specialized services</span> for every roadside emergency.
+                </p>
+              </AnimatedText>
+
+              <AnimatedText delay={300}>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="tel:+18589999293"
+                    className="group relative px-8 py-4 rounded-2xl font-bold text-lg overflow-hidden transform hover:scale-105 transition-transform shadow-2xl shadow-[#ffba42]/30"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#ffba42] to-orange-500" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500" style={{ background: 'radial-gradient(circle at center, white, transparent 70%)' }} />
+                    <span className="relative flex items-center gap-3 text-black">
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                      </svg>
+                      (858) 999-9293
+                    </span>
+                  </a>
+                  <button
+                    onClick={() => servicesRef.current?.scrollIntoView({ behavior: 'smooth' })}
+                    className="group px-8 py-4 rounded-2xl font-bold text-lg bg-white/10 backdrop-blur-xl border border-white/30 hover:bg-white/20 hover:border-white/50 transition-all transform hover:scale-105 shadow-xl"
+                  >
+                    <span className="flex items-center gap-3 text-white">
+                      Explore Services
+                      <svg className="w-5 h-5 group-hover:translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </AnimatedText>
+
+              {/* Compact stats row */}
+              <AnimatedText delay={400}>
+                <div className="mt-12 flex flex-wrap gap-6 md:gap-10">
+                  {[
+                    { value: "20-35", suffix: "min", label: "Response" },
+                    { value: "15K", suffix: "+", label: "Customers" },
+                    { value: "4.9", suffix: "★", label: "Rating" },
+                  ].map((stat, idx) => (
+                    <div key={idx} className="text-center">
+                      <div className="text-2xl md:text-3xl font-black text-white drop-shadow-lg">
+                        {stat.value}<span className="text-[#ffba42]">{stat.suffix}</span>
+                      </div>
+                      <div className="text-xs text-white/60 uppercase tracking-wider">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </AnimatedText>
+            </div>
+
+            {/* Floating info card - positioned on right over the truck */}
+            <AnimatedText delay={500}>
+              <div className="hidden lg:block absolute right-8 xl:right-16 top-1/2 -translate-y-1/2">
+                <div className="p-6 rounded-3xl bg-black/40 backdrop-blur-xl border border-white/20 shadow-2xl animate-float max-w-xs">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#ffba42] to-orange-500 flex items-center justify-center shadow-lg">
+                      <svg className="w-7 h-7 text-black" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="text-white font-bold text-lg">Licensed & Insured</div>
+                      <div className="text-white/60 text-sm">CA DOT Certified</div>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    {["Flatbed", "Wheel-lift", "Heavy Duty"].map((tag, i) => (
+                      <span key={i} className="px-3 py-1 rounded-lg bg-white/10 text-white/80 text-xs font-medium">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </AnimatedText>
           </div>
         </div>
 
+        {/* Bottom gradient fade into next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0a0a0f] to-transparent pointer-events-none" />
+
         {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-8 h-12 rounded-full border-2 border-white/30 flex items-start justify-center p-2">
-            <div className="w-1.5 h-3 bg-white/50 rounded-full animate-pulse" />
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-20">
+          <div className="w-8 h-12 rounded-full border-2 border-white/40 flex items-start justify-center p-2 backdrop-blur-sm bg-black/20">
+            <div className="w-1.5 h-3 bg-[#ffba42] rounded-full animate-pulse" />
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================ */}
+      {/* STATS SECTION - Separate from hero for better impact */}
+      {/* ============================================ */}
+      <section className="relative py-16 px-6 bg-gradient-to-b from-[#0a0a0f] via-[#0f0f18] to-[#0a0a0f]">
+        <div className="max-w-6xl mx-auto">
+          <div ref={statsInView.ref} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {[
+              { value: responseTime, suffix: "-35 min", label: "Average Response", icon: "clock" },
+              { value: customers.toLocaleString(), suffix: "+", label: "Happy Customers", icon: "users" },
+              { value: (rating / 10).toFixed(1), suffix: "/5", label: "Star Rating", icon: "star" },
+              { value: years, suffix: "+ Years", label: "Experience", icon: "trophy" },
+            ].map((stat, idx) => (
+              <AnimatedText key={idx} delay={idx * 100}>
+                <div className="relative group text-center p-6 md:p-8 rounded-2xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 hover:border-[#ffba42]/50 transition-all duration-300 overflow-hidden">
+                  {/* Hover glow */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#ffba42]/10 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  <div className="relative">
+                    <div className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-1">
+                      {stat.value}<span className="text-[#ffba42]">{stat.suffix}</span>
+                    </div>
+                    <div className="text-sm text-white/50 font-medium">{stat.label}</div>
+                  </div>
+                </div>
+              </AnimatedText>
+            ))}
           </div>
         </div>
       </section>
