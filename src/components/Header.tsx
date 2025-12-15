@@ -154,49 +154,46 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Left side: Mobile Navigation */}
-          <div className="lg:hidden absolute left-4 flex items-center">
-            {/* Mobile Navigation - Services link */}
-            <nav className="flex items-center">
+          {/* Mobile Navigation - Services centered */}
+          <div className="lg:hidden absolute left-1/2 -translate-x-1/2 flex items-center">
+            <nav className="flex items-center text-sm [&_button]:text-sm [&_button]:text-[0.875rem]">
               <ServicesMenu />
             </nav>
-
-            {/* Mobile navigation links - shown when logged in */}
-            {isLoggedIn && (
-              <>
-                <span className="text-[#1e1e4a]/30 text-base sm:text-lg mx-2">|</span>
-
-                {/* Dashboard link - Mobile only */}
-                <Link
-                  href="/partners/dashboard"
-                  className="text-sm font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
-                >
-                  Dashboard
-                </Link>
-
-                <span className="text-[#1e1e4a]/30 text-base sm:text-lg mx-2">|</span>
-
-                {/* Hamburger Menu Button - Mobile only */}
-                <button
-                  id="dashboard-menu-toggle"
-                  type="button"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    // Dispatch custom event for dashboard layout to handle
-                    const event = new CustomEvent('toggle-dashboard-menu');
-                    window.dispatchEvent(event);
-                  }}
-                  className="text-gray-600 hover:text-gray-900 flex items-center gap-1.5 px-2 py-1.5 rounded hover:bg-gray-100"
-                  aria-label="Toggle dashboard menu"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                  <span className="text-xs font-semibold">Menu</span>
-                </button>
-              </>
-            )}
           </div>
+
+          {/* Mobile navigation links - shown when logged in (left side) */}
+          {isLoggedIn && (
+            <div className="lg:hidden absolute left-4 flex items-center">
+              {/* Dashboard link - Mobile only */}
+              <Link
+                href="/partners/dashboard"
+                className="text-sm font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
+              >
+                Dashboard
+              </Link>
+
+              <span className="text-[#1e1e4a]/30 text-base sm:text-lg mx-2">|</span>
+
+              {/* Hamburger Menu Button - Mobile only */}
+              <button
+                id="dashboard-menu-toggle"
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  // Dispatch custom event for dashboard layout to handle
+                  const event = new CustomEvent('toggle-dashboard-menu');
+                  window.dispatchEvent(event);
+                }}
+                className="text-gray-600 hover:text-gray-900 flex items-center gap-1.5 px-2 py-1.5 rounded hover:bg-gray-100"
+                aria-label="Toggle dashboard menu"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <span className="text-xs font-semibold">Menu</span>
+              </button>
+            </div>
+          )}
 
           {/* Center: Desktop Navigation - absolutely centered */}
           <nav className="hidden lg:flex items-center gap-4 xl:gap-10 text-[1.35rem] font-semibold leading-none absolute left-1/2 transform -translate-x-1/2">
