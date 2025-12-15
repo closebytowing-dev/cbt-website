@@ -464,7 +464,7 @@ export default function PartnerSignupPage() {
               <div>
                 <label
                   htmlFor="businessName"
-                  className="block text-sm font-medium text-gray-900 mb-2"
+                  className="block text-sm font-medium text-white mb-2"
                 >
                   Business Name
                 </label>
@@ -483,7 +483,7 @@ export default function PartnerSignupPage() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-900 mb-2"
+                  className="block text-sm font-medium text-white mb-2"
                 >
                   Email
                 </label>
@@ -502,7 +502,7 @@ export default function PartnerSignupPage() {
               <div>
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium text-gray-900 mb-2"
+                  className="block text-sm font-medium text-white mb-2"
                 >
                   Password
                 </label>

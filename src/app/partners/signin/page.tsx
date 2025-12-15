@@ -291,7 +291,7 @@ export default function PartnerSigninPage() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-base font-medium text-gray-900 mb-1.5"
+                  className="block text-base font-medium text-white mb-1.5"
                 >
                   Email Address
                 </label>
@@ -312,7 +312,7 @@ export default function PartnerSigninPage() {
               <div>
                 <label
                   htmlFor="password"
-                  className="block text-base font-medium text-gray-900 mb-1.5"
+                  className="block text-base font-medium text-white mb-1.5"
                 >
                   Password
                 </label>
@@ -347,12 +347,12 @@ export default function PartnerSigninPage() {
                       )}
                     </div>
                   </div>
-                  <span className="text-base text-gray-900 group-hover:text-gray-700 transition">Remember me</span>
+                  <span className="text-base text-white group-hover:text-gray-200 transition">Remember me</span>
                 </label>
                 <button
                   type="button"
                   onClick={handleForgotPassword}
-                  className="text-base text-gray-900 hover:text-gray-700 transition font-medium"
+                  className="text-base text-white hover:text-gray-200 transition font-medium"
                 >
                   Forgot password?
                 </button>
@@ -378,7 +378,7 @@ export default function PartnerSigninPage() {
               </button>
 
               {/* Sign Up Link */}
-              <p className="text-center text-gray-900 text-base">
+              <p className="text-center text-white text-base">
                 Don&apos;t have an account?{" "}
                 <Link href="/partners/signup" className="text-white hover:text-gray-200 font-semibold transition">
                   Sign Up
@@ -386,7 +386,7 @@ export default function PartnerSigninPage() {
               </p>
 
               {/* Help text */}
-              <p className="text-center text-gray-700 text-base">
+              <p className="text-center text-white/80 text-base">
                 Need help?{" "}
                 <a
                   href="tel:+18589999293"
