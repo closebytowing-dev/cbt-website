@@ -29,6 +29,30 @@ const services: Service[] = [
     stats: { label: "AVG RESPONSE", value: "25 min" },
   },
   {
+    key: "medium-duty",
+    title: "Medium Duty Towing",
+    icon: "🚛",
+    img: "/services/medium-duty-placeholder.webp",
+    blurb:
+      "Box trucks, RVs, delivery vehicles, and work trucks up to 26,000 lbs GVWR. Our medium duty fleet handles commercial vehicles, equipment transport, and oversized loads with professional care. Fully equipped for business needs.",
+    link: "/services/medium-duty",
+    gradient: "from-blue-500 via-indigo-500 to-purple-500",
+    glowColor: "blue-500",
+    stats: { label: "CAPACITY", value: "26K lbs" },
+  },
+  {
+    key: "heavy-duty",
+    title: "Heavy Duty Towing",
+    icon: "🚜",
+    img: "/services/heavy-duty-placeholder.webp",
+    blurb:
+      "Semi-trucks, buses, heavy equipment, and commercial vehicles. Our heavy duty wreckers handle the biggest jobs in San Diego County. Professional operators, specialized rigging, and the power to move anything safely.",
+    link: "/services/heavy-duty",
+    gradient: "from-gray-600 via-zinc-600 to-slate-700",
+    glowColor: "gray-500",
+    stats: { label: "CAPACITY", value: "50+ tons" },
+  },
+  {
     key: "collision",
     title: "Collision Recovery",
     icon: "🚨",
@@ -191,7 +215,7 @@ export default function Services() {
             {/* Stats Row */}
             <div className="flex flex-wrap justify-center gap-6 sm:gap-10 mt-10 sm:mt-12">
               {[
-                { value: "7", label: "Services" },
+                { value: "9", label: "Services" },
                 { value: "24/7", label: "Availability" },
                 { value: "25min", label: "Avg Response" },
                 { value: "4.9★", label: "Rating" },
@@ -237,8 +261,8 @@ export default function Services() {
                 <div className="relative h-full flex flex-col">
                   {/* Image Container with Premium Effects */}
                   <div className="relative h-[240px] sm:h-[280px] overflow-hidden">
-                    {/* Image */}
-                    {s.img && (
+                    {/* Image or Placeholder */}
+                    {s.img && !s.img.includes('placeholder') ? (
                       <Image
                         src={s.img}
                         alt={s.title}
@@ -250,6 +274,13 @@ export default function Services() {
                         sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                         loading="lazy"
                       />
+                    ) : (
+                      <div className={`absolute inset-0 bg-gradient-to-br ${s.gradient} opacity-30`}>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <span className="text-8xl opacity-50">{s.icon}</span>
+                        </div>
+                        <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-10 mix-blend-overlay" />
+                      </div>
                     )}
 
                     {/* Gradient Overlay */}
