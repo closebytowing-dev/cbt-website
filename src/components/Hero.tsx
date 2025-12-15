@@ -9,7 +9,7 @@ export default function Hero() {
   const showBanners = config.customerRequestForm?.saveBanners !== false;
   return (
     <section className="relative overflow-hidden bg-[#1e1e4a] text-white">
-      <div className="mx-auto max-w-[1800px] px-6 min-h-[50vh] grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <div className="mx-auto max-w-[1800px] px-2 sm:px-6 min-h-[50vh] grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Left: high-conversion copy */}
         <div className="py-4 lg:py-0">
           <p className="uppercase tracking-[0.18em] text-base sm:text-2xl opacity-90">
