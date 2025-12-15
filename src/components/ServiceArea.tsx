@@ -3,21 +3,24 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-// Areas with dedicated pages for SEO linking
-const LINKED_AREAS = [
-  { name: "Mission Valley", slug: "mission-valley" },
-  { name: "Clairemont", slug: "clairemont" },
-  { name: "Kearny Mesa", slug: "kearny-mesa" },
-  { name: "Mira Mesa", slug: "mira-mesa" },
-  { name: "La Mesa", slug: "la-mesa" },
-  { name: "El Cajon", slug: "el-cajon" },
-  { name: "Chula Vista", slug: "chula-vista" },
-  { name: "National City", slug: "national-city" },
-  { name: "Spring Valley", slug: "spring-valley" },
-  { name: "Pacific Beach", slug: "pacific-beach" },
-  { name: "University City", slug: "university-city" },
-  { name: "Hillcrest", slug: "hillcrest" },
-];
+// Map of area names to their slugs (areas with dedicated pages)
+const AREA_SLUGS: Record<string, string> = {
+  "Mission Valley": "mission-valley",
+  "Clairemont": "clairemont",
+  "Kearny Mesa": "kearny-mesa",
+  "Mira Mesa": "mira-mesa",
+  "La Mesa": "la-mesa",
+  "El Cajon": "el-cajon",
+  "Chula Vista": "chula-vista",
+  "National City": "national-city",
+  "Spring Valley": "spring-valley",
+  "Pacific Beach": "pacific-beach",
+  "University City": "university-city",
+  "Hillcrest": "hillcrest",
+};
+
+// Areas with dedicated pages for SEO linking (for the browse section)
+const LINKED_AREAS = Object.entries(AREA_SLUGS).map(([name, slug]) => ({ name, slug }));
 
 export default function ServiceArea() {
   const [activeRegion, setActiveRegion] = useState<string | null>(null);
@@ -33,31 +36,31 @@ export default function ServiceArea() {
       icon: "🏖️",
       color: "from-cyan-400 to-blue-500",
       glowColor: "cyan-400",
-      areas: ["San Diego", "La Jolla", "Pacific Beach", "Mission Beach", "Ocean Beach", "Point Loma", "Coronado", "Del Mar"],
+      areas: ["Pacific Beach", "La Jolla", "Mission Beach", "Ocean Beach", "Point Loma", "Coronado", "Del Mar"],
     },
     "Central San Diego": {
       icon: "🏙️",
       color: "from-purple-400 to-indigo-500",
       glowColor: "purple-400",
-      areas: ["Mission Valley", "North Park", "Hillcrest", "Kearny Mesa", "Linda Vista", "Clairemont", "Serra Mesa", "University City"],
+      areas: ["Mission Valley", "Hillcrest", "Kearny Mesa", "Clairemont", "University City", "North Park", "Linda Vista", "Serra Mesa"],
     },
     "East County": {
       icon: "🌄",
       color: "from-amber-400 to-orange-500",
       glowColor: "amber-400",
-      areas: ["El Cajon", "La Mesa", "Santee", "Lakeside", "Spring Valley", "Lemon Grove", "San Carlos", "Allied Gardens"],
+      areas: ["El Cajon", "La Mesa", "Spring Valley", "Santee", "Lakeside", "Lemon Grove", "San Carlos", "Allied Gardens"],
     },
     "South Bay": {
       icon: "🌴",
       color: "from-emerald-400 to-teal-500",
       glowColor: "emerald-400",
-      areas: ["Chula Vista", "National City", "San Ysidro", "Bonita", "Imperial Beach", "La Presa", "Paradise Hills", "Otay Mesa"],
+      areas: ["Chula Vista", "National City", "San Ysidro", "Bonita", "Imperial Beach", "Paradise Hills", "Otay Mesa"],
     },
     "North County": {
       icon: "🏔️",
       color: "from-rose-400 to-pink-500",
       glowColor: "rose-400",
-      areas: ["Poway", "Miramar", "Scripps Ranch", "Tierrasanta", "Rancho Bernardo", "Carmel Mountain", "Sabre Springs", "Rancho Peñasquitos"],
+      areas: ["Mira Mesa", "Poway", "Scripps Ranch", "Tierrasanta", "Rancho Bernardo", "Carmel Mountain", "Sabre Springs", "Rancho Peñasquitos"],
     },
   };
 
@@ -225,14 +228,30 @@ export default function ServiceArea() {
                     {activeRegion === region && (
                       <div className="mt-3 pt-3 border-t border-white/10 animate-fadeIn">
                         <div className="grid grid-cols-2 gap-1.5">
-                          {data.areas.map((area) => (
-                            <div key={area} className="flex items-center gap-1.5 text-sm text-white/80">
-                              <svg className={`w-3 h-3 text-${data.glowColor}`} fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                              </svg>
-                              <span className="truncate">{area}</span>
-                            </div>
-                          ))}
+                          {data.areas.map((area) => {
+                            const slug = AREA_SLUGS[area];
+                            const hasPage = !!slug;
+
+                            return hasPage ? (
+                              <Link
+                                key={area}
+                                href={`/san-diego/${slug}`}
+                                className="flex items-center gap-1.5 text-sm text-white/80 hover:text-cyan-400 transition-colors"
+                              >
+                                <svg className={`w-3 h-3 text-${data.glowColor}`} fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                </svg>
+                                <span className="truncate">{area}</span>
+                              </Link>
+                            ) : (
+                              <div key={area} className="flex items-center gap-1.5 text-sm text-white/80">
+                                <svg className={`w-3 h-3 text-${data.glowColor}`} fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                </svg>
+                                <span className="truncate">{area}</span>
+                              </div>
+                            );
+                          })}
                         </div>
                       </div>
                     )}
