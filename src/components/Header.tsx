@@ -125,12 +125,21 @@ export default function Header() {
 
           {/* Right: phone button - use ml-auto on mobile, absolute positioning on desktop */}
           <div className="ml-auto mr-[-16px] lg:absolute lg:-right-12 lg:mr-0 flex items-center">
+              {/* Mobile phone button - iOS style blue rounded pill */}
+              <a
+                href="tel:+18589999293"
+                aria-label="Call CloseBy Towing +1 (858) 999-9293"
+                className="lg:hidden inline-flex items-center rounded-full bg-[#007AFF] px-4 py-2 text-white text-lg font-semibold leading-tight active:scale-95 transition whitespace-nowrap"
+              >
+                +1 (858) 999-9293
+              </a>
+              {/* Desktop phone button - original style */}
               <a
                 href="tel:+18589999293"
                 aria-label="Call CloseBy Towing (858) 999-9293"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/0 bg-transparent px-3 sm:px-3 py-2 text-white text-xl font-semibold leading-tight hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/40 active:scale-95 transition whitespace-nowrap"
+                className="hidden lg:inline-flex items-center gap-2 rounded-lg border border-white/0 bg-transparent px-3 py-2 text-white text-xl font-semibold leading-tight hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/40 active:scale-95 transition whitespace-nowrap"
               >
-                <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden>
                   <path
                     d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.08 4.18 2 2 0 014.06 2h3a2 2 0 012 1.72c.13.99.35 1.96.66 2.9a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.94.31 1.91.53 2.9.66A2 2 0 0122 16.92z"
                     stroke="currentColor"
@@ -139,7 +148,7 @@ export default function Header() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <span className="text-xl sm:text-2xl lg:text-2xl font-semibold">(858) 999-9293</span>
+                <span className="text-2xl font-semibold">(858) 999-9293</span>
               </a>
           </div>
         </div>
