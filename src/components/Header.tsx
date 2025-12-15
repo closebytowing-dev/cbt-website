@@ -280,14 +280,14 @@ export default function Header() {
                 <>
                   <Link
                     href="/partners/login"
-                    className="text-xl sm:text-[1.35rem] font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
+                    className="text-sm sm:text-[1.35rem] font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
                   >
                     Login
                   </Link>
-                  <span className="text-[#1e1e4a]/30 text-xl sm:text-2xl">|</span>
+                  <span className="text-[#1e1e4a]/30 text-sm sm:text-2xl">|</span>
                   <Link
                     href="/partners/signup"
-                    className="text-xl sm:text-[1.35rem] font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
+                    className="text-sm sm:text-[1.35rem] font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
                   >
                     Sign Up
                   </Link>
