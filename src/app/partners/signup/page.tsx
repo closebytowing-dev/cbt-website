@@ -592,7 +592,7 @@ export default function PartnerSignupPage() {
     </div>
 
     {/* Main Value Section with Integrated Tier Cards */}
-    <section className="relative bg-gradient-to-b from-[#1e1e4a] via-[#1a1a40] to-white pt-20 sm:pt-24 lg:pt-32 pb-16 sm:pb-20 lg:pb-24 px-4 sm:px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-[#1e1e4a] via-[#1a1a40] to-white pt-32 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 lg:pb-24 px-4 sm:px-6 overflow-hidden">
       {/* Ambient background effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl"></div>
