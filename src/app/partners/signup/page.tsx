@@ -301,6 +301,16 @@ export default function PartnerSignupPage() {
               </div>
             </div>
           </div>
+        {/* Mobile Conversion Text - Only visible on mobile */}
+        <div className="lg:hidden text-center mb-6 px-2">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+            Own a Vehicle Service Business?
+          </h2>
+          <p className="text-white/80 text-base sm:text-lg">
+            Partner with San Diego&apos;s fastest-growing towing company. Earn commissions on referrals & get free leads.
+          </p>
+        </div>
+
         {/* Auth Card - Responsive width */}
         <div className="w-full lg:w-[512px] flex-shrink-0">
           <div className="bg-gray-200/30 backdrop-blur-[2px] rounded-2xl shadow-2xl overflow-hidden border border-white/40">
