@@ -92,7 +92,7 @@ export default function Header() {
           </Link>
 
           {/* Mobile: "CloseBy" text in header */}
-          <div className="lg:hidden absolute left-14">
+          <div className="lg:hidden absolute left-14 top-1/2 -translate-y-1/3">
             <Link
               href="/"
               className="font-bold tracking-tight text-xl whitespace-nowrap"
