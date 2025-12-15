@@ -5,18 +5,49 @@ import { useState, useEffect } from "react";
 
 // Map of area names to their slugs (areas with dedicated pages)
 const AREA_SLUGS: Record<string, string> = {
+  // Downtown & Beaches
+  "Pacific Beach": "pacific-beach",
+  "La Jolla": "la-jolla",
+  "Mission Beach": "mission-beach",
+  "Ocean Beach": "ocean-beach",
+  "Point Loma": "point-loma",
+  "Coronado": "coronado",
+  "Del Mar": "del-mar",
+  // Central San Diego
   "Mission Valley": "mission-valley",
-  "Clairemont": "clairemont",
+  "Hillcrest": "hillcrest",
   "Kearny Mesa": "kearny-mesa",
-  "Mira Mesa": "mira-mesa",
-  "La Mesa": "la-mesa",
+  "Clairemont": "clairemont",
+  "University City": "university-city",
+  "North Park": "north-park",
+  "Linda Vista": "linda-vista",
+  "Serra Mesa": "serra-mesa",
+  // East County
   "El Cajon": "el-cajon",
+  "La Mesa": "la-mesa",
+  "Spring Valley": "spring-valley",
+  "Santee": "santee",
+  "Lakeside": "lakeside",
+  "Lemon Grove": "lemon-grove",
+  "San Carlos": "san-carlos",
+  "Allied Gardens": "allied-gardens",
+  // South Bay
   "Chula Vista": "chula-vista",
   "National City": "national-city",
-  "Spring Valley": "spring-valley",
-  "Pacific Beach": "pacific-beach",
-  "University City": "university-city",
-  "Hillcrest": "hillcrest",
+  "San Ysidro": "san-ysidro",
+  "Bonita": "bonita",
+  "Imperial Beach": "imperial-beach",
+  "Paradise Hills": "paradise-hills",
+  "Otay Mesa": "otay-mesa",
+  // North County
+  "Mira Mesa": "mira-mesa",
+  "Poway": "poway",
+  "Scripps Ranch": "scripps-ranch",
+  "Tierrasanta": "tierrasanta",
+  "Rancho Bernardo": "rancho-bernardo",
+  "Carmel Mountain": "carmel-mountain",
+  "Sabre Springs": "sabre-springs",
+  "Rancho Peñasquitos": "rancho-penasquitos",
 };
 
 // Areas with dedicated pages for SEO linking (for the browse section)

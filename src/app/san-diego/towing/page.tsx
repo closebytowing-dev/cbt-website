@@ -35,18 +35,49 @@ export const metadata: Metadata = {
 
 // San Diego areas for internal linking
 const SAN_DIEGO_AREAS = [
+  // Downtown & Beaches
+  { name: "Pacific Beach", slug: "pacific-beach" },
+  { name: "La Jolla", slug: "la-jolla" },
+  { name: "Mission Beach", slug: "mission-beach" },
+  { name: "Ocean Beach", slug: "ocean-beach" },
+  { name: "Point Loma", slug: "point-loma" },
+  { name: "Coronado", slug: "coronado" },
+  { name: "Del Mar", slug: "del-mar" },
+  // Central San Diego
   { name: "Mission Valley", slug: "mission-valley" },
-  { name: "Clairemont", slug: "clairemont" },
+  { name: "Hillcrest", slug: "hillcrest" },
   { name: "Kearny Mesa", slug: "kearny-mesa" },
-  { name: "Mira Mesa", slug: "mira-mesa" },
-  { name: "La Mesa", slug: "la-mesa" },
+  { name: "Clairemont", slug: "clairemont" },
+  { name: "University City", slug: "university-city" },
+  { name: "North Park", slug: "north-park" },
+  { name: "Linda Vista", slug: "linda-vista" },
+  { name: "Serra Mesa", slug: "serra-mesa" },
+  // East County
   { name: "El Cajon", slug: "el-cajon" },
+  { name: "La Mesa", slug: "la-mesa" },
+  { name: "Spring Valley", slug: "spring-valley" },
+  { name: "Santee", slug: "santee" },
+  { name: "Lakeside", slug: "lakeside" },
+  { name: "Lemon Grove", slug: "lemon-grove" },
+  { name: "San Carlos", slug: "san-carlos" },
+  { name: "Allied Gardens", slug: "allied-gardens" },
+  // South Bay
   { name: "Chula Vista", slug: "chula-vista" },
   { name: "National City", slug: "national-city" },
-  { name: "Spring Valley", slug: "spring-valley" },
-  { name: "Pacific Beach", slug: "pacific-beach" },
-  { name: "University City", slug: "university-city" },
-  { name: "Hillcrest", slug: "hillcrest" },
+  { name: "San Ysidro", slug: "san-ysidro" },
+  { name: "Bonita", slug: "bonita" },
+  { name: "Imperial Beach", slug: "imperial-beach" },
+  { name: "Paradise Hills", slug: "paradise-hills" },
+  { name: "Otay Mesa", slug: "otay-mesa" },
+  // North County
+  { name: "Mira Mesa", slug: "mira-mesa" },
+  { name: "Poway", slug: "poway" },
+  { name: "Scripps Ranch", slug: "scripps-ranch" },
+  { name: "Tierrasanta", slug: "tierrasanta" },
+  { name: "Rancho Bernardo", slug: "rancho-bernardo" },
+  { name: "Carmel Mountain", slug: "carmel-mountain" },
+  { name: "Sabre Springs", slug: "sabre-springs" },
+  { name: "Rancho Penasquitos", slug: "rancho-penasquitos" },
 ];
 
 // Other services for cross-linking
