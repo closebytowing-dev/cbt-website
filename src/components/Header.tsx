@@ -78,7 +78,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full">
       {/* Top dark bar (reduced height ~40%) */}
       <div className="bg-[#1e1e4a] text-white relative">
-        <div className="mx-auto max-w-[1800px] px-4 sm:px-6 h-12 lg:h-[5rem] flex items-center justify-between relative">
+        <div className="mx-auto max-w-[1800px] px-4 sm:px-6 h-14 lg:h-[5rem] flex items-center justify-between relative">
           {/* Mobile: Oversized logo that spans both bars (like desktop) */}
           <Link href="/" className="lg:hidden absolute -left-3 top-[90%] -translate-y-[50%] z-50">
             <Image
