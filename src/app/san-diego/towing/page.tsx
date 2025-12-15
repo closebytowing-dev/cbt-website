@@ -311,24 +311,6 @@ export default function TowingSanDiegoPage() {
             <div className="relative">
               {/* Image container with rounded corners */}
               <div className="relative aspect-[4/3] rounded-2xl lg:rounded-3xl overflow-hidden bg-white/5">
-                {/* ═══════════════════════════════════════════════════════════
-                    PHOTO PLACEHOLDER: Hero Image
-                    Description: CloseBy tow truck at night in San Diego,
-                    city lights in background - professional, real, not stock.
-                    Should feel premium and trustworthy.
-                    Aspect ratio: 4:3
-                    Alt text: "CloseBy Towing professional tow truck ready for
-                    24/7 service in San Diego"
-                ═══════════════════════════════════════════════════════════ */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#2a2a6a] to-[#1e1e4a] flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <div className="text-6xl mb-4">🚛</div>
-                    <p className="text-white/60 text-sm">
-                      [Hero Image: CloseBy tow truck at night in San Diego]
-                    </p>
-                  </div>
-                </div>
-                {/* Uncomment when real image is available:
                 <Image
                   src="/san-diego/towing-hero.webp"
                   alt="CloseBy Towing professional tow truck ready for 24/7 service in San Diego"
@@ -337,7 +319,6 @@ export default function TowingSanDiegoPage() {
                   priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                */}
               </div>
             </div>
           </div>
