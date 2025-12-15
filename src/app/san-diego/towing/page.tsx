@@ -473,23 +473,6 @@ export default function TowingSanDiegoPage() {
             {/* Right: Image */}
             <div className="relative">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white shadow-lg">
-                {/* ═══════════════════════════════════════════════════════════
-                    PHOTO PLACEHOLDER: Service Image
-                    Description: CloseBy driver helping a customer, friendly
-                    interaction, daytime, San Diego street visible.
-                    Should feel HUMAN - show the service, the care, the professionalism.
-                    Aspect ratio: 4:3
-                    Alt text: "CloseBy Towing driver assisting a customer in San Diego"
-                ═══════════════════════════════════════════════════════════ */}
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <div className="text-6xl mb-4">🤝</div>
-                    <p className="text-gray-500 text-sm">
-                      [Image: Driver helping customer, friendly interaction]
-                    </p>
-                  </div>
-                </div>
-                {/* Uncomment when real image is available:
                 <Image
                   src="/san-diego/driver-helping-customer.webp"
                   alt="CloseBy Towing driver assisting a customer in San Diego"
@@ -497,7 +480,6 @@ export default function TowingSanDiegoPage() {
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                */}
               </div>
             </div>
           </div>
