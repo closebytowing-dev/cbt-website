@@ -98,6 +98,33 @@ export default function Hero() {
             placeholder="blur"
             blurDataURL="data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAwCdASoUAAwAP3Gixlk0rCejsAgCkC4JZQDKACKki8RZ3rsuoAAA/IvZXW7V2XxoSfiTxMBlmuFH1hQzvKTCg9OfhVUf8FHAbSHuZGiAAA=="
           />
+
+          {/* Conversion Badge - Bottom Right */}
+          <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 z-10">
+            <div className="relative group">
+              {/* Glow effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-400 to-green-500 rounded-xl blur-md opacity-60 group-hover:opacity-80 transition-opacity animate-pulse" />
+
+              {/* Badge container */}
+              <div className="relative bg-gradient-to-r from-emerald-500 to-green-600 rounded-xl px-3 py-2 sm:px-4 sm:py-2.5 shadow-xl border border-white/20 overflow-hidden">
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_ease-in-out_infinite]" />
+
+                {/* Content */}
+                <div className="relative flex items-center gap-2 sm:gap-2.5">
+                  <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/20 flex items-center justify-center">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div className="text-white">
+                    <p className="text-[10px] sm:text-xs font-medium opacity-90 uppercase tracking-wide">No Hidden Fees</p>
+                    <p className="text-sm sm:text-base font-bold leading-tight">Price Locked Before Dispatch</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
