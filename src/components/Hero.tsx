@@ -100,15 +100,10 @@ export default function Hero() {
           />
 
           {/* Conversion Badge - Bottom Right */}
-          <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 z-10">
+          <div className="absolute bottom-6 right-3 sm:bottom-4 sm:right-4 z-10">
             <div className="relative group">
-              {/* Glow effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-gray-700 to-black rounded-xl blur-md opacity-60 group-hover:opacity-80 transition-opacity animate-pulse" />
-
               {/* Badge container */}
-              <div className="relative bg-gradient-to-r from-gray-900 to-black rounded-xl px-3 py-2 sm:px-4 sm:py-2.5 shadow-xl border border-white/20 overflow-hidden">
-                {/* Shimmer effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_ease-in-out_infinite]" />
+              <div className="relative bg-gradient-to-r from-gray-900 to-black rounded-xl px-3 py-2 sm:px-4 sm:py-2.5 border border-white/20 overflow-hidden">
 
                 {/* Content */}
                 <div className="relative flex items-center gap-2 sm:gap-2.5">
