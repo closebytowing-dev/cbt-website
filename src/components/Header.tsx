@@ -129,7 +129,7 @@ export default function Header() {
               <a
                 href="tel:+18589999293"
                 aria-label="Call CloseBy Towing +1 (858) 999-9293"
-                className="lg:hidden inline-flex items-center rounded-full bg-[#007AFF] px-4 py-2 text-white text-lg font-semibold leading-tight active:scale-95 transition whitespace-nowrap"
+                className="lg:hidden inline-flex items-center rounded-full bg-[#007AFF] px-4 py-1 text-white text-lg font-semibold leading-tight active:scale-95 transition whitespace-nowrap"
               >
                 +1 (858) 999-9293
               </a>
