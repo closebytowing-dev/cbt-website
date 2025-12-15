@@ -232,10 +232,10 @@ export default function PartnerSignupPage() {
       </div>
 
       {/* Main Content - Responsive layout */}
-      <div className="relative z-10 flex items-start justify-center lg:justify-end px-4 sm:px-8 lg:px-16 pt-4">
+      <div className="relative z-10 flex items-start justify-center lg:justify-end px-4 sm:px-8 lg:px-16 pt-1 lg:pt-4">
 
         {/* Right side container - Auth Card + Tier Cards - with banners positioned relative to it */}
-        <div className="flex flex-col items-center lg:items-end gap-8 flex-shrink-0 relative w-full max-w-[512px] lg:max-w-none lg:w-auto">
+        <div className="flex flex-col items-center lg:items-end gap-2 lg:gap-8 flex-shrink-0 relative w-full max-w-[512px] lg:max-w-none lg:w-auto">
           {/* Banners - Absolutely positioned to the left of auth card */}
           <div className="hidden lg:flex flex-col gap-6 absolute right-[108%] top-[5.5vh]">
             {/* Blue Banner */}
@@ -302,7 +302,7 @@ export default function PartnerSignupPage() {
             </div>
           </div>
         {/* Mobile Conversion Text - Only visible on mobile */}
-        <div className="lg:hidden text-center mb-6 px-2">
+        <div className="lg:hidden text-center mb-2 px-2">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
             Own a Vehicle Service Business?
           </h2>
