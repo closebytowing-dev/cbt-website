@@ -79,21 +79,25 @@ export default function Header() {
       {/* Top dark bar (reduced height ~40%) */}
       <div className="bg-[#1e1e4a] text-white relative">
         <div className="mx-auto max-w-[1800px] px-4 sm:px-6 h-[5rem] flex items-center justify-between relative">
-          {/* Left: logo (mobile) and brand text (desktop center) */}
-          <div className="flex items-center lg:hidden">
-            <Link href="/" className="flex items-center gap-2">
-              <Image
-                src="/images/logo/closeby_logo_64x64.webp"
-                alt="CloseBy Towing logo"
-                width={64}
-                height={64}
-                className="w-auto h-8"
-                priority
-              />
-              <span className="font-bold tracking-tight text-lg whitespace-nowrap">
-                <span className="text-red-500">CloseBy</span>{" "}
-                <span className="opacity-90">Towing</span>
-              </span>
+          {/* Mobile: Oversized logo that spans both bars (like desktop) */}
+          <Link href="/" className="lg:hidden absolute -left-4 top-[90%] -translate-y-[50%] z-50">
+            <Image
+              src="/images/main-logo.webp"
+              alt="CloseBy Towing logo"
+              width={200}
+              height={200}
+              className="w-16 h-16 object-contain drop-shadow-lg"
+              priority
+            />
+          </Link>
+
+          {/* Mobile: "CloseBy" text in header */}
+          <div className="lg:hidden absolute left-14">
+            <Link
+              href="/"
+              className="font-bold tracking-tight text-base whitespace-nowrap"
+            >
+              <span className="text-red-500">CloseBy</span>
             </Link>
           </div>
 
@@ -149,6 +153,16 @@ export default function Header() {
             <Link
               href="/"
               className="font-bold tracking-tight text-[1.8rem] text-[#1e1e4a] opacity-90 whitespace-nowrap"
+            >
+              Towing
+            </Link>
+          </div>
+
+          {/* Mobile: "Towing" text under CloseBy */}
+          <div className="lg:hidden absolute left-14">
+            <Link
+              href="/"
+              className="font-bold tracking-tight text-base text-[#1e1e4a] opacity-90 whitespace-nowrap"
             >
               Towing
             </Link>
