@@ -112,14 +112,17 @@ export default function Hero() {
 
                 {/* Content */}
                 <div className="relative flex items-center gap-2 sm:gap-2.5">
-                  <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/20 flex items-center justify-center">
-                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white/20 flex items-center justify-center">
+                    <svg className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
                   <div className="text-white">
-                    <p className="text-[10px] sm:text-xs font-medium opacity-90 uppercase tracking-wide">No Hidden Fees</p>
-                    <p className="text-sm sm:text-base font-bold leading-tight">Price Locked Before Dispatch</p>
+                    {/* Mobile: Simple text */}
+                    <p className="sm:hidden text-sm font-bold">No Hidden Fees</p>
+                    {/* Desktop: Full text */}
+                    <p className="hidden sm:block text-xs font-medium opacity-90 uppercase tracking-wide">No Hidden Fees</p>
+                    <p className="hidden sm:block text-base font-bold leading-tight">Price Locked Before Dispatch</p>
                   </div>
                 </div>
               </div>
