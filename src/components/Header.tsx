@@ -119,8 +119,8 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Right: phone button - absolutely positioned */}
-          <div className="absolute -right-14 sm:-right-12 flex items-center">
+          {/* Right: phone button - use ml-auto on mobile, absolute positioning on desktop */}
+          <div className="ml-auto lg:absolute lg:-right-12 flex items-center">
               <a
                 href="tel:+18589999293"
                 aria-label="Call CloseBy Towing (858) 999-9293"
