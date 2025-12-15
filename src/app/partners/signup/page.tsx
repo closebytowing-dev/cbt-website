@@ -563,7 +563,7 @@ export default function PartnerSignupPage() {
       </div>
 
       {/* The Floating Header - Embedded in the wave */}
-      <div className="relative z-40 flex justify-center lg:justify-end lg:pr-[25%] pt-32 sm:pt-20 lg:pt-2">
+      <div className="relative z-40 flex justify-center lg:justify-end lg:pr-[25%] pt-64 sm:pt-20 lg:pt-2">
         <div className="relative group">
           {/* Glowing orb behind header */}
           <div className="absolute -inset-10 bg-gradient-to-r from-blue-500/20 via-purple-500/30 to-pink-500/20 rounded-full blur-3xl opacity-60 group-hover:opacity-80 transition-opacity duration-700 animate-pulse"></div>
