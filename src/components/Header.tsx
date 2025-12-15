@@ -95,7 +95,7 @@ export default function Header() {
           <div className="lg:hidden absolute left-14">
             <Link
               href="/"
-              className="font-bold tracking-tight text-lg whitespace-nowrap"
+              className="font-bold tracking-tight text-xl whitespace-nowrap"
             >
               <span className="text-red-500">CloseBy</span>
             </Link>
@@ -139,7 +139,7 @@ export default function Header() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <span className="text-lg sm:text-2xl lg:text-2xl font-semibold">(858) 999-9293</span>
+                <span className="text-xl sm:text-2xl lg:text-2xl font-semibold">(858) 999-9293</span>
               </a>
           </div>
         </div>
@@ -162,7 +162,7 @@ export default function Header() {
           <div className="lg:hidden absolute left-14">
             <Link
               href="/"
-              className="font-bold tracking-tight text-lg text-[#1e1e4a] opacity-90 whitespace-nowrap"
+              className="font-bold tracking-tight text-xl text-[#1e1e4a] opacity-90 whitespace-nowrap"
             >
               Towing
             </Link>
@@ -170,7 +170,7 @@ export default function Header() {
 
           {/* Mobile Navigation - Services centered */}
           <div className="lg:hidden absolute left-1/2 -translate-x-1/2 flex items-center">
-            <nav className="flex items-center text-sm [&_button]:text-sm [&_button]:text-[0.875rem]">
+            <nav className="flex items-center [&_button]:text-base">
               <ServicesMenu />
             </nav>
           </div>
