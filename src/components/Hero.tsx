@@ -91,7 +91,7 @@ export default function Hero() {
             src="/hero/home-hero.webp"
             alt="Professional CloseBy Towing truck ready for 24/7 emergency towing and roadside assistance in San Diego"
             fill
-            className="object-cover object-left rounded-2xl"
+            className="object-cover object-right rounded-2xl"
             priority
             sizes="(max-width: 1024px) 100vw, 50vw"
             fetchPriority="high"
