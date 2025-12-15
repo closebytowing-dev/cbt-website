@@ -173,7 +173,7 @@ export default function PartnerSignupPage() {
   };
 
   return (
-    <>
+    <div className="overflow-x-hidden">
     {/* Full-screen Creating Account Overlay */}
     {showCreatingAccount && (
       <div className="fixed inset-0 z-[9999] bg-gradient-to-br from-[#0f172a] via-[#1e3a5f] to-[#0f172a] flex flex-col items-center justify-center">
@@ -218,7 +218,7 @@ export default function PartnerSignupPage() {
     )}
 
     {/* Hero Section */}
-    <div className="min-h-[95vh] relative overflow-x-auto">
+    <div className="min-h-[95vh] relative overflow-x-hidden">
       {/* Background Image - Only this squeezes */}
       <div className="absolute inset-0 min-w-full">
         <Image
@@ -951,6 +951,6 @@ export default function PartnerSignupPage() {
         }
       `}</style>
     </section>
-    </>
+    </div>
   );
 }
