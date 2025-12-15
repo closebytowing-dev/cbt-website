@@ -54,22 +54,22 @@ const OTHER_SERVICES = [
   {
     name: "Emergency Towing",
     description: "Immediate response for breakdowns and accidents",
-    href: "/services/towing",
+    href: "/san-diego/emergency-towing",
   },
   {
     name: "Flatbed Towing",
     description: "Safe transport for luxury and specialty vehicles",
-    href: "/services/towing",
+    href: "/san-diego/flatbed-towing",
   },
   {
     name: "Accident Towing",
     description: "Professional collision recovery services",
-    href: "/services/collision-recovery",
+    href: "/san-diego/accident-towing",
   },
   {
     name: "Roadside Assistance",
     description: "Jump starts, lockouts, tire changes, and fuel delivery",
-    href: "/services/jump-start",
+    href: "/san-diego/roadside-assistance",
   },
 ];
 
@@ -142,11 +142,6 @@ export default function TowingSanDiegoPage() {
       ],
       opens: "00:00",
       closes: "23:59",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: STATS.reviewCount,
     },
     areaServed: {
       "@type": "City",

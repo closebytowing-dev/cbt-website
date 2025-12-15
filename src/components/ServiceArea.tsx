@@ -1,6 +1,23 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
+
+// Areas with dedicated pages for SEO linking
+const LINKED_AREAS = [
+  { name: "Mission Valley", slug: "mission-valley" },
+  { name: "Clairemont", slug: "clairemont" },
+  { name: "Kearny Mesa", slug: "kearny-mesa" },
+  { name: "Mira Mesa", slug: "mira-mesa" },
+  { name: "La Mesa", slug: "la-mesa" },
+  { name: "El Cajon", slug: "el-cajon" },
+  { name: "Chula Vista", slug: "chula-vista" },
+  { name: "National City", slug: "national-city" },
+  { name: "Spring Valley", slug: "spring-valley" },
+  { name: "Pacific Beach", slug: "pacific-beach" },
+  { name: "University City", slug: "university-city" },
+  { name: "Hillcrest", slug: "hillcrest" },
+];
 
 export default function ServiceArea() {
   const [activeRegion, setActiveRegion] = useState<string | null>(null);
@@ -245,6 +262,36 @@ export default function ServiceArea() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </button>
+            </div>
+
+            {/* Direct Area Links for SEO */}
+            <div className="space-y-3 pt-4">
+              <div className="flex items-center justify-between">
+                <h3 className="text-white/80 text-sm font-semibold uppercase tracking-wider flex items-center gap-2">
+                  <span className="w-8 h-px bg-gradient-to-r from-cyan-500 to-transparent" />
+                  Browse by Area
+                </h3>
+                <Link
+                  href="/san-diego/towing"
+                  className="text-cyan-400 hover:text-cyan-300 text-sm font-medium transition-colors flex items-center gap-1"
+                >
+                  View All San Diego
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {LINKED_AREAS.map((area) => (
+                  <Link
+                    key={area.slug}
+                    href={`/san-diego/${area.slug}`}
+                    className="text-sm text-white/70 hover:text-cyan-400 transition-colors py-1.5 px-2 rounded-lg hover:bg-white/5"
+                  >
+                    {area.name}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
 

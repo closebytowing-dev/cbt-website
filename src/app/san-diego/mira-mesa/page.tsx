@@ -38,6 +38,7 @@ const NEARBY_AREAS = [
 ];
 
 const SERVICES = [
+  { name: "General Towing", slug: "towing", icon: "🚗" },
   { name: "Emergency Towing", slug: "emergency-towing", icon: "🚨" },
   { name: "Flatbed Towing", slug: "flatbed-towing", icon: "🛻" },
   { name: "Accident Towing", slug: "accident-towing", icon: "💥" },
