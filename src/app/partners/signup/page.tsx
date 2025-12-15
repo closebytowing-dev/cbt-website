@@ -231,11 +231,11 @@ export default function PartnerSignupPage() {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* Main Content - Fixed sizes, horizontal scroll if needed */}
-      <div className="relative z-10 flex items-start justify-end min-w-max px-8 lg:px-16 pt-4">
+      {/* Main Content - Responsive layout */}
+      <div className="relative z-10 flex items-start justify-center lg:justify-end px-4 sm:px-8 lg:px-16 pt-4">
 
         {/* Right side container - Auth Card + Tier Cards - with banners positioned relative to it */}
-        <div className="flex flex-col items-end gap-8 flex-shrink-0 relative">
+        <div className="flex flex-col items-center lg:items-end gap-8 flex-shrink-0 relative w-full max-w-[512px] lg:max-w-none lg:w-auto">
           {/* Banners - Absolutely positioned to the left of auth card */}
           <div className="hidden lg:flex flex-col gap-6 absolute right-[108%] top-[5.5vh]">
             {/* Blue Banner */}
@@ -301,8 +301,8 @@ export default function PartnerSignupPage() {
               </div>
             </div>
           </div>
-        {/* Auth Card - Fixed width, never shrinks */}
-        <div className="w-[512px] flex-shrink-0">
+        {/* Auth Card - Responsive width */}
+        <div className="w-full lg:w-[512px] flex-shrink-0">
           <div className="bg-gray-200/30 backdrop-blur-[2px] rounded-2xl shadow-2xl overflow-hidden border border-white/40">
           {/* Logo - Full width, cropped top/bottom empty space */}
           <div className="overflow-hidden">
@@ -317,7 +317,7 @@ export default function PartnerSignupPage() {
           </div>
 
           {/* Form Content */}
-          <div className="p-8">
+          <div className="p-4 sm:p-6 lg:p-8">
             {/* Error Message */}
             {error && (
               <div className="mb-6 bg-red-500/20 border border-red-500/50 rounded-lg p-3">
@@ -559,7 +559,7 @@ export default function PartnerSignupPage() {
           <div className="absolute -inset-10 bg-gradient-to-r from-blue-500/20 via-purple-500/30 to-pink-500/20 rounded-full blur-3xl opacity-60 group-hover:opacity-80 transition-opacity duration-700 animate-pulse"></div>
 
           {/* Main header card with glass morphism */}
-          <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl px-12 py-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4)] border border-white/50 text-center max-w-3xl overflow-hidden">
+          <div className="relative bg-white/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl px-6 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4)] border border-white/50 text-center max-w-3xl mx-4 sm:mx-0 overflow-hidden">
             {/* Animated border glow */}
             <div className="absolute inset-0 rounded-3xl">
               <div className="absolute inset-[-2px] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-3xl opacity-20 blur-sm animate-spin-slow"></div>
@@ -575,10 +575,10 @@ export default function PartnerSignupPage() {
 
             {/* Content */}
             <div className="relative z-10">
-              <h2 className="text-4xl md:text-5xl font-black bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent mb-4 leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent mb-3 sm:mb-4 leading-tight">
                 How Our Partnership Works
               </h2>
-              <p className="text-lg text-gray-600 max-w-xl mx-auto leading-relaxed">
+              <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-xl mx-auto leading-relaxed">
                 A simple, profitable relationship that benefits both of us. Here&apos;s exactly how it works.
               </p>
 
@@ -592,7 +592,7 @@ export default function PartnerSignupPage() {
     </div>
 
     {/* Main Value Section with Integrated Tier Cards */}
-    <section className="relative bg-gradient-to-b from-[#1e1e4a] via-[#1a1a40] to-white pt-32 pb-24 px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-[#1e1e4a] via-[#1a1a40] to-white pt-20 sm:pt-24 lg:pt-32 pb-16 sm:pb-20 lg:pb-24 px-4 sm:px-6 overflow-hidden">
       {/* Ambient background effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl"></div>
@@ -603,17 +603,17 @@ export default function PartnerSignupPage() {
       <div className="max-w-7xl mx-auto relative z-10">
 
         {/* ═══ TIER CARDS - Horizontal Premium Display ═══ */}
-        <div className="mb-24">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-white mb-3">Choose Your Partnership Tier</h3>
-            <p className="text-gray-400">The more you refer, the more you earn</p>
+        <div className="mb-16 lg:mb-24">
+          <div className="text-center mb-8 lg:mb-12">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">Choose Your Partnership Tier</h3>
+            <p className="text-sm sm:text-base text-gray-400">The more you refer, the more you earn</p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
             {/* Silver Tier */}
             <div className="group relative">
               <div className="absolute inset-0 bg-gradient-to-br from-[#C0C0C0] to-[#A8A8A8] rounded-3xl blur-xl opacity-50 group-hover:opacity-70 transition-opacity"></div>
-              <div className="relative bg-gradient-to-br from-[#F8F8F8] via-[#E8E8E8] to-[#C0C0C0] backdrop-blur-xl rounded-3xl p-8 border border-[#E0E0E0] hover:border-white transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-white/60 overflow-hidden">
+              <div className="relative bg-gradient-to-br from-[#F8F8F8] via-[#E8E8E8] to-[#C0C0C0] backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-[#E0E0E0] hover:border-white transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-white/60 overflow-hidden">
                 {/* Metallic shine overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/70 via-white/20 to-white/30 pointer-events-none"></div>
                 {/* Multiple diagonal shine streaks for extra shimmer */}
@@ -632,8 +632,8 @@ export default function PartnerSignupPage() {
                       </svg>
                     </div>
                   </div>
-                  <div className="text-7xl font-black text-gray-800 mb-2 tracking-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.5)]">10<span className="text-4xl">%</span></div>
-                  <p className="text-gray-600 mb-6">Commission per referral</p>
+                  <div className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-800 mb-2 tracking-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.5)]">10<span className="text-3xl sm:text-4xl">%</span></div>
+                  <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">Commission per referral</p>
                   <div className="h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent mb-6"></div>
                   <ul className="space-y-3 text-gray-700 text-sm">
                     <li className="flex items-center gap-3">
@@ -654,9 +654,9 @@ export default function PartnerSignupPage() {
             </div>
 
             {/* Gold Tier - Featured */}
-            <div className="group relative">
+            <div className="group relative md:col-span-2 lg:col-span-1">
               <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700] to-[#B8860B] rounded-3xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity"></div>
-              <div className="relative bg-gradient-to-br from-[#FFFACD] via-[#FFD700] to-[#DAA520] backdrop-blur-xl rounded-3xl p-8 border-2 border-[#FFE55C] hover:border-[#FFFACD] transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#FFD700]/70 overflow-hidden">
+              <div className="relative bg-gradient-to-br from-[#FFFACD] via-[#FFD700] to-[#DAA520] backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 border-2 border-[#FFE55C] hover:border-[#FFFACD] transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#FFD700]/70 overflow-hidden">
                 {/* Metallic shine overlay - extra bright for gold */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#FFFACD]/80 via-[#FFD700]/30 to-[#FFFACD]/40 pointer-events-none"></div>
                 {/* Multiple diagonal shine streaks for maximum shimmer */}
@@ -679,8 +679,8 @@ export default function PartnerSignupPage() {
                       </svg>
                     </div>
                   </div>
-                  <div className="text-7xl font-black text-[#7B5B00] mb-2 tracking-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.5)]">15<span className="text-4xl">%</span></div>
-                  <p className="text-[#8B6914] mb-6">Commission per referral</p>
+                  <div className="text-5xl sm:text-6xl lg:text-7xl font-black text-[#7B5B00] mb-2 tracking-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.5)]">15<span className="text-3xl sm:text-4xl">%</span></div>
+                  <p className="text-sm sm:text-base text-[#8B6914] mb-4 sm:mb-6">Commission per referral</p>
                   <div className="h-px bg-gradient-to-r from-transparent via-[#B8860B] to-transparent mb-6"></div>
                   <ul className="space-y-3 text-[#6B4F00] text-sm">
                     <li className="flex items-center gap-3">
@@ -707,7 +707,7 @@ export default function PartnerSignupPage() {
             {/* Platinum Tier */}
             <div className="group relative">
               <div className="absolute inset-0 bg-gradient-to-br from-[#9CA3AF] to-[#6B7280] rounded-3xl blur-xl opacity-50 group-hover:opacity-70 transition-opacity"></div>
-              <div className="relative bg-gradient-to-br from-[#D1D5DB] via-[#9CA3AF] to-[#6B7280] backdrop-blur-xl rounded-3xl p-8 border border-[#9CA3AF] hover:border-[#D1D5DB] transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#6B7280]/50 overflow-hidden">
+              <div className="relative bg-gradient-to-br from-[#D1D5DB] via-[#9CA3AF] to-[#6B7280] backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-[#9CA3AF] hover:border-[#D1D5DB] transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#6B7280]/50 overflow-hidden">
                 {/* Metallic shine overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-[#4B5563]/20 pointer-events-none"></div>
                 {/* Diagonal shine streak */}
@@ -723,8 +723,8 @@ export default function PartnerSignupPage() {
                       </svg>
                     </div>
                   </div>
-                  <div className="text-7xl font-black text-gray-800 mb-2 tracking-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.5)]">20<span className="text-4xl">%</span></div>
-                  <p className="text-gray-600 mb-6">Commission per referral</p>
+                  <div className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-800 mb-2 tracking-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.5)]">20<span className="text-3xl sm:text-4xl">%</span></div>
+                  <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">Commission per referral</p>
                   <div className="h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent mb-6"></div>
                   <ul className="space-y-3 text-gray-700 text-sm">
                     <li className="flex items-center gap-3">
@@ -755,46 +755,46 @@ export default function PartnerSignupPage() {
         </div>
 
         {/* ═══ TWO PATHS SECTION ═══ */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16 lg:mb-20">
           {/* Path 1: You Send Us Tows */}
           <div className="group relative">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-3xl blur-[72px] opacity-20 group-hover:opacity-30 transition-opacity"></div>
-            <div className="relative bg-white rounded-3xl p-10 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500">
-              <div className="flex items-center gap-5 mb-10">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg shadow-blue-500/30">
-                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500">
+              <div className="flex items-center gap-3 sm:gap-5 mb-6 sm:mb-8 lg:mb-10">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg shadow-blue-500/30 flex-shrink-0">
+                  <svg className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                   </svg>
                 </div>
-                <h3 className="text-3xl font-bold text-gray-900">You Send Us Tows</h3>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">You Send Us Tows</h3>
               </div>
 
-              <div className="space-y-8">
-                <div className="flex gap-5">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-xl shadow-lg">1</div>
+              <div className="space-y-5 sm:space-y-6 lg:space-y-8">
+                <div className="flex gap-3 sm:gap-4 lg:gap-5">
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg sm:text-xl shadow-lg">1</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-gray-900 mb-2">Customer Needs a Tow</h4>
-                    <p className="text-gray-600 text-lg">Your customer&apos;s car breaks down or needs transport and you don&apos;t offer towing services.</p>
+                    <h4 className="text-base sm:text-lg lg:text-xl font-semibold text-gray-900 mb-1 sm:mb-2">Customer Needs a Tow</h4>
+                    <p className="text-gray-600 text-sm sm:text-base lg:text-lg">Your customer&apos;s car breaks down or needs transport and you don&apos;t offer towing services.</p>
                   </div>
                 </div>
-                <div className="flex gap-5">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-xl shadow-lg">2</div>
+                <div className="flex gap-3 sm:gap-4 lg:gap-5">
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg sm:text-xl shadow-lg">2</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-gray-900 mb-2">Submit a Quick Form</h4>
-                    <p className="text-gray-600 text-lg">Your shop is already set as the destination. Just enter pickup location and customer phone - <span className="text-blue-600 font-semibold">that&apos;s it!</span></p>
+                    <h4 className="text-base sm:text-lg lg:text-xl font-semibold text-gray-900 mb-1 sm:mb-2">Submit a Quick Form</h4>
+                    <p className="text-gray-600 text-sm sm:text-base lg:text-lg">Your shop is already set as the destination. Just enter pickup location and customer phone - <span className="text-blue-600 font-semibold">that&apos;s it!</span></p>
                   </div>
                 </div>
-                <div className="flex gap-5">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-xl shadow-lg">3</div>
+                <div className="flex gap-3 sm:gap-4 lg:gap-5">
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg sm:text-xl shadow-lg">3</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-gray-900 mb-2">Get Paid Commission</h4>
-                    <p className="text-gray-600 text-lg">Earn <span className="text-blue-600 font-semibold">10-20% of the service fee</span> for every successful referral.</p>
+                    <h4 className="text-base sm:text-lg lg:text-xl font-semibold text-gray-900 mb-1 sm:mb-2">Get Paid Commission</h4>
+                    <p className="text-gray-600 text-sm sm:text-base lg:text-lg">Earn <span className="text-blue-600 font-semibold">10-20% of the service fee</span> for every successful referral.</p>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-10 p-5 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl border border-blue-200">
-                <p className="text-blue-800 text-base">
+              <div className="mt-6 sm:mt-8 lg:mt-10 p-4 sm:p-5 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl border border-blue-200">
+                <p className="text-blue-800 text-sm sm:text-base">
                   <span className="font-semibold">Example:</span> Refer a $150 tow = earn $15-$30 commission. It adds up fast!
                 </p>
               </div>
@@ -804,45 +804,45 @@ export default function PartnerSignupPage() {
           {/* Path 2: We Send You Work */}
           <div className="group relative">
             <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity"></div>
-            <div className="relative bg-white rounded-3xl p-10 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500">
-              <div className="flex items-center gap-5 mb-10">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center shadow-lg shadow-green-500/30">
-                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-5 mb-6 sm:mb-8 lg:mb-10">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-xl sm:rounded-2xl bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center shadow-lg shadow-green-500/30 flex-shrink-0">
+                  <svg className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
                 </div>
-                <div className="flex items-center gap-4">
-                  <h3 className="text-3xl font-bold text-gray-900">We Send You Work</h3>
-                  <span className="text-xl font-extrabold text-white bg-gradient-to-r from-green-500 to-emerald-600 px-4 py-2 rounded-lg shadow-lg shadow-green-500/30">FREE</span>
+                <div className="flex flex-wrap items-center gap-2 sm:gap-4">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">We Send You Work</h3>
+                  <span className="text-base sm:text-lg lg:text-xl font-extrabold text-white bg-gradient-to-r from-green-500 to-emerald-600 px-3 py-1 sm:px-4 sm:py-2 rounded-lg shadow-lg shadow-green-500/30">FREE</span>
                 </div>
               </div>
 
-              <div className="space-y-8">
-                <div className="flex gap-5">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white font-bold text-xl shadow-lg">1</div>
+              <div className="space-y-5 sm:space-y-6 lg:space-y-8">
+                <div className="flex gap-3 sm:gap-4 lg:gap-5">
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white font-bold text-lg sm:text-xl shadow-lg">1</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-gray-900 mb-2">We Tow a Vehicle</h4>
-                    <p className="text-gray-600 text-lg">A customer&apos;s car needs repairs after we tow it - transmission, engine, body work, etc.</p>
+                    <h4 className="text-base sm:text-lg lg:text-xl font-semibold text-gray-900 mb-1 sm:mb-2">We Tow a Vehicle</h4>
+                    <p className="text-gray-600 text-sm sm:text-base lg:text-lg">A customer&apos;s car needs repairs after we tow it - transmission, engine, body work, etc.</p>
                   </div>
                 </div>
-                <div className="flex gap-5">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white font-bold text-xl shadow-lg">2</div>
+                <div className="flex gap-3 sm:gap-4 lg:gap-5">
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white font-bold text-lg sm:text-xl shadow-lg">2</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-gray-900 mb-2">We Recommend You</h4>
-                    <p className="text-gray-600 text-lg">We send the customer directly to your shop as a trusted partner.</p>
+                    <h4 className="text-base sm:text-lg lg:text-xl font-semibold text-gray-900 mb-1 sm:mb-2">We Recommend You</h4>
+                    <p className="text-gray-600 text-sm sm:text-base lg:text-lg">We send the customer directly to your shop as a trusted partner.</p>
                   </div>
                 </div>
-                <div className="flex gap-5">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white font-bold text-xl shadow-lg">3</div>
+                <div className="flex gap-3 sm:gap-4 lg:gap-5">
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white font-bold text-lg sm:text-xl shadow-lg">3</div>
                   <div>
-                    <h4 className="text-xl font-semibold text-gray-900 mb-2">You Get New Business</h4>
-                    <p className="text-gray-600 text-lg">New customers walk through your door - <span className="text-green-600 font-semibold">completely free</span> for you.</p>
+                    <h4 className="text-base sm:text-lg lg:text-xl font-semibold text-gray-900 mb-1 sm:mb-2">You Get New Business</h4>
+                    <p className="text-gray-600 text-sm sm:text-base lg:text-lg">New customers walk through your door - <span className="text-green-600 font-semibold">completely free</span> for you.</p>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-10 p-5 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200">
-                <p className="text-green-800 text-base">
+              <div className="mt-6 sm:mt-8 lg:mt-10 p-4 sm:p-5 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200">
+                <p className="text-green-800 text-sm sm:text-base">
                   <span className="font-semibold">No fees, no catch:</span> We send you business because happy customers make us all successful.
                 </p>
               </div>
@@ -852,59 +852,59 @@ export default function PartnerSignupPage() {
 
         {/* ═══ WHY PARTNER SECTION ═══ */}
         <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-gray-200 rounded-3xl"></div>
-          <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-12 border border-gray-200 shadow-xl">
-            <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">Why Businesses Partner With Us</h3>
-            <div className="grid md:grid-cols-4 gap-8">
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-gray-200 rounded-2xl sm:rounded-3xl"></div>
+          <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 border border-gray-200 shadow-xl">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 text-center mb-8 sm:mb-10 lg:mb-12">Why Businesses Partner With Us</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
               <div className="text-center group">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-500 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-yellow-500/30 group-hover:scale-110 transition-transform">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-500 flex items-center justify-center mx-auto mb-2 sm:mb-3 lg:mb-4 shadow-lg shadow-yellow-500/30 group-hover:scale-110 transition-transform">
+                  <svg className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">Passive Income</h4>
-                <p className="text-gray-600 text-sm">Earn money from customers you couldn&apos;t serve anyway</p>
+                <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-gray-900 mb-1 sm:mb-2">Passive Income</h4>
+                <p className="text-gray-600 text-xs sm:text-sm">Earn money from customers you couldn&apos;t serve anyway</p>
               </div>
               <div className="text-center group">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-400 to-violet-500 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-purple-500/30 group-hover:scale-110 transition-transform">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-purple-400 to-violet-500 flex items-center justify-center mx-auto mb-2 sm:mb-3 lg:mb-4 shadow-lg shadow-purple-500/30 group-hover:scale-110 transition-transform">
+                  <svg className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                 </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">New Customers</h4>
-                <p className="text-gray-600 text-sm">We bring you business you never would have found</p>
+                <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-gray-900 mb-1 sm:mb-2">New Customers</h4>
+                <p className="text-gray-600 text-xs sm:text-sm">We bring you business you never would have found</p>
               </div>
               <div className="text-center group">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-500/30 group-hover:scale-110 transition-transform">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center mx-auto mb-2 sm:mb-3 lg:mb-4 shadow-lg shadow-blue-500/30 group-hover:scale-110 transition-transform">
+                  <svg className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">Trusted Network</h4>
-                <p className="text-gray-600 text-sm">Join San Diego&apos;s most reliable towing partner network</p>
+                <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-gray-900 mb-1 sm:mb-2">Trusted Network</h4>
+                <p className="text-gray-600 text-xs sm:text-sm">Join San Diego&apos;s most reliable towing partner network</p>
               </div>
               <div className="text-center group">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-green-500/30 group-hover:scale-110 transition-transform">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center mx-auto mb-2 sm:mb-3 lg:mb-4 shadow-lg shadow-green-500/30 group-hover:scale-110 transition-transform">
+                  <svg className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">Fast Payments</h4>
-                <p className="text-gray-600 text-sm">Get paid weekly, bi-weekly, or same-day based on tier</p>
+                <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-gray-900 mb-1 sm:mb-2">Fast Payments</h4>
+                <p className="text-gray-600 text-xs sm:text-sm">Get paid weekly, bi-weekly, or same-day based on tier</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-16">
-          <p className="text-gray-600 mb-6">Ready to start earning?</p>
+        <div className="text-center mt-10 sm:mt-12 lg:mt-16">
+          <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">Ready to start earning?</p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="group relative bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white px-12 py-5 rounded-2xl font-bold text-lg transition-all shadow-xl hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-105"
+            className="group relative bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white px-8 sm:px-10 lg:px-12 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg transition-all shadow-xl hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-105"
           >
             <span className="relative z-10">Sign Up Now - It&apos;s Free</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-xl sm:rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity"></div>
           </button>
         </div>
       </div>
