@@ -303,12 +303,9 @@ export default function PartnerSignupPage() {
           </div>
         {/* Mobile Conversion Text - Only visible on mobile */}
         <div className="lg:hidden text-center mb-2 px-2">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
-            Own a Vehicle Service Business?
+          <h2 className="text-xl sm:text-2xl font-bold text-white">
+            Earn More. Grow Together.
           </h2>
-          <p className="text-white/80 text-base sm:text-lg">
-            Partner with San Diego&apos;s fastest-growing towing company. Earn commissions on referrals & get free leads.
-          </p>
         </div>
 
         {/* ═══ PREMIUM B2B TAGLINE - The Signature Element ═══ */}
