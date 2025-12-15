@@ -311,6 +311,80 @@ export default function PartnerSignupPage() {
           </p>
         </div>
 
+        {/* ═══ PREMIUM B2B TAGLINE - The Signature Element ═══ */}
+        <div className="w-full mb-3 lg:mb-4">
+          <div className="relative group">
+            {/* Outer glow effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-amber-500/20 via-white/10 to-amber-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+
+            {/* Main container */}
+            <div className="relative bg-gradient-to-r from-black/60 via-black/40 to-black/60 backdrop-blur-md rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 border border-white/10 overflow-hidden">
+              {/* Animated gradient border */}
+              <div className="absolute inset-0 rounded-xl sm:rounded-2xl">
+                <div className="absolute inset-[-1px] bg-gradient-to-r from-transparent via-amber-400/30 to-transparent rounded-xl sm:rounded-2xl animate-shimmer"></div>
+              </div>
+
+              {/* Subtle top highlight line */}
+              <div className="absolute top-0 left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
+
+              {/* Content */}
+              <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                {/* Left decorative element */}
+                <div className="hidden sm:flex items-center gap-2">
+                  <div className="w-8 h-[1px] bg-gradient-to-r from-transparent to-amber-400/60"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-amber-400/80 animate-pulse"></div>
+                </div>
+
+                {/* Main tagline */}
+                <div className="text-center">
+                  <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-amber-200/80 font-medium mb-1">B2B Partnership</p>
+                  <h3 className="text-base sm:text-lg lg:text-xl font-bold tracking-wide">
+                    <span className="bg-gradient-to-r from-white via-amber-100 to-white bg-clip-text text-transparent">The More You Refer</span>
+                    <span className="mx-2 text-amber-400/60">·</span>
+                    <span className="bg-gradient-to-r from-amber-200 via-amber-100 to-amber-200 bg-clip-text text-transparent">The More We Refer</span>
+                  </h3>
+                </div>
+
+                {/* Right decorative element */}
+                <div className="hidden sm:flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-amber-400/80 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                  <div className="w-8 h-[1px] bg-gradient-to-l from-transparent to-amber-400/60"></div>
+                </div>
+              </div>
+
+              {/* Learn More link */}
+              <div className="relative z-10 flex justify-center mt-2">
+                <button
+                  onClick={() => {
+                    const section = document.querySelector('section');
+                    if (section) section.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="group/link flex items-center gap-1.5 text-xs sm:text-sm text-white/60 hover:text-amber-300 transition-colors duration-300"
+                >
+                  <span className="tracking-wider">Learn More</span>
+                  <svg className="w-3 h-3 sm:w-4 sm:h-4 transform group-hover/link:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Bottom subtle line */}
+              <div className="absolute bottom-0 left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+            </div>
+          </div>
+
+          {/* Shimmer animation */}
+          <style jsx>{`
+            @keyframes shimmer {
+              0% { transform: translateX(-100%); }
+              100% { transform: translateX(100%); }
+            }
+            .animate-shimmer {
+              animation: shimmer 3s ease-in-out infinite;
+            }
+          `}</style>
+        </div>
+
         {/* Auth Card - Responsive width */}
         <div className="w-full lg:w-[512px] flex-shrink-0">
           <div className="bg-gray-200/30 backdrop-blur-[2px] rounded-2xl shadow-2xl overflow-hidden border border-white/40">
