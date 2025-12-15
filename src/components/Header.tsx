@@ -78,7 +78,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full">
       {/* Top dark bar (reduced height ~40%) */}
       <div className="bg-[#1e1e4a] text-white relative">
-        <div className="mx-auto max-w-[1800px] px-4 sm:px-6 h-[5rem] flex items-center justify-between relative">
+        <div className="mx-auto max-w-[1800px] px-4 sm:px-6 h-12 lg:h-[5rem] flex items-center justify-between relative">
           {/* Mobile: Oversized logo that spans both bars (like desktop) */}
           <Link href="/" className="lg:hidden absolute -left-4 top-[90%] -translate-y-[50%] z-50">
             <Image
@@ -86,7 +86,7 @@ export default function Header() {
               alt="CloseBy Towing logo"
               width={200}
               height={200}
-              className="w-16 h-16 object-contain drop-shadow-lg"
+              className="w-20 h-20 object-contain drop-shadow-lg"
               priority
             />
           </Link>
@@ -147,7 +147,7 @@ export default function Header() {
 
       {/* Subnav bar (reduced height) */}
       <div className="bg-white text-[#1e1e4a] border-t border-[#1e1e4a]/10">
-        <div className="mx-auto max-w-[1800px] px-4 sm:px-6 h-12 flex items-center justify-center relative">
+        <div className="mx-auto max-w-[1800px] px-4 sm:px-6 h-8 lg:h-12 flex items-center justify-center relative">
           {/* Desktop: "Towing" text under CloseBy */}
           <div className="hidden lg:block absolute left-2">
             <Link
