@@ -124,7 +124,7 @@ export default function Header() {
           </div>
 
           {/* Right: phone button - use ml-auto on mobile, absolute positioning on desktop */}
-          <div className="ml-auto mr-[-16px] lg:absolute lg:-right-12 lg:mr-0 flex items-center">
+          <div className="ml-auto mr-[-12px] lg:absolute lg:-right-12 lg:mr-0 flex items-center">
               {/* Mobile phone button - iOS style blue rounded pill */}
               <a
                 href="tel:+18589999293"
