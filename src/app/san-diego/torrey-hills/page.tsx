@@ -6,13 +6,13 @@ import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Torrey Hills San Diego | 24/7 Premium Service | CloseBy Towing",
+  title: "Torrey Hills Towing | 24/7 | CloseBy",
   description:
     "Professional towing & roadside assistance in Torrey Hills. Serving Carmel Valley, Del Mar, Sorrento Valley. 15-30 min response for all vehicles in this upscale community.",
   keywords:
     "towing Torrey Hills, Torrey Hills tow truck, roadside assistance Torrey Hills, tow truck near me Torrey Hills, Carmel Valley towing, Del Mar towing",
   openGraph: {
-    title: "Towing in Torrey Hills San Diego | 24/7 Premium Service | CloseBy Towing",
+    title: "Torrey Hills Towing | 24/7 | CloseBy",
     description:
       "Professional towing experts serving Torrey Hills' upscale residential community 24/7. Fast response times and expert service near Carmel Valley and Del Mar.",
     url: "https://www.closebytowing.com/san-diego/torrey-hills",

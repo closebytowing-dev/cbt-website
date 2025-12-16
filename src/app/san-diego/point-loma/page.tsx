@@ -6,13 +6,13 @@ import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Point Loma San Diego | 24/7 Naval Service | CloseBy Towing",
+  title: "Point Loma Towing | 24/7 | CloseBy",
   description:
     "Professional towing & roadside assistance in Point Loma. Serving Liberty Station, Cabrillo, Naval Base, and Shelter Island. 15-30 min response to peninsula areas.",
   keywords:
     "towing Point Loma, Point Loma tow truck, Liberty Station towing, roadside assistance Point Loma, Shelter Island towing, tow truck near me Point Loma",
   openGraph: {
-    title: "Towing in Point Loma San Diego | 24/7 Naval Service | CloseBy Towing",
+    title: "Point Loma Towing | 24/7 | CloseBy",
     description:
       "Point Loma's trusted towing service 24/7. From Liberty Station to Cabrillo Monument, professional maritime community service.",
     url: "https://www.closebytowing.com/san-diego/point-loma",

@@ -6,13 +6,13 @@ import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Otay Mesa San Diego | 24/7 Commercial & Border Service | CloseBy Towing",
+  title: "Otay Mesa Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in Otay Mesa. We serve border crossing, warehouses, industrial parks, SR-905/I-805. 25-40 min response.",
   keywords:
     "towing Otay Mesa, Otay Mesa tow truck, commercial towing Otay Mesa, border crossing towing, warehouse towing, roadside assistance Otay Mesa, SR-905 towing",
   openGraph: {
-    title: "Towing in Otay Mesa San Diego | 24/7 Commercial & Border Service | CloseBy Towing",
+    title: "Otay Mesa Towing | 24/7 | CloseBy",
     description:
       "Local towing experts serving Otay Mesa 24/7. From warehouses to border crossing, we're your commercial and logistics towing solution.",
     url: "https://www.closebytowing.com/san-diego/otay-mesa",

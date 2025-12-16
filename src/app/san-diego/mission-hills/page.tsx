@@ -6,13 +6,13 @@ import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Mission Hills San Diego | 24/7 Historic District Service | CloseBy Towing",
+  title: "Mission Hills Towing | 24/7 | CloseBy",
   description:
     "Premium towing & roadside assistance in Mission Hills. Serving Presidio Park, Pioneer Park, and Fort Stockton Drive. 15-30 min response for classic & luxury vehicles.",
   keywords:
     "towing Mission Hills, Mission Hills tow truck, Presidio Park towing, roadside assistance Mission Hills, Fort Stockton Drive towing, tow truck near me Mission Hills",
   openGraph: {
-    title: "Towing in Mission Hills San Diego | 24/7 Historic District Service | CloseBy Towing",
+    title: "Mission Hills Towing | 24/7 | CloseBy",
     description:
       "Professional towing experts serving Mission Hills' historic community 24/7. From Presidio Park to Pioneer Park, careful service for all vehicles.",
     url: "https://www.closebytowing.com/san-diego/mission-hills",

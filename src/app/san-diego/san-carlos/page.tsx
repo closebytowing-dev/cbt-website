@@ -6,13 +6,13 @@ import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in San Carlos San Diego | 24/7 Residential Service | CloseBy Towing",
+  title: "San Carlos Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in San Carlos. We cover Lake Murray, Cowles Mountain, Navajo neighborhoods & I-8/SR-125 access. 20-40 min response.",
   keywords:
     "towing San Carlos, San Carlos tow truck, Lake Murray towing, roadside assistance San Carlos, I-8 towing, tow truck near me San Carlos",
   openGraph: {
-    title: "Towing in San Carlos San Diego | 24/7 Residential Service | CloseBy Towing",
+    title: "San Carlos Towing | 24/7 | CloseBy",
     description:
       "Local towing experts serving San Carlos 24/7. From Lake Murray to Cowles Mountain, we're your neighborhood towing solution.",
     url: "https://www.closebytowing.com/san-diego/san-carlos",

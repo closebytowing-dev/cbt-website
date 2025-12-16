@@ -6,13 +6,13 @@ import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in University Heights San Diego | 24/7 Service | CloseBy Towing",
+  title: "University Heights Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in University Heights. Serving Park Blvd corridor, Trolley Barn Park, and all University Heights neighborhoods. 15-30 min response.",
   keywords:
     "towing University Heights, University Heights tow truck, Park Blvd towing, roadside assistance University Heights, tow truck near me University Heights",
   openGraph: {
-    title: "Towing in University Heights San Diego | 24/7 Service | CloseBy Towing",
+    title: "University Heights Towing | 24/7 | CloseBy",
     description:
       "Trusted towing experts serving University Heights trendy neighborhood 24/7. Professional service for all vehicles with fast response times.",
     url: "https://www.closebytowing.com/san-diego/university-heights",

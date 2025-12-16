@@ -6,13 +6,13 @@ import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Paradise Hills San Diego | 24/7 Service | CloseBy Towing",
+  title: "Paradise Hills Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in Paradise Hills. We serve Paradise Valley Road, Skyline Hills, SR-54/I-805 corridors. 25-40 min response.",
   keywords:
     "towing Paradise Hills, Paradise Hills tow truck, Paradise Valley Road towing, roadside assistance Paradise Hills, SR-54 towing, tow truck near me Paradise Hills",
   openGraph: {
-    title: "Towing in Paradise Hills San Diego | 24/7 Service | CloseBy Towing",
+    title: "Paradise Hills Towing | 24/7 | CloseBy",
     description:
       "Local towing experts serving Paradise Hills 24/7. From hilltop neighborhoods to Paradise Valley, we're your community towing solution.",
     url: "https://www.closebytowing.com/san-diego/paradise-hills",

@@ -29,7 +29,7 @@ export default function WinchOutPage() {
     "@type": "LocalBusiness",
     "name": "CloseBy Towing - Winch-Out Recovery Service",
     "description": "24/7 professional winch-out and vehicle recovery service in San Diego. Stuck vehicle extraction from mud, sand, ditches, and off-road situations.",
-    "telephone": "(858) 999-9293",
+    "telephone": "+1-858-999-9293",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",

@@ -6,13 +6,13 @@ import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Rancho Santa Fe | 24/7 Luxury & Exotic Vehicle Service | CloseBy Towing",
+  title: "Rancho Santa Fe Towing | 24/7 | CloseBy",
   description:
     "Premium towing & roadside assistance in Rancho Santa Fe. Serving luxury estates, golf clubs, and horse ranches. 15-30 min response for exotic & high-end vehicles.",
   keywords:
     "towing Rancho Santa Fe, Rancho Santa Fe tow truck, luxury towing Rancho Santa Fe, exotic car towing, roadside assistance Rancho Santa Fe, tow truck near me Rancho Santa Fe",
   openGraph: {
-    title: "Towing in Rancho Santa Fe | 24/7 Luxury & Exotic Vehicle Service | CloseBy Towing",
+    title: "Rancho Santa Fe Towing | 24/7 | CloseBy",
     description:
       "Elite towing experts serving Rancho Santa Fe's exclusive community 24/7. White-glove service for luxury and exotic vehicles.",
     url: "https://www.closebytowing.com/san-diego/rancho-santa-fe",

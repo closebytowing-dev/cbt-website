@@ -29,7 +29,7 @@ export default function TowingPage() {
     "image": "https://yourdomain.com/towing-truck.jpg",
     "@id": "https://yourdomain.com/services/towing",
     "url": "https://yourdomain.com/services/towing",
-    "telephone": "+18589999293",
+    "telephone": "+1-858-999-9293",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",

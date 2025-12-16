@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Towing San Diego | 24/7 Professional Tow Truck Service | CloseBy Towing",
+  title: "Towing San Diego | 24/7 Service | CloseBy",
   description:
     "Fast, reliable towing in San Diego. Licensed & insured professionals available 24/7. Flatbed and wheel-lift trucks for any vehicle. Call now for immediate response.",
   keywords:

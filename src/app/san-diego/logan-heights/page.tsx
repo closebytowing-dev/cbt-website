@@ -6,13 +6,13 @@ import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Logan Heights San Diego | 24/7 Service | CloseBy Towing",
+  title: "Logan Heights Towing | 24/7 Service | CloseBy",
   description:
     "Reliable towing & roadside assistance in Logan Heights. Serving Chicano Park, Barrio Logan, and Downtown San Diego. 15-30 min response, 24/7 availability.",
   keywords:
     "towing Logan Heights, Logan Heights tow truck, Barrio Logan towing, roadside assistance Logan Heights, Chicano Park towing, tow truck near me Logan Heights",
   openGraph: {
-    title: "Towing in Logan Heights San Diego | 24/7 Service | CloseBy Towing",
+    title: "Logan Heights Towing | 24/7 Service | CloseBy",
     description:
       "Professional towing serving Logan Heights' historic community 24/7. From Chicano Park to the waterfront, reliable service for all vehicles.",
     url: "https://www.closebytowing.com/san-diego/logan-heights",

@@ -6,13 +6,13 @@ import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Tierrasanta San Diego | 24/7 Service | CloseBy Towing",
+  title: "Tierrasanta Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in Tierrasanta. We cover Mission Trails, Santo Road, MCAS Miramar area & I-15 corridor. 25-40 min response.",
   keywords:
     "towing Tierrasanta, Tierrasanta tow truck, Mission Trails towing, roadside assistance Tierrasanta, I-15 towing, tow truck near me Tierrasanta",
   openGraph: {
-    title: "Towing in Tierrasanta San Diego | 24/7 Service | CloseBy Towing",
+    title: "Tierrasanta Towing | 24/7 | CloseBy",
     description:
       "Local towing experts serving Tierrasanta 24/7. From Mission Trails to Santo Road, we're your neighborhood towing solution.",
     url: "https://www.closebytowing.com/san-diego/tierrasanta",

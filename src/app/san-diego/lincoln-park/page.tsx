@@ -6,13 +6,13 @@ import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Lincoln Park San Diego | 24/7 Service | CloseBy Towing",
+  title: "Lincoln Park Towing | 24/7 Service | CloseBy",
   description:
     "Reliable towing & roadside assistance in Lincoln Park. Serving Euclid Avenue, Lincoln High School area, and Southeast San Diego. 15-30 min response times.",
   keywords:
     "towing Lincoln Park, Lincoln Park tow truck, roadside assistance Lincoln Park, tow truck near me Lincoln Park, Euclid Avenue towing, Southeast San Diego towing",
   openGraph: {
-    title: "Towing in Lincoln Park San Diego | 24/7 Service | CloseBy Towing",
+    title: "Lincoln Park Towing | 24/7 Service | CloseBy",
     description:
       "Professional towing experts serving Lincoln Park's residential community 24/7. From Euclid Avenue to local neighborhoods, reliable service for all vehicles.",
     url: "https://www.closebytowing.com/san-diego/lincoln-park",

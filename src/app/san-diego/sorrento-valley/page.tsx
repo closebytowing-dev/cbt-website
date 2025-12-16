@@ -6,13 +6,13 @@ import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Sorrento Valley San Diego | 24/7 Business District Service | CloseBy Towing",
+  title: "Sorrento Valley Towing | 24/7 | CloseBy",
   description:
     "Professional towing & roadside assistance in Sorrento Valley. Serving biotech/tech companies, Qualcomm campus, and I-5/I-805 corridors. 15-30 min response for commercial & personal vehicles.",
   keywords:
     "towing Sorrento Valley, Sorrento Valley tow truck, commercial towing Sorrento Valley, roadside assistance Sorrento Valley, Qualcomm towing, I-5 towing, tow truck near me Sorrento Valley",
   openGraph: {
-    title: "Towing in Sorrento Valley San Diego | 24/7 Business District Service | CloseBy Towing",
+    title: "Sorrento Valley Towing | 24/7 | CloseBy",
     description:
       "Fast towing experts serving Sorrento Valley's business corridor 24/7. From biotech campuses to I-5, professional service for all vehicles.",
     url: "https://www.closebytowing.com/san-diego/sorrento-valley",

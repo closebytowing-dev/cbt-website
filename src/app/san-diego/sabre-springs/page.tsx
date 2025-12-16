@@ -6,13 +6,13 @@ import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Sabre Springs San Diego | 24/7 Service | CloseBy Towing",
+  title: "Sabre Springs Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in Sabre Springs. We cover Sabre Springs Parkway, I-15 corridor, Lopez Ridge & modern neighborhoods. 25-40 min response.",
   keywords:
     "towing Sabre Springs, Sabre Springs tow truck, roadside assistance Sabre Springs, I-15 towing, tow truck near me Sabre Springs",
   openGraph: {
-    title: "Towing in Sabre Springs San Diego | 24/7 Service | CloseBy Towing",
+    title: "Sabre Springs Towing | 24/7 | CloseBy",
     description:
       "Local towing experts serving Sabre Springs 24/7. From Lopez Ridge to modern communities, we're your trusted neighborhood towing solution.",
     url: "https://www.closebytowing.com/san-diego/sabre-springs",

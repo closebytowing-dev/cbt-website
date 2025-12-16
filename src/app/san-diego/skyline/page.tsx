@@ -6,13 +6,13 @@ import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Skyline San Diego | 24/7 Southeast Service | CloseBy Towing",
+  title: "Skyline Towing | 24/7 | CloseBy",
   description:
     "Professional towing & roadside assistance in Skyline San Diego. Serving Skyline Hills, Paradise Valley Road, and Southeast communities. 15-30 min response time, available 24/7.",
   keywords:
     "towing Skyline San Diego, Skyline tow truck, roadside assistance Skyline, tow truck near me Skyline, Southeast San Diego towing, Skyline Hills towing",
   openGraph: {
-    title: "Towing in Skyline San Diego | 24/7 Southeast Service | CloseBy Towing",
+    title: "Skyline Towing | 24/7 | CloseBy",
     description:
       "Trusted towing experts serving Skyline's hilltop community 24/7. Professional service for all vehicles throughout Southeast San Diego.",
     url: "https://www.closebytowing.com/san-diego/skyline",

@@ -1,11 +1,11 @@
 # CloseBy Towing - robots.txt
-# https://closebytowing.com
+# https://www.closebytowing.com
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://closebytowing.com/sitemap.xml
+Sitemap: https://www.closebytowing.com/sitemap.xml
 
 # Disallow admin and partner dashboard areas from indexing
 Disallow: /admin/

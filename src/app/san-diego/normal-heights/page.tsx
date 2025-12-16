@@ -6,13 +6,13 @@ import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Normal Heights San Diego | 24/7 Service | CloseBy Towing",
+  title: "Normal Heights Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in Normal Heights. Serving Adams Avenue, Ward Canyon, and surrounding areas. 15-30 min response for all vehicles.",
   keywords:
     "towing Normal Heights, Normal Heights tow truck, Adams Avenue towing, roadside assistance Normal Heights, tow truck near me Normal Heights",
   openGraph: {
-    title: "Towing in Normal Heights San Diego | 24/7 Service | CloseBy Towing",
+    title: "Normal Heights Towing | 24/7 | CloseBy",
     description:
       "Reliable towing experts serving Normal Heights' eclectic community 24/7. From Adams Avenue to Ward Canyon, professional service for all vehicles.",
     url: "https://www.closebytowing.com/san-diego/normal-heights",

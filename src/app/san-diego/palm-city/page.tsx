@@ -6,13 +6,13 @@ import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Palm City San Diego | 24/7 Local Service | CloseBy Towing",
+  title: "Palm City Towing | 24/7 | CloseBy",
   description:
     "Reliable towing & roadside assistance in Palm City. Serving South San Diego near Imperial Beach, Palm Avenue, and local neighborhoods. 15-30 min response available 24/7.",
   keywords:
     "towing Palm City, Palm City tow truck, Palm Avenue towing, roadside assistance Palm City, South San Diego towing, tow truck near me Palm City",
   openGraph: {
-    title: "Towing in Palm City San Diego | 24/7 Local Service | CloseBy Towing",
+    title: "Palm City Towing | 24/7 | CloseBy",
     description:
       "Trusted towing experts serving Palm City and South San Diego 24/7. Fast response for your community.",
     url: "https://www.closebytowing.com/san-diego/palm-city",

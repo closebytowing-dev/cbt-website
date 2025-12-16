@@ -41,7 +41,7 @@ export default function LockoutPage() {
     "image": "https://closebytowing.com/services/lockout-hero.webp",
     "@id": "https://closebytowing.com/services/lockout",
     "url": "https://closebytowing.com/services/lockout",
-    "telephone": "+18589999293",
+    "telephone": "+1-858-999-9293",
     "priceRange": loading ? "$75-$88" : `$${onlinePrice}-$${standardPrice}`,
     "address": {
       "@type": "PostalAddress",
