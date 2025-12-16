@@ -153,10 +153,15 @@ export default function ClairemontPage() {
                   <div className="text-2xl font-bold text-teal-300">24/7</div>
                   <div className="text-sm text-teal-100">Available</div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
-                  <div className="text-2xl font-bold text-teal-300">I-5/805</div>
-                  <div className="text-sm text-teal-100">Coverage</div>
-                </div>
+                <a
+                  href="https://www.google.com/maps/place/CloseBy+Towing/@32.787325,-117.1152638,1168m/data=!3m1!1e3!4m8!3m7!1s0xfd432c9a2ac5763:0x627f4c417d76eb75!8m2!3d32.7873205!4d-117.1126835!9m1!1b1!16s%2Fg%2F11yk39t1jz?entry=ttu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all"
+                >
+                  <div className="text-2xl font-bold text-teal-300">5.0 ⭐</div>
+                  <div className="text-sm text-teal-100">Google Rating</div>
+                </a>
               </div>
 
               {/* CTAs */}
