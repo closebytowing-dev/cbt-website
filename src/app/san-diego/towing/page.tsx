@@ -273,7 +273,12 @@ export default function TowingSanDiegoPage() {
                   <span>Licensed & Insured</span>
                 </span>
                 <span className="text-white/40">•</span>
-                <span className="flex items-center gap-1.5">
+                <a
+                  href="https://www.google.com/maps/place/CloseBy+Towing/@32.787325,-117.1152638,1168m/data=!3m1!1e3!4m8!3m7!1s0xfd432c9a2ac5763:0x627f4c417d76eb75!8m2!3d32.7873205!4d-117.1126835!9m1!1b1!16s%2Fg%2F11yk39t1jz?entry=ttu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 hover:text-yellow-400 transition-colors"
+                >
                   <svg
                     className="w-4 h-4 text-yellow-400"
                     fill="currentColor"
@@ -281,8 +286,8 @@ export default function TowingSanDiegoPage() {
                   >
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
-                  <span>5.0 Google Rating</span>
-                </span>
+                  <span>5.0 ⭐ Perfect Rating on Google</span>
+                </a>
                 <span className="text-white/40">•</span>
                 <span className="flex items-center gap-1.5">
                   <svg
@@ -367,7 +372,7 @@ export default function TowingSanDiegoPage() {
           <div className="max-w-3xl mx-auto space-y-5 text-gray-700 text-lg leading-relaxed mb-12 lg:mb-16">
             <p>
               We provide professional towing throughout San Diego County. Whether you&apos;re
-              stranded on the I-5, stuck in a parking garage downtown, or need a vehicle
+              stuck in a parking garage downtown, broken down on the highway, or need a vehicle
               transported across town, we&apos;re here to help.
             </p>
             <p>
@@ -889,7 +894,12 @@ export default function TowingSanDiegoPage() {
               </svg>
               San Diego Local Business
             </span>
-            <span className="flex items-center gap-2">
+            <a
+              href="https://www.google.com/maps/place/CloseBy+Towing/@32.787325,-117.1152638,1168m/data=!3m1!1e3!4m8!3m7!1s0xfd432c9a2ac5763:0x627f4c417d76eb75!8m2!3d32.7873205!4d-117.1126835!9m1!1b1!16s%2Fg%2F11yk39t1jz?entry=ttu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-[#ffba42] transition-colors"
+            >
               <svg
                 className="w-4 h-4 text-yellow-500"
                 fill="currentColor"
@@ -897,8 +907,8 @@ export default function TowingSanDiegoPage() {
               >
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              5.0 Google Rating
-            </span>
+              5.0 ⭐ Perfect Rating on Google
+            </a>
             <span className="flex items-center gap-2">
               <svg
                 className="w-4 h-4 text-[#ffba42]"
