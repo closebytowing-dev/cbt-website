@@ -36,7 +36,7 @@ I've completed a comprehensive optimization of your CloseBy Towing website imple
 **Created `/src/app/about/page.tsx`:**
 - Comprehensive company story
 - Team values & mission
-- By-the-numbers section (15,000+ services, 4.9★, etc.)
+- By-the-numbers section (15,000+ services, 5.0★ Google rating, etc.)
 - Why choose us section
 - Service area coverage
 - Full schema markup (AboutPage type)
@@ -249,7 +249,7 @@ I've completed a comprehensive optimization of your CloseBy Towing website imple
 ### 4. Trust & Authority
 - Comprehensive About page
 - Easy Contact page
-- 4.9★ rating prominently displayed
+- 5.0★ Google rating prominently displayed
 - Licensed & Insured messaging
 - Professional design
 
