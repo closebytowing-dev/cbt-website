@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Alpine San Diego | 24/7 Mountain Service | CloseBy Towing",
+  title: "Alpine Towing San Diego | 24/7 | CloseBy",
   description:
     "Reliable towing & roadside assistance in Alpine. Serving Viejas Casino, Alpine Boulevard, Wright's Field, and Cleveland National Forest. 20-35 min response.",
   keywords:
     "towing Alpine, Alpine tow truck, Viejas Casino towing, roadside assistance Alpine, East County towing, tow truck near me Alpine",
   openGraph: {
-    title: "Towing in Alpine San Diego | 24/7 Mountain Service | CloseBy Towing",
+    title: "Alpine Towing San Diego | 24/7 | CloseBy",
     description:
       "Mountain community towing experts serving Alpine 24/7. From Viejas Casino to Cleveland National Forest, professional service for all vehicles.",
     url: "https://www.closebytowing.com/san-diego/alpine",

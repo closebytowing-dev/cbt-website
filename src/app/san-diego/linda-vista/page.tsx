@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Linda Vista San Diego | 24/7 Service | CloseBy Towing",
+  title: "Linda Vista Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in Linda Vista. We cover USD campus, Linda Vista Plaza, residential neighborhoods & I-5/SR-163 access. 20-30 min response.",
   keywords:
     "towing Linda Vista, Linda Vista tow truck, USD towing, roadside assistance Linda Vista, Linda Vista Plaza towing, tow truck near me Linda Vista",
   openGraph: {
-    title: "Towing in Linda Vista San Diego | 24/7 Service | CloseBy Towing",
+    title: "Linda Vista Towing | 24/7 | CloseBy",
     description:
       "Local towing experts serving Linda Vista 24/7. From University of San Diego to residential neighborhoods, we're your community towing solution.",
     url: "https://www.closebytowing.com/san-diego/linda-vista",

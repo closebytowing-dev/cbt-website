@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Rancho Bernardo San Diego | 24/7 Service | CloseBy Towing",
+  title: "Rancho Bernardo Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in Rancho Bernardo. We cover RB Town Center, I-15 corridor, Bernardo Winery area & upscale neighborhoods. 25-40 min response.",
   keywords:
     "towing Rancho Bernardo, RB tow truck, Rancho Bernardo towing, roadside assistance RB, I-15 towing, tow truck near me Rancho Bernardo",
   openGraph: {
-    title: "Towing in Rancho Bernardo San Diego | 24/7 Service | CloseBy Towing",
+    title: "Rancho Bernardo Towing | 24/7 | CloseBy",
     description:
       "Local towing experts serving Rancho Bernardo 24/7. From RB Town Center to wine country, we're your neighborhood towing solution.",
     url: "https://www.closebytowing.com/san-diego/rancho-bernardo",

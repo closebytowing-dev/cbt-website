@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Lakeside San Diego | 24/7 East County Service | CloseBy Towing",
+  title: "Lakeside Towing | 24/7 Service | CloseBy",
   description:
     "Fast towing & roadside assistance in Lakeside. We cover Lake Jennings, Barona Casino, Wildcat Canyon & SR-67/I-8 corridors. 20-40 min rural response.",
   keywords:
     "towing Lakeside, Lakeside tow truck, East County towing, roadside assistance Lakeside, SR-67 towing, tow truck near me Lakeside, Barona towing",
   openGraph: {
-    title: "Towing in Lakeside San Diego | 24/7 East County Service | CloseBy Towing",
+    title: "Lakeside Towing | 24/7 Service | CloseBy",
     description:
       "Local towing experts serving Lakeside 24/7. From Lake Jennings to Barona Casino, we're your East County rural towing solution.",
     url: "https://www.closebytowing.com/san-diego/lakeside",

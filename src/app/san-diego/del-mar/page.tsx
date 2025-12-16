@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Del Mar San Diego | 24/7 Coastal Service | CloseBy Towing",
+  title: "Del Mar Towing | 24/7 Service | CloseBy",
   description:
     "Premium towing & roadside assistance in Del Mar. Serving Del Mar Racetrack, Fairgrounds, Village, and coastal areas. 15-30 min response to North County beaches.",
   keywords:
     "towing Del Mar, Del Mar tow truck, Del Mar Fairgrounds towing, roadside assistance Del Mar, Del Mar Village towing, tow truck near me Del Mar",
   openGraph: {
-    title: "Towing in Del Mar San Diego | 24/7 Coastal Service | CloseBy Towing",
+    title: "Del Mar Towing | 24/7 Service | CloseBy",
     description:
       "Del Mar's coastal towing experts 24/7. From the racetrack to the village, upscale service for North County's beach jewel.",
     url: "https://www.closebytowing.com/san-diego/del-mar",

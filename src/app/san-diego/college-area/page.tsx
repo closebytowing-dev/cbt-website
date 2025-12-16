@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in College Area San Diego | 24/7 SDSU Service | CloseBy Towing",
+  title: "College Area Towing | SDSU 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in College Area. Serving SDSU campus, Viejas Arena, College Avenue, and surrounding neighborhoods. 15-30 min response for students & residents.",
   keywords:
     "towing College Area, College Area tow truck, SDSU towing, roadside assistance College Area, tow truck near SDSU, College Avenue towing",
   openGraph: {
-    title: "Towing in College Area San Diego | 24/7 SDSU Service | CloseBy Towing",
+    title: "College Area Towing | SDSU 24/7 | CloseBy",
     description:
       "Reliable towing experts serving College Area and SDSU 24/7. Fast response for students, residents, and visitors in the College Area community.",
     url: "https://www.closebytowing.com/san-diego/college-area",

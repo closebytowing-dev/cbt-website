@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Allied Gardens San Diego | 24/7 Family Community Service | CloseBy Towing",
+  title: "Allied Gardens Towing | 24/7 Service | CloseBy",
   description:
     "Fast towing & roadside assistance in Allied Gardens. We cover Grantville, Mission Trails, Waring Road & I-8/SR-125 corridors. 20-40 min response.",
   keywords:
     "towing Allied Gardens, Allied Gardens tow truck, Grantville towing, roadside assistance Allied Gardens, I-8 towing, tow truck near me Allied Gardens",
   openGraph: {
-    title: "Towing in Allied Gardens San Diego | 24/7 Family Community Service | CloseBy Towing",
+    title: "Allied Gardens Towing | 24/7 Service | CloseBy",
     description:
       "Local towing experts serving Allied Gardens 24/7. From Grantville to Mission Trails, we're your trusted neighborhood towing solution.",
     url: "https://www.closebytowing.com/san-diego/allied-gardens",

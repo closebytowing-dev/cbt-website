@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Ocean Beach San Diego | 24/7 Beach Service | CloseBy Towing",
+  title: "Ocean Beach Towing | 24/7 | CloseBy",
   description:
     "Laid-back towing & roadside assistance in Ocean Beach. Serving OB Pier, Newport Avenue, Sunset Cliffs, and Dog Beach. 15-30 min response to the beach community.",
   keywords:
     "towing Ocean Beach, OB tow truck, Ocean Beach towing, roadside assistance OB, Sunset Cliffs towing, tow truck near me Ocean Beach",
   openGraph: {
-    title: "Towing in Ocean Beach San Diego | 24/7 Beach Service | CloseBy Towing",
+    title: "Ocean Beach Towing | 24/7 | CloseBy",
     description:
       "Ocean Beach's chill towing service 24/7. From Newport Avenue to Sunset Cliffs, we're your neighborhood beach towing solution.",
     url: "https://www.closebytowing.com/san-diego/ocean-beach",

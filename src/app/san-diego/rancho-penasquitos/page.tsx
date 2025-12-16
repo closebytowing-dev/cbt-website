@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Rancho Penasquitos San Diego | 24/7 Service | CloseBy Towing",
+  title: "Rancho Penasquitos Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in Rancho Penasquitos (PQ). We cover Los Penasquitos Canyon, Black Mountain, I-15 corridor & all PQ neighborhoods. 25-40 min response.",
   keywords:
     "towing Rancho Penasquitos, PQ tow truck, Penasquitos towing, roadside assistance PQ, I-15 towing, tow truck near me Rancho Penasquitos",
   openGraph: {
-    title: "Towing in Rancho Penasquitos San Diego | 24/7 Service | CloseBy Towing",
+    title: "Rancho Penasquitos Towing | 24/7 | CloseBy",
     description:
       "Local towing experts serving Rancho Penasquitos 24/7. From canyon trails to PQ neighborhoods, we're your trusted towing solution.",
     url: "https://www.closebytowing.com/san-diego/rancho-penasquitos",

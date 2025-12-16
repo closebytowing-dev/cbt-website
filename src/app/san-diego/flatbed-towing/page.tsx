@@ -6,13 +6,13 @@ import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Flatbed Towing San Diego | Safe Vehicle Transport | CloseBy Towing",
+  title: "Flatbed Towing San Diego | 24/7 | CloseBy",
   description:
     "Premium flatbed towing in San Diego for luxury cars, AWD vehicles, lowered cars & motorcycles. Zero-damage guarantee. 24/7 service with 20-35 min response.",
   keywords:
     "flatbed towing San Diego, flatbed tow truck, luxury car towing, exotic car transport, AWD towing, motorcycle towing, lowered car towing, safe vehicle transport",
   openGraph: {
-    title: "Flatbed Towing San Diego | Safe Vehicle Transport | CloseBy Towing",
+    title: "Flatbed Towing San Diego | 24/7 | CloseBy",
     description:
       "Premium flatbed towing for luxury, exotic, AWD & specialty vehicles. Zero-damage transport guaranteed. 24/7 availability.",
     url: "https://www.closebytowing.com/san-diego/flatbed-towing",

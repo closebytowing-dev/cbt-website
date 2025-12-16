@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Bankers Hill San Diego | 24/7 Urban Service | CloseBy Towing",
+  title: "Bankers Hill Towing | 24/7 Service | CloseBy",
   description:
     "Premium towing & roadside assistance in Bankers Hill. Serving Balboa Park, Downtown, and Hillcrest areas. 15-30 min response for all vehicles.",
   keywords:
     "towing Bankers Hill, Bankers Hill tow truck, Balboa Park towing, roadside assistance Bankers Hill, tow truck near me Bankers Hill, Downtown San Diego towing",
   openGraph: {
-    title: "Towing in Bankers Hill San Diego | 24/7 Urban Service | CloseBy Towing",
+    title: "Bankers Hill Towing | 24/7 Service | CloseBy",
     description:
       "Expert towing serving Bankers Hill's upscale urban neighborhood 24/7. From Balboa Park to Downtown, professional service for all vehicles.",
     url: "https://www.closebytowing.com/san-diego/bankers-hill",

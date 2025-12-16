@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Bonita San Diego | 24/7 Service | CloseBy Towing",
+  title: "Bonita Towing | 24/7 Service | CloseBy",
   description:
     "Fast towing & roadside assistance in Bonita. We serve Sweetwater Valley, Plaza Bonita, SR-54/I-805 corridors. 25-40 min response time.",
   keywords:
     "towing Bonita, Bonita tow truck, Plaza Bonita towing, roadside assistance Bonita, SR-54 towing, tow truck near me Bonita, Sweetwater Valley towing",
   openGraph: {
-    title: "Towing in Bonita San Diego | 24/7 Service | CloseBy Towing",
+    title: "Bonita Towing | 24/7 Service | CloseBy",
     description:
       "Local towing experts serving Bonita 24/7. From Sweetwater Valley to Plaza Bonita, we're your neighborhood towing solution.",
     url: "https://www.closebytowing.com/san-diego/bonita",

@@ -2,10 +2,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Towing in Hillcrest San Diego | 24/7 Service | CloseBy Towing",
+  title: "Hillcrest Towing | 24/7 | CloseBy",
   description: "Fast towing & roadside assistance in Hillcrest. Serving University Ave, Robinson Ave, Balboa Park area. 15-25 min response, 24/7 availability.",
   keywords: "towing Hillcrest, Hillcrest tow truck, University Avenue towing, Balboa Park roadside assistance, Uptown San Diego",
   openGraph: { title: "Towing in Hillcrest San Diego | 24/7 | CloseBy Towing", url: "https://www.closebytowing.com/san-diego/hillcrest", type: "website" },

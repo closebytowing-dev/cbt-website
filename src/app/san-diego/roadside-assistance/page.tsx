@@ -6,13 +6,13 @@ import { CONTACT, PRICING } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Roadside Assistance San Diego | 24/7 Help | CloseBy Towing",
+  title: "Roadside Assistance San Diego | CloseBy",
   description:
     "Fast roadside assistance in San Diego: jump starts, lockouts, tire changes, fuel delivery & more. 20-35 min response, 24/7. No membership required.",
   keywords:
     "roadside assistance San Diego, jump start service, car lockout help, flat tire change, fuel delivery, battery service, mobile mechanic, 24/7 roadside help",
   openGraph: {
-    title: "Roadside Assistance San Diego | 24/7 Help | CloseBy Towing",
+    title: "Roadside Assistance San Diego | CloseBy",
     description:
       "Stuck on the road? We provide fast roadside help - jump starts, lockouts, tire changes, fuel delivery. Available 24/7.",
     url: "https://www.closebytowing.com/san-diego/roadside-assistance",

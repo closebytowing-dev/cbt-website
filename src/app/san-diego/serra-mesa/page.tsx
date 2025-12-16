@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Serra Mesa San Diego | 24/7 Service | CloseBy Towing",
+  title: "Serra Mesa Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in Serra Mesa. We cover Sandrock Road, residential neighborhoods, shopping centers & I-15/SR-163 corridors. 20-30 min response.",
   keywords:
     "towing Serra Mesa, Serra Mesa tow truck, Sandrock Road towing, roadside assistance Serra Mesa, I-15 towing, tow truck near me Serra Mesa",
   openGraph: {
-    title: "Towing in Serra Mesa San Diego | 24/7 Service | CloseBy Towing",
+    title: "Serra Mesa Towing | 24/7 | CloseBy",
     description:
       "Local towing experts serving Serra Mesa 24/7. From family neighborhoods to business parks, we're your community towing solution.",
     url: "https://www.closebytowing.com/san-diego/serra-mesa",

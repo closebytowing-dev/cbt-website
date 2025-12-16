@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Solana Beach San Diego | 24/7 Coastal Service | CloseBy Towing",
+  title: "Solana Beach Towing | 24/7 | CloseBy",
   description:
     "Premium towing & roadside assistance in Solana Beach. Serving Cedros Design District, Fletcher Cove, and coastal areas. 15-30 min response for all vehicles.",
   keywords:
     "towing Solana Beach, Solana Beach tow truck, roadside assistance Solana Beach, Fletcher Cove towing, Cedros Design District towing, tow truck near me Solana Beach",
   openGraph: {
-    title: "Towing in Solana Beach San Diego | 24/7 Coastal Service | CloseBy Towing",
+    title: "Solana Beach Towing | 24/7 | CloseBy",
     description:
       "Coastal towing experts serving Solana Beach 24/7. From Fletcher Cove to Cedros Design District, professional service for all vehicles.",
     url: "https://www.closebytowing.com/san-diego/solana-beach",

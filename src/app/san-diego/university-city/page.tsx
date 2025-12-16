@@ -2,10 +2,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Towing in University City San Diego | 24/7 Service | CloseBy Towing",
+  title: "University City Towing | 24/7 | CloseBy",
   description: "Fast towing & roadside assistance in University City. Serving UCSD, UTC, Westfield UTC, I-5 & I-805 corridors. 20-30 min response.",
   keywords: "towing University City, UTC tow truck, UCSD towing, Westfield UTC roadside assistance, La Jolla towing",
   openGraph: { title: "Towing in University City San Diego | 24/7 | CloseBy Towing", url: "https://www.closebytowing.com/san-diego/university-city", type: "website" },

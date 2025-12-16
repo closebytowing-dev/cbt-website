@@ -6,13 +6,13 @@ import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Accident Towing San Diego | Post-Collision Recovery | CloseBy Towing",
+  title: "Accident Towing San Diego | 24/7 | CloseBy",
   description:
     "Professional accident towing and collision recovery in San Diego. We coordinate with police, insurance companies, and body shops. 24/7 response in 20-35 minutes.",
   keywords:
     "accident towing San Diego, collision towing, car accident tow truck, post-accident recovery, insurance towing, wreck removal, crash towing service",
   openGraph: {
-    title: "Accident Towing San Diego | Post-Collision Recovery | CloseBy Towing",
+    title: "Accident Towing San Diego | 24/7 | CloseBy",
     description:
       "Professional accident and collision towing. We work with police & insurance. 24/7 emergency response throughout San Diego.",
     url: "https://www.closebytowing.com/san-diego/accident-towing",

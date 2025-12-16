@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Encinitas San Diego | 24/7 Beach City Service | CloseBy Towing",
+  title: "Encinitas Towing | 24/7 Service | CloseBy",
   description:
     "Premium towing & roadside assistance in Encinitas. Serving Swami's Beach, Moonlight Beach, Downtown Encinitas, and Leucadia. 15-30 min response for all vehicles.",
   keywords:
     "towing Encinitas, Encinitas tow truck, surf towing Encinitas, roadside assistance Encinitas, Swami's Beach towing, tow truck near me Encinitas, Moonlight Beach towing",
   openGraph: {
-    title: "Towing in Encinitas San Diego | 24/7 Beach City Service | CloseBy Towing",
+    title: "Encinitas Towing | 24/7 Service | CloseBy",
     description:
       "Surf city towing experts serving Encinitas 24/7. From Swami's to Moonlight Beach, professional service for all vehicles.",
     url: "https://www.closebytowing.com/san-diego/encinitas",

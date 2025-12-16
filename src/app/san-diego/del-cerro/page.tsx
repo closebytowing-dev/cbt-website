@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Del Cerro San Diego | 24/7 Hillside Service | CloseBy Towing",
+  title: "Del Cerro Towing | 24/7 Service | CloseBy",
   description:
     "Professional towing & roadside assistance in Del Cerro. Serving Lake Murray, Cowles Mountain, Del Cerro Boulevard, and nearby SDSU. 15-30 min response times.",
   keywords:
     "towing Del Cerro, Del Cerro tow truck, roadside assistance Del Cerro, Lake Murray towing, tow truck near me Del Cerro, Cowles Mountain towing",
   openGraph: {
-    title: "Towing in Del Cerro San Diego | 24/7 Hillside Service | CloseBy Towing",
+    title: "Del Cerro Towing | 24/7 Service | CloseBy",
     description:
       "Expert towing service for Del Cerro's hillside community 24/7. From Lake Murray to Cowles Mountain, professional service for all vehicles.",
     url: "https://www.closebytowing.com/san-diego/del-cerro",

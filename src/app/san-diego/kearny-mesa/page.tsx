@@ -2,16 +2,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Towing in Kearny Mesa San Diego | 24/7 Service | CloseBy Towing",
+  title: "Kearny Mesa Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in Kearny Mesa. Serving auto dealers, Convoy District, business parks & SR-163/I-805 corridors. 20-35 min response.",
   keywords:
     "towing Kearny Mesa, Kearny Mesa tow truck, Convoy Street towing, auto dealer towing, business park roadside assistance",
   openGraph: {
-    title: "Towing in Kearny Mesa San Diego | 24/7 Service | CloseBy Towing",
+    title: "Kearny Mesa Towing | 24/7 | CloseBy",
     description: "Local towing experts serving Kearny Mesa 24/7. Auto Row, Convoy District & business parks.",
     url: "https://www.closebytowing.com/san-diego/kearny-mesa",
     type: "website",

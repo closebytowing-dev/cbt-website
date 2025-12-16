@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Lemon Grove San Diego | 24/7 East County Service | CloseBy Towing",
+  title: "Lemon Grove Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in Lemon Grove. We cover Broadway, Main Street, Trolley Station & SR-94/SR-125 corridors. 20-40 min response.",
   keywords:
     "towing Lemon Grove, Lemon Grove tow truck, East County towing, roadside assistance Lemon Grove, SR-94 towing, tow truck near me Lemon Grove",
   openGraph: {
-    title: "Towing in Lemon Grove San Diego | 24/7 East County Service | CloseBy Towing",
+    title: "Lemon Grove Towing | 24/7 | CloseBy",
     description:
       "Local towing experts serving Lemon Grove 24/7. From the Trolley Station to Lemon Grove Village, we're your East County towing solution.",
     url: "https://www.closebytowing.com/san-diego/lemon-grove",

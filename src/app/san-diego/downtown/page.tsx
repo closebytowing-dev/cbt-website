@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Downtown San Diego | 24/7 Urban Service | CloseBy Towing",
+  title: "Downtown San Diego Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in Downtown San Diego. Serving Gaslamp Quarter, Little Italy, East Village, and Embarcadero. 15-30 min response for all vehicles.",
   keywords:
     "towing Downtown San Diego, Gaslamp tow truck, Little Italy towing, roadside assistance Downtown, East Village towing, tow truck near me Downtown San Diego",
   openGraph: {
-    title: "Towing in Downtown San Diego | 24/7 Urban Service | CloseBy Towing",
+    title: "Downtown San Diego Towing | 24/7 | CloseBy",
     description:
       "Urban towing experts serving Downtown San Diego 24/7. From Gaslamp Quarter to Little Italy, professional service for all vehicles.",
     url: "https://www.closebytowing.com/san-diego/downtown",

@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Poway San Diego | 24/7 Service | CloseBy Towing",
+  title: "Poway Towing | 24/7 Service | CloseBy",
   description:
     "Fast towing & roadside assistance in Poway - The City in the Country. We cover Lake Poway, Old Poway Park, Poway Road & I-15 corridor. 25-40 min response.",
   keywords:
     "towing Poway, Poway tow truck, Lake Poway towing, roadside assistance Poway, I-15 towing, tow truck near me Poway, City in the Country towing",
   openGraph: {
-    title: "Towing in Poway San Diego | 24/7 Service | CloseBy Towing",
+    title: "Poway Towing | 24/7 Service | CloseBy",
     description:
       "Local towing experts serving Poway 24/7. From Lake Poway to Twin Peaks, we're your neighborhood towing solution in The City in the Country.",
     url: "https://www.closebytowing.com/san-diego/poway",

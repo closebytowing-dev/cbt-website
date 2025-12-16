@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Mission Valley San Diego | 24/7 Service | CloseBy Towing",
+  title: "Mission Valley Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in Mission Valley. We cover Fashion Valley Mall, Westfield Mission Valley, Qualcomm area & I-8/I-15 corridors. 20-35 min response.",
   keywords:
     "towing Mission Valley, Mission Valley tow truck, Fashion Valley towing, roadside assistance Mission Valley, I-8 towing, tow truck near me Mission Valley",
   openGraph: {
-    title: "Towing in Mission Valley San Diego | 24/7 Service | CloseBy Towing",
+    title: "Mission Valley Towing | 24/7 | CloseBy",
     description:
       "Local towing experts serving Mission Valley 24/7. From Fashion Valley to Hotel Circle, we're your neighborhood towing solution.",
     url: "https://www.closebytowing.com/san-diego/mission-valley",

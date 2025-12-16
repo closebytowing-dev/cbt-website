@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in 4S Ranch San Diego | 24/7 Service | CloseBy Towing",
+  title: "4S Ranch Towing | 24/7 Service | CloseBy",
   description:
     "Fast, reliable towing & roadside assistance in 4S Ranch. Serving the master-planned community including 4S Commons, Sports Park, and all neighborhoods. 15-30 min response time.",
   keywords:
     "towing 4S Ranch, 4S Ranch tow truck, roadside assistance 4S Ranch, tow truck near me 4S Ranch, 4S Commons towing",
   openGraph: {
-    title: "Towing in 4S Ranch San Diego | 24/7 Service | CloseBy Towing",
+    title: "4S Ranch Towing | 24/7 Service | CloseBy",
     description:
       "Professional towing experts serving 4S Ranch's master-planned community 24/7. Fast response for all vehicles.",
     url: "https://www.closebytowing.com/san-diego/4s-ranch",

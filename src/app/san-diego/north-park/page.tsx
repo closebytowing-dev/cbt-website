@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in North Park San Diego | 24/7 Service | CloseBy Towing",
+  title: "North Park Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in North Park. We cover 30th Street, University Avenue, craft brewery district & all North Park neighborhoods. 20-30 min response.",
   keywords:
     "towing North Park, North Park tow truck, 30th Street towing, roadside assistance North Park, University Avenue towing, tow truck near me North Park",
   openGraph: {
-    title: "Towing in North Park San Diego | 24/7 Service | CloseBy Towing",
+    title: "North Park Towing | 24/7 | CloseBy",
     description:
       "Local towing experts serving North Park 24/7. From the brewery district to Morley Field, we're your neighborhood towing solution.",
     url: "https://www.closebytowing.com/san-diego/north-park",

@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Carmel Valley San Diego | 24/7 Service | CloseBy Towing",
+  title: "Carmel Valley Towing | 24/7 | CloseBy",
   description:
     "Fast, reliable towing & roadside assistance in Carmel Valley. Serving Del Mar Heights, Torrey Hills, and Pacific Highlands Ranch. 15-30 min response time.",
   keywords:
     "towing Carmel Valley, Carmel Valley tow truck, roadside assistance Carmel Valley, Del Mar Heights towing, tow truck near me Carmel Valley",
   openGraph: {
-    title: "Towing in Carmel Valley San Diego | 24/7 Service | CloseBy Towing",
+    title: "Carmel Valley Towing | 24/7 | CloseBy",
     description:
       "Professional towing experts serving Carmel Valley's upscale community 24/7. Fast response for all vehicles.",
     url: "https://www.closebytowing.com/san-diego/carmel-valley",

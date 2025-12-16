@@ -2,16 +2,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Towing in Mira Mesa San Diego | 24/7 Service | CloseBy Towing",
+  title: "Mira Mesa Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in Mira Mesa. Serving Miramar, Sorrento Valley tech corridor, I-15 & Mira Mesa Blvd. 20-35 min response, 24/7.",
   keywords:
     "towing Mira Mesa, Mira Mesa tow truck, Sorrento Valley towing, Miramar roadside assistance, I-15 towing",
   openGraph: {
-    title: "Towing in Mira Mesa San Diego | 24/7 Service | CloseBy Towing",
+    title: "Mira Mesa Towing | 24/7 | CloseBy",
     description: "Local towing experts serving Mira Mesa, Miramar & Sorrento Valley 24/7.",
     url: "https://www.closebytowing.com/san-diego/mira-mesa",
     type: "website",

@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in La Jolla San Diego | 24/7 Luxury Service | CloseBy Towing",
+  title: "La Jolla Towing | 24/7 Service | CloseBy",
   description:
     "Premium towing & roadside assistance in La Jolla. Serving UTC, La Jolla Shores, La Jolla Cove, and Torrey Pines. 15-30 min response for luxury & exotic vehicles.",
   keywords:
     "towing La Jolla, La Jolla tow truck, luxury towing La Jolla, roadside assistance La Jolla, La Jolla Shores towing, tow truck near me La Jolla",
   openGraph: {
-    title: "Towing in La Jolla San Diego | 24/7 Luxury Service | CloseBy Towing",
+    title: "La Jolla Towing | 24/7 Service | CloseBy",
     description:
       "Upscale towing experts serving La Jolla's coastal community 24/7. From La Jolla Shores to UTC, professional service for all vehicles.",
     url: "https://www.closebytowing.com/san-diego/la-jolla",

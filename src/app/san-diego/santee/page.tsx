@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Santee San Diego | 24/7 East County Service | CloseBy Towing",
+  title: "Santee Towing | 24/7 Service | CloseBy",
   description:
     "Fast towing & roadside assistance in Santee. We cover Santee Lakes, Trolley Square, Mission Gorge & SR-52/SR-125 corridors. 20-40 min East County response.",
   keywords:
     "towing Santee, Santee tow truck, East County towing, roadside assistance Santee, SR-52 towing, tow truck near me Santee, Trolley Square towing",
   openGraph: {
-    title: "Towing in Santee San Diego | 24/7 East County Service | CloseBy Towing",
+    title: "Santee Towing | 24/7 Service | CloseBy",
     description:
       "Local towing experts serving Santee 24/7. From Trolley Square to Santee Lakes, we're your East County towing solution.",
     url: "https://www.closebytowing.com/san-diego/santee",

@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Clairemont San Diego | 24/7 Service | CloseBy Towing",
+  title: "Clairemont Towing | 24/7 Service | CloseBy",
   description:
     "Fast towing & roadside assistance in Clairemont Mesa. Serving Clairemont Square, Mesa College area, I-5/I-805 corridors. 20-35 min response, 24/7.",
   keywords:
     "towing Clairemont, Clairemont Mesa tow truck, Clairemont Square towing, Mesa College roadside assistance, Bay Park towing, tow truck near me Clairemont",
   openGraph: {
-    title: "Towing in Clairemont San Diego | 24/7 Service | CloseBy Towing",
+    title: "Clairemont Towing | 24/7 Service | CloseBy",
     description:
       "Local towing experts serving Clairemont 24/7. From Clairemont Square to Bay Park, we're your neighborhood towing solution.",
     url: "https://www.closebytowing.com/san-diego/clairemont",

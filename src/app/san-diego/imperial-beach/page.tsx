@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Imperial Beach San Diego | 24/7 Beachside Service | CloseBy Towing",
+  title: "Imperial Beach Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in Imperial Beach. We serve the pier, beachfront, Palm Avenue, SR-75/I-5 corridors. 25-40 min response.",
   keywords:
     "towing Imperial Beach, Imperial Beach tow truck, IB Pier towing, beachside towing, roadside assistance Imperial Beach, Palm Avenue towing, SR-75 towing",
   openGraph: {
-    title: "Towing in Imperial Beach San Diego | 24/7 Beachside Service | CloseBy Towing",
+    title: "Imperial Beach Towing | 24/7 | CloseBy",
     description:
       "Local towing experts serving Imperial Beach 24/7. From the pier to beachfront neighborhoods, we're your coastal towing solution.",
     url: "https://www.closebytowing.com/san-diego/imperial-beach",

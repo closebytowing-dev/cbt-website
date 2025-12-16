@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in San Ysidro San Diego | 24/7 Border Service | CloseBy Towing",
+  title: "San Ysidro Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in San Ysidro. We serve the border crossing, Las Americas Premium Outlets, I-5/I-805 corridors. 25-40 min response.",
   keywords:
     "towing San Ysidro, San Ysidro tow truck, border crossing towing, Las Americas Outlets towing, roadside assistance San Ysidro, I-5 towing, tow truck near me San Ysidro",
   openGraph: {
-    title: "Towing in San Ysidro San Diego | 24/7 Border Service | CloseBy Towing",
+    title: "San Ysidro Towing | 24/7 | CloseBy",
     description:
       "Local towing experts serving San Ysidro 24/7. From the border crossing to Las Americas Outlets, we're your neighborhood towing solution.",
     url: "https://www.closebytowing.com/san-diego/san-ysidro",

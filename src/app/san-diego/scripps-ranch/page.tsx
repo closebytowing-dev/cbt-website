@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Scripps Ranch San Diego | 24/7 Service | CloseBy Towing",
+  title: "Scripps Ranch Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in Scripps Ranch. We cover Lake Miramar, Scripps Ranch Blvd, I-15 corridor & all upscale neighborhoods. 25-40 min response.",
   keywords:
     "towing Scripps Ranch, Scripps Ranch tow truck, Lake Miramar towing, roadside assistance Scripps Ranch, I-15 towing, tow truck near me Scripps Ranch",
   openGraph: {
-    title: "Towing in Scripps Ranch San Diego | 24/7 Service | CloseBy Towing",
+    title: "Scripps Ranch Towing | 24/7 | CloseBy",
     description:
       "Local towing experts serving Scripps Ranch 24/7. From Lake Miramar to The Marketplace, we're your neighborhood towing solution.",
     url: "https://www.closebytowing.com/san-diego/scripps-ranch",

@@ -1,9 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Emergency Towing San Diego | 24/7 Immediate Response | CloseBy Towing",
+  title: "Emergency Towing San Diego | 24/7 | CloseBy",
   description:
     "Need emergency towing in San Diego? We respond in 20-35 minutes, 24/7. Highway breakdowns, accidents, urgent situations. Call now for immediate dispatch.",
   keywords:

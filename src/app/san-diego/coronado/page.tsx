@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Coronado San Diego | 24/7 Island Service | CloseBy Towing",
+  title: "Coronado Towing | 24/7 Service | CloseBy",
   description:
     "Elite towing & roadside assistance in Coronado. Serving Hotel del Coronado, Naval Air Station, Coronado Bridge, and island beaches. 15-30 min response to Crown City.",
   keywords:
     "towing Coronado, Coronado tow truck, Hotel del Coronado towing, roadside assistance Coronado, Coronado Bridge towing, tow truck near me Coronado",
   openGraph: {
-    title: "Towing in Coronado San Diego | 24/7 Island Service | CloseBy Towing",
+    title: "Coronado Towing | 24/7 Service | CloseBy",
     description:
       "Coronado's premier towing service 24/7. From the Hotel del to North Island, elegant service for the Crown City.",
     url: "https://www.closebytowing.com/san-diego/coronado",

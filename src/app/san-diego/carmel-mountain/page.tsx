@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Carmel Mountain San Diego | 24/7 Service | CloseBy Towing",
+  title: "Carmel Mountain Towing | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in Carmel Mountain. We cover Carmel Mountain Ranch, I-15 corridor, suburban neighborhoods & shopping areas. 25-40 min response.",
   keywords:
     "towing Carmel Mountain, Carmel Mountain tow truck, Carmel Mountain Ranch towing, roadside assistance Carmel Mountain, I-15 towing, tow truck near me Carmel Mountain",
   openGraph: {
-    title: "Towing in Carmel Mountain San Diego | 24/7 Service | CloseBy Towing",
+    title: "Carmel Mountain Towing | 24/7 | CloseBy",
     description:
       "Local towing experts serving Carmel Mountain 24/7. From Carmel Mountain Ranch to modern neighborhoods, we're your trusted towing solution.",
     url: "https://www.closebytowing.com/san-diego/carmel-mountain",

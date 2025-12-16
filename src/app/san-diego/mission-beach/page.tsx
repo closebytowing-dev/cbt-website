@@ -2,17 +2,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, STATS } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Mission Beach San Diego | 24/7 Beach Service | CloseBy Towing",
+  title: "Mission Beach Towing | 24/7 | CloseBy",
   description:
     "Fast beach towing & roadside assistance in Mission Beach. Serving Mission Beach Boardwalk, Belmont Park, and coastal areas. 15-30 min response to beach zones.",
   keywords:
     "towing Mission Beach, Mission Beach tow truck, beach towing San Diego, roadside assistance Mission Beach, Belmont Park towing, tow truck near me Mission Beach",
   openGraph: {
-    title: "Towing in Mission Beach San Diego | 24/7 Beach Service | CloseBy Towing",
+    title: "Mission Beach Towing | 24/7 | CloseBy",
     description:
       "Mission Beach's beach towing experts 24/7. From the Boardwalk to Belmont Park, we're your beach community towing solution.",
     url: "https://www.closebytowing.com/san-diego/mission-beach",
