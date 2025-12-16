@@ -259,6 +259,33 @@ export default function MiraMesaPage() {
         </div>
       </section>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+            {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://www.closebytowing.com"
+            },
+            {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "San Diego Towing",
+                  "item": "https://www.closebytowing.com/san-diego/towing"
+            },
+            {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Mira Mesa",
+                  "item": "https://www.closebytowing.com/san-diego/mira-mesa"
+            }
+      ]
+}) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://www.closebytowing.com/san-diego/mira-mesa", name: "CloseBy Towing - Mira Mesa", description: "Fast towing and roadside assistance in Mira Mesa San Diego. Serving Sorrento Valley, Miramar, and I-15 corridor 24/7.", url: "https://www.closebytowing.com/san-diego/mira-mesa", telephone: CONTACT.phone, areaServed: { "@type": "Neighborhood", name: "Mira Mesa", containedInPlace: { "@type": "City", name: "San Diego" } }, serviceType: ["Towing Service", "Roadside Assistance"], priceRange: "$$" }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ_DATA.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) }) }} />
     </main>

@@ -258,6 +258,33 @@ export default function KearnyMesaPage() {
         </div>
       </section>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+            {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://www.closebytowing.com"
+            },
+            {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "San Diego Towing",
+                  "item": "https://www.closebytowing.com/san-diego/towing"
+            },
+            {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Kearny Mesa",
+                  "item": "https://www.closebytowing.com/san-diego/kearny-mesa"
+            }
+      ]
+}) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://www.closebytowing.com/san-diego/kearny-mesa", name: "CloseBy Towing - Kearny Mesa", description: "Fast towing and roadside assistance in Kearny Mesa San Diego. Serving Auto Row, Convoy District, and business parks 24/7.", url: "https://www.closebytowing.com/san-diego/kearny-mesa", telephone: CONTACT.phone, areaServed: { "@type": "Neighborhood", name: "Kearny Mesa", containedInPlace: { "@type": "City", name: "San Diego" } }, serviceType: ["Towing Service", "Roadside Assistance"], priceRange: "$$" }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ_DATA.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) }) }} />
     </main>

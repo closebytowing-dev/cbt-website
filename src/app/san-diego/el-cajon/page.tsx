@@ -259,6 +259,33 @@ export default function ElCajonPage() {
         </div>
       </section>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+            {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://www.closebytowing.com"
+            },
+            {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "San Diego Towing",
+                  "item": "https://www.closebytowing.com/san-diego/towing"
+            },
+            {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "El Cajon",
+                  "item": "https://www.closebytowing.com/san-diego/el-cajon"
+            }
+      ]
+}) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://www.closebytowing.com/san-diego/el-cajon", name: "CloseBy Towing - El Cajon", description: "Fast towing and roadside assistance in El Cajon CA. Serving Downtown, Parkway Plaza, Fletcher Hills 24/7.", url: "https://www.closebytowing.com/san-diego/el-cajon", telephone: CONTACT.phone, areaServed: { "@type": "City", name: "El Cajon", containedInPlace: { "@type": "County", name: "San Diego County" } }, serviceType: ["Towing Service", "Roadside Assistance"], priceRange: "$$" }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ_DATA.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) }) }} />
     </main>

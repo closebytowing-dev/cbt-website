@@ -139,6 +139,26 @@ const FAQ_DATA = [
 ];
 
 export default function TowingSanDiegoPage() {
+  // BreadcrumbList Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.closebytowing.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "San Diego Towing",
+        "item": "https://www.closebytowing.com/san-diego/towing"
+      }
+    ]
+  };
+
   // Schema markup for LocalBusiness
   const localBusinessSchema = {
     "@context": "https://schema.org",
@@ -197,6 +217,10 @@ export default function TowingSanDiegoPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}

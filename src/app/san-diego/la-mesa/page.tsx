@@ -258,6 +258,33 @@ export default function LaMesaPage() {
         </div>
       </section>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+            {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://www.closebytowing.com"
+            },
+            {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "San Diego Towing",
+                  "item": "https://www.closebytowing.com/san-diego/towing"
+            },
+            {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "La Mesa",
+                  "item": "https://www.closebytowing.com/san-diego/la-mesa"
+            }
+      ]
+}) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://www.closebytowing.com/san-diego/la-mesa", name: "CloseBy Towing - La Mesa", description: "Fast towing and roadside assistance in La Mesa CA. Serving Downtown Village, Grossmont Center, and Lake Murray area 24/7.", url: "https://www.closebytowing.com/san-diego/la-mesa", telephone: CONTACT.phone, areaServed: { "@type": "City", name: "La Mesa", containedInPlace: { "@type": "County", name: "San Diego County" } }, serviceType: ["Towing Service", "Roadside Assistance"], priceRange: "$$" }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ_DATA.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) }) }} />
     </main>

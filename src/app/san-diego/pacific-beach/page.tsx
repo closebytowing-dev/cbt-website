@@ -433,6 +433,33 @@ export default function PacificBeachPage() {
       {/* Schema.org structured data */}
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+            {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://www.closebytowing.com"
+            },
+            {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "San Diego Towing",
+                  "item": "https://www.closebytowing.com/san-diego/towing"
+            },
+            {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Pacific Beach",
+                  "item": "https://www.closebytowing.com/san-diego/pacific-beach"
+            }
+      ]
+}) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
