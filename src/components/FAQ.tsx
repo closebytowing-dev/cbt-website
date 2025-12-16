@@ -227,7 +227,7 @@ export default function FAQ() {
             {[
               { value: "10+", label: "Questions Answered", icon: "❓" },
               { value: "24/7", label: "Support Available", icon: "📞" },
-              { value: "4.9★", label: "Customer Rating", icon: "⭐" },
+              { value: "5.0★", label: "Google Rating", icon: "⭐" },
               { value: "1000+", label: "Happy Customers", icon: "😊" },
             ].map((stat) => (
               <div key={stat.label} className="text-center p-4 rounded-xl bg-white border border-gray-200 hover:border-amber-300 hover:shadow-lg transition-all duration-300 group">
@@ -362,7 +362,7 @@ export default function FAQ() {
                 {[
                   { icon: "⚡", text: "20-35 min Response" },
                   { icon: "🛡️", text: "Licensed & Insured" },
-                  { icon: "⭐", text: "4.9★ Rating" },
+                  { icon: "⭐", text: "5.0★ Google Rating" },
                   { icon: "💳", text: "All Cards Accepted" },
                 ].map((item) => (
                   <div key={item.text} className="flex items-center gap-2 text-white/70">

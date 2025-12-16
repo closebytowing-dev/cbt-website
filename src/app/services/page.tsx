@@ -368,8 +368,7 @@ export default function ServicesPage() {
       },
       "aggregateRating": {
         "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "1247"
+        "ratingValue": "5.0",
       }
     },
     "areaServed": {
@@ -553,7 +552,7 @@ export default function ServicesPage() {
                   {[
                     { value: "20-35", suffix: "min", label: "Response" },
                     { value: "15K", suffix: "+", label: "Customers" },
-                    { value: "4.9", suffix: "★", label: "Rating" },
+                    { value: "5.0", suffix: "★", label: "Google Rating" },
                   ].map((stat, idx) => (
                     <div key={idx} className="text-center">
                       <div className="text-2xl md:text-3xl font-black text-white drop-shadow-lg">
@@ -885,7 +884,7 @@ export default function ServicesPage() {
                   { icon: "lightning", title: "Fastest Response Times", desc: "Average 20-35 minute arrival across all of San Diego County" },
                   { icon: "shield", title: "Fully Licensed & Insured", desc: "CA DOT certified with $1M+ liability coverage for your peace of mind" },
                   { icon: "dollar", title: "Transparent Pricing", desc: "Upfront quotes with no hidden fees. What we quote is what you pay." },
-                  { icon: "star", title: "5-Star Service Guarantee", desc: "4.9 rating from 1,247+ reviews. Satisfaction guaranteed or money back." },
+                  { icon: "star", title: "5-Star Service Guarantee", desc: "5.0 perfect rating on Google. Satisfaction guaranteed or money back." },
                 ].map((item, idx) => (
                   <AnimatedText key={idx} delay={idx * 100}>
                     <div className="flex gap-5 p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-[#ffba42]/50 transition-all group cursor-pointer">
@@ -927,7 +926,7 @@ export default function ServicesPage() {
                       </svg>
                     ))}
                   </div>
-                  <div className="text-sm text-white/70 mt-1">1,247+ Reviews</div>
+                  <div className="text-sm text-white/70 mt-1"></div>
                 </div>
               </div>
             </AnimatedText>

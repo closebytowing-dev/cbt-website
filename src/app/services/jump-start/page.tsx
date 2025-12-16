@@ -228,7 +228,7 @@ export default function JumpStartPage() {
                 <div className="text-xs opacity-80">This Month</div>
               </div>
               <div className="absolute right-2 bottom-2 lg:-right-6 lg:-bottom-6 bg-gradient-to-br from-green-500 to-emerald-500 text-white px-6 py-4 rounded-2xl shadow-2xl rotate-[5deg] hover:rotate-0 transition-transform duration-300 animate-[float_6s_ease-in-out_infinite_1s]">
-                <div className="text-3xl font-black">4.9★</div>
+                <div className="text-3xl font-black">5.0★</div>
                 <div className="text-xs opacity-80">Rating</div>
               </div>
             </div>
@@ -469,7 +469,7 @@ export default function JumpStartPage() {
             {/* Aggregate rating display */}
             <div className="flex items-center gap-4 bg-white/5 backdrop-blur-sm px-6 py-3 rounded-xl shadow-lg border border-blue-500/20">
               <div className="text-center">
-                <div className="text-3xl font-extrabold text-white">4.9</div>
+                <div className="text-3xl font-extrabold text-white">5.0</div>
                 <div className="flex gap-0.5 mt-1">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <span key={i} className="text-yellow-500 text-lg">★</span>
@@ -478,7 +478,7 @@ export default function JumpStartPage() {
               </div>
               <div className="border-l-2 border-white/20 pl-4">
                 <div className="text-sm font-semibold text-white/70">Based on</div>
-                <div className="text-xl font-bold text-white">1,247+ Reviews</div>
+                <div className="text-xl font-bold text-white"></div>
                 <div className="flex gap-2 mt-1">
                   <span className="text-xs font-semibold text-white/60">Google</span>
                   <span className="text-xs font-semibold text-white/60">Yelp</span>

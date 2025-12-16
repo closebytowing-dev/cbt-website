@@ -248,7 +248,7 @@ export default function ContactPage() {
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="text-[#ffba42]">✓</span>
-                      <span>4.9★ rating with 1,247+ reviews</span>
+                      <span>5.0★ perfect rating on Google</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="text-[#ffba42]">✓</span>

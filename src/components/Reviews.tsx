@@ -82,9 +82,14 @@ export default function Reviews() {
           </h2>
 
           {/* Aggregate rating display */}
-          <div className="flex items-center gap-3 sm:gap-4 bg-white/90 backdrop-blur-sm px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl shadow-lg">
+          <a
+            href="https://www.google.com/maps/place/CloseBy+Towing/@32.787325,-117.1152638,1168m/data=!3m1!1e3!4m8!3m7!1s0xfd432c9a2ac5763:0x627f4c417d76eb75!8m2!3d32.7873205!4d-117.1126835!9m1!1b1!16s%2Fg%2F11yk39t1jz?entry=ttu"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 sm:gap-4 bg-white/90 backdrop-blur-sm px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+          >
             <div className="text-center">
-              <div className="text-3xl font-extrabold text-[#1e1e4a]">4.9</div>
+              <div className="text-3xl font-extrabold text-[#1e1e4a]">5.0</div>
               <div className="flex gap-0.5 mt-1">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <span key={i} className="text-yellow-500 text-lg">★</span>
@@ -92,15 +97,10 @@ export default function Reviews() {
               </div>
             </div>
             <div className="border-l-2 border-[#1e1e4a]/30 pl-3 sm:pl-4">
-              <div className="text-xs sm:text-sm font-semibold text-[#1e1e4a]">Based on</div>
-              <div className="text-lg sm:text-xl font-bold text-[#1e1e4a]">1,247+ Reviews</div>
-              <div className="flex gap-1.5 sm:gap-2 mt-1">
-                <span className="text-xs font-bold text-[#1e1e4a]/80">Google</span>
-                <span className="text-xs font-bold text-[#1e1e4a]/80">Yelp</span>
-                <span className="text-xs font-bold text-[#1e1e4a]/80">Facebook</span>
-              </div>
+              <div className="text-lg sm:text-xl font-bold text-[#1e1e4a]">Perfect Rating</div>
+              <div className="text-xs sm:text-sm font-semibold text-[#1e1e4a]/80">on Google</div>
             </div>
-          </div>
+          </a>
         </div>
 
         <div className="relative mt-6 overflow-hidden">

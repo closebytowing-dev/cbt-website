@@ -61,8 +61,7 @@ export default function CollisionRecoveryPage() {
           "priceRange": "$$",
           "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "1247"
+            "ratingValue": "5.0",
           }
         },
         "areaServed": {
@@ -342,8 +341,8 @@ export default function CollisionRecoveryPage() {
             </div>
             <div className="text-center">
               <div className="text-4xl md:text-5xl mb-2">⭐</div>
-              <p className="text-white font-bold text-sm md:text-base">4.9/5 Rating</p>
-              <p className="text-white/50 text-xs">1,247+ Reviews</p>
+              <p className="text-white font-bold text-sm md:text-base">5.0 Google Rating</p>
+              <p className="text-white/50 text-xs"></p>
             </div>
           </div>
         </div>
@@ -661,7 +660,7 @@ export default function CollisionRecoveryPage() {
             {/* Aggregate rating display */}
             <div className="flex items-center gap-4 bg-white/5 backdrop-blur-sm px-6 py-3 rounded-xl shadow-lg border border-red-500/20">
               <div className="text-center">
-                <div className="text-3xl font-extrabold text-white">4.9</div>
+                <div className="text-3xl font-extrabold text-white">5.0</div>
                 <div className="flex gap-0.5 mt-1">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <span key={i} className="text-yellow-500 text-lg">★</span>
@@ -670,7 +669,7 @@ export default function CollisionRecoveryPage() {
               </div>
               <div className="border-l-2 border-white/20 pl-4">
                 <div className="text-sm font-semibold text-white/70">Based on</div>
-                <div className="text-xl font-bold text-white">1,247+ Reviews</div>
+                <div className="text-xl font-bold text-white"></div>
                 <div className="flex gap-2 mt-1">
                   <span className="text-xs font-semibold text-white/60">Google</span>
                   <span className="text-xs font-semibold text-white/60">Yelp</span>

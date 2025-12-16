@@ -113,8 +113,9 @@ export const RESPONSE_TIME = {
 // Social Proof
 export const STATS = {
   totalServices: "15,000+",
-  rating: "4.9/5",
-  reviewCount: "1,247",
+  rating: "5.0",
+  ratingText: "Perfect Rating on Google",
+  googleReviewsUrl: "https://www.google.com/maps/place/CloseBy+Towing/@32.787325,-117.1152638,1168m/data=!3m1!1e3!4m8!3m7!1s0xfd432c9a2ac5763:0x627f4c417d76eb75!8m2!3d32.7873205!4d-117.1126835!9m1!1b1!16s%2Fg%2F11yk39t1jz?entry=ttu",
   yearsExperience: "10+",
   truckCount: "6",
 } as const;

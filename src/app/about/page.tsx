@@ -83,7 +83,7 @@ export default function AboutPage() {
                     Since our founding, we've helped over <strong className="text-[#ffba42]">15,000 customers</strong> get back on the road safely. Our fleet has grown, our team has expanded, but our commitment to <strong>fast response times</strong>, <strong>upfront pricing</strong>, and <strong>exceptional service</strong> remains unchanged.
                   </p>
                   <p>
-                    Today, CloseBy Towing is proud to be San Diego's highest-rated towing company with a <strong className="text-green-600">4.9★ rating</strong> and over 1,247 five-star reviews.
+                    Today, CloseBy Towing is proud to be San Diego's highest-rated towing company with a <strong className="text-green-600">perfect 5.0★ rating</strong> on Google.
                   </p>
                 </div>
               </div>
@@ -142,7 +142,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 { number: "15,000+", label: "Services Completed" },
-                { number: "4.9★", label: "Average Rating" },
+                { number: "5.0★", label: "Google Rating" },
                 { number: "20-35", label: "Min Response Time" },
                 { number: "24/7/365", label: "Always Available" },
               ].map((stat, idx) => (

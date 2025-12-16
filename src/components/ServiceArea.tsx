@@ -448,7 +448,7 @@ export default function ServiceArea() {
               {[
                 { icon: "🚛", text: "Fleet Ready 24/7" },
                 { icon: "📱", text: "GPS Tracked" },
-                { icon: "⭐", text: "4.9 Star Rated" },
+                { icon: "⭐", text: "5.0 Google Rated" },
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-2 text-white/70 text-sm">
                   <span>{item.icon}</span>

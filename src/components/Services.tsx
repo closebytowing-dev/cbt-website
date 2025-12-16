@@ -218,7 +218,7 @@ export default function Services() {
                 { value: "9", label: "Services" },
                 { value: "24/7", label: "Availability" },
                 { value: "25min", label: "Avg Response" },
-                { value: "4.9★", label: "Rating" },
+                { value: "5.0★", label: "Google Rating" },
               ].map((stat, i) => (
                 <div key={i} className="text-center">
                   <div className="text-2xl sm:text-3xl lg:text-4xl font-black bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
