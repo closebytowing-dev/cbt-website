@@ -24,7 +24,6 @@ if (getApps().length === 0) {
   app = initializeApp({
     credential: cert(serviceAccount),
   });
-  console.log("✅ Firebase Admin initialized with projectId:", serviceAccount.projectId);
 } else {
   app = getApps()[0];
 }
