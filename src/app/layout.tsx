@@ -85,13 +85,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       "opens": "00:00",
       "closes": "23:59"
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "1247",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
     "serviceType": [
       "Emergency Towing",
       "Roadside Assistance",
