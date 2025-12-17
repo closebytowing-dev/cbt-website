@@ -75,24 +75,24 @@ export default function Header() {
   }, [router]);
 
   return (
-    <header className="sticky top-0 z-50 w-full">
+    <header className="sticky top-0 z-50 w-full overflow-x-hidden">
       {/* Top dark bar (reduced height ~40%) */}
       <div className="bg-[#1e1e4a] text-white relative">
         <div className="mx-auto max-w-[1800px] px-4 sm:px-6 h-14 lg:h-[5rem] flex items-center justify-between relative">
-          {/* Mobile/Tablet: Logo */}
-          <Link href="/" className="xl:hidden flex-shrink-0 z-50">
+          {/* Mobile/Tablet: Oversized logo that spans both bars */}
+          <Link href="/" className="xl:hidden absolute left-0 sm:left-1 top-[90%] -translate-y-[50%] z-50">
             <Image
               src="/images/main-logo.webp"
               alt="CloseBy Towing logo"
               width={200}
               height={200}
-              className="w-12 h-12 sm:w-14 sm:h-14 object-contain drop-shadow-lg"
+              className="w-16 h-16 sm:w-20 sm:h-20 object-contain drop-shadow-lg"
               priority
             />
           </Link>
 
           {/* Mobile/Tablet: "CloseBy" text in header */}
-          <div className="xl:hidden ml-1 sm:ml-2">
+          <div className="xl:hidden absolute left-14 sm:left-20 top-1/2 -translate-y-1/3">
             <Link
               href="/"
               className="font-bold tracking-tight text-lg sm:text-xl whitespace-nowrap"
@@ -183,8 +183,8 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Mobile/Tablet: "Towing" text - positioned to align with "CloseBy" above */}
-          <div className="xl:hidden absolute left-[3.5rem] sm:left-[4.5rem]">
+          {/* Mobile/Tablet: "Towing" text under CloseBy */}
+          <div className="xl:hidden absolute left-14 sm:left-20">
             <Link
               href="/"
               className="font-bold tracking-tight text-lg sm:text-xl text-[#1e1e4a] opacity-90 whitespace-nowrap"
