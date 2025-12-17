@@ -52,52 +52,6 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // LocalBusiness Schema.org markup for SEO
-  const businessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://www.closebytowing.com",
-    "name": "CloseBy Towing San Diego",
-    "image": "https://www.closebytowing.com/logo.png",
-    "description": "Fast, reliable 24/7 towing and roadside assistance in San Diego. Licensed and insured towing company providing emergency towing, jump starts, tire changes, fuel delivery, lockout service, and collision recovery.",
-    "telephone": "+1-858-999-9293",
-    "email": "info@closebytowing.com",
-    "url": "https://www.closebytowing.com",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "San Diego",
-      "addressRegion": "CA",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "32.7157",
-      "longitude": "-117.1611"
-    },
-    "areaServed": {
-      "@type": "City",
-      "name": "San Diego"
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      "opens": "00:00",
-      "closes": "23:59"
-    },
-    "serviceType": [
-      "Emergency Towing",
-      "Roadside Assistance",
-      "Jump Start Service",
-      "Tire Change",
-      "Fuel Delivery",
-      "Lockout Service",
-      "Collision Recovery",
-      "Winch-Out Service"
-    ],
-    "hasMap": "https://www.google.com/maps/place/San+Diego,+CA"
-  };
-
   return (
     <html lang="en">
       <head>
@@ -115,12 +69,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="/hero/home-hero.webp"
           type="image/webp"
           fetchPriority="high"
-        />
-
-        {/* Business Schema - critical for SEO */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
         />
       </head>
       <body className="overflow-x-hidden">
