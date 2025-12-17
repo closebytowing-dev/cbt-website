@@ -358,8 +358,8 @@ export default function PartnerSignupPage() {
                   }}
                   className="group/link flex items-center gap-1.5 text-xs sm:text-sm text-white/60 hover:text-amber-300 transition-colors duration-300"
                 >
-                  <span className="tracking-wider">Learn More</span>
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4 transform group-hover/link:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <span className="tracking-wider">View Partnership Benefits</span>
+                  <svg className="w-3 h-3 sm:w-4 sm:h-4 transform group-hover/link:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                   </svg>
                 </button>

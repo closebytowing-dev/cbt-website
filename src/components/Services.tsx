@@ -344,12 +344,13 @@ export default function Services() {
                         {/* Button Shimmer */}
                         <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700" />
                         <span className="relative flex items-center gap-2">
-                          Learn More
+                          {s.title} Details
                           <svg
                             className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
+                            aria-hidden="true"
                           >
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                           </svg>

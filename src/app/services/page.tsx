@@ -702,8 +702,8 @@ export default function ServicesPage() {
                     href={services[activeService].href}
                     className={`inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-lg bg-gradient-to-r ${services[activeService].color} text-white hover:scale-105 transition-transform shadow-lg hover:shadow-xl`}
                   >
-                    Learn More
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    {services[activeService].name} Details
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </Link>
@@ -779,8 +779,8 @@ export default function ServicesPage() {
                         </div>
 
                         <div className="flex items-center gap-2 text-[#ffba42] font-semibold group-hover:gap-4 transition-all">
-                          <span>Learn More</span>
-                          <svg className="w-5 h-5 transform group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <span>View {service.name}</span>
+                          <svg className="w-5 h-5 transform group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                           </svg>
                         </div>
