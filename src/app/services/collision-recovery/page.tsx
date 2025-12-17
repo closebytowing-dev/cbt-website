@@ -62,6 +62,7 @@ export default function CollisionRecoveryPage() {
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5.0",
+            "reviewCount": "22"
           }
         },
         "areaServed": {

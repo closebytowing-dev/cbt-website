@@ -55,6 +55,7 @@ export default function TowingPage() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
+      "reviewCount": "22"
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",

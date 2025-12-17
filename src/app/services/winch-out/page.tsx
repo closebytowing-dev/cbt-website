@@ -46,6 +46,7 @@ export default function WinchOutPage() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
+      "reviewCount": "22"
     },
     "openingHours": "Mo,Tu,We,Th,Fr,Sa,Su 00:00-23:59",
     "areaServed": {

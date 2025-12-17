@@ -63,6 +63,7 @@ export default function LockoutPage() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
+      "reviewCount": "22"
     },
     "offers": {
       "@type": "Offer",
