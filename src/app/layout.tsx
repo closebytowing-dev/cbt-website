@@ -100,19 +100,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
 
-        {/* Google Analytics 4 - deferred loading */}
+        {/* Google Analytics 4 */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-Z2H3Z3WNJV"
-          strategy="lazyOnload"
+          src="https://www.googletagmanager.com/gtag/js?id=G-J8CVPHT7TG"
+          strategy="afterInteractive"
         />
         <Script
           id="ga4-config"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-Z2H3Z3WNJV');`
+gtag('config', 'G-J8CVPHT7TG');`
           }}
         />
 
