@@ -9,6 +9,32 @@ const nextConfig = {
   // Enable compression
   compress: true,
 
+  // 301 Redirects for old/dead URLs indexed by Google
+  async redirects() {
+    return [
+      {
+        source: '/towing-in-san-ysidro',
+        destination: '/san-diego/san-ysidro',
+        permanent: true,
+      },
+      {
+        source: '/towing-in-san-ysidro/',
+        destination: '/san-diego/san-ysidro',
+        permanent: true,
+      },
+      {
+        source: '/cheap-towing',
+        destination: '/san-diego/towing',
+        permanent: true,
+      },
+      {
+        source: '/cheap-towing/',
+        destination: '/san-diego/towing',
+        permanent: true,
+      },
+    ];
+  },
+
   // Security headers and caching
   async headers() {
     return [
