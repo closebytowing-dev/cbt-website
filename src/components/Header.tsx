@@ -125,29 +125,13 @@ export default function Header() {
 
           {/* Right: phone button - responsive sizing */}
           <div className="ml-auto flex items-center">
-              {/* Small mobile: phone icon only */}
+              {/* Mobile/Tablet phone button - iOS style blue rounded pill with phone number */}
               <a
                 href="tel:+18589999293"
                 aria-label="Call CloseBy Towing +1 (858) 999-9293"
-                className="xs:hidden inline-flex items-center justify-center rounded-full bg-[#3395FF] w-10 h-10 text-white active:scale-95 transition"
+                className="xl:hidden inline-flex items-center rounded-full bg-[#3395FF] px-2.5 sm:px-4 py-1.5 text-white text-xs sm:text-base font-semibold leading-tight active:scale-95 transition whitespace-nowrap"
               >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path
-                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.08 4.18 2 2 0 014.06 2h3a2 2 0 012 1.72c.13.99.35 1.96.66 2.9a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.94.31 1.91.53 2.9.66A2 2 0 0122 16.92z"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </a>
-              {/* Mobile/Tablet phone button - iOS style blue rounded pill */}
-              <a
-                href="tel:+18589999293"
-                aria-label="Call CloseBy Towing +1 (858) 999-9293"
-                className="hidden xs:inline-flex xl:hidden items-center rounded-full bg-[#3395FF] px-3 sm:px-4 py-1.5 text-white text-sm sm:text-base font-semibold leading-tight active:scale-95 transition whitespace-nowrap"
-              >
-                <span className="hidden sm:inline">Call </span>(858) 999-9293
+                (858) 999-9293
               </a>
               {/* Desktop (xl+) phone button - original style */}
               <a

@@ -160,18 +160,8 @@ export default function TireChangePage() {
                 No damage. 100% guaranteed.
               </p>
 
-              {/* Pricing with clarity */}
+              {/* Response time */}
               <div className="flex items-center gap-4 pt-4">
-                <div className="text-center">
-                  <div className="inline-block px-3 py-1 rounded-lg bg-green-500/20 border-2 border-green-400/40 mb-2">
-                    <span className="text-sm text-green-300 font-bold">ONLINE RATE</span>
-                  </div>
-                  <div className="text-5xl font-black text-yellow-400">
-                    <PriceDisplay price={onlinePrice} loading={loading} fallback="$..." />
-                  </div>
-                  <div className="text-sm text-green-300 font-semibold mt-1">Save 15%</div>
-                </div>
-                <div className="h-16 w-px bg-white/20"></div>
                 <div className="text-center">
                   <div className="text-5xl font-black text-yellow-400">20-35</div>
                   <div className="text-sm text-white/60 mt-1">Minutes ETA</div>
