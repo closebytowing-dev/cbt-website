@@ -102,7 +102,7 @@ export default function Header() {
           </div>
 
           {/* Desktop (xl+): Oversized logo that spans both bars */}
-          <Link href="/" className="hidden xl:block absolute -left-32 top-[90%] -translate-y-[50%] z-50">
+          <Link href="/" className="hidden xl:block absolute -left-20 top-[90%] -translate-y-[50%] z-50">
             <Image
               src="/images/main-logo.webp"
               alt="CloseBy Towing logo"
@@ -114,7 +114,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop (xl+): brand text next to logo */}
-          <div className="hidden xl:block absolute -left-2">
+          <div className="hidden xl:block absolute left-10">
             <Link
               href="/"
               className="font-bold tracking-tight text-[1.8rem] whitespace-nowrap"
@@ -158,7 +158,7 @@ export default function Header() {
       <div className="bg-white text-[#1e1e4a] border-t border-[#1e1e4a]/10">
         <div className="mx-auto max-w-[1800px] px-4 sm:px-6 h-8 lg:h-12 flex items-center justify-center relative">
           {/* Desktop (xl+): "Towing" text under CloseBy */}
-          <div className="hidden xl:block absolute -left-2">
+          <div className="hidden xl:block absolute left-10">
             <Link
               href="/"
               className="font-bold tracking-tight text-[1.8rem] text-[#1e1e4a] opacity-90 whitespace-nowrap"
