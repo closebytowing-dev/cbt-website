@@ -135,7 +135,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "contact", priority: 0.8 },
     { path: "privacy", priority: 0.4 },
     { path: "terms", priority: 0.4 },
-    { path: "payment-success", priority: 0.3 },
   ].map((page) => ({
     url: `${base}/${page.path}`,
     lastModified,
