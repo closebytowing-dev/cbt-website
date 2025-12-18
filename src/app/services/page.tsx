@@ -566,31 +566,6 @@ export default function ServicesPage() {
               </AnimatedText>
             </div>
 
-            {/* Floating info card - positioned on right over the truck */}
-            <AnimatedText delay={500}>
-              <div className="hidden lg:block absolute right-8 xl:right-16 top-1/2 -translate-y-1/2">
-                <div className="p-6 rounded-3xl bg-black/40 backdrop-blur-xl border border-white/20 shadow-2xl animate-float max-w-xs">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#ffba42] to-orange-500 flex items-center justify-center shadow-lg">
-                      <svg className="w-7 h-7 text-black" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div>
-                      <div className="text-white font-bold text-lg">Licensed & Insured</div>
-                      <div className="text-white/60 text-sm">CA DOT Certified</div>
-                    </div>
-                  </div>
-                  <div className="flex gap-2">
-                    {["Flatbed", "Wheel-lift", "Heavy Duty"].map((tag, i) => (
-                      <span key={i} className="px-3 py-1 rounded-lg bg-white/10 text-white/80 text-xs font-medium">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </AnimatedText>
           </div>
         </div>
 
