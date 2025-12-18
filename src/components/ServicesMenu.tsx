@@ -46,6 +46,7 @@ export default function ServicesMenu() {
         aria-haspopup="true"
         aria-expanded={open}
         onFocus={handleOpen}
+        onClick={() => setOpen((prev) => !prev)}
       >
         Services
       </button>
