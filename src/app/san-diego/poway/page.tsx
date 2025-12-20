@@ -4,13 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Poway ZIP code: 92064
+const POWAY_ZIP_CODES = ["92064"];
+
 // SEO Metadata
 export const metadata: Metadata = {
   title: "Poway Towing | 24/7 Service | CloseBy",
   description:
-    "Fast towing & roadside assistance in Poway - The City in the Country. We cover Lake Poway, Old Poway Park, Poway Road & I-15 corridor. 25-40 min response.",
+    "Towing in Poway 92064. The City in the Country—from Lake Poway hiking trails to Old Poway Park, Twin Peaks estates to the I-15 corridor. 25-40 min response.",
   keywords:
-    "towing Poway, Poway tow truck, Lake Poway towing, roadside assistance Poway, I-15 towing, tow truck near me Poway, City in the Country towing",
+    "towing Poway, Poway tow truck, 92064 towing, Lake Poway towing, Old Poway Park towing, Twin Peaks towing, I-15 corridor towing",
   openGraph: {
     title: "Poway Towing | 24/7 Service | CloseBy",
     description:
@@ -149,8 +152,9 @@ export default function PowayPage() {
               </h1>
 
               <p className="mt-6 text-xl text-green-100 leading-relaxed max-w-xl">
-                Your local towing experts in The City in the Country. From <span className="text-green-300 font-semibold">Lake Poway</span> to{" "}
-                <span className="text-green-300 font-semibold">Twin Peaks</span>, we know every trail, road, and neighborhood in Poway and respond in{" "}
+                Poway—&quot;The City in the Country&quot;—blends rural charm with suburban living. Home to Lake Poway&apos;s hiking trails, the historic steam train at Old Poway Park, and estate properties in the hills near Twin Peaks. Whether you&apos;re stuck after a hike at{" "}
+                <span className="text-green-300 font-semibold">Blue Sky Reserve</span> or need help on{" "}
+                <span className="text-green-300 font-semibold">Espola Road</span>, we respond in{" "}
                 <span className="text-green-300 font-semibold">25-40 minutes</span>.
               </p>
 
@@ -329,6 +333,14 @@ export default function PowayPage() {
                     <span>• Poway Center for Arts</span>
                     <span>• Poway Road Shopping</span>
                     <span>• Community Park</span>
+                  </div>
+                </div>
+                <div className="bg-green-50 rounded-lg p-4 border border-green-200">
+                  <h4 className="font-semibold text-sm mb-2 text-green-800">ZIP Codes Served:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {POWAY_ZIP_CODES.map((zip) => (
+                      <span key={zip} className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">{zip}</span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -514,18 +526,23 @@ export default function PowayPage() {
             "@id": "https://www.closebytowing.com/san-diego/poway",
             name: "CloseBy Towing - Poway",
             description:
-              "Fast towing and roadside assistance in Poway San Diego. Serving Lake Poway, Old Poway Park, and all Poway neighborhoods 24/7.",
+              "Towing in Poway 92064. Serving Lake Poway, Old Poway Park, Blue Sky Reserve, Twin Peaks & I-15 corridor 24/7. The City in the Country's towing experts.",
             url: "https://www.closebytowing.com/san-diego/poway",
             telephone: CONTACT.phone,
-            areaServed: {
-              "@type": "Neighborhood",
-              name: "Poway",
-              containedInPlace: {
-                "@type": "City",
-                name: "San Diego",
+            areaServed: [
+              {
+                "@type": "PostalAddress",
+                postalCode: "92064",
+                addressLocality: "Poway",
+                addressRegion: "CA",
               },
+            ],
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.9628,
+              longitude: -117.0359,
             },
-            serviceType: ["Towing Service", "Roadside Assistance"],
+            serviceType: ["Towing Service", "Roadside Assistance", "Rural Road Recovery"],
             priceRange: "$$",
             openingHoursSpecification: {
               "@type": "OpeningHoursSpecification",

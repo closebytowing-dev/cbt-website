@@ -4,13 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Imperial Beach ZIP code: 91932
+const IB_ZIP_CODES = ["91932"];
+
 // SEO Metadata
 export const metadata: Metadata = {
   title: "Imperial Beach Towing | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in Imperial Beach. We serve the pier, beachfront, Palm Avenue, SR-75/I-5 corridors. 25-40 min response.",
+    "Towing in Imperial Beach 91932. From the IB Pier to Border Field State Park, the Silver Strand to Palm Avenue. California's most southwesterly beach town. 25-40 min.",
   keywords:
-    "towing Imperial Beach, Imperial Beach tow truck, IB Pier towing, beachside towing, roadside assistance Imperial Beach, Palm Avenue towing, SR-75 towing",
+    "towing Imperial Beach, Imperial Beach tow truck, 91932 towing, IB Pier towing, Silver Strand towing, Palm Avenue towing, Border Field towing",
   openGraph: {
     title: "Imperial Beach Towing | 24/7 | CloseBy",
     description:
@@ -156,9 +159,9 @@ export default function ImperialBeachPage() {
               </h1>
 
               <p className="mt-6 text-xl text-orange-50 leading-relaxed max-w-xl">
-                Your coastal towing experts at San Diego&apos;s most southwesterly city. From the{" "}
-                <span className="text-orange-200 font-semibold">IB Pier</span> to{" "}
-                <span className="text-orange-200 font-semibold">Silver Strand</span>, we respond in{" "}
+                Imperial Beach is California&apos;s most southwesterly city—where the U.S. Surfing Championships take place at the iconic IB Pier, the Tijuana Estuary meets the Pacific, and Border Field State Park marks the U.S.-Mexico border. Whether you&apos;re stuck at the{" "}
+                <span className="text-orange-200 font-semibold">pier parking lot</span> or on{" "}
+                <span className="text-orange-200 font-semibold">Silver Strand Boulevard</span>, we respond in{" "}
                 <span className="text-orange-200 font-semibold">25-40 minutes</span>.
               </p>
 
@@ -337,6 +340,14 @@ export default function ImperialBeachPage() {
                     <span>• Dunes Park</span>
                     <span>• Tijuana Estuary</span>
                     <span>• Beach Parking Lots</span>
+                  </div>
+                </div>
+                <div className="bg-orange-50 rounded-lg p-4 border border-orange-200">
+                  <h4 className="font-semibold text-sm mb-2 text-orange-800">ZIP Codes Served:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {IB_ZIP_CODES.map((zip) => (
+                      <span key={zip} className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold">{zip}</span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -522,18 +533,23 @@ export default function ImperialBeachPage() {
             "@id": "https://www.closebytowing.com/san-diego/imperial-beach",
             name: "CloseBy Towing - Imperial Beach",
             description:
-              "Fast towing and roadside assistance in Imperial Beach San Diego. Serving the pier, beachfront, and all IB neighborhoods 24/7.",
+              "Towing in Imperial Beach 91932. Serving IB Pier, Silver Strand Boulevard, Border Field State Park & Palm Avenue 24/7. California's southwesternmost city.",
             url: "https://www.closebytowing.com/san-diego/imperial-beach",
             telephone: CONTACT.phone,
-            areaServed: {
-              "@type": "City",
-              name: "Imperial Beach",
-              containedInPlace: {
-                "@type": "AdministrativeArea",
-                name: "San Diego County",
+            areaServed: [
+              {
+                "@type": "PostalAddress",
+                postalCode: "91932",
+                addressLocality: "Imperial Beach",
+                addressRegion: "CA",
               },
+            ],
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.5839,
+              longitude: -117.1131,
             },
-            serviceType: ["Towing Service", "Roadside Assistance"],
+            serviceType: ["Towing Service", "Roadside Assistance", "Beach Vehicle Service"],
             priceRange: "$$",
             openingHoursSpecification: {
               "@type": "OpeningHoursSpecification",

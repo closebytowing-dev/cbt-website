@@ -4,13 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// North Park ZIP code: 92104
+const NP_ZIP_CODES = ["92104"];
+
 // SEO Metadata
 export const metadata: Metadata = {
   title: "North Park Towing | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in North Park. We cover 30th Street, University Avenue, craft brewery district & all North Park neighborhoods. 20-30 min response.",
+    "Towing in North Park 92104. From the 30th Street craft brewery corridor to Ray at Night art walks and Morley Field disc golf. 20-30 min response to SD's hippest hood.",
   keywords:
-    "towing North Park, North Park tow truck, 30th Street towing, roadside assistance North Park, University Avenue towing, tow truck near me North Park",
+    "towing North Park, North Park tow truck, 92104 towing, 30th Street towing, craft brewery district towing, University Avenue towing, Morley Field towing",
   openGraph: {
     title: "North Park Towing | 24/7 | CloseBy",
     description:
@@ -149,8 +152,9 @@ export default function NorthParkPage() {
               </h1>
 
               <p className="mt-6 text-xl text-amber-100 leading-relaxed max-w-xl">
-                Your local towing experts in San Diego&apos;s hippest neighborhood. From <span className="text-amber-300 font-semibold">30th Street breweries</span> to{" "}
-                <span className="text-amber-300 font-semibold">Morley Field</span>, we know every corner of North Park and respond in{" "}
+                North Park is San Diego&apos;s creative heartbeat—home to 30th Street&apos;s famous craft brewery corridor with Modern Times and dozens more, the Ray at Night art walk, historic Craftsman bungalows, and Morley Field&apos;s disc golf course. Whether you&apos;re stuck after{" "}
+                <span className="text-amber-300 font-semibold">brewery hopping</span> or need help near{" "}
+                <span className="text-amber-300 font-semibold">Observatory North Park</span>, we respond in{" "}
                 <span className="text-amber-300 font-semibold">20-30 minutes</span>.
               </p>
 
@@ -328,6 +332,14 @@ export default function NorthParkPage() {
                       <span key={specialty} className="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-medium">
                         {specialty}
                       </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-amber-50 rounded-lg p-4 border border-amber-200">
+                  <h4 className="font-semibold text-sm mb-2 text-amber-800">ZIP Codes Served:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {NP_ZIP_CODES.map((zip) => (
+                      <span key={zip} className="bg-amber-600 text-white px-3 py-1 rounded-full text-sm font-bold">{zip}</span>
                     ))}
                   </div>
                 </div>
@@ -514,16 +526,21 @@ export default function NorthParkPage() {
             "@id": "https://www.closebytowing.com/san-diego/north-park",
             name: "CloseBy Towing - North Park",
             description:
-              "Fast towing and roadside assistance in North Park San Diego. Serving 30th Street, University Avenue, brewery district, and all North Park neighborhoods 24/7.",
+              "Towing in North Park 92104. Serving 30th Street craft brewery corridor, Ray at Night arts district, Morley Field & historic Craftsman neighborhoods 24/7.",
             url: "https://www.closebytowing.com/san-diego/north-park",
             telephone: CONTACT.phone,
-            areaServed: {
-              "@type": "Neighborhood",
-              name: "North Park",
-              containedInPlace: {
-                "@type": "City",
-                name: "San Diego",
+            areaServed: [
+              {
+                "@type": "PostalAddress",
+                postalCode: "92104",
+                addressLocality: "North Park",
+                addressRegion: "CA",
               },
+            ],
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.7406,
+              longitude: -117.1295,
             },
             serviceType: ["Towing Service", "Roadside Assistance"],
             priceRange: "$$",

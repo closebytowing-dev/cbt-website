@@ -7,9 +7,9 @@ import { CONTACT } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Pacific Beach Towing | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in Pacific Beach. Serving Garnet Ave, Crystal Pier, Mission Bay area. 20-30 min response, 24/7 availability.",
+    "Towing in Pacific Beach 92109. Serving Garnet Ave, Crystal Pier, Mission Bay & boardwalk. Fast 20-30 min response from PB's local beach community tow experts.",
   keywords:
-    "towing Pacific Beach, PB tow truck, Garnet Avenue towing, Crystal Pier roadside assistance, beach towing San Diego",
+    "towing Pacific Beach, PB tow truck, 92109 towing, Garnet Avenue towing, Crystal Pier roadside assistance, Mission Boulevard towing, beach towing San Diego",
   openGraph: {
     title: "Towing in Pacific Beach San Diego | 24/7 | CloseBy Towing",
     url: "https://www.closebytowing.com/san-diego/pacific-beach",
@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     canonical: "https://www.closebytowing.com/san-diego/pacific-beach",
   },
 };
+
+// Pacific Beach ZIP codes: 92109 (primary), parts of 92109
+const PB_ZIP_CODES = ["92109"];
 
 const LOCAL_LANDMARKS = [
   {
@@ -132,10 +135,10 @@ export default function PacificBeachPage() {
               </h1>
 
               <p className="mt-6 text-xl text-blue-100 leading-relaxed max-w-xl">
-                Your beach community towing experts. From{" "}
-                <span className="text-cyan-200 font-semibold">Garnet Avenue</span> to{" "}
-                <span className="text-cyan-200 font-semibold">Crystal Pier</span>, we provide{" "}
-                <span className="text-cyan-200 font-semibold">20-30 minute</span> response 24/7.
+                Pacific Beach is San Diego&apos;s iconic boardwalk community where locals catch waves at Tourmaline and visitors pack Garnet Avenue&apos;s bars every weekend. Whether you&apos;re stuck near{" "}
+                <span className="text-cyan-200 font-semibold">Crystal Pier</span>, broken down on{" "}
+                <span className="text-cyan-200 font-semibold">Mission Boulevard</span>, or need help in the Crown Point area, we respond in{" "}
+                <span className="text-cyan-200 font-semibold">20-30 minutes</span>.
               </p>
 
               <div className="mt-8 grid grid-cols-3 gap-4">
@@ -280,7 +283,7 @@ export default function PacificBeachPage() {
                 <div className="bg-slate-50 rounded-lg p-4">
                   <h4 className="font-semibold text-sm mb-2">Areas Covered:</h4>
                   <div className="flex flex-wrap gap-2">
-                    {["Crystal Pier", "Crown Point", "Mission Bay", "Sail Bay", "Fanuel Park"].map(
+                    {["Crystal Pier", "Crown Point", "Mission Bay", "Sail Bay", "Fanuel Park", "Tourmaline"].map(
                       (area) => (
                         <span
                           key={area}
@@ -290,6 +293,19 @@ export default function PacificBeachPage() {
                         </span>
                       )
                     )}
+                  </div>
+                </div>
+                <div className="bg-cyan-50 rounded-lg p-4 border border-cyan-200">
+                  <h4 className="font-semibold text-sm mb-2 text-cyan-800">ZIP Codes Served:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {PB_ZIP_CODES.map((zip) => (
+                      <span
+                        key={zip}
+                        className="bg-cyan-600 text-white px-3 py-1 rounded-full text-sm font-bold"
+                      >
+                        {zip}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -467,16 +483,30 @@ export default function PacificBeachPage() {
             "@id": "https://www.closebytowing.com/san-diego/pacific-beach",
             name: "CloseBy Towing - Pacific Beach",
             description:
-              "Fast towing in Pacific Beach San Diego. Garnet Ave, Crystal Pier, Mission Bay 24/7.",
+              "Towing in Pacific Beach 92109. Serving Garnet Ave, Crystal Pier, Mission Bay, Tourmaline & boardwalk 24/7. San Diego's beach community towing experts.",
             url: "https://www.closebytowing.com/san-diego/pacific-beach",
             telephone: CONTACT.phone,
-            areaServed: {
-              "@type": "Neighborhood",
-              name: "Pacific Beach",
-              containedInPlace: { "@type": "City", name: "San Diego" },
+            areaServed: [
+              {
+                "@type": "PostalAddress",
+                postalCode: "92109",
+                addressLocality: "Pacific Beach",
+                addressRegion: "CA",
+              },
+            ],
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.7997,
+              longitude: -117.2356,
             },
-            serviceType: ["Towing Service", "Roadside Assistance"],
+            serviceType: ["Towing Service", "Roadside Assistance", "Beach Vehicle Recovery"],
             priceRange: "$$",
+            openingHoursSpecification: {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              opens: "00:00",
+              closes: "23:59",
+            },
           }),
         }}
       />

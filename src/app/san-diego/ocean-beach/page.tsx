@@ -4,13 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Ocean Beach ZIP code: 92107
+const OB_ZIP_CODES = ["92107"];
+
 // SEO Metadata
 export const metadata: Metadata = {
   title: "Ocean Beach Towing | 24/7 | CloseBy",
   description:
-    "Laid-back towing & roadside assistance in Ocean Beach. Serving OB Pier, Newport Avenue, Sunset Cliffs, and Dog Beach. 15-30 min response to the beach community.",
+    "Towing in Ocean Beach 92107. From OB Pier to Sunset Cliffs, Dog Beach to Newport Ave antique row. Serving OB's eclectic beach community with 15-30 min response.",
   keywords:
-    "towing Ocean Beach, OB tow truck, Ocean Beach towing, roadside assistance OB, Sunset Cliffs towing, tow truck near me Ocean Beach",
+    "towing Ocean Beach, OB tow truck, 92107 towing, Ocean Beach towing, roadside assistance OB, Sunset Cliffs towing, Dog Beach towing, Newport Avenue towing",
   openGraph: {
     title: "Ocean Beach Towing | 24/7 | CloseBy",
     description:
@@ -149,9 +152,10 @@ export default function OceanBeachPage() {
               </h1>
 
               <p className="mt-6 text-xl text-purple-100 leading-relaxed max-w-xl">
-                OB&apos;s local towing crew. From <span className="text-orange-300 font-semibold">Newport Avenue</span> to{" "}
-                <span className="text-orange-300 font-semibold">Sunset Cliffs</span>, laid-back service with{" "}
-                <span className="text-orange-300 font-semibold">15-30 minute</span> response times.
+                Ocean Beach is San Diego&apos;s last true bohemian beach town—where antique shops line Newport Avenue, surfers rule the pier, and dogs run free at California&apos;s original off-leash beach. Whether you&apos;re stuck near{" "}
+                <span className="text-orange-300 font-semibold">Sunset Cliffs</span> watching the sunset or broken down after the{" "}
+                <span className="text-orange-300 font-semibold">Wednesday Farmers Market</span>, we respond in{" "}
+                <span className="text-orange-300 font-semibold">15-30 minutes</span>.
               </p>
 
               {/* Quick stats */}
@@ -329,6 +333,19 @@ export default function OceanBeachPage() {
                     <span>• Voltaire Street</span>
                     <span>• Cable Street</span>
                     <span>• Abbott Street</span>
+                  </div>
+                </div>
+                <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
+                  <h4 className="font-semibold text-sm mb-2 text-purple-800">ZIP Codes Served:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {OB_ZIP_CODES.map((zip) => (
+                      <span
+                        key={zip}
+                        className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-bold"
+                      >
+                        {zip}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -514,16 +531,21 @@ export default function OceanBeachPage() {
             "@id": "https://www.closebytowing.com/san-diego/ocean-beach",
             name: "CloseBy Towing - Ocean Beach",
             description:
-              "Laid-back towing and roadside assistance in Ocean Beach San Diego. Serving OB Pier, Newport Avenue, Sunset Cliffs, and Dog Beach 24/7. Your local OB towing family.",
+              "Towing in Ocean Beach 92107. Serving OB Pier, Newport Avenue antique row, Sunset Cliffs, and Dog Beach 24/7. San Diego's bohemian beach community towing experts.",
             url: "https://www.closebytowing.com/san-diego/ocean-beach",
             telephone: CONTACT.phone,
-            areaServed: {
-              "@type": "Neighborhood",
-              name: "Ocean Beach",
-              containedInPlace: {
-                "@type": "City",
-                name: "San Diego",
+            areaServed: [
+              {
+                "@type": "PostalAddress",
+                postalCode: "92107",
+                addressLocality: "Ocean Beach",
+                addressRegion: "CA",
               },
+            ],
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.7494,
+              longitude: -117.2495,
             },
             serviceType: ["Towing Service", "Roadside Assistance", "Beach Vehicle Service"],
             priceRange: "$$",

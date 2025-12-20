@@ -4,13 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Del Mar ZIP code: 92014
+const DM_ZIP_CODES = ["92014"];
+
 // SEO Metadata
 export const metadata: Metadata = {
   title: "Del Mar Towing | 24/7 Service | CloseBy",
   description:
-    "Premium towing & roadside assistance in Del Mar. Serving Del Mar Racetrack, Fairgrounds, Village, and coastal areas. 15-30 min response to North County beaches.",
+    "Towing in Del Mar 92014. Serving the Del Mar Racetrack, San Diego County Fairgrounds, Camino del Mar village shops & Torrey Pines coastal bluffs. 15-30 min response.",
   keywords:
-    "towing Del Mar, Del Mar tow truck, Del Mar Fairgrounds towing, roadside assistance Del Mar, Del Mar Village towing, tow truck near me Del Mar",
+    "towing Del Mar, Del Mar tow truck, 92014 towing, Del Mar Fairgrounds towing, Del Mar Racetrack towing, Camino del Mar towing, luxury vehicle towing Del Mar",
   openGraph: {
     title: "Del Mar Towing | 24/7 Service | CloseBy",
     description:
@@ -149,9 +152,10 @@ export default function DelMarPage() {
               </h1>
 
               <p className="mt-6 text-xl text-teal-50 leading-relaxed max-w-xl">
-                Your North County coastal experts. From <span className="text-amber-300 font-semibold">the Racetrack</span> to{" "}
-                <span className="text-amber-300 font-semibold">the Village</span>, refined service with{" "}
-                <span className="text-amber-300 font-semibold">15-30 minute</span> response times.
+                Del Mar—&quot;Where the Turf Meets the Surf&quot;—is home to the legendary Del Mar Racetrack, the San Diego County Fair, and some of California&apos;s most exclusive oceanfront real estate along Camino del Mar. Whether your Porsche won&apos;t start at the{" "}
+                <span className="text-amber-300 font-semibold">Fairgrounds</span> or you need help on{" "}
+                <span className="text-amber-300 font-semibold">Coast Highway 101</span>, we respond in{" "}
+                <span className="text-amber-300 font-semibold">15-30 minutes</span>.
               </p>
 
               {/* Quick stats */}
@@ -329,6 +333,14 @@ export default function DelMarPage() {
                     <span>• Powerhouse Park</span>
                     <span>• Seagrove Park</span>
                     <span>• L&apos;Auberge Resort</span>
+                  </div>
+                </div>
+                <div className="bg-teal-50 rounded-lg p-4 border border-teal-200">
+                  <h4 className="font-semibold text-sm mb-2 text-teal-800">ZIP Codes Served:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {DM_ZIP_CODES.map((zip) => (
+                      <span key={zip} className="bg-teal-600 text-white px-3 py-1 rounded-full text-sm font-bold">{zip}</span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -514,18 +526,23 @@ export default function DelMarPage() {
             "@id": "https://www.closebytowing.com/san-diego/del-mar",
             name: "CloseBy Towing - Del Mar",
             description:
-              "Premium towing and roadside assistance in Del Mar San Diego. Serving Del Mar Racetrack, Fairgrounds, Village, and coastal areas 24/7. North County coastal specialists.",
+              "Towing in Del Mar 92014. Serving Del Mar Racetrack, San Diego County Fairgrounds, Camino del Mar village & coastal bluffs 24/7. Luxury vehicle specialists.",
             url: "https://www.closebytowing.com/san-diego/del-mar",
             telephone: CONTACT.phone,
-            areaServed: {
-              "@type": "City",
-              name: "Del Mar",
-              containedInPlace: {
-                "@type": "AdministrativeArea",
-                name: "San Diego County",
+            areaServed: [
+              {
+                "@type": "PostalAddress",
+                postalCode: "92014",
+                addressLocality: "Del Mar",
+                addressRegion: "CA",
               },
+            ],
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.9595,
+              longitude: -117.2653,
             },
-            serviceType: ["Towing Service", "Roadside Assistance", "Luxury Vehicle Towing"],
+            serviceType: ["Towing Service", "Roadside Assistance", "Luxury Vehicle Towing", "Exotic Car Transport"],
             priceRange: "$$",
             openingHoursSpecification: {
               "@type": "OpeningHoursSpecification",

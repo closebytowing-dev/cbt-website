@@ -4,12 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Kearny Mesa ZIP codes: 92111 (primary), 92123
+const KM_ZIP_CODES = ["92111", "92123"];
+
 export const metadata: Metadata = {
   title: "Kearny Mesa Towing | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in Kearny Mesa. Serving auto dealers, Convoy District, business parks & SR-163/I-805 corridors. 20-35 min response.",
+    "Towing in Kearny Mesa 92111 & 92123. From Auto Row dealerships to Convoy District's famous Asian food scene to Montgomery Field. 20-30 min response.",
   keywords:
-    "towing Kearny Mesa, Kearny Mesa tow truck, Convoy Street towing, auto dealer towing, business park roadside assistance",
+    "towing Kearny Mesa, Kearny Mesa tow truck, 92111 towing, 92123 towing, Convoy Street towing, auto dealer towing, Montgomery Field towing",
   openGraph: {
     title: "Kearny Mesa Towing | 24/7 | CloseBy",
     description: "Local towing experts serving Kearny Mesa 24/7. Auto Row, Convoy District & business parks.",
@@ -89,8 +92,8 @@ export default function KearnyMesaPage() {
               </h1>
 
               <p className="mt-6 text-xl text-slate-300 leading-relaxed max-w-xl">
-                San Diego&apos;s auto and business hub deserves fast, professional towing. From <span className="text-blue-400 font-semibold">Auto Row</span> to the{" "}
-                <span className="text-blue-400 font-semibold">Convoy District</span>, we respond in <span className="text-blue-400 font-semibold">20-30 minutes</span>.
+                Kearny Mesa is San Diego&apos;s commercial powerhouse—home to Auto Row&apos;s 50+ car dealerships, the Convoy District with San Diego&apos;s best Asian cuisine, and Montgomery Field regional airport. Whether you need a dealer flatbed or broke down after pho on{" "}
+                <span className="text-blue-400 font-semibold">Convoy Street</span>, we respond in <span className="text-blue-400 font-semibold">20-30 minutes</span>.
               </p>
 
               <div className="mt-8 grid grid-cols-3 gap-4">
@@ -178,6 +181,14 @@ export default function KearnyMesaPage() {
                   <div className="flex flex-wrap gap-2">
                     {["SR-163", "I-805", "SR-52"].map((f) => (
                       <span key={f} className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">{f}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                  <h4 className="font-semibold text-sm mb-2 text-blue-800">ZIP Codes Served:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {KM_ZIP_CODES.map((zip) => (
+                      <span key={zip} className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold">{zip}</span>
                     ))}
                   </div>
                 </div>
@@ -285,7 +296,7 @@ export default function KearnyMesaPage() {
       ]
 }) }}
       />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://www.closebytowing.com/san-diego/kearny-mesa", name: "CloseBy Towing - Kearny Mesa", description: "Fast towing and roadside assistance in Kearny Mesa San Diego. Serving Auto Row, Convoy District, and business parks 24/7.", url: "https://www.closebytowing.com/san-diego/kearny-mesa", telephone: CONTACT.phone, areaServed: { "@type": "Neighborhood", name: "Kearny Mesa", containedInPlace: { "@type": "City", name: "San Diego" } }, serviceType: ["Towing Service", "Roadside Assistance"], priceRange: "$$" }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://www.closebytowing.com/san-diego/kearny-mesa", name: "CloseBy Towing - Kearny Mesa", description: "Towing in Kearny Mesa 92111 & 92123. Serving Auto Row dealerships, Convoy District Asian food district, Montgomery Field & business parks 24/7.", url: "https://www.closebytowing.com/san-diego/kearny-mesa", telephone: CONTACT.phone, areaServed: [{ "@type": "PostalAddress", postalCode: "92111", addressLocality: "Kearny Mesa", addressRegion: "CA" }, { "@type": "PostalAddress", postalCode: "92123", addressLocality: "Kearny Mesa", addressRegion: "CA" }], geo: { "@type": "GeoCoordinates", latitude: 32.8225, longitude: -117.1528 }, serviceType: ["Towing Service", "Roadside Assistance", "Dealer Transport"], priceRange: "$$", openingHoursSpecification: { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "00:00", closes: "23:59" } }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ_DATA.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) }) }} />
     </main>
   );
