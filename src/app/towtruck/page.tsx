@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
-import { useState, useEffect, useRef, Suspense } from "react";
+import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import { CONTACT, STATS, SERVICE_AREAS } from "@/lib/constants";
 import TowTruckLandingCTA from "@/components/TowTruckLandingCTA";
@@ -41,12 +40,7 @@ const FAQS = [
 
 // ─── HERO COMPONENT WITH A/B TESTING ────────────────────────────
 function HeroContent() {
-  const searchParams = useSearchParams();
-  const variant = searchParams.get("v") || "a";
-
-  const headline = variant === "b"
-    ? "Stuck on the Road? Help Is 20 Minutes Away."
-    : "Tow Truck Near You in San Diego — We're Already Close";
+  const headline = "Tow Truck Near You in San Diego — We're Already Close";
 
   return (
     <section className="relative min-h-[50vh] flex items-center overflow-hidden" style={{ background: '#1e1e4a' }}>
@@ -206,16 +200,7 @@ export default function TowTruckLandingPage() {
       {/* ═══════════════════════════════════════════════════════════
           SECTION 1: HERO
       ═══════════════════════════════════════════════════════════ */}
-      <Suspense fallback={
-        <section className="min-h-[50vh] flex items-center" style={{ background: '#1e1e4a' }}>
-          <div className="max-w-[1400px] mx-auto px-6 py-20">
-            <div className="h-12 w-96 bg-white/10 rounded animate-pulse mb-6" />
-            <div className="h-8 w-64 bg-white/10 rounded animate-pulse" />
-          </div>
-        </section>
-      }>
-        <HeroContent />
-      </Suspense>
+      <HeroContent />
 
 
       {/* ═══════════════════════════════════════════════════════════
