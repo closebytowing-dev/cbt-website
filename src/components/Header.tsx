@@ -80,7 +80,7 @@ export default function Header() {
       <div className="bg-[#1e1e4a] text-white relative">
         <div className="mx-auto max-w-[1800px] px-4 sm:px-6 h-14 lg:h-[5rem] flex items-center justify-between relative">
           {/* Mobile/Tablet: Oversized logo that spans both bars */}
-          <Link href="/" className="xl:hidden absolute left-0 sm:left-1 top-[90%] -translate-y-[50%] z-50">
+          <Link href="/" className="xl:hidden absolute -left-2 sm:-left-1 top-[90%] -translate-y-[50%] z-50">
             <Image
               src="/images/main-logo.webp"
               alt="CloseBy Towing logo"
@@ -92,7 +92,7 @@ export default function Header() {
           </Link>
 
           {/* Mobile/Tablet: "CloseBy" text in header */}
-          <div className="xl:hidden absolute left-[4.5rem] sm:left-[5.75rem] top-1/2 -translate-y-1/3">
+          <div className="xl:hidden absolute left-[3.25rem] sm:left-[5rem] top-1/2 -translate-y-1/3">
             <Link
               href="/"
               className="font-bold tracking-tight text-2xl sm:text-[1.625rem] whitespace-nowrap"
@@ -168,7 +168,7 @@ export default function Header() {
           </div>
 
           {/* Mobile/Tablet: "Towing" text under CloseBy */}
-          <div className="xl:hidden absolute left-[4.5rem] sm:left-[5.75rem]">
+          <div className="xl:hidden absolute left-[3.25rem] sm:left-[5rem]">
             <Link
               href="/"
               className="font-bold tracking-tight text-2xl sm:text-[1.625rem] text-[#1e1e4a] opacity-90 whitespace-nowrap"
