@@ -3,6 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import GadsConversionTracker from "@/components/GadsConversionTracker";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.closebytowing.com'),
@@ -86,6 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         {children}
         <Footer />
+        <GadsConversionTracker />
 
         {/* Google Tag Manager - deferred loading */}
         <Script
@@ -112,7 +114,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-J8CVPHT7TG');`
+gtag('config', 'G-J8CVPHT7TG');
+gtag('config', 'AW-XXXXXXXXXX');`
           }}
         />
 

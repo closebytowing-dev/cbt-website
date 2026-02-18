@@ -2,6 +2,7 @@
 import { useState, useMemo } from "react";
 import type { AddressPayload } from "./types";
 import { getOnlineDiscountRate } from "@/lib/pricing-client";
+import { trackBookingConversion } from "@/lib/gads";
 
 type Props = {
   payload: AddressPayload;
@@ -129,6 +130,8 @@ export default function PopupCustomerInfo({ payload, onBack, onSubmit }: Props) 
 
       // Redirect to Square Payment Link
       if (paymentLinkData.paymentLinkUrl) {
+        // Fire Google Ads booking conversion
+        trackBookingConversion();
         window.location.href = paymentLinkData.paymentLinkUrl;
       } else {
         throw new Error('No payment link URL received');
