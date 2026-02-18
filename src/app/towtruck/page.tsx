@@ -73,7 +73,7 @@ function HeroContent() {
             24/7 Emergency Towing
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6">
+          <h1 className="text-[1.65rem] sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6">
             {headline}
           </h1>
 
@@ -90,7 +90,7 @@ function HeroContent() {
             {/* Primary: Call Now */}
             <a
               href={`tel:${CONTACT.phoneRaw}`}
-              className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 sm:px-12 sm:py-6 rounded-2xl font-black text-xl sm:text-2xl text-white transition-all active:scale-[.98]"
+              className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-5 sm:px-12 sm:py-6 rounded-2xl font-black text-xl sm:text-2xl text-white transition-all active:scale-[.98] min-h-[56px]"
               style={{ background: '#ffba42', color: '#1e1e4a' }}
             >
               {/* Shimmer effect */}
@@ -118,7 +118,7 @@ export default function TowTruckLandingPage() {
   const [faqOpen, setFaqOpen] = useState<number | null>(null);
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
 
-  // Set meta title and description
+  // Set meta title, description, and viewport
   useEffect(() => {
     document.title = "Tow Truck Near Me | San Diego 24 Hour Tow Truck Service | CloseBy Towing";
     const metaDesc = document.querySelector('meta[name="description"]');
@@ -129,6 +129,13 @@ export default function TowTruckLandingPage() {
       meta.name = "description";
       meta.content = "Need a tow truck near you in San Diego? CloseBy Towing provides fast 24 hour emergency tow truck service with upfront pricing and rapid dispatch across San Diego County.";
       document.head.appendChild(meta);
+    }
+    // Ensure viewport is set for mobile
+    if (!document.querySelector('meta[name="viewport"]')) {
+      const viewport = document.createElement("meta");
+      viewport.name = "viewport";
+      viewport.content = "width=device-width, initial-scale=1, viewport-fit=cover";
+      document.head.appendChild(viewport);
     }
   }, []);
 
@@ -222,7 +229,7 @@ export default function TowTruckLandingPage() {
         <div className="max-w-[1400px] mx-auto">
           {/* Google badge + rating */}
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-md border border-slate-100">
+            <div className="inline-flex items-center gap-2 sm:gap-3 bg-white px-4 sm:px-6 py-3 rounded-full shadow-md border border-slate-100 flex-wrap justify-center">
               {/* Google G icon */}
               <svg className="w-6 h-6" viewBox="0 0 24 24">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
@@ -480,9 +487,9 @@ export default function TowTruckLandingPage() {
               <div key={i} className="border border-slate-200 rounded-2xl overflow-hidden">
                 <button
                   onClick={() => setFaqOpen(faqOpen === i ? null : i)}
-                  className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors"
+                  className="w-full flex items-center justify-between px-4 sm:px-6 py-5 text-left hover:bg-slate-50 transition-colors min-h-[56px]"
                 >
-                  <span className="font-bold text-slate-800 pr-4">{faq.q}</span>
+                  <span className="font-bold text-slate-800 pr-4 text-sm sm:text-base">{faq.q}</span>
                   <svg
                     className={`w-5 h-5 text-slate-400 flex-shrink-0 transition-transform ${faqOpen === i ? 'rotate-180' : ''}`}
                     fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -558,10 +565,10 @@ export default function TowTruckLandingPage() {
       {/* ═══════════════════════════════════════════════════════════
           STICKY MOBILE CTA BAR
       ═══════════════════════════════════════════════════════════ */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden">
+      <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
         <a
           href={`tel:${CONTACT.phoneRaw}`}
-          className="flex items-center justify-center gap-3 w-full py-4 font-black text-lg transition-all"
+          className="flex items-center justify-center gap-3 w-full py-4 font-black text-lg transition-all min-h-[56px]"
           style={{ background: '#ffba42', color: '#1e1e4a' }}
         >
           <svg className="w-5 h-5 animate-pulse" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
@@ -569,8 +576,8 @@ export default function TowTruckLandingPage() {
         </a>
       </div>
 
-      {/* Bottom padding for sticky bar on mobile */}
-      <div className="h-14 lg:hidden" />
+      {/* Bottom padding for sticky bar on mobile (includes safe area for notched phones) */}
+      <div className="lg:hidden" style={{ height: 'calc(3.5rem + env(safe-area-inset-bottom, 0px))' }} />
 
       {/* LeftPopup booking system */}
       <LeftPopup />
