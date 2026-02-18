@@ -146,7 +146,7 @@ export default function TowingPage() {
       />
 
       {/* URGENCY BANNER - Sticky on mobile */}
-      <div className="sticky top-0 z-50 lg:relative bg-gradient-to-r from-red-600 via-red-700 to-red-600 text-white py-3 px-4 text-center">
+      <div className="sticky top-0 z-40 lg:relative bg-gradient-to-r from-red-600 via-red-700 to-red-600 text-white py-3 px-4 text-center">
         <a
           href="tel:+18589999293"
           className="inline-flex items-center justify-center gap-2 font-black text-sm sm:text-base hover:underline"
