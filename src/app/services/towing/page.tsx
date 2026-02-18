@@ -5,13 +5,13 @@ import { TowingCTAButton, TowingCTAButtonLarge } from "./TowingCTAButton";
 import LeftPopup from "@/components/LeftPopup";
 
 export const metadata: Metadata = {
-  title: "24/7 Towing Service San Diego | Fast Response, Upfront Pricing | CloseBy Towing",
-  description: "Professional towing service in San Diego. 20-35 min response time. Flatbed & wheel-lift. Licensed, insured, trusted by 10,000+ customers. Call (858) 999-9293 for immediate help.",
-  keywords: "towing San Diego, emergency towing, flatbed towing, cheap towing near me, 24/7 tow truck, roadside assistance San Diego",
+  title: "24/7 Towing Service San Diego | 20 Min Response | CloseBy Towing",
+  description: "Emergency towing in San Diego. Fast 20-min response, upfront pricing from $75. Licensed & insured. Call (858) 999-9293 anytime.",
+  keywords: "towing service san diego, emergency towing near me, 24 hour towing service near me, local towing services, towing company near me, flatbed towing, san diego towing service, vehicle towing service, emergency towing service, towing san diego",
   alternates: { canonical: "/services/towing" },
   openGraph: {
-    title: "Professional Towing Service San Diego | CloseBy Towing",
-    description: "Fast, reliable towing with 20-35 minute response. Trusted by 10,000+ customers.",
+    title: "24/7 Towing Service San Diego | 20 Min Response | CloseBy Towing",
+    description: "Emergency towing in San Diego. Fast 20-min response, upfront pricing from $75. Licensed & insured. Call (858) 999-9293 anytime.",
     type: "website",
   },
 };
@@ -26,9 +26,9 @@ export default function TowingPage() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "CloseBy Towing",
-    "image": "https://yourdomain.com/towing-truck.jpg",
-    "@id": "https://yourdomain.com/services/towing",
-    "url": "https://yourdomain.com/services/towing",
+    "image": "https://www.closebytowing.com/services/tow-truck-hero.webp",
+    "@id": "https://www.closebytowing.com/services/towing",
+    "url": "https://www.closebytowing.com/services/towing",
     "telephone": "+1-858-999-9293",
     "priceRange": "$$",
     "address": {
@@ -48,6 +48,19 @@ export default function TowingPage() {
       "opens": "00:00",
       "closes": "23:59"
     },
+    "areaServed": {
+      "@type": "Place",
+      "name": "San Diego County",
+      "geo": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 32.7157,
+          "longitude": -117.1611
+        },
+        "geoRadius": "50"
+      }
+    },
     "sameAs": [
       "https://facebook.com/closebytowing",
       "https://twitter.com/closebytowing"
@@ -66,7 +79,7 @@ export default function TowingPage() {
           "itemOffered": {
             "@type": "Service",
             "name": "Emergency Towing",
-            "description": "24/7 emergency towing service with 20-35 minute response time"
+            "description": "24/7 emergency towing service with 20-minute response time in San Diego"
           }
         },
         {
@@ -74,7 +87,15 @@ export default function TowingPage() {
           "itemOffered": {
             "@type": "Service",
             "name": "Flatbed Towing",
-            "description": "Safe flatbed towing for luxury and damaged vehicles"
+            "description": "Safe flatbed towing for luxury, AWD, and damaged vehicles in San Diego"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Roadside Assistance",
+            "description": "Complete roadside assistance including jump starts, tire changes, and lockout service"
           }
         }
       ]
@@ -98,15 +119,15 @@ export default function TowingPage() {
         "name": "How fast can you arrive for emergency towing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our average response time is 20-35 minutes for emergency towing in San Diego County. We dispatch the nearest available truck and provide real-time ETA updates."
+          "text": "Our average response time is 20 minutes for emergency towing in San Diego County. We dispatch the nearest available truck and provide real-time ETA updates."
         }
       },
       {
         "@type": "Question",
-        "name": "Do you offer flatbed towing?",
+        "name": "Do you offer flatbed towing in San Diego?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, we offer both flatbed and wheel-lift towing options. Flatbed towing is recommended for luxury vehicles, AWD/4WD vehicles, or vehicles with transmission damage."
+          "text": "Yes, we offer both flatbed and wheel-lift towing options in San Diego. Flatbed towing is recommended for luxury vehicles, AWD/4WD vehicles, or vehicles with transmission damage."
         }
       }
     ]
@@ -124,32 +145,43 @@ export default function TowingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
+      {/* URGENCY BANNER - Sticky on mobile */}
+      <div className="sticky top-0 z-50 lg:relative bg-gradient-to-r from-red-600 via-red-700 to-red-600 text-white py-3 px-4 text-center">
+        <a
+          href="tel:+18589999293"
+          className="inline-flex items-center justify-center gap-2 font-black text-sm sm:text-base hover:underline"
+        >
+          <span className="text-lg">🚨</span>
+          <span>Available RIGHT NOW — Call <span className="underline">(858) 999-9293</span></span>
+        </a>
+      </div>
+
       {/* TRUST BAR - Above the Fold */}
       <div className="bg-gradient-to-r from-emerald-600 to-green-600 text-white py-3 px-6">
-        <div className="mx-auto max-w-[1600px] flex flex-wrap justify-center items-center gap-6 text-sm font-semibold">
-          <div className="flex items-center gap-2">
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-            </svg>
-            <span>Licensed & Insured</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
-            </svg>
-            <span>20-35 Min Response</span>
-          </div>
+        <div className="mx-auto max-w-[1600px] flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-sm font-semibold">
           <div className="flex items-center gap-2">
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
-            <span>5.0 ⭐ Perfect Rating on Google</span>
+            <span>5.0 ⭐ on Google — 22 Reviews</span>
           </div>
           <div className="flex items-center gap-2">
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
             </svg>
-            <span>10,000+ Customers Served</span>
+            <span>Licensed & Insured — CA DOT Certified</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+            </svg>
+            <span>Serving All San Diego County</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+            </svg>
+            <span>Phone calls answered by real humans 24/7</span>
           </div>
         </div>
       </div>
@@ -177,14 +209,14 @@ export default function TowingPage() {
                 <span className="text-red-700 font-bold text-sm">EMERGENCY TOWING - CALL NOW</span>
               </div>
 
-              <h1 className="text-6xl lg:text-8xl font-black leading-[1.05] text-slate-900">
-                Stuck on the Road?
-                <span className="block mt-3 bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 bg-clip-text text-transparent">
-                  We're Less Than 25 Minutes Away
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-black leading-[1.05] text-slate-900">
+                San Diego's #1 Towing Service
+                <span className="block mt-3 bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 bg-clip-text text-transparent text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">
+                  — We're 20 Minutes Away
                 </span>
               </h1>
 
-              <p className="text-2xl text-slate-600 leading-relaxed">
+              <p className="text-xl sm:text-2xl text-slate-600 leading-relaxed">
                 San Diego's most trusted towing service. <span className="font-bold text-slate-900">No hidden fees.</span> <span className="font-bold text-slate-900">No surprises.</span> Just fast, professional help when you need it most.
               </p>
 
@@ -226,7 +258,7 @@ export default function TowingPage() {
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <a
                   href="tel:+18589999293"
-                  className="group relative px-10 py-6 rounded-2xl font-black text-xl bg-gradient-to-r from-red-600 to-red-700 text-white shadow-[0_20px_60px_rgba(220,38,38,0.4)] hover:shadow-[0_20px_80px_rgba(220,38,38,0.6)] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 w-full sm:w-auto"
+                  className="group relative px-10 py-6 rounded-2xl font-black text-xl bg-gradient-to-r from-red-600 to-red-700 text-white shadow-[0_20px_60px_rgba(220,38,38,0.4)] hover:shadow-[0_20px_80px_rgba(220,38,38,0.6)] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 w-full sm:w-auto min-h-[56px]"
                 >
                   <svg className="w-6 h-6 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
@@ -251,8 +283,8 @@ export default function TowingPage() {
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"/>
                   </svg>
                   <div>
-                    <div className="font-black text-red-900 text-sm">Avg: 23 min</div>
-                    <div className="text-xs text-red-700">Most arrive sooner</div>
+                    <div className="font-black text-red-900 text-sm">~20 min response</div>
+                    <div className="text-xs text-red-700">Price locked before dispatch</div>
                   </div>
                 </div>
               </div>
@@ -264,7 +296,7 @@ export default function TowingPage() {
               <div className="relative aspect-[16/9] md:aspect-[4/5] rounded-[2rem] md:rounded-[3rem] overflow-hidden border-4 border-white shadow-[0_30px_90px_rgba(0,0,0,0.15)]">
                 <Image
                   src="/services/tow-truck-hero.webp"
-                  alt="CloseBy Towing professional tow truck in San Diego"
+                  alt="CloseBy Towing professional tow truck providing emergency towing service in San Diego"
                   width={1200}
                   height={1500}
                   className="w-full h-full object-cover"
@@ -276,7 +308,7 @@ export default function TowingPage() {
 
               {/* Floating Stats - with animations and mobile responsive */}
               <div className="absolute left-2 md:-left-6 top-10 md:top-20 bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-2xl border border-slate-200 max-w-[160px] md:max-w-[200px] hover:scale-105 hover:shadow-3xl transition-all duration-300 animate-[float_6s_ease-in-out_infinite]">
-                <div className="text-3xl md:text-4xl font-black text-blue-600 mb-1">15+</div>
+                <div className="text-3xl md:text-4xl font-black text-blue-600 mb-1">10+</div>
                 <div className="text-xs md:text-sm text-slate-600 font-semibold">Years Experience</div>
               </div>
 
@@ -287,6 +319,18 @@ export default function TowingPage() {
 
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* KEYWORD-RICH INTRO — Emergency Towing Service in San Diego */}
+      <section className="py-16 px-6 bg-white border-b border-slate-100">
+        <div className="mx-auto max-w-[1200px] text-center">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-6">
+            Emergency Towing Service in San Diego
+          </h2>
+          <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-4xl mx-auto">
+            CloseBy Towing is San Diego's trusted local towing company, available 24/7 for emergency towing, flatbed towing, and roadside assistance. Whether you're stuck on the I-5, I-8, I-15, or anywhere in San Diego County, we respond in 20 minutes or less. Upfront pricing, no hidden fees, licensed and insured.
+          </p>
         </div>
       </section>
 
@@ -308,7 +352,7 @@ export default function TowingPage() {
               </div>
               <div className="border-l-2 border-[#1e1e4a]/20 pl-4">
                 <div className="text-sm font-semibold text-[#1e1e4a]/70">Based on</div>
-                <div className="text-xl font-bold text-[#1e1e4a]"></div>
+                <div className="text-xl font-bold text-[#1e1e4a]">22 Reviews</div>
                 <div className="flex gap-2 mt-1">
                   <span className="text-xs font-semibold text-[#1e1e4a]/60">Google</span>
                   <span className="text-xs font-semibold text-[#1e1e4a]/60">Yelp</span>
@@ -372,7 +416,7 @@ export default function TowingPage() {
                     </svg>
                   ))}
                 </div>
-                <p className="text-[#1e1e4a] leading-relaxed mb-4">"{review.text}"</p>
+                <p className="text-[#1e1e4a] leading-relaxed mb-4">&ldquo;{review.text}&rdquo;</p>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-bold">
@@ -402,11 +446,11 @@ export default function TowingPage() {
       <section className="py-24 px-6 bg-gradient-to-b from-white to-slate-50">
         <div className="mx-auto max-w-[1600px]">
           <div className="text-center mb-16">
-            <h2 className="text-5xl lg:text-6xl font-black text-slate-900 mb-4">
-              Complete Towing <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Solutions</span>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 mb-4">
+              24 Hour Towing Service <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Near You</span>
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              From emergency breakdowns to planned transport, we handle every situation with expertise
+              From emergency breakdowns to planned vehicle transport — our local towing company handles every situation with expertise across San Diego County
             </p>
           </div>
 
@@ -414,14 +458,14 @@ export default function TowingPage() {
             {[
               {
                 name: "Emergency Towing",
-                desc: "Broke down? We're on our way. Average 20-35 minute response time across San Diego County.",
+                desc: "Broke down? We're on our way. Average 20-minute response time for emergency towing across San Diego County.",
                 icon: "M13 10V3L4 14h7v7l9-11h-7z",
                 color: "from-red-500 to-red-600",
                 popular: true
               },
               {
-                name: "Flatbed Towing",
-                desc: "Safest option for luxury cars, AWD/4WD vehicles, and motorcycles. Zero wheel contact with the road.",
+                name: "Flatbed Towing San Diego",
+                desc: "The safest option for luxury cars, AWD/4WD vehicles, and motorcycles. Zero wheel contact with the road — no risk of additional damage.",
                 icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
                 color: "from-blue-500 to-blue-600"
               },
@@ -433,7 +477,7 @@ export default function TowingPage() {
               },
               {
                 name: "Accident Recovery",
-                desc: "Collision or accident? We work with all insurance companies and provide detailed documentation.",
+                desc: "Collision or accident? We work with all insurance companies and provide detailed documentation for your claim.",
                 icon: "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z",
                 color: "from-orange-500 to-orange-600"
               },
@@ -445,7 +489,7 @@ export default function TowingPage() {
               },
               {
                 name: "Exotic Car Towing",
-                desc: "Ferrari? Lamborghini? Tesla? We have specialized training for high-value vehicles.",
+                desc: "Ferrari? Lamborghini? Tesla? We have specialized training for high-value vehicle towing service.",
                 icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
                 color: "from-yellow-500 to-yellow-600"
               }
@@ -472,16 +516,96 @@ export default function TowingPage() {
         </div>
       </section>
 
+      {/* SERVICE AREA - Local Towing Company */}
+      <section className="py-24 px-6 bg-gradient-to-b from-slate-50 to-white">
+        <div className="mx-auto max-w-[1400px]">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 mb-4">
+              Local Towing Company <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">You Can Trust</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              We provide emergency towing and roadside assistance throughout San Diego County. No matter where you are, we're nearby and ready to help.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-12">
+            {[
+              "San Diego",
+              "Chula Vista",
+              "El Cajon",
+              "La Mesa",
+              "National City",
+              "Santee",
+              "Lakeside",
+              "Coronado",
+              "Carlsbad",
+              "Oceanside",
+              "Encinitas",
+              "Escondido",
+              "Poway",
+              "Spring Valley",
+              "Lemon Grove"
+            ].map((city) => (
+              <div
+                key={city}
+                className="flex items-center gap-2 px-4 py-3 rounded-xl bg-white border-2 border-slate-200 hover:border-blue-400 hover:shadow-md transition-all duration-300"
+              >
+                <svg className="w-4 h-4 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                </svg>
+                <span className="font-semibold text-slate-800 text-sm">{city}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Mid-page phone CTA */}
+          <div className="text-center">
+            <p className="text-lg text-slate-600 mb-4">Need a tow anywhere in San Diego County?</p>
+            <a
+              href="tel:+18589999293"
+              className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-2xl font-black text-xl bg-gradient-to-r from-red-600 to-red-700 text-white shadow-[0_15px_40px_rgba(220,38,38,0.3)] hover:shadow-[0_15px_60px_rgba(220,38,38,0.5)] hover:scale-105 transition-all duration-300 min-h-[56px]"
+            >
+              <svg className="w-6 h-6 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
+              Call (858) 999-9293
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* PRICING TRANSPARENCY - Build Trust */}
       <section className="py-24 px-6 bg-slate-900 text-white">
         <div className="mx-auto max-w-[1400px]">
           <div className="text-center mb-16">
-            <h2 className="text-5xl lg:text-6xl font-black mb-4">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-4">
               Transparent <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">Pricing</span>
             </h2>
             <p className="text-xl text-white/70 max-w-2xl mx-auto">
-              No hidden fees. No surprise charges. What we quote is what you pay.
+              No hidden fees. No surprise charges. Your price is locked before we dispatch.
             </p>
+          </div>
+
+          {/* No Hidden Fees Banner */}
+          <div className="flex flex-wrap justify-center gap-6 mb-12">
+            <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-emerald-500/20 border border-emerald-400/30">
+              <svg className="w-6 h-6 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <span className="font-bold text-emerald-300 text-lg">No Hidden Fees</span>
+            </div>
+            <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-emerald-500/20 border border-emerald-400/30">
+              <svg className="w-6 h-6 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
+              </svg>
+              <span className="font-bold text-emerald-300 text-lg">Price Locked Before Dispatch</span>
+            </div>
+            <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-emerald-500/20 border border-emerald-400/30">
+              <svg className="w-6 h-6 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <span className="font-bold text-emerald-300 text-lg">Upfront Quote in 60 Seconds</span>
+            </div>
           </div>
 
           {/* Side-by-side layout */}
@@ -532,7 +656,7 @@ export default function TowingPage() {
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                     </svg>
-                    <span>Price locked before dispatch • No payment required</span>
+                    <span>Price locked before dispatch • No hidden fees • No payment required</span>
                   </div>
                 </div>
               </div>
@@ -545,7 +669,7 @@ export default function TowingPage() {
       <section className="py-24 px-6 bg-white">
         <div className="mx-auto max-w-[1400px]">
           <div className="text-center mb-16">
-            <h2 className="text-5xl lg:text-6xl font-black text-slate-900 mb-4">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 mb-4">
               Simple <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Process</span>
             </h2>
             <p className="text-xl text-slate-600">From breakdown to destination in 4 easy steps</p>
@@ -568,8 +692,8 @@ export default function TowingPage() {
               {
                 step: "3",
                 title: "Driver Arrives",
-                desc: "Track your driver in real-time. Average arrival time: 20-35 minutes.",
-                time: "20-35 min"
+                desc: "Track your driver in real-time. Average arrival time: 20 minutes across San Diego.",
+                time: "~20 min"
               },
               {
                 step: "4",
@@ -604,10 +728,10 @@ export default function TowingPage() {
       <section className="py-24 px-6 bg-gradient-to-b from-slate-50 to-white">
         <div className="mx-auto max-w-[1200px]">
           <div className="text-center mb-16">
-            <h2 className="text-5xl lg:text-6xl font-black text-slate-900 mb-4">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 mb-4">
               Frequently Asked <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Questions</span>
             </h2>
-            <p className="text-xl text-slate-600">Everything you need to know about our towing services</p>
+            <p className="text-xl text-slate-600">Everything you need to know about our towing services in San Diego</p>
           </div>
 
           <div className="space-y-4">
@@ -618,11 +742,11 @@ export default function TowingPage() {
               },
               {
                 q: "How fast can you arrive for emergency towing?",
-                a: "Our average response time is 20-35 minutes for emergency towing throughout San Diego County. We have strategically positioned trucks across the region to ensure rapid response. When you call, we immediately dispatch the nearest available driver and provide you with real-time GPS tracking and ETA updates via text message. In true emergencies, we've been known to arrive in as little as 15 minutes."
+                a: "Our average response time is 20 minutes for emergency towing throughout San Diego County. We have strategically positioned trucks across the region to ensure rapid response. When you call, we immediately dispatch the nearest available driver and provide you with real-time GPS tracking and ETA updates via text message."
               },
               {
-                q: "Do you offer flatbed towing?",
-                a: "Yes, we offer both flatbed and traditional wheel-lift towing options. Flatbed towing is strongly recommended for luxury vehicles, exotic cars, AWD/4WD vehicles, motorcycles, or any vehicle with transmission damage. Flatbed service ensures zero wheel contact with the road, eliminating any risk of additional damage during transport. Our fleet includes multiple flatbed trucks available 24/7."
+                q: "Do you offer flatbed towing in San Diego?",
+                a: "Yes, we offer both flatbed and traditional wheel-lift towing options throughout San Diego. Flatbed towing is strongly recommended for luxury vehicles, exotic cars, AWD/4WD vehicles, motorcycles, or any vehicle with transmission damage. Flatbed service ensures zero wheel contact with the road, eliminating any risk of additional damage during transport. Our fleet includes multiple flatbed trucks available 24/7."
               },
               {
                 q: "Can you tow long-distance in California?",
@@ -642,11 +766,11 @@ export default function TowingPage() {
               },
               {
                 q: "What areas of San Diego do you serve?",
-                a: "We provide towing services throughout all of San Diego County including Downtown San Diego, La Jolla, Pacific Beach, Mission Valley, Chula Vista, El Cajon, Carlsbad, Escondido, and everywhere in between. If you're in San Diego County, we can reach you quickly."
+                a: "We provide towing services throughout all of San Diego County including San Diego, Chula Vista, El Cajon, La Mesa, National City, Santee, Lakeside, Coronado, Carlsbad, Oceanside, Encinitas, Escondido, Poway, Spring Valley, Lemon Grove, La Jolla, Pacific Beach, Mission Valley, North Park, Hillcrest, Point Loma, and everywhere in between. If you're in San Diego County, we can reach you quickly."
               }
             ].map((faq, idx) => (
               <details key={idx} itemScope itemProp="mainEntity" itemType="https://schema.org/Question" className="group relative overflow-hidden rounded-2xl border-2 border-slate-200 bg-white hover:border-blue-600 transition-all duration-300 hover:shadow-xl">
-                <summary itemProp="name" className="cursor-pointer select-none p-6 font-bold text-xl flex items-start justify-between text-slate-900 list-none">
+                <summary itemProp="name" className="cursor-pointer select-none p-6 font-bold text-lg sm:text-xl flex items-start justify-between text-slate-900 list-none min-h-[56px]">
                   <span className="flex-1 pr-4">{faq.q}</span>
                   <svg
                     className="w-7 h-7 text-blue-600 group-open:rotate-180 transition-transform duration-500 flex-shrink-0"
@@ -658,7 +782,7 @@ export default function TowingPage() {
                   </svg>
                 </summary>
                 <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer" className="px-6 pb-6 border-t border-slate-100 pt-4">
-                  <p itemProp="text" className="text-slate-600 text-lg leading-relaxed">{faq.a}</p>
+                  <p itemProp="text" className="text-slate-600 text-base sm:text-lg leading-relaxed">{faq.a}</p>
                 </div>
               </details>
             ))}
@@ -672,21 +796,21 @@ export default function TowingPage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-600/20 via-transparent to-transparent"></div>
 
         <div className="relative mx-auto max-w-[1400px] text-center space-y-12">
-          <h2 className="text-6xl lg:text-8xl font-black text-white leading-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-black text-white leading-tight">
             Need a Tow?
             <span className="block mt-4 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 bg-clip-text text-transparent">
               We're Already Close By
             </span>
           </h2>
 
-          <p className="text-2xl lg:text-3xl text-white/80 max-w-4xl mx-auto leading-relaxed">
-            Don't waste time calling around. Get professional help in <span className="font-black text-yellow-400">20-35 minutes</span> with upfront pricing and zero hidden fees.
+          <p className="text-xl sm:text-2xl lg:text-3xl text-white/80 max-w-4xl mx-auto leading-relaxed">
+            Don't waste time calling around. Get professional emergency towing in <span className="font-black text-yellow-400">20 minutes</span> with upfront pricing and zero hidden fees.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
             <a
               href="tel:+18589999293"
-              className="group relative px-16 py-8 rounded-3xl font-black text-3xl bg-gradient-to-r from-red-600 via-red-500 to-red-600 text-white shadow-[0_30px_90px_rgba(220,38,38,0.5)] hover:shadow-[0_30px_120px_rgba(220,38,38,0.7)] hover:scale-110 transition-all duration-300 flex items-center gap-4"
+              className="group relative px-12 py-7 sm:px-16 sm:py-8 rounded-3xl font-black text-2xl sm:text-3xl bg-gradient-to-r from-red-600 via-red-500 to-red-600 text-white shadow-[0_30px_90px_rgba(220,38,38,0.5)] hover:shadow-[0_30px_120px_rgba(220,38,38,0.7)] hover:scale-110 transition-all duration-300 flex items-center gap-4 min-h-[56px] w-full sm:w-auto justify-center"
             >
               <svg className="w-8 h-8 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
@@ -698,7 +822,7 @@ export default function TowingPage() {
 
             <a
               href="https://wa.me/18589999293?text=I%20need%20a%20tow"
-              className="inline-flex items-center gap-2 px-10 py-6 bg-[#25D366] hover:brightness-110 rounded-3xl text-white font-bold text-xl transition-all hover:scale-105"
+              className="inline-flex items-center gap-2 px-10 py-6 bg-[#25D366] hover:brightness-110 rounded-3xl text-white font-bold text-xl transition-all hover:scale-105 min-h-[56px] w-full sm:w-auto justify-center"
               style={{
                 boxShadow: '0 0 15px rgba(37, 211, 102, 0.3)',
               }}
@@ -711,14 +835,14 @@ export default function TowingPage() {
           {/* Trust Badges */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-20 max-w-5xl mx-auto">
             {[
-              { icon: "⭐", stat: "5.0 Google Rating", detail: "" },
-              { icon: "🚀", stat: "10,000+", detail: "Happy customers" },
-              { icon: "⚡", stat: "20-35 min", detail: "Avg response" },
-              { icon: "💯", stat: "15+ Years", detail: "Experience" }
+              { icon: "⭐", stat: "5.0 Rating", detail: "22 Google Reviews" },
+              { icon: "🛡️", stat: "Licensed", detail: "CA DOT Certified" },
+              { icon: "⚡", stat: "~20 min", detail: "Avg response" },
+              { icon: "💯", stat: "10+ Years", detail: "Experience" }
             ].map((badge, idx) => (
               <div key={idx} className="p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 text-center">
                 <div className="text-5xl mb-3">{badge.icon}</div>
-                <div className="text-3xl font-black text-white mb-1">{badge.stat}</div>
+                <div className="text-2xl sm:text-3xl font-black text-white mb-1">{badge.stat}</div>
                 <div className="text-sm text-white/70">{badge.detail}</div>
               </div>
             ))}
@@ -744,7 +868,7 @@ export default function TowingPage() {
               <Link
                 key={service.name}
                 href={service.href}
-                className="px-8 py-4 rounded-2xl bg-white border-2 border-slate-200 hover:border-blue-600 hover:shadow-xl transition-all duration-300 font-bold text-slate-900 hover:text-blue-600 hover:scale-105"
+                className="px-8 py-4 rounded-2xl bg-white border-2 border-slate-200 hover:border-blue-600 hover:shadow-xl transition-all duration-300 font-bold text-slate-900 hover:text-blue-600 hover:scale-105 min-h-[48px] flex items-center"
               >
                 {service.name}
               </Link>
@@ -752,6 +876,21 @@ export default function TowingPage() {
           </div>
         </div>
       </section>
+
+      {/* STICKY MOBILE CTA BAR */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
+        <a
+          href="tel:+18589999293"
+          className="flex items-center justify-center gap-3 w-full py-4 font-black text-lg transition-all min-h-[56px]"
+          style={{ background: '#ffba42', color: '#1e1e4a' }}
+        >
+          <svg className="w-5 h-5 animate-pulse" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
+          Call Now: (858) 999-9293
+        </a>
+      </div>
+
+      {/* Bottom padding for sticky bar on mobile */}
+      <div className="lg:hidden" style={{ height: 'calc(3.5rem + env(safe-area-inset-bottom, 0px))' }} />
 
       {/* Left-side popup */}
       <LeftPopup />
