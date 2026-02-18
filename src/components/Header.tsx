@@ -86,16 +86,16 @@ export default function Header() {
               alt="CloseBy Towing logo"
               width={200}
               height={200}
-              className="w-16 h-16 sm:w-20 sm:h-20 object-contain drop-shadow-lg"
+              className="w-[5.25rem] h-[5.25rem] sm:w-[6.5rem] sm:h-[6.5rem] object-contain drop-shadow-lg"
               priority
             />
           </Link>
 
           {/* Mobile/Tablet: "CloseBy" text in header */}
-          <div className="xl:hidden absolute left-14 sm:left-20 top-1/2 -translate-y-1/3">
+          <div className="xl:hidden absolute left-[4.5rem] sm:left-[5.75rem] top-1/2 -translate-y-1/3">
             <Link
               href="/"
-              className="font-bold tracking-tight text-lg sm:text-xl whitespace-nowrap"
+              className="font-bold tracking-tight text-2xl sm:text-[1.625rem] whitespace-nowrap"
             >
               <span className="text-red-500">CloseBy</span>
             </Link>
@@ -129,7 +129,7 @@ export default function Header() {
               <a
                 href="tel:+18589999293"
                 aria-label="Call CloseBy Towing +1 (858) 999-9293"
-                className="xl:hidden inline-flex items-center rounded-full bg-[#3395FF] px-2.5 sm:px-4 py-1.5 text-white text-xs sm:text-base font-semibold leading-tight active:scale-95 transition whitespace-nowrap"
+                className="xl:hidden inline-flex items-center rounded-full bg-[#3395FF] px-3.5 sm:px-5 py-2 text-white text-base sm:text-[1.3rem] font-semibold leading-tight active:scale-95 transition whitespace-nowrap"
               >
                 (858) 999-9293
               </a>
@@ -168,10 +168,10 @@ export default function Header() {
           </div>
 
           {/* Mobile/Tablet: "Towing" text under CloseBy */}
-          <div className="xl:hidden absolute left-14 sm:left-20">
+          <div className="xl:hidden absolute left-[4.5rem] sm:left-[5.75rem]">
             <Link
               href="/"
-              className="font-bold tracking-tight text-lg sm:text-xl text-[#1e1e4a] opacity-90 whitespace-nowrap"
+              className="font-bold tracking-tight text-2xl sm:text-[1.625rem] text-[#1e1e4a] opacity-90 whitespace-nowrap"
             >
               Towing
             </Link>
