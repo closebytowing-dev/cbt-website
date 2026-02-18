@@ -46,7 +46,7 @@ function HeroContent() {
 
   const headline = variant === "b"
     ? "Stuck on the Road? Help Is 20 Minutes Away."
-    : "Car Broke Down? We're Already Close.";
+    : "Tow Truck Near You in San Diego — We're Already Close";
 
   return (
     <section className="relative min-h-[50vh] flex items-center overflow-hidden" style={{ background: '#1e1e4a' }}>
@@ -123,6 +123,20 @@ export default function TowTruckLandingPage() {
   const [scrolled, setScrolled] = useState(false);
   const [faqOpen, setFaqOpen] = useState<number | null>(null);
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
+
+  // Set meta title and description
+  useEffect(() => {
+    document.title = "Tow Truck Near Me | San Diego 24 Hour Tow Truck Service | CloseBy Towing";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute("content", "Need a tow truck near you in San Diego? CloseBy Towing provides fast 24 hour emergency tow truck service with upfront pricing and rapid dispatch across San Diego County.");
+    } else {
+      const meta = document.createElement("meta");
+      meta.name = "description";
+      meta.content = "Need a tow truck near you in San Diego? CloseBy Towing provides fast 24 hour emergency tow truck service with upfront pricing and rapid dispatch across San Diego County.";
+      document.head.appendChild(meta);
+    }
+  }, []);
 
   // Scroll listener for sticky CTA text change
   useEffect(() => {
@@ -205,6 +219,18 @@ export default function TowTruckLandingPage() {
 
 
       {/* ═══════════════════════════════════════════════════════════
+          SUPPORT PARAGRAPH (Above the fold)
+      ═══════════════════════════════════════════════════════════ */}
+      <section className="py-10 sm:py-14 px-6 bg-white">
+        <div className="max-w-[800px] mx-auto text-center">
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+            Looking for a tow truck near you in San Diego? CloseBy Towing provides 24 hour emergency tow truck service across the city. Whether you&apos;re stuck on I-5, I-8, 163, or 805, our San Diego tow truck team is ready to dispatch fast.
+          </p>
+        </div>
+      </section>
+
+
+      {/* ═══════════════════════════════════════════════════════════
           SECTION 2: SOCIAL PROOF
       ═══════════════════════════════════════════════════════════ */}
       <section ref={setSectionRef(0)} className="animate-fade-up py-14 sm:py-20 px-6" style={{ background: '#fafafa' }}>
@@ -264,6 +290,21 @@ export default function TowTruckLandingPage() {
 
 
       {/* ═══════════════════════════════════════════════════════════
+          SECTION: 24 HOUR TOW TRUCK SERVICE
+      ═══════════════════════════════════════════════════════════ */}
+      <section ref={setSectionRef(7)} className="animate-fade-up py-14 sm:py-20 px-6 bg-white">
+        <div className="max-w-[800px] mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 text-center mb-6">
+            24 Hour Tow Truck Service in San Diego
+          </h2>
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed text-center">
+            When your vehicle breaks down at 2 a.m. or during rush hour on the freeway, you need an emergency tow truck you can count on. CloseBy Towing is a local tow truck company serving all of San Diego County with fast dispatch, upfront pricing, and professional drivers available around the clock. From flatbed tow trucks for luxury vehicles to rapid roadside towing service for everyday breakdowns, we handle it all.
+          </p>
+        </div>
+      </section>
+
+
+      {/* ═══════════════════════════════════════════════════════════
           SECTION 3: PRICING + PROCESS (Merged)
       ═══════════════════════════════════════════════════════════ */}
       <section ref={setSectionRef(1)} className="animate-fade-up py-16 sm:py-24 px-6" style={{ background: '#1e1e4a' }}>
@@ -274,8 +315,11 @@ export default function TowTruckLandingPage() {
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-6">
                 No Surprise<br />Towing Bills.
               </h2>
-              <p className="text-white/70 text-lg mb-8 max-w-lg">
+              <p className="text-white/70 text-lg mb-4 max-w-lg">
                 You&apos;ll know your exact price before we dispatch. No hidden fees. No bait-and-switch. The price we quote is the price you pay.
+              </p>
+              <p className="text-white/50 text-sm mb-8 max-w-lg">
+                When you search for a &ldquo;tow truck near me,&rdquo; what you really need is fast, honest help. Our trucks are already positioned across San Diego so we can reach you quickly.
               </p>
 
               {/* 3-step process inline */}
@@ -366,8 +410,11 @@ export default function TowTruckLandingPage() {
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 text-center mb-4">
             All Across San Diego
           </h2>
-          <p className="text-slate-500 text-center mb-12 max-w-lg mx-auto">
+          <p className="text-slate-500 text-center mb-6 max-w-lg mx-auto">
             Covering I-5, I-8, 163 &amp; 805 — and every neighborhood in between.
+          </p>
+          <p className="text-slate-500 text-center mb-12 max-w-2xl mx-auto text-sm leading-relaxed">
+            From Downtown San Diego to Pacific Beach, Mission Valley, La Jolla, El Cajon, and Chula Vista — our local tow truck drivers are already nearby.
           </p>
 
           <div className="flex flex-wrap justify-center gap-3">
