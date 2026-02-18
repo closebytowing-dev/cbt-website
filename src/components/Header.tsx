@@ -124,7 +124,7 @@ export default function Header() {
           </div>
 
           {/* Right: phone button - responsive sizing */}
-          <div className="ml-auto flex items-center mr-3">
+          <div className="ml-auto flex items-center -mr-3">
               {/* Mobile/Tablet phone button - iOS style blue rounded pill with phone number */}
               <a
                 href="tel:+18589999293"
