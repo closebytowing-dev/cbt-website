@@ -80,7 +80,7 @@ export default function Header() {
       <div className="bg-[#1e1e4a] text-white relative">
         <div className="mx-auto max-w-[1800px] px-4 sm:px-6 h-14 lg:h-[5rem] flex items-center justify-between relative">
           {/* Mobile/Tablet: Oversized logo that spans both bars */}
-          <Link href="/" className="xl:hidden absolute -left-2 sm:-left-1 top-[90%] -translate-y-[50%] z-50">
+          <Link href="/" className="xl:hidden absolute -left-4 sm:-left-2 top-[90%] -translate-y-[50%] z-50">
             <Image
               src="/images/main-logo.webp"
               alt="CloseBy Towing logo"
