@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Sorrento Valley ZIP codes
+const SORRENTO_VALLEY_ZIP_CODES = ["92121"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Sorrento Valley Towing | 24/7 | CloseBy",
+  title: "Sorrento Valley Towing | 92121 | 24/7 | CloseBy",
   description:
-    "Professional towing & roadside assistance in Sorrento Valley. Serving biotech/tech companies, Qualcomm campus, and I-5/I-805 corridors. 15-30 min response for commercial & personal vehicles.",
+    "Towing in Sorrento Valley 92121. Serving biotech/tech companies, Qualcomm campus, and I-5/I-805 corridors. 15-30 min response for commercial & personal vehicles.",
   keywords:
     "towing Sorrento Valley, Sorrento Valley tow truck, commercial towing Sorrento Valley, roadside assistance Sorrento Valley, Qualcomm towing, I-5 towing, tow truck near me Sorrento Valley",
   openGraph: {
@@ -140,7 +143,7 @@ export default function SorrentoValleyPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-blue-200 text-sm font-medium">Serving Sorrento Valley 24/7</span>
+                <span className="text-blue-200 text-sm font-medium">Serving Sorrento Valley 24/7 • ZIP: {SORRENTO_VALLEY_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function SorrentoValleyPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-blue-500/30">
                 <div className="aspect-[4/3] bg-indigo-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/city-night-road.webp"
                     alt="Professional tow truck serving Sorrento Valley San Diego business district"
                     fill
                     className="object-cover"
@@ -208,6 +211,10 @@ export default function SorrentoValleyPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-indigo-950/70 to-transparent" />
+                  {/* ZIP Code overlay */}
+                  <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5">
+                    <span className="text-white text-sm font-bold">ZIP: {SORRENTO_VALLEY_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -517,6 +524,18 @@ export default function SorrentoValleyPage() {
               "Professional towing and roadside assistance in Sorrento Valley San Diego. Serving biotech/tech companies, Qualcomm campus, I-5/I-805 corridors, and all business districts 24/7.",
             url: "https://www.closebytowing.com/san-diego/sorrento-valley",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "San Diego",
+              addressRegion: "CA",
+              postalCode: SORRENTO_VALLEY_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.8989,
+              longitude: -117.1958,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Sorrento Valley",

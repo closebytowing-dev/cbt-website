@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Scripps Ranch ZIP codes
+const SCRIPPS_RANCH_ZIP_CODES = ["92131"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Scripps Ranch Towing | 24/7 | CloseBy",
+  title: "Scripps Ranch Towing | 92131 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in Scripps Ranch. We cover Lake Miramar, Scripps Ranch Blvd, I-15 corridor & all upscale neighborhoods. 25-40 min response.",
+    "Towing in Scripps Ranch 92131. Serving Lake Miramar, Scripps Ranch Blvd, I-15 corridor & all upscale neighborhoods. 25-40 min response.",
   keywords:
     "towing Scripps Ranch, Scripps Ranch tow truck, Lake Miramar towing, roadside assistance Scripps Ranch, I-15 towing, tow truck near me Scripps Ranch",
   openGraph: {
@@ -140,7 +143,7 @@ export default function ScrippsRanchPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-emerald-200 text-sm font-medium">Serving Scripps Ranch 24/7</span>
+                <span className="text-emerald-200 text-sm font-medium">Serving Scripps Ranch 24/7 • ZIP: {SCRIPPS_RANCH_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function ScrippsRanchPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] bg-emerald-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/suburban-street.webp"
                     alt="Tow truck serving Scripps Ranch San Diego near Lake Miramar"
                     fill
                     className="object-cover"
@@ -208,6 +211,10 @@ export default function ScrippsRanchPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/70 to-transparent" />
+                  {/* ZIP Code overlay */}
+                  <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5">
+                    <span className="text-white text-sm font-bold">ZIP: {SCRIPPS_RANCH_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -517,6 +524,18 @@ export default function ScrippsRanchPage() {
               "Fast towing and roadside assistance in Scripps Ranch San Diego. Serving Lake Miramar, The Marketplace, and all Scripps Ranch neighborhoods 24/7.",
             url: "https://www.closebytowing.com/san-diego/scripps-ranch",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "San Diego",
+              addressRegion: "CA",
+              postalCode: SCRIPPS_RANCH_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.9020,
+              longitude: -117.1028,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Scripps Ranch",

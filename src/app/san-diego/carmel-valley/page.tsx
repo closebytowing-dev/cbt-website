@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Carmel Valley ZIP codes
+const CARMEL_VALLEY_ZIP_CODES = ["92130"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Carmel Valley Towing | 24/7 | CloseBy",
+  title: "Carmel Valley Towing | 92130 | 24/7 | CloseBy",
   description:
-    "Fast, reliable towing & roadside assistance in Carmel Valley. Serving Del Mar Heights, Torrey Hills, and Pacific Highlands Ranch. 15-30 min response time.",
+    "Towing in Carmel Valley 92130. Serving Del Mar Heights, Torrey Hills, Pacific Highlands Ranch & One Paseo. 15-30 min response time.",
   keywords:
     "towing Carmel Valley, Carmel Valley tow truck, roadside assistance Carmel Valley, Del Mar Heights towing, tow truck near me Carmel Valley",
   openGraph: {
@@ -132,12 +135,13 @@ export default function CarmelValleyPage() {
         <div className="relative max-w-7xl mx-auto px-4 py-16 sm:py-24 pb-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
+              {/* Location badge with ZIP codes */}
               <div className="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-400/30 rounded-full px-4 py-1.5 mb-6">
                 <svg className="w-4 h-4 text-amber-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-amber-200 text-sm font-medium">Serving Carmel Valley 24/7</span>
+                <span className="text-amber-200 text-sm font-medium">Serving Carmel Valley 24/7 • ZIP: {CARMEL_VALLEY_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -194,7 +198,7 @@ export default function CarmelValleyPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-500/30">
                 <div className="aspect-[4/3] bg-emerald-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/highway-aerial.webp"
                     alt="Professional tow truck serving Carmel Valley San Diego"
                     fill
                     className="object-cover"
@@ -202,6 +206,11 @@ export default function CarmelValleyPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/70 to-transparent" />
+                  {/* ZIP code overlay */}
+                  <div className="absolute bottom-4 left-4 bg-emerald-900/80 backdrop-blur-sm rounded-lg px-3 py-2 border border-amber-400/30">
+                    <div className="text-amber-200 text-xs font-medium">ZIP Codes</div>
+                    <div className="text-white font-bold">{CARMEL_VALLEY_ZIP_CODES.join(" • ")}</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -506,6 +515,18 @@ export default function CarmelValleyPage() {
               "Professional towing and roadside assistance in Carmel Valley San Diego. Serving Del Mar Heights, Pacific Highlands Ranch, and all Carmel Valley neighborhoods 24/7.",
             url: "https://www.closebytowing.com/san-diego/carmel-valley",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Carmel Valley",
+              addressRegion: "CA",
+              postalCode: CARMEL_VALLEY_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.9595,
+              longitude: -117.2262,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Carmel Valley",

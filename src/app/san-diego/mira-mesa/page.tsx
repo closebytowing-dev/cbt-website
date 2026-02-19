@@ -4,10 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Mira Mesa ZIP codes
+const MIRA_MESA_ZIP_CODES = ["92126", "92121"];
+
 export const metadata: Metadata = {
-  title: "Mira Mesa Towing | 24/7 | CloseBy",
+  title: "Mira Mesa Towing | 92126, 92121 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in Mira Mesa. Serving Miramar, Sorrento Valley tech corridor, I-15 & Mira Mesa Blvd. 20-35 min response, 24/7.",
+    "Towing in Mira Mesa 92126 & Sorrento Valley 92121. Serving Miramar, tech corridor, I-15 & Mira Mesa Blvd. 20-35 min response, 24/7.",
   keywords:
     "towing Mira Mesa, Mira Mesa tow truck, Sorrento Valley towing, Miramar roadside assistance, I-15 towing",
   openGraph: {
@@ -76,11 +79,12 @@ export default function MiraMesaPage() {
         <div className="relative max-w-7xl mx-auto px-4 py-16 sm:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
+              {/* Location badge with ZIP */}
               <div className="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-400/30 rounded-full px-4 py-1.5 mb-6">
                 <svg className="w-4 h-4 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 </svg>
-                <span className="text-purple-200 text-sm font-medium">Serving Mira Mesa & Sorrento Valley</span>
+                <span className="text-purple-200 text-sm font-medium">Serving Mira Mesa 92126 & Sorrento Valley 92121</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -123,8 +127,12 @@ export default function MiraMesaPage() {
             <div className="relative hidden lg:block">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] relative">
-                  <Image src="/hero/home-hero.webp" alt="Tow truck in Mira Mesa" fill className="object-cover" priority sizes="50vw" />
+                  <Image src="/neighborhoods/shared/highway-aerial.webp" alt="Professional tow truck serving Mira Mesa San Diego 92126 92121" fill className="object-cover" priority sizes="50vw" />
                   <div className="absolute inset-0 bg-gradient-to-t from-purple-900/70 to-transparent" />
+                </div>
+                {/* ZIP Code overlay */}
+                <div className="absolute top-4 right-4 bg-purple-600 text-white px-4 py-2 rounded-lg font-bold text-lg shadow-lg">
+                  92126 • 92121
                 </div>
               </div>
             </div>
@@ -286,7 +294,7 @@ export default function MiraMesaPage() {
       ]
 }) }}
       />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://www.closebytowing.com/san-diego/mira-mesa", name: "CloseBy Towing - Mira Mesa", description: "Fast towing and roadside assistance in Mira Mesa San Diego. Serving Sorrento Valley, Miramar, and I-15 corridor 24/7.", url: "https://www.closebytowing.com/san-diego/mira-mesa", telephone: CONTACT.phone, areaServed: { "@type": "Neighborhood", name: "Mira Mesa", containedInPlace: { "@type": "City", name: "San Diego" } }, serviceType: ["Towing Service", "Roadside Assistance"], priceRange: "$$" }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://www.closebytowing.com/san-diego/mira-mesa", name: "CloseBy Towing - Mira Mesa", description: "Towing in Mira Mesa 92126 & Sorrento Valley 92121. Serving tech corridor, Miramar & I-15 24/7.", url: "https://www.closebytowing.com/san-diego/mira-mesa", telephone: CONTACT.phone, areaServed: [{ "@type": "PostalAddress", postalCode: "92126", addressLocality: "Mira Mesa", addressRegion: "CA" }, { "@type": "PostalAddress", postalCode: "92121", addressLocality: "Sorrento Valley", addressRegion: "CA" }], geo: { "@type": "GeoCoordinates", latitude: 32.9118, longitude: -117.1460 }, serviceType: ["Towing Service", "Roadside Assistance"], priceRange: "$$", openingHoursSpecification: { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "00:00", closes: "23:59" } }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ_DATA.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) }) }} />
     </main>
   );

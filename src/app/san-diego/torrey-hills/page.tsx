@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Torrey Hills ZIP codes
+const TORREY_HILLS_ZIP_CODES = ["92130"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Torrey Hills Towing | 24/7 | CloseBy",
+  title: "Torrey Hills Towing | 92130 | 24/7 | CloseBy",
   description:
-    "Professional towing & roadside assistance in Torrey Hills. Serving Carmel Valley, Del Mar, Sorrento Valley. 15-30 min response for all vehicles in this upscale community.",
+    "Towing in Torrey Hills 92130. Serving Carmel Valley, Del Mar, Sorrento Valley. 15-30 min response for all vehicles in this upscale community.",
   keywords:
     "towing Torrey Hills, Torrey Hills tow truck, roadside assistance Torrey Hills, tow truck near me Torrey Hills, Carmel Valley towing, Del Mar towing",
   openGraph: {
@@ -140,7 +143,7 @@ export default function TorreyHillsPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-cyan-200 text-sm font-medium">Serving Torrey Hills 24/7</span>
+                <span className="text-cyan-200 text-sm font-medium">Serving Torrey Hills 24/7 • ZIP: {TORREY_HILLS_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function TorreyHillsPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-cyan-500/30">
                 <div className="aspect-[4/3] bg-teal-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/suburban-street.webp"
                     alt="Professional tow truck serving Torrey Hills San Diego near Carmel Valley"
                     fill
                     className="object-cover"
@@ -208,6 +211,10 @@ export default function TorreyHillsPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-teal-950/70 to-transparent" />
+                  {/* ZIP Code Overlay */}
+                  <div className="absolute bottom-4 left-4 bg-cyan-600/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <span className="text-white font-bold text-lg">ZIP: {TORREY_HILLS_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -517,6 +524,18 @@ export default function TorreyHillsPage() {
               "Professional towing and roadside assistance in Torrey Hills San Diego. Serving upscale residential communities near Carmel Valley and Del Mar 24/7.",
             url: "https://www.closebytowing.com/san-diego/torrey-hills",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "San Diego",
+              addressRegion: "CA",
+              postalCode: TORREY_HILLS_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.9275,
+              longitude: -117.2218,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Torrey Hills",

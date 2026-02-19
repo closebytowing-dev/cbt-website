@@ -4,9 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Mission Bay ZIP codes
+const MISSION_BAY_ZIP_CODES = ["92109"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Mission Bay Towing | 24/7 | CloseBy",
+  title: "Mission Bay Towing | 92109 | 24/7 | CloseBy",
   description:
     "Fast towing & roadside assistance in Mission Bay. Serving SeaWorld, Mission Bay Park, Fiesta Island, and De Anza Cove. 15-30 min response for all vehicles 24/7.",
   keywords:
@@ -140,7 +143,7 @@ export default function MissionBayPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-sky-200 text-sm font-medium">Serving Mission Bay 24/7</span>
+                <span className="text-sky-200 text-sm font-medium">Serving Mission Bay 24/7 • ZIP: {MISSION_BAY_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function MissionBayPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-sky-500/30">
                 <div className="aspect-[4/3] bg-sky-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/city-night-road.webp"
                     alt="Premium tow truck serving Mission Bay San Diego near SeaWorld"
                     fill
                     className="object-cover"
@@ -208,6 +211,10 @@ export default function MissionBayPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-sky-950/70 to-transparent" />
+                  {/* ZIP Code Overlay */}
+                  <div className="absolute bottom-4 left-4 bg-sky-600/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <span className="text-white font-bold text-lg">ZIP: {MISSION_BAY_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>

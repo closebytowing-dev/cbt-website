@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Clairemont ZIP codes
+const CLAIREMONT_ZIP_CODES = ["92117", "92111"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Clairemont Towing | 24/7 Service | CloseBy",
+  title: "Clairemont Towing | 92117, 92111 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in Clairemont Mesa. Serving Clairemont Square, Mesa College area, I-5/I-805 corridors. 20-35 min response, 24/7.",
+    "Towing in Clairemont 92117 & 92111. Serving Clairemont Square, Mesa College, Bay Park & I-5/I-805 corridors. 20-35 min response, 24/7.",
   keywords:
     "towing Clairemont, Clairemont Mesa tow truck, Clairemont Square towing, Mesa College roadside assistance, Bay Park towing, tow truck near me Clairemont",
   openGraph: {
@@ -124,12 +127,13 @@ export default function ClairemontPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div>
+              {/* Location badge with ZIP */}
               <div className="inline-flex items-center gap-2 bg-teal-500/20 border border-teal-400/30 rounded-full px-4 py-1.5 mb-6">
                 <svg className="w-4 h-4 text-teal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-teal-200 text-sm font-medium">Serving Clairemont 24/7</span>
+                <span className="text-teal-200 text-sm font-medium">Serving Clairemont 92117 & 92111 24/7</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -194,14 +198,18 @@ export default function ClairemontPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] bg-teal-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
-                    alt="Tow truck serving Clairemont San Diego"
+                    src="/neighborhoods/shared/highway-aerial.webp"
+                    alt="Professional tow truck serving Clairemont San Diego 92117 92111"
                     fill
                     className="object-cover"
                     priority
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-teal-900/70 to-transparent" />
+                </div>
+                {/* ZIP Code overlay */}
+                <div className="absolute top-4 right-4 bg-teal-600 text-white px-4 py-2 rounded-lg font-bold text-lg shadow-lg">
+                  92117 • 92111
                 </div>
               </div>
             </div>
@@ -471,16 +479,36 @@ export default function ClairemontPage() {
             "@type": "LocalBusiness",
             "@id": "https://www.closebytowing.com/san-diego/clairemont",
             name: "CloseBy Towing - Clairemont",
-            description: "Fast towing and roadside assistance in Clairemont San Diego. Serving Mesa College, Clairemont Square, Bay Park and all Clairemont neighborhoods 24/7.",
+            description: "Towing in Clairemont 92117 & 92111. Serving Mesa College, Clairemont Square, Bay Park & all Clairemont neighborhoods 24/7.",
             url: "https://www.closebytowing.com/san-diego/clairemont",
             telephone: CONTACT.phone,
-            areaServed: {
-              "@type": "Neighborhood",
-              name: "Clairemont",
-              containedInPlace: { "@type": "City", name: "San Diego" },
+            areaServed: [
+              {
+                "@type": "PostalAddress",
+                postalCode: "92117",
+                addressLocality: "Clairemont",
+                addressRegion: "CA",
+              },
+              {
+                "@type": "PostalAddress",
+                postalCode: "92111",
+                addressLocality: "Clairemont Mesa",
+                addressRegion: "CA",
+              },
+            ],
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.8233,
+              longitude: -117.2022,
             },
             serviceType: ["Towing Service", "Roadside Assistance"],
             priceRange: "$$",
+            openingHoursSpecification: {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              opens: "00:00",
+              closes: "23:59",
+            },
           }),
         }}
       />

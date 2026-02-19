@@ -5,7 +5,7 @@ import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Pacific Beach Towing | 24/7 | CloseBy",
+  title: "Pacific Beach Towing | 92109 | 24/7 | CloseBy",
   description:
     "Towing in Pacific Beach 92109. Serving Garnet Ave, Crystal Pier, Mission Bay & boardwalk. Fast 20-30 min response from PB's local beach community tow experts.",
   keywords:
@@ -186,13 +186,17 @@ export default function PacificBeachPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/city-night-road.webp"
                     alt="Tow truck in Pacific Beach"
                     fill
                     className="object-cover"
                     priority
                     sizes="50vw"
                   />
+                  {/* ZIP Code Overlay */}
+                  <div className="absolute bottom-4 left-4 bg-sky-600/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <span className="text-white font-bold text-lg">ZIP: {PB_ZIP_CODES.join(", ")}</span>
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-cyan-800/70 to-transparent" />
                 </div>
               </div>

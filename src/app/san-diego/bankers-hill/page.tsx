@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Bankers Hill ZIP codes
+const BANKERS_HILL_ZIP_CODES = ["92103"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Bankers Hill Towing | 24/7 Service | CloseBy",
+  title: "Bankers Hill Towing | 92103 | 24/7 | CloseBy",
   description:
-    "Premium towing & roadside assistance in Bankers Hill. Serving Balboa Park, Downtown, and Hillcrest areas. 15-30 min response for all vehicles.",
+    "Towing in Bankers Hill 92103. Serving Balboa Park, Downtown & Hillcrest areas. 15-30 min response for all vehicles.",
   keywords:
     "towing Bankers Hill, Bankers Hill tow truck, Balboa Park towing, roadside assistance Bankers Hill, tow truck near me Bankers Hill, Downtown San Diego towing",
   openGraph: {
@@ -134,13 +137,13 @@ export default function BankersHillPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div>
-              {/* Location badge */}
+              {/* Location badge with ZIP codes */}
               <div className="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-400/30 rounded-full px-4 py-1.5 mb-6">
                 <svg className="w-4 h-4 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-emerald-200 text-sm font-medium">Serving Bankers Hill 24/7</span>
+                <span className="text-emerald-200 text-sm font-medium">Serving Bankers Hill 24/7 • ZIP: {BANKERS_HILL_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function BankersHillPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-emerald-500/30">
                 <div className="aspect-[4/3] bg-teal-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/city-night-road.webp"
                     alt="Premium tow truck serving Bankers Hill San Diego near Balboa Park"
                     fill
                     className="object-cover"
@@ -208,6 +211,11 @@ export default function BankersHillPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-teal-950/70 to-transparent" />
+                  {/* ZIP code overlay */}
+                  <div className="absolute bottom-4 left-4 bg-teal-900/80 backdrop-blur-sm rounded-lg px-3 py-2 border border-emerald-400/30">
+                    <div className="text-emerald-200 text-xs font-medium">ZIP Codes</div>
+                    <div className="text-white font-bold">{BANKERS_HILL_ZIP_CODES.join(" • ")}</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -517,6 +525,18 @@ export default function BankersHillPage() {
               "Professional towing and roadside assistance in Bankers Hill San Diego. Serving Balboa Park, West Laurel, and all Bankers Hill neighborhoods 24/7. Urban towing specialists.",
             url: "https://www.closebytowing.com/san-diego/bankers-hill",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Bankers Hill",
+              addressRegion: "CA",
+              postalCode: BANKERS_HILL_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.7318,
+              longitude: -117.1642,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Bankers Hill",

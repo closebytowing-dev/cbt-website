@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Serra Mesa ZIP codes
+const SERRA_MESA_ZIP_CODES = ["92123"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Serra Mesa Towing | 24/7 | CloseBy",
+  title: "Serra Mesa Towing | 92123 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in Serra Mesa. We cover Sandrock Road, residential neighborhoods, shopping centers & I-15/SR-163 corridors. 20-30 min response.",
+    "Towing in Serra Mesa 92123. Serving Sandrock Road, residential neighborhoods, shopping centers & I-15/SR-163 corridors. 20-30 min response.",
   keywords:
     "towing Serra Mesa, Serra Mesa tow truck, Sandrock Road towing, roadside assistance Serra Mesa, I-15 towing, tow truck near me Serra Mesa",
   openGraph: {
@@ -140,7 +143,7 @@ export default function SerraMessaPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-teal-200 text-sm font-medium">Serving Serra Mesa 24/7</span>
+                <span className="text-teal-200 text-sm font-medium">Serving Serra Mesa 24/7 • ZIP: {SERRA_MESA_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function SerraMessaPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] bg-slate-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/suburban-street.webp"
                     alt="Tow truck serving Serra Mesa San Diego residential area"
                     fill
                     className="object-cover"
@@ -208,6 +211,10 @@ export default function SerraMessaPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent" />
+                  {/* ZIP Code overlay */}
+                  <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5">
+                    <span className="text-white text-sm font-bold">ZIP: {SERRA_MESA_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -528,6 +535,18 @@ export default function SerraMessaPage() {
               "Fast towing and roadside assistance in Serra Mesa San Diego. Serving residential neighborhoods, business parks, and all Serra Mesa areas 24/7.",
             url: "https://www.closebytowing.com/san-diego/serra-mesa",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "San Diego",
+              addressRegion: "CA",
+              postalCode: SERRA_MESA_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.7936,
+              longitude: -117.1156,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Serra Mesa",

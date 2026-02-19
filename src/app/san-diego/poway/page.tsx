@@ -9,7 +9,7 @@ const POWAY_ZIP_CODES = ["92064"];
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Poway Towing | 24/7 Service | CloseBy",
+  title: "Poway Towing | 92064 | 24/7 | CloseBy",
   description:
     "Towing in Poway 92064. The City in the Country—from Lake Poway hiking trails to Old Poway Park, Twin Peaks estates to the I-15 corridor. 25-40 min response.",
   keywords:
@@ -204,13 +204,18 @@ export default function PowayPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] bg-green-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/suburban-street.webp"
                     alt="Tow truck serving Poway San Diego near Lake Poway"
                     fill
                     className="object-cover"
                     priority
                     sizes="50vw"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-green-900/70 to-transparent" />
+                  {/* ZIP Code Overlay */}
+                  <div className="absolute bottom-4 left-4 bg-green-600/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <span className="text-white font-bold text-lg">ZIP: {POWAY_ZIP_CODES.join(", ")}</span>
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-green-900/70 to-transparent" />
                 </div>
               </div>

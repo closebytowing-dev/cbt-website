@@ -125,8 +125,9 @@ export default function KearnyMesaPage() {
             <div className="relative hidden lg:block">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] relative">
-                  <Image src="/hero/home-hero.webp" alt="Tow truck in Kearny Mesa" fill className="object-cover" priority sizes="50vw" />
+                  <Image src="/neighborhoods/shared/city-night-road.webp" alt="Tow truck in Kearny Mesa" fill className="object-cover" priority sizes="50vw" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent" />
+                  <div className="absolute bottom-4 left-4 bg-slate-600/90 backdrop-blur-sm px-4 py-2 rounded-lg"><span className="text-white font-bold text-lg">ZIP: {KM_ZIP_CODES[0]}</span></div>
                 </div>
               </div>
             </div>

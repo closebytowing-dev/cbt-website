@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Encinitas ZIP codes
+const ENCINITAS_ZIP_CODES = ["92024"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Encinitas Towing | 24/7 Service | CloseBy",
+  title: "Encinitas Towing | 92024 | 24/7 | CloseBy",
   description:
-    "Premium towing & roadside assistance in Encinitas. Serving Swami's Beach, Moonlight Beach, Downtown Encinitas, and Leucadia. 15-30 min response for all vehicles.",
+    "Towing in Encinitas 92024. Serving Swami's Beach, Moonlight Beach, Downtown Encinitas & Leucadia. 15-30 min response.",
   keywords:
     "towing Encinitas, Encinitas tow truck, surf towing Encinitas, roadside assistance Encinitas, Swami's Beach towing, tow truck near me Encinitas, Moonlight Beach towing",
   openGraph: {
@@ -134,13 +137,13 @@ export default function EncinitasPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div>
-              {/* Location badge */}
+              {/* Location badge with ZIP codes */}
               <div className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-400/30 rounded-full px-4 py-1.5 mb-6">
                 <svg className="w-4 h-4 text-cyan-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-cyan-200 text-sm font-medium">Serving Encinitas 24/7</span>
+                <span className="text-cyan-200 text-sm font-medium">Serving Encinitas 24/7 • ZIP: {ENCINITAS_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function EncinitasPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-cyan-500/30">
                 <div className="aspect-[4/3] bg-teal-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/flatbed-truck-1.webp"
                     alt="Premium tow truck serving Encinitas San Diego near Swami's Beach"
                     fill
                     className="object-cover"
@@ -208,6 +211,11 @@ export default function EncinitasPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-teal-950/70 to-transparent" />
+                  {/* ZIP code overlay */}
+                  <div className="absolute bottom-4 left-4 bg-teal-900/80 backdrop-blur-sm rounded-lg px-3 py-2 border border-cyan-400/30">
+                    <div className="text-cyan-200 text-xs font-medium">ZIP Codes</div>
+                    <div className="text-white font-bold">{ENCINITAS_ZIP_CODES.join(" • ")}</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -517,6 +525,18 @@ export default function EncinitasPage() {
               "Premium towing and roadside assistance in Encinitas San Diego. Serving Swami's Beach, Moonlight Beach, Downtown Encinitas, and all Encinitas neighborhoods 24/7. Surf city specialists.",
             url: "https://www.closebytowing.com/san-diego/encinitas",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Encinitas",
+              addressRegion: "CA",
+              postalCode: ENCINITAS_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 33.0369,
+              longitude: -117.2919,
+            },
             areaServed: {
               "@type": "City",
               name: "Encinitas",

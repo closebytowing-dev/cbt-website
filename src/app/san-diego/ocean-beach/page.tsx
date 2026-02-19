@@ -9,7 +9,7 @@ const OB_ZIP_CODES = ["92107"];
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Ocean Beach Towing | 24/7 | CloseBy",
+  title: "Ocean Beach Towing | 92107 | 24/7 | CloseBy",
   description:
     "Towing in Ocean Beach 92107. From OB Pier to Sunset Cliffs, Dog Beach to Newport Ave antique row. Serving OB's eclectic beach community with 15-30 min response.",
   keywords:
@@ -204,13 +204,18 @@ export default function OceanBeachPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-orange-400/30">
                 <div className="aspect-[4/3] bg-purple-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/roadside-service.webp"
                     alt="Tow truck serving Ocean Beach San Diego near OB Pier and Sunset Cliffs"
                     fill
                     className="object-cover"
                     priority
                     sizes="50vw"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-purple-900/70 to-transparent" />
+                  {/* ZIP Code Overlay */}
+                  <div className="absolute bottom-4 left-4 bg-purple-600/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <span className="text-white font-bold text-lg">ZIP: {OB_ZIP_CODES.join(", ")}</span>
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-purple-900/70 to-transparent" />
                 </div>
               </div>

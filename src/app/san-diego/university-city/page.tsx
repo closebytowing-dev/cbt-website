@@ -4,9 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// University City ZIP codes
+const UNIVERSITY_CITY_ZIP_CODES = ["92122", "92093"];
+
 export const metadata: Metadata = {
-  title: "University City Towing | 24/7 | CloseBy",
-  description: "Fast towing & roadside assistance in University City. Serving UCSD, UTC, Westfield UTC, I-5 & I-805 corridors. 20-30 min response.",
+  title: "University City Towing | 92122 | 24/7 | CloseBy",
+  description: "Towing in University City 92122. Serving UCSD, UTC, Westfield UTC, I-5 & I-805 corridors. 20-30 min response.",
   keywords: "towing University City, UTC tow truck, UCSD towing, Westfield UTC roadside assistance, La Jolla towing",
   openGraph: { title: "Towing in University City San Diego | 24/7 | CloseBy Towing", url: "https://www.closebytowing.com/san-diego/university-city", type: "website" },
   alternates: { canonical: "https://www.closebytowing.com/san-diego/university-city" },
@@ -55,7 +58,7 @@ export default function UniversityCityPage() {
             <div>
               <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 rounded-full px-4 py-1.5 mb-6">
                 <svg className="w-4 h-4 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /></svg>
-                <span className="text-blue-200 text-sm font-medium">Home of UCSD & UTC</span>
+                <span className="text-blue-200 text-sm font-medium">Serving University City 24/7 • ZIP: {UNIVERSITY_CITY_ZIP_CODES.join(", ")}</span>
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">University City<span className="block text-blue-300 mt-2">Towing & Roadside</span></h1>
               <p className="mt-6 text-xl text-blue-100 leading-relaxed max-w-xl">Academic district towing experts. Serving <span className="text-blue-300 font-semibold">UCSD</span>, <span className="text-blue-300 font-semibold">Westfield UTC</span>, and surrounding communities with <span className="text-blue-300 font-semibold">20-30 minute</span> response.</p>
@@ -69,7 +72,7 @@ export default function UniversityCityPage() {
                 <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all border border-white/30">WhatsApp</a>
               </div>
             </div>
-            <div className="relative hidden lg:block"><div className="relative rounded-2xl overflow-hidden shadow-2xl"><div className="aspect-[4/3] relative"><Image src="/hero/home-hero.webp" alt="Tow truck in University City" fill className="object-cover" priority sizes="50vw" /><div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 to-transparent" /></div></div></div>
+            <div className="relative hidden lg:block"><div className="relative rounded-2xl overflow-hidden shadow-2xl"><div className="aspect-[4/3] relative"><Image src="/neighborhoods/shared/highway-aerial.webp" alt="Tow truck in University City" fill className="object-cover" priority sizes="50vw" /><div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 to-transparent" /><div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5"><span className="text-white text-sm font-bold">ZIP: {UNIVERSITY_CITY_ZIP_CODES.join(", ")}</span></div></div></div></div>
           </div>
         </div>
       </section>
@@ -113,7 +116,7 @@ export default function UniversityCityPage() {
       ]
 }) }}
       />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://www.closebytowing.com/san-diego/university-city", name: "CloseBy Towing - University City", description: "Fast towing in University City San Diego. UCSD, Westfield UTC, hospitals 24/7.", url: "https://www.closebytowing.com/san-diego/university-city", telephone: CONTACT.phone, areaServed: { "@type": "Neighborhood", name: "University City", containedInPlace: { "@type": "City", name: "San Diego" } }, serviceType: ["Towing Service", "Roadside Assistance"], priceRange: "$$" }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://www.closebytowing.com/san-diego/university-city", name: "CloseBy Towing - University City", description: "Fast towing in University City San Diego. UCSD, Westfield UTC, hospitals 24/7.", url: "https://www.closebytowing.com/san-diego/university-city", telephone: CONTACT.phone, address: { "@type": "PostalAddress", addressLocality: "San Diego", addressRegion: "CA", postalCode: UNIVERSITY_CITY_ZIP_CODES[0], addressCountry: "US" }, geo: { "@type": "GeoCoordinates", latitude: 32.8653, longitude: -117.2119 }, areaServed: { "@type": "Neighborhood", name: "University City", containedInPlace: { "@type": "City", name: "San Diego" } }, serviceType: ["Towing Service", "Roadside Assistance"], priceRange: "$$", openingHoursSpecification: { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "00:00", closes: "23:59" } }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ_DATA.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) }) }} />
     </main>
   );

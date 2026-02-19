@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Rancho Bernardo ZIP codes
+const RANCHO_BERNARDO_ZIP_CODES = ["92127", "92128"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Rancho Bernardo Towing | 24/7 | CloseBy",
+  title: "Rancho Bernardo Towing | 92127, 92128 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in Rancho Bernardo. We cover RB Town Center, I-15 corridor, Bernardo Winery area & upscale neighborhoods. 25-40 min response.",
+    "Towing in Rancho Bernardo 92127 & 92128. Serving RB Town Center, I-15 corridor, Bernardo Winery area & upscale neighborhoods. 25-40 min response.",
   keywords:
     "towing Rancho Bernardo, RB tow truck, Rancho Bernardo towing, roadside assistance RB, I-15 towing, tow truck near me Rancho Bernardo",
   openGraph: {
@@ -134,13 +137,13 @@ export default function RanchoBernardoPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div>
-              {/* Location badge */}
+              {/* Location badge with ZIP codes */}
               <div className="inline-flex items-center gap-2 bg-rose-500/20 border border-rose-400/30 rounded-full px-4 py-1.5 mb-6">
                 <svg className="w-4 h-4 text-rose-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-rose-200 text-sm font-medium">Serving Rancho Bernardo 24/7</span>
+                <span className="text-rose-200 text-sm font-medium">Serving Rancho Bernardo 24/7 • ZIP: {RANCHO_BERNARDO_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function RanchoBernardoPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] bg-rose-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/suburban-street.webp"
                     alt="Tow truck serving Rancho Bernardo San Diego near RB Town Center"
                     fill
                     className="object-cover"
@@ -208,6 +211,11 @@ export default function RanchoBernardoPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-rose-900/70 to-transparent" />
+                  {/* ZIP code overlay */}
+                  <div className="absolute bottom-4 left-4 bg-rose-900/80 backdrop-blur-sm rounded-lg px-3 py-2 border border-rose-400/30">
+                    <div className="text-rose-200 text-xs font-medium">ZIP Codes</div>
+                    <div className="text-white font-bold">{RANCHO_BERNARDO_ZIP_CODES.join(" • ")}</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -517,6 +525,18 @@ export default function RanchoBernardoPage() {
               "Fast towing and roadside assistance in Rancho Bernardo San Diego. Serving RB Town Center, Bernardo Winery, and all RB neighborhoods 24/7.",
             url: "https://www.closebytowing.com/san-diego/rancho-bernardo",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Rancho Bernardo",
+              addressRegion: "CA",
+              postalCode: RANCHO_BERNARDO_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 33.0231,
+              longitude: -117.0725,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Rancho Bernardo",

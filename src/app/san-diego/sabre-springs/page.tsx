@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Sabre Springs ZIP codes
+const SABRE_SPRINGS_ZIP_CODES = ["92128"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Sabre Springs Towing | 24/7 | CloseBy",
+  title: "Sabre Springs Towing | 92128 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in Sabre Springs. We cover Sabre Springs Parkway, I-15 corridor, Lopez Ridge & modern neighborhoods. 25-40 min response.",
+    "Towing in Sabre Springs 92128. Serving Sabre Springs Parkway, I-15 corridor, Lopez Ridge & modern neighborhoods. 25-40 min response.",
   keywords:
     "towing Sabre Springs, Sabre Springs tow truck, roadside assistance Sabre Springs, I-15 towing, tow truck near me Sabre Springs",
   openGraph: {
@@ -140,7 +143,7 @@ export default function SabreSpringsPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-teal-200 text-sm font-medium">Serving Sabre Springs 24/7</span>
+                <span className="text-teal-200 text-sm font-medium">Serving Sabre Springs 24/7 • ZIP: {SABRE_SPRINGS_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function SabreSpringsPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] bg-green-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/suburban-street.webp"
                     alt="Tow truck serving Sabre Springs San Diego"
                     fill
                     className="object-cover"
@@ -208,6 +211,10 @@ export default function SabreSpringsPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-green-900/70 to-transparent" />
+                  {/* ZIP Code Overlay */}
+                  <div className="absolute bottom-4 left-4 bg-teal-600/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <span className="text-white font-bold text-lg">ZIP: {SABRE_SPRINGS_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -517,6 +524,18 @@ export default function SabreSpringsPage() {
               "Fast towing and roadside assistance in Sabre Springs San Diego. Serving Lopez Ridge, Community Park, and all neighborhoods 24/7.",
             url: "https://www.closebytowing.com/san-diego/sabre-springs",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "San Diego",
+              addressRegion: "CA",
+              postalCode: SABRE_SPRINGS_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.9545,
+              longitude: -117.0878,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Sabre Springs",

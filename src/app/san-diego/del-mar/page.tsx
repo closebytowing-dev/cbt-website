@@ -9,7 +9,7 @@ const DM_ZIP_CODES = ["92014"];
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Del Mar Towing | 24/7 Service | CloseBy",
+  title: "Del Mar Towing | 92014 | 24/7 | CloseBy",
   description:
     "Towing in Del Mar 92014. Serving the Del Mar Racetrack, San Diego County Fairgrounds, Camino del Mar village shops & Torrey Pines coastal bluffs. 15-30 min response.",
   keywords:
@@ -143,7 +143,7 @@ export default function DelMarPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-amber-200 text-sm font-medium">Serving Del Mar 24/7</span>
+                <span className="text-amber-200 text-sm font-medium">Serving Del Mar 24/7 • ZIP: {DM_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -204,7 +204,7 @@ export default function DelMarPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-400/30">
                 <div className="aspect-[4/3] bg-teal-950/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/flatbed-truck-1.webp"
                     alt="Premium tow truck serving Del Mar San Diego near the racetrack and village"
                     fill
                     className="object-cover"
@@ -212,6 +212,10 @@ export default function DelMarPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-teal-950/70 to-transparent" />
+                  {/* ZIP Code Overlay */}
+                  <div className="absolute bottom-4 left-4 bg-teal-600/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <span className="text-white font-bold text-lg">ZIP: {DM_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>

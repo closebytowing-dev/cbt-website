@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Solana Beach ZIP codes
+const SOLANA_BEACH_ZIP_CODES = ["92075"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Solana Beach Towing | 24/7 | CloseBy",
+  title: "Solana Beach Towing | 92075 | 24/7 | CloseBy",
   description:
-    "Premium towing & roadside assistance in Solana Beach. Serving Cedros Design District, Fletcher Cove, and coastal areas. 15-30 min response for all vehicles.",
+    "Towing in Solana Beach 92075. Serving Cedros Design District, Fletcher Cove, and coastal areas. 15-30 min response for all vehicles.",
   keywords:
     "towing Solana Beach, Solana Beach tow truck, roadside assistance Solana Beach, Fletcher Cove towing, Cedros Design District towing, tow truck near me Solana Beach",
   openGraph: {
@@ -140,7 +143,7 @@ export default function SolanaBeachPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-cyan-200 text-sm font-medium">Serving Solana Beach 24/7</span>
+                <span className="text-cyan-200 text-sm font-medium">Serving Solana Beach 24/7 • ZIP: {SOLANA_BEACH_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function SolanaBeachPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-cyan-500/30">
                 <div className="aspect-[4/3] bg-blue-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/city-night-road.webp"
                     alt="Premium tow truck serving Solana Beach San Diego near Fletcher Cove"
                     fill
                     className="object-cover"
@@ -208,6 +211,10 @@ export default function SolanaBeachPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-blue-950/70 to-transparent" />
+                  {/* ZIP Code Overlay */}
+                  <div className="absolute bottom-4 left-4 bg-cyan-600/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <span className="text-white font-bold text-lg">ZIP: {SOLANA_BEACH_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -517,6 +524,18 @@ export default function SolanaBeachPage() {
               "Professional towing and roadside assistance in Solana Beach San Diego. Serving Fletcher Cove, Cedros Design District, and all Solana Beach areas 24/7. Coastal towing experts.",
             url: "https://www.closebytowing.com/san-diego/solana-beach",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Solana Beach",
+              addressRegion: "CA",
+              postalCode: SOLANA_BEACH_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.9912,
+              longitude: -117.2713,
+            },
             areaServed: {
               "@type": "City",
               name: "Solana Beach",

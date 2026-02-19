@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Tierrasanta ZIP codes
+const TIERRASANTA_ZIP_CODES = ["92124"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Tierrasanta Towing | 24/7 | CloseBy",
+  title: "Tierrasanta Towing | 92124 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in Tierrasanta. We cover Mission Trails, Santo Road, MCAS Miramar area & I-15 corridor. 25-40 min response.",
+    "Towing in Tierrasanta 92124. Serving Mission Trails, Santo Road, MCAS Miramar area & I-15 corridor. 25-40 min response.",
   keywords:
     "towing Tierrasanta, Tierrasanta tow truck, Mission Trails towing, roadside assistance Tierrasanta, I-15 towing, tow truck near me Tierrasanta",
   openGraph: {
@@ -140,7 +143,7 @@ export default function TierrasantaPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-amber-200 text-sm font-medium">Serving Tierrasanta 24/7</span>
+                <span className="text-amber-200 text-sm font-medium">Serving Tierrasanta 24/7 • ZIP: {TIERRASANTA_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function TierrasantaPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] bg-amber-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/highway-aerial.webp"
                     alt="Tow truck serving Tierrasanta San Diego near Mission Trails"
                     fill
                     className="object-cover"
@@ -208,6 +211,10 @@ export default function TierrasantaPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-amber-900/70 to-transparent" />
+                  {/* ZIP Code overlay */}
+                  <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5">
+                    <span className="text-white text-sm font-bold">ZIP: {TIERRASANTA_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -517,6 +524,18 @@ export default function TierrasantaPage() {
               "Fast towing and roadside assistance in Tierrasanta San Diego. Serving Mission Trails, Santo Road, and all Tierrasanta neighborhoods 24/7.",
             url: "https://www.closebytowing.com/san-diego/tierrasanta",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "San Diego",
+              addressRegion: "CA",
+              postalCode: TIERRASANTA_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.8230,
+              longitude: -117.1006,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Tierrasanta",

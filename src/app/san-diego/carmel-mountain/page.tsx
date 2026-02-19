@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Carmel Mountain ZIP codes
+const CARMEL_MOUNTAIN_ZIP_CODES = ["92129"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Carmel Mountain Towing | 24/7 | CloseBy",
+  title: "Carmel Mountain Towing | 92129 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in Carmel Mountain. We cover Carmel Mountain Ranch, I-15 corridor, suburban neighborhoods & shopping areas. 25-40 min response.",
+    "Towing in Carmel Mountain 92129. Serving Carmel Mountain Ranch, I-15 corridor & suburban neighborhoods. 25-40 min response.",
   keywords:
     "towing Carmel Mountain, Carmel Mountain tow truck, Carmel Mountain Ranch towing, roadside assistance Carmel Mountain, I-15 towing, tow truck near me Carmel Mountain",
   openGraph: {
@@ -134,13 +137,13 @@ export default function CarmelMountainPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div>
-              {/* Location badge */}
+              {/* Location badge with ZIP codes */}
               <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 rounded-full px-4 py-1.5 mb-6">
                 <svg className="w-4 h-4 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-blue-200 text-sm font-medium">Serving Carmel Mountain 24/7</span>
+                <span className="text-blue-200 text-sm font-medium">Serving Carmel Mountain 24/7 • ZIP: {CARMEL_MOUNTAIN_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function CarmelMountainPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] bg-slate-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/highway-aerial.webp"
                     alt="Tow truck serving Carmel Mountain San Diego"
                     fill
                     className="object-cover"
@@ -208,6 +211,11 @@ export default function CarmelMountainPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent" />
+                  {/* ZIP code overlay */}
+                  <div className="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-sm rounded-lg px-3 py-2 border border-blue-400/30">
+                    <div className="text-blue-200 text-xs font-medium">ZIP Codes</div>
+                    <div className="text-white font-bold">{CARMEL_MOUNTAIN_ZIP_CODES.join(" • ")}</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -517,6 +525,18 @@ export default function CarmelMountainPage() {
               "Fast towing and roadside assistance in Carmel Mountain San Diego. Serving Carmel Mountain Ranch, shopping centers, and all neighborhoods 24/7.",
             url: "https://www.closebytowing.com/san-diego/carmel-mountain",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Carmel Mountain",
+              addressRegion: "CA",
+              postalCode: CARMEL_MOUNTAIN_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.9760,
+              longitude: -117.0857,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Carmel Mountain",

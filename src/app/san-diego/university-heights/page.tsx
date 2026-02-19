@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// University Heights ZIP code
+const UNIVERSITY_HEIGHTS_ZIP_CODES = ["92104"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "University Heights Towing | 24/7 | CloseBy",
+  title: "University Heights Towing | 92104 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in University Heights. Serving Park Blvd corridor, Trolley Barn Park, and all University Heights neighborhoods. 15-30 min response.",
+    "Towing in University Heights 92104. Serving Park Blvd corridor, Trolley Barn Park, Lafayette Hotel & all residential streets. 15-30 min response 24/7.",
   keywords:
     "towing University Heights, University Heights tow truck, Park Blvd towing, roadside assistance University Heights, tow truck near me University Heights",
   openGraph: {
@@ -134,13 +137,13 @@ export default function UniversityHeightsPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div>
-              {/* Location badge */}
+              {/* Location badge with ZIP */}
               <div className="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-400/30 rounded-full px-4 py-1.5 mb-6">
                 <svg className="w-4 h-4 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-purple-200 text-sm font-medium">Serving University Heights 24/7</span>
+                <span className="text-purple-200 text-sm font-medium">Serving University Heights 92104 24/7</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,14 +203,18 @@ export default function UniversityHeightsPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-purple-500/30">
                 <div className="aspect-[4/3] bg-violet-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
-                    alt="Tow truck serving University Heights San Diego near Park Blvd"
+                    src="/neighborhoods/shared/city-night-road.webp"
+                    alt="Professional tow truck serving University Heights San Diego 92104"
                     fill
                     className="object-cover"
                     priority
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-violet-950/70 to-transparent" />
+                </div>
+                {/* ZIP Code overlay */}
+                <div className="absolute top-4 right-4 bg-purple-600 text-white px-4 py-2 rounded-lg font-bold text-lg shadow-lg">
+                  ZIP: 92104
                 </div>
               </div>
             </div>
@@ -329,6 +336,15 @@ export default function UniversityHeightsPage() {
                     <span>• Local Cafes</span>
                     <span>• Community Parks</span>
                     <span>• Residential Areas</span>
+                  </div>
+                </div>
+
+                <div className="bg-violet-50 rounded-lg p-4 border border-violet-200">
+                  <h4 className="font-semibold text-sm mb-2 text-violet-800">ZIP Codes Served:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {UNIVERSITY_HEIGHTS_ZIP_CODES.map((zip) => (
+                      <span key={zip} className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-bold">{zip}</span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -514,16 +530,21 @@ export default function UniversityHeightsPage() {
             "@id": "https://www.closebytowing.com/san-diego/university-heights",
             name: "CloseBy Towing - University Heights",
             description:
-              "Professional towing and roadside assistance in University Heights San Diego. Serving Park Blvd, Trolley Barn Park, Lafayette Hotel, and all University Heights neighborhoods 24/7.",
+              "Towing in University Heights 92104. Serving Park Blvd corridor, Trolley Barn Park, Lafayette Hotel & all residential streets 24/7.",
             url: "https://www.closebytowing.com/san-diego/university-heights",
             telephone: CONTACT.phone,
-            areaServed: {
-              "@type": "Neighborhood",
-              name: "University Heights",
-              containedInPlace: {
-                "@type": "City",
-                name: "San Diego",
+            areaServed: [
+              {
+                "@type": "PostalAddress",
+                postalCode: "92104",
+                addressLocality: "University Heights",
+                addressRegion: "CA",
               },
+            ],
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.7634,
+              longitude: -117.1294,
             },
             serviceType: ["Towing Service", "Roadside Assistance", "Emergency Towing"],
             priceRange: "$$",
