@@ -105,7 +105,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "palm-city",
     "paradise-hills",
     "point-loma",
-    "poway",
     "rancho-bernardo",
     "rancho-penasquitos",
     "rancho-san-diego",
@@ -138,6 +137,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "el-cajon", priority: 0.85 },
     { path: "la-mesa", priority: 0.85 },
     { path: "national-city", priority: 0.85 },
+    { path: "poway", priority: 0.85 },
     { path: "spring-valley", priority: 0.85 },
   ].map((page) => ({
     url: `${base}/${page.path}`,

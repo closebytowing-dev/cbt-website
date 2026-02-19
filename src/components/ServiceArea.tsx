@@ -74,6 +74,7 @@ const TOP_LEVEL_ROUTES: Record<string, string> = {
   "el-cajon": "/el-cajon",
   "la-mesa": "/la-mesa",
   "national-city": "/national-city",
+  "poway": "/poway",
   "san-diego": "/san-diego",
   "spring-valley": "/spring-valley",
 };

@@ -124,7 +124,7 @@ const REGIONS = [
       "North County's master-planned communities, tech corridors, and rolling hills mean long distances between services. From the Qualcomm campus in Sorrento Valley to the ranch estates of Rancho Santa Fe, our North County trucks handle everything from luxury flatbed transport to commuter breakdowns on I-15.",
     neighborhoods: [
       { name: "Mira Mesa", slug: "mira-mesa" },
-      { name: "Poway", slug: "poway" },
+      { name: "Poway", slug: "poway", topLevel: true },
       { name: "Scripps Ranch", slug: "scripps-ranch" },
       { name: "Rancho Bernardo", slug: "rancho-bernardo" },
       { name: "Carmel Mountain", slug: "carmel-mountain" },

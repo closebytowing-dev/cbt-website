@@ -382,7 +382,7 @@ export default function FourSRanchPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "poway" ? "/poway" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-amber-400 transition-colors">
