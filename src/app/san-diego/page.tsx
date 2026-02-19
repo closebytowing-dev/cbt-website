@@ -101,7 +101,7 @@ const REGIONS = [
       "South Bay is home to over 500,000 residents across Chula Vista, National City, and the border communities. Cross-border traffic on I-5 and I-805 means breakdowns are a daily occurrence. We station drivers throughout the South Bay for the fastest possible response.",
     neighborhoods: [
       { name: "Chula Vista", slug: "chula-vista", topLevel: true },
-      { name: "National City", slug: "national-city" },
+      { name: "National City", slug: "national-city", topLevel: true },
       { name: "Imperial Beach", slug: "imperial-beach" },
       { name: "San Ysidro", slug: "san-ysidro" },
       { name: "Bonita", slug: "bonita" },

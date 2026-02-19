@@ -97,7 +97,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "mission-beach",
     "mission-hills",
     "mission-valley",
-    "national-city",
     "nestor",
     "normal-heights",
     "north-park",
@@ -139,6 +138,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const topLevelAreaPages = [
     { path: "chula-vista", priority: 0.85 },
     { path: "el-cajon", priority: 0.85 },
+    { path: "national-city", priority: 0.85 },
   ].map((page) => ({
     url: `${base}/${page.path}`,
     lastModified,

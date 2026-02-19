@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Lincoln Park ZIP codes
+const LINCOLN_PARK_ZIP_CODES = ["92113"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Lincoln Park Towing | 24/7 Service | CloseBy",
+  title: "Lincoln Park Towing | 92113 | 24/7 | CloseBy",
   description:
-    "Reliable towing & roadside assistance in Lincoln Park. Serving Euclid Avenue, Lincoln High School area, and Southeast San Diego. 15-30 min response times.",
+    "Towing in Lincoln Park 92113. Serving Euclid Avenue, Lincoln High School area, and Southeast San Diego. 15-30 min response times.",
   keywords:
     "towing Lincoln Park, Lincoln Park tow truck, roadside assistance Lincoln Park, tow truck near me Lincoln Park, Euclid Avenue towing, Southeast San Diego towing",
   openGraph: {
@@ -140,7 +143,7 @@ export default function LincolnParkPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-emerald-200 text-sm font-medium">Serving Lincoln Park 24/7</span>
+                <span className="text-emerald-200 text-sm font-medium">Serving Lincoln Park 24/7 • ZIP: {LINCOLN_PARK_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function LincolnParkPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-emerald-500/30">
                 <div className="aspect-[4/3] bg-green-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/roadside-service.webp"
                     alt="Professional tow truck serving Lincoln Park San Diego near Euclid Avenue"
                     fill
                     className="object-cover"
@@ -208,6 +211,10 @@ export default function LincolnParkPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-green-950/70 to-transparent" />
+                  {/* ZIP Code Overlay */}
+                  <div className="absolute bottom-4 left-4 bg-emerald-600/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <span className="text-white font-bold text-lg">ZIP: {LINCOLN_PARK_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -383,7 +390,7 @@ export default function LincolnParkPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "national-city" ? "/national-city" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-emerald-400 transition-colors">
@@ -517,6 +524,18 @@ export default function LincolnParkPage() {
               "Professional towing and roadside assistance in Lincoln Park San Diego. Serving Lincoln High School area, Euclid Avenue, and all Southeast San Diego neighborhoods 24/7.",
             url: "https://www.closebytowing.com/san-diego/lincoln-park",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "San Diego",
+              addressRegion: "CA",
+              postalCode: LINCOLN_PARK_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.7078,
+              longitude: -117.0764,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Lincoln Park",

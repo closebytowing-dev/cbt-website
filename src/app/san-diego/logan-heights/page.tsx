@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Logan Heights ZIP codes
+const LOGAN_HEIGHTS_ZIP_CODES = ["92113"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Logan Heights Towing | 24/7 Service | CloseBy",
+  title: "Logan Heights Towing | 92113 | 24/7 | CloseBy",
   description:
-    "Reliable towing & roadside assistance in Logan Heights. Serving Chicano Park, Barrio Logan, and Downtown San Diego. 15-30 min response, 24/7 availability.",
+    "Towing in Logan Heights 92113. Serving Chicano Park, Barrio Logan, and Downtown San Diego. 15-30 min response, 24/7 availability.",
   keywords:
     "towing Logan Heights, Logan Heights tow truck, Barrio Logan towing, roadside assistance Logan Heights, Chicano Park towing, tow truck near me Logan Heights",
   openGraph: {
@@ -140,7 +143,7 @@ export default function LoganHeightsPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-amber-200 text-sm font-medium">Serving Logan Heights 24/7</span>
+                <span className="text-amber-200 text-sm font-medium">Serving Logan Heights 24/7 • ZIP: {LOGAN_HEIGHTS_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function LoganHeightsPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-500/30">
                 <div className="aspect-[4/3] bg-orange-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/city-night-road.webp"
                     alt="Tow truck serving Logan Heights San Diego near Chicano Park"
                     fill
                     className="object-cover"
@@ -208,6 +211,10 @@ export default function LoganHeightsPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-orange-950/70 to-transparent" />
+                  {/* ZIP Code Overlay */}
+                  <div className="absolute bottom-4 left-4 bg-amber-600/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <span className="text-white font-bold text-lg">ZIP: {LOGAN_HEIGHTS_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -383,7 +390,7 @@ export default function LoganHeightsPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "national-city" ? "/national-city" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-amber-400 transition-colors">
@@ -517,6 +524,18 @@ export default function LoganHeightsPage() {
               "Professional towing and roadside assistance in Logan Heights San Diego. Serving Chicano Park, Barrio Logan, and the waterfront 24/7. Reliable service for all vehicles.",
             url: "https://www.closebytowing.com/san-diego/logan-heights",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "San Diego",
+              addressRegion: "CA",
+              postalCode: LOGAN_HEIGHTS_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.6984,
+              longitude: -117.1177,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Logan Heights",

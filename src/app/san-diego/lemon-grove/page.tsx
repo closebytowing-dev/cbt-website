@@ -390,7 +390,7 @@ export default function LemonGrovePage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={area.slug === "el-cajon" ? "/el-cajon" : `/san-diego/${area.slug}`}
+                href={area.slug === "el-cajon" ? "/el-cajon" : area.slug === "national-city" ? "/national-city" : `/san-diego/${area.slug}`}
                 className="group bg-white/20 backdrop-blur-sm rounded-xl p-4 text-center border border-white/30 hover:bg-white/30 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-yellow-100 transition-colors">

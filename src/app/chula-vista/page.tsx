@@ -516,7 +516,7 @@ export default function ChulaVistaPage() {
             {NEARBY_AREAS.map((a) => (
               <Link
                 key={a.slug}
-                href={`/san-diego/${a.slug}`}
+                href={a.slug === "national-city" ? "/national-city" : `/san-diego/${a.slug}`}
                 className="group bg-white rounded-xl p-4 text-center border border-slate-200 hover:border-amber-300 hover:shadow-md transition-all"
               >
                 <span className="font-semibold text-slate-900 group-hover:text-amber-700 transition-colors">

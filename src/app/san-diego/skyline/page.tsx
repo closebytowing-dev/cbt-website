@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Skyline ZIP codes
+const SKYLINE_ZIP_CODES = ["92114"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Skyline Towing | 24/7 | CloseBy",
+  title: "Skyline Towing | 92114 | 24/7 | CloseBy",
   description:
-    "Professional towing & roadside assistance in Skyline San Diego. Serving Skyline Hills, Paradise Valley Road, and Southeast communities. 15-30 min response time, available 24/7.",
+    "Towing in Skyline 92114. Serving Skyline Hills, Paradise Valley Road, and Southeast communities. 15-30 min response time, available 24/7.",
   keywords:
     "towing Skyline San Diego, Skyline tow truck, roadside assistance Skyline, tow truck near me Skyline, Southeast San Diego towing, Skyline Hills towing",
   openGraph: {
@@ -140,7 +143,7 @@ export default function SkylinePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-teal-200 text-sm font-medium">Serving Skyline 24/7</span>
+                <span className="text-teal-200 text-sm font-medium">Serving Skyline 24/7 • ZIP: {SKYLINE_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function SkylinePage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-teal-500/30">
                 <div className="aspect-[4/3] bg-cyan-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/suburban-street.webp"
                     alt="Professional tow truck serving Skyline San Diego near Skyline Hills"
                     fill
                     className="object-cover"
@@ -208,6 +211,10 @@ export default function SkylinePage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-cyan-950/70 to-transparent" />
+                  {/* ZIP Code Overlay */}
+                  <div className="absolute bottom-4 left-4 bg-teal-600/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <span className="text-white font-bold text-lg">ZIP: {SKYLINE_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -383,7 +390,7 @@ export default function SkylinePage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "national-city" ? "/national-city" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-teal-400 transition-colors">
@@ -517,6 +524,18 @@ export default function SkylinePage() {
               "Professional towing and roadside assistance in Skyline San Diego. Serving Skyline Hills, Paradise Valley Road, and all Southeast San Diego neighborhoods 24/7.",
             url: "https://www.closebytowing.com/san-diego/skyline",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "San Diego",
+              addressRegion: "CA",
+              postalCode: SKYLINE_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.6989,
+              longitude: -117.0442,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Skyline",
