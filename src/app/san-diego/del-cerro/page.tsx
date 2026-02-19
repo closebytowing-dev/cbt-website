@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Del Cerro ZIP codes
+const DEL_CERRO_ZIP_CODES = ["92119", "92120"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Del Cerro Towing | 24/7 Service | CloseBy",
+  title: "Del Cerro Towing | 92119 | 24/7 | CloseBy",
   description:
-    "Professional towing & roadside assistance in Del Cerro. Serving Lake Murray, Cowles Mountain, Del Cerro Boulevard, and nearby SDSU. 15-30 min response times.",
+    "Towing in Del Cerro 92119. Serving Lake Murray, Cowles Mountain & Del Cerro Boulevard. 15-30 min response times.",
   keywords:
     "towing Del Cerro, Del Cerro tow truck, roadside assistance Del Cerro, Lake Murray towing, tow truck near me Del Cerro, Cowles Mountain towing",
   openGraph: {
@@ -134,13 +137,13 @@ export default function DelCerroPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div>
-              {/* Location badge */}
+              {/* Location badge with ZIP codes */}
               <div className="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-400/30 rounded-full px-4 py-1.5 mb-6">
                 <svg className="w-4 h-4 text-amber-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-amber-200 text-sm font-medium">Serving Del Cerro 24/7</span>
+                <span className="text-amber-200 text-sm font-medium">Serving Del Cerro 24/7 • ZIP: {DEL_CERRO_ZIP_CODES[0]}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function DelCerroPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-500/30">
                 <div className="aspect-[4/3] bg-sky-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/roadside-service.webp"
                     alt="Professional tow truck serving Del Cerro San Diego near Lake Murray"
                     fill
                     className="object-cover"
@@ -208,6 +211,11 @@ export default function DelCerroPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-sky-950/70 to-transparent" />
+                  {/* ZIP code overlay */}
+                  <div className="absolute bottom-4 left-4 bg-sky-900/80 backdrop-blur-sm rounded-lg px-3 py-2 border border-amber-400/30">
+                    <div className="text-amber-200 text-xs font-medium">ZIP Codes</div>
+                    <div className="text-white font-bold">{DEL_CERRO_ZIP_CODES.join(" • ")}</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -383,7 +391,7 @@ export default function DelCerroPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "la-mesa" ? "/la-mesa" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-amber-400 transition-colors">
@@ -517,6 +525,18 @@ export default function DelCerroPage() {
               "Professional towing and roadside assistance in Del Cerro San Diego. Serving Lake Murray, Cowles Mountain, Del Cerro Boulevard, and all hillside neighborhoods 24/7.",
             url: "https://www.closebytowing.com/san-diego/del-cerro",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Del Cerro",
+              addressRegion: "CA",
+              postalCode: DEL_CERRO_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.7736,
+              longitude: -117.0658,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Del Cerro",

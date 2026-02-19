@@ -72,6 +72,7 @@ const AREA_SLUGS: Record<string, string> = {
 const TOP_LEVEL_ROUTES: Record<string, string> = {
   "chula-vista": "/chula-vista",
   "el-cajon": "/el-cajon",
+  "la-mesa": "/la-mesa",
   "national-city": "/national-city",
   "san-diego": "/san-diego",
   "spring-valley": "/spring-valley",

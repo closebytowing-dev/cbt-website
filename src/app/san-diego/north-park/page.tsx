@@ -9,7 +9,7 @@ const NP_ZIP_CODES = ["92104"];
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "North Park Towing | 24/7 | CloseBy",
+  title: "North Park Towing | 92104 | 24/7 | CloseBy",
   description:
     "Towing in North Park 92104. From the 30th Street craft brewery corridor to Ray at Night art walks and Morley Field disc golf. 20-30 min response to SD's hippest hood.",
   keywords:
@@ -204,13 +204,18 @@ export default function NorthParkPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] bg-amber-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/city-night-road.webp"
                     alt="Tow truck serving North Park San Diego near 30th Street"
                     fill
                     className="object-cover"
                     priority
                     sizes="50vw"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-amber-900/70 to-transparent" />
+                  {/* ZIP Code Overlay */}
+                  <div className="absolute bottom-4 left-4 bg-amber-600/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <span className="text-white font-bold text-lg">ZIP: {NP_ZIP_CODES.join(", ")}</span>
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-amber-900/70 to-transparent" />
                 </div>
               </div>
@@ -395,7 +400,7 @@ export default function NorthParkPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "la-mesa" ? "/la-mesa" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-amber-300 transition-colors">

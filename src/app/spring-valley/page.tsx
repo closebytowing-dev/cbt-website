@@ -167,7 +167,7 @@ const FAQ_DATA = [
 
 /* ─── NEARBY AREAS ─── */
 const NEARBY = [
-  { name: "La Mesa", href: "/san-diego/la-mesa" },
+  { name: "La Mesa", href: "/la-mesa" },
   { name: "El Cajon", href: "/el-cajon" },
   { name: "Lemon Grove", href: "/san-diego/lemon-grove" },
   { name: "National City", href: "/national-city" },
@@ -293,7 +293,7 @@ export default function SpringValleyPage() {
       </section>
 
       {/* ── REVIEWS ── */}
-      <div className="relative z-20 -mt-16">
+      <div className="relative z-20 -mt-24">
         <Reviews />
       </div>
 

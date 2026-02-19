@@ -86,7 +86,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "imperial-beach",
     "kearny-mesa",
     "la-jolla",
-    "la-mesa",
     "lakeside",
     "lemon-grove",
     "lincoln-park",
@@ -137,6 +136,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const topLevelAreaPages = [
     { path: "chula-vista", priority: 0.85 },
     { path: "el-cajon", priority: 0.85 },
+    { path: "la-mesa", priority: 0.85 },
     { path: "national-city", priority: 0.85 },
     { path: "spring-valley", priority: 0.85 },
   ].map((page) => ({

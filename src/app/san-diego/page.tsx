@@ -78,7 +78,7 @@ const REGIONS = [
       "East County is sprawling and varied — from busy El Cajon Boulevard to the rural roads of Alpine and Lakeside. Summer heat pushes engine temps to the limit out here, making overheats and breakdowns more common. Our East County drivers know every canyon road and shopping plaza.",
     neighborhoods: [
       { name: "El Cajon", slug: "el-cajon", topLevel: true },
-      { name: "La Mesa", slug: "la-mesa" },
+      { name: "La Mesa", slug: "la-mesa", topLevel: true },
       { name: "Santee", slug: "santee" },
       { name: "Lakeside", slug: "lakeside" },
       { name: "Spring Valley", slug: "spring-valley", topLevel: true },

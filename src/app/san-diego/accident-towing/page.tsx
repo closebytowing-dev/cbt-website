@@ -419,7 +419,7 @@ export default function AccidentTowingPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={area.slug === "chula-vista" ? "/chula-vista" : area.slug === "el-cajon" ? "/el-cajon" : area.slug === "national-city" ? "/national-city" : `/san-diego/${area.slug}`}
+                href={area.slug === "chula-vista" ? "/chula-vista" : area.slug === "el-cajon" ? "/el-cajon" : area.slug === "national-city" ? "/national-city" : area.slug === "la-mesa" ? "/la-mesa" : `/san-diego/${area.slug}`}
                 className="group bg-white rounded-xl p-4 text-center shadow hover:shadow-lg transition-all hover:-translate-y-1 border border-slate-100"
               >
                 <div className="w-10 h-10 mx-auto mb-3 rounded-full bg-blue-100 flex items-center justify-center group-hover:bg-blue-500 transition-colors">

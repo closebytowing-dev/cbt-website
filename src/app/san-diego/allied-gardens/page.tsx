@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Allied Gardens ZIP codes
+const ALLIED_GARDENS_ZIP_CODES = ["92120"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Allied Gardens Towing | 24/7 Service | CloseBy",
+  title: "Allied Gardens Towing | 92120 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in Allied Gardens. We cover Grantville, Mission Trails, Waring Road & I-8/SR-125 corridors. 20-40 min response.",
+    "Towing in Allied Gardens 92120. Serving Grantville, Mission Trails, Waring Road & I-8/SR-125 corridors. 20-40 min response.",
   keywords:
     "towing Allied Gardens, Allied Gardens tow truck, Grantville towing, roadside assistance Allied Gardens, I-8 towing, tow truck near me Allied Gardens",
   openGraph: {
@@ -134,13 +137,13 @@ export default function AlliedGardensPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div>
-              {/* Location badge */}
+              {/* Location badge with ZIP codes */}
               <div className="inline-flex items-center gap-2 bg-green-500/20 border border-green-400/30 rounded-full px-4 py-1.5 mb-6">
                 <svg className="w-4 h-4 text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-green-200 text-sm font-medium">Serving Allied Gardens 24/7</span>
+                <span className="text-green-200 text-sm font-medium">Serving Allied Gardens 24/7 • ZIP: {ALLIED_GARDENS_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function AlliedGardensPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] bg-slate-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/roadside-service.webp"
                     alt="Tow truck serving Allied Gardens San Diego near Grantville Station"
                     fill
                     className="object-cover"
@@ -208,6 +211,11 @@ export default function AlliedGardensPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-green-900/70 to-transparent" />
+                  {/* ZIP code overlay */}
+                  <div className="absolute bottom-4 left-4 bg-green-900/80 backdrop-blur-sm rounded-lg px-3 py-2 border border-green-400/30">
+                    <div className="text-green-200 text-xs font-medium">ZIP Codes</div>
+                    <div className="text-white font-bold">{ALLIED_GARDENS_ZIP_CODES.join(" • ")}</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -383,7 +391,7 @@ export default function AlliedGardensPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "la-mesa" ? "/la-mesa" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-green-300 transition-colors">
@@ -517,6 +525,18 @@ export default function AlliedGardensPage() {
               "Fast towing and roadside assistance in Allied Gardens San Diego. Serving Grantville, Sharp Memorial Hospital, and all family neighborhoods 24/7.",
             url: "https://www.closebytowing.com/san-diego/allied-gardens",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Allied Gardens",
+              addressRegion: "CA",
+              postalCode: ALLIED_GARDENS_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.7637,
+              longitude: -117.0892,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Allied Gardens",
