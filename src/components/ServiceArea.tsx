@@ -71,6 +71,7 @@ const AREA_SLUGS: Record<string, string> = {
 // Areas with top-level routes (not under /san-diego/)
 const TOP_LEVEL_ROUTES: Record<string, string> = {
   "chula-vista": "/chula-vista",
+  "el-cajon": "/el-cajon",
   "san-diego": "/san-diego",
 };
 

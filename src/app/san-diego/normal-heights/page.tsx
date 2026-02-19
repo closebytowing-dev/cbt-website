@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Normal Heights ZIP code
+const NORMAL_HEIGHTS_ZIP_CODES = ["92116"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Normal Heights Towing | 24/7 | CloseBy",
+  title: "Normal Heights Towing | 92116 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in Normal Heights. Serving Adams Avenue, Ward Canyon, and surrounding areas. 15-30 min response for all vehicles.",
+    "Towing in Normal Heights 92116. Serving Adams Avenue, Ward Canyon, Antique Row & eclectic community. 15-30 min response for all vehicles 24/7.",
   keywords:
     "towing Normal Heights, Normal Heights tow truck, Adams Avenue towing, roadside assistance Normal Heights, tow truck near me Normal Heights",
   openGraph: {
@@ -134,13 +137,13 @@ export default function NormalHeightsPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div>
-              {/* Location badge */}
+              {/* Location badge with ZIP */}
               <div className="inline-flex items-center gap-2 bg-pink-500/20 border border-pink-400/30 rounded-full px-4 py-1.5 mb-6">
                 <svg className="w-4 h-4 text-pink-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-pink-200 text-sm font-medium">Serving Normal Heights 24/7</span>
+                <span className="text-pink-200 text-sm font-medium">Serving Normal Heights 92116 24/7</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,14 +203,18 @@ export default function NormalHeightsPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-pink-500/30">
                 <div className="aspect-[4/3] bg-rose-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
-                    alt="Tow truck serving Normal Heights San Diego near Adams Avenue"
+                    src="/neighborhoods/shared/roadside-service.webp"
+                    alt="Professional tow truck serving Normal Heights San Diego 92116"
                     fill
                     className="object-cover"
                     priority
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-rose-950/70 to-transparent" />
+                </div>
+                {/* ZIP Code overlay */}
+                <div className="absolute top-4 right-4 bg-rose-600 text-white px-4 py-2 rounded-lg font-bold text-lg shadow-lg">
+                  ZIP: 92116
                 </div>
               </div>
             </div>
@@ -331,6 +338,15 @@ export default function NormalHeightsPage() {
                     <span>• Meade Avenue</span>
                   </div>
                 </div>
+
+                <div className="bg-rose-50 rounded-lg p-4 border border-rose-200">
+                  <h4 className="font-semibold text-sm mb-2 text-rose-800">ZIP Codes Served:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {NORMAL_HEIGHTS_ZIP_CODES.map((zip) => (
+                      <span key={zip} className="bg-rose-600 text-white px-3 py-1 rounded-full text-sm font-bold">{zip}</span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -383,7 +399,7 @@ export default function NormalHeightsPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "el-cajon" ? "/el-cajon" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-pink-400 transition-colors">
@@ -514,16 +530,21 @@ export default function NormalHeightsPage() {
             "@id": "https://www.closebytowing.com/san-diego/normal-heights",
             name: "CloseBy Towing - Normal Heights",
             description:
-              "Professional towing and roadside assistance in Normal Heights San Diego. Serving Adams Avenue, Ward Canyon Park, and all Normal Heights neighborhoods 24/7.",
+              "Towing in Normal Heights 92116. Serving Adams Avenue, Ward Canyon Park, Antique Row & eclectic community 24/7.",
             url: "https://www.closebytowing.com/san-diego/normal-heights",
             telephone: CONTACT.phone,
-            areaServed: {
-              "@type": "Neighborhood",
-              name: "Normal Heights",
-              containedInPlace: {
-                "@type": "City",
-                name: "San Diego",
+            areaServed: [
+              {
+                "@type": "PostalAddress",
+                postalCode: "92116",
+                addressLocality: "Normal Heights",
+                addressRegion: "CA",
               },
+            ],
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.7629,
+              longitude: -117.1010,
             },
             serviceType: ["Towing Service", "Roadside Assistance", "Emergency Towing"],
             priceRange: "$$",

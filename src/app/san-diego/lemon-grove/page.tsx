@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Lemon Grove ZIP codes
+const LEMON_GROVE_ZIP_CODES = ["91945"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Lemon Grove Towing | 24/7 | CloseBy",
+  title: "Lemon Grove Towing | 91945 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in Lemon Grove. We cover Broadway, Main Street, Trolley Station & SR-94/SR-125 corridors. 20-40 min response.",
+    "Towing in Lemon Grove 91945. Serving Broadway, Main Street, Trolley Station & SR-94/SR-125 corridors. 20-40 min response.",
   keywords:
     "towing Lemon Grove, Lemon Grove tow truck, East County towing, roadside assistance Lemon Grove, SR-94 towing, tow truck near me Lemon Grove",
   openGraph: {
@@ -140,7 +143,7 @@ export default function LemonGrovePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-yellow-50 text-sm font-medium">Serving Lemon Grove 24/7</span>
+                <span className="text-yellow-50 text-sm font-medium">Serving Lemon Grove 24/7 • ZIP: {LEMON_GROVE_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white drop-shadow-lg">
@@ -200,7 +203,7 @@ export default function LemonGrovePage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] bg-yellow-600/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/suburban-street.webp"
                     alt="Tow truck serving Lemon Grove San Diego East County near Giant Lemon"
                     fill
                     className="object-cover"
@@ -208,6 +211,10 @@ export default function LemonGrovePage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-lime-900/70 to-transparent" />
+                  {/* ZIP Code overlay */}
+                  <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5">
+                    <span className="text-white text-sm font-bold">ZIP: {LEMON_GROVE_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -383,7 +390,7 @@ export default function LemonGrovePage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "el-cajon" ? "/el-cajon" : `/san-diego/${area.slug}`}
                 className="group bg-white/20 backdrop-blur-sm rounded-xl p-4 text-center border border-white/30 hover:bg-white/30 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-yellow-100 transition-colors">
@@ -517,6 +524,18 @@ export default function LemonGrovePage() {
               "Fast towing and roadside assistance in Lemon Grove San Diego. Serving the Giant Lemon, Trolley Station, and all East County neighborhoods 24/7.",
             url: "https://www.closebytowing.com/san-diego/lemon-grove",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Lemon Grove",
+              addressRegion: "CA",
+              postalCode: LEMON_GROVE_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.7426,
+              longitude: -117.0317,
+            },
             areaServed: {
               "@type": "City",
               name: "Lemon Grove",

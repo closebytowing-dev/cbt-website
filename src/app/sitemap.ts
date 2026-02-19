@@ -81,7 +81,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "del-cerro",
     "del-mar",
     "downtown",
-    "el-cajon",
     "encinitas",
     "hillcrest",
     "imperial-beach",
@@ -139,6 +138,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Top-level area pages (promoted from /san-diego/)
   const topLevelAreaPages = [
     { path: "chula-vista", priority: 0.85 },
+    { path: "el-cajon", priority: 0.85 },
   ].map((page) => ({
     url: `${base}/${page.path}`,
     lastModified,

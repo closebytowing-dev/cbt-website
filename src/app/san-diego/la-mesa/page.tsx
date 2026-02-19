@@ -4,10 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// La Mesa ZIP codes
+const LA_MESA_ZIP_CODES = ["91941", "91942", "91943", "91944"];
+
 export const metadata: Metadata = {
-  title: "Towing in La Mesa CA | 24/7 Service | CloseBy Towing",
+  title: "La Mesa Towing | 91941, 91942 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in La Mesa. Serving Downtown La Mesa Village, Grossmont Center, I-8 corridor. 20-35 min response, 24/7.",
+    "Towing in La Mesa 91941 & 91942. Serving Downtown Village, Grossmont Center, Lake Murray & I-8 corridor. 20-35 min response, 24/7.",
   keywords: "towing La Mesa, La Mesa tow truck, Grossmont towing, Downtown La Mesa roadside assistance, I-8 La Mesa",
   openGraph: {
     title: "Towing in La Mesa CA | 24/7 Service | CloseBy Towing",
@@ -122,8 +125,9 @@ export default function LaMesaPage() {
             <div className="relative hidden lg:block">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] relative">
-                  <Image src="/hero/home-hero.webp" alt="Tow truck in La Mesa" fill className="object-cover" priority sizes="50vw" />
+                  <Image src="/neighborhoods/shared/suburban-street.webp" alt="Tow truck in La Mesa" fill className="object-cover" priority sizes="50vw" />
                   <div className="absolute inset-0 bg-gradient-to-t from-amber-900/70 to-transparent" />
+                  <div className="absolute bottom-4 left-4 bg-amber-600/90 backdrop-blur-sm px-4 py-2 rounded-lg"><span className="text-white font-bold text-lg">ZIP: {LA_MESA_ZIP_CODES[0]}</span></div>
                 </div>
               </div>
             </div>
@@ -212,7 +216,7 @@ export default function LaMesaPage() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {NEARBY_AREAS.map((a) => (
-              <Link key={a.slug} href={`/san-diego/${a.slug}`} className="group bg-white/10 rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all">
+              <Link key={a.slug} href={a.slug === "el-cajon" ? "/el-cajon" : `/san-diego/${a.slug}`} className="group bg-white/10 rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all">
                 <span className="font-semibold group-hover:text-amber-300">{a.name}</span>
               </Link>
             ))}

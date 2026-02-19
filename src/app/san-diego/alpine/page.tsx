@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Alpine ZIP codes
+const ALPINE_ZIP_CODES = ["91901", "91903"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Alpine Towing San Diego | 24/7 | CloseBy",
+  title: "Alpine Towing | 91901 | 24/7 | CloseBy",
   description:
-    "Reliable towing & roadside assistance in Alpine. Serving Viejas Casino, Alpine Boulevard, Wright's Field, and Cleveland National Forest. 20-35 min response.",
+    "Towing in Alpine 91901. Serving Viejas Casino, Alpine Boulevard, Wright's Field & Cleveland National Forest. 20-35 min response.",
   keywords:
     "towing Alpine, Alpine tow truck, Viejas Casino towing, roadside assistance Alpine, East County towing, tow truck near me Alpine",
   openGraph: {
@@ -134,13 +137,13 @@ export default function AlpinePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div>
-              {/* Location badge */}
+              {/* Location badge with ZIP codes */}
               <div className="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-400/30 rounded-full px-4 py-1.5 mb-6">
                 <svg className="w-4 h-4 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-emerald-200 text-sm font-medium">Serving Alpine 24/7</span>
+                <span className="text-emerald-200 text-sm font-medium">Serving Alpine 24/7 • ZIP: {ALPINE_ZIP_CODES[0]}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function AlpinePage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-emerald-500/30">
                 <div className="aspect-[4/3] bg-green-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/highway-aerial.webp"
                     alt="Tow truck serving Alpine San Diego near Viejas Casino"
                     fill
                     className="object-cover"
@@ -208,6 +211,11 @@ export default function AlpinePage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-green-950/70 to-transparent" />
+                  {/* ZIP code overlay */}
+                  <div className="absolute bottom-4 left-4 bg-green-900/80 backdrop-blur-sm rounded-lg px-3 py-2 border border-emerald-400/30">
+                    <div className="text-emerald-200 text-xs font-medium">ZIP Codes</div>
+                    <div className="text-white font-bold">{ALPINE_ZIP_CODES.join(" • ")}</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -383,7 +391,7 @@ export default function AlpinePage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "el-cajon" ? "/el-cajon" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-emerald-400 transition-colors">
@@ -517,6 +525,18 @@ export default function AlpinePage() {
               "Reliable towing and roadside assistance in Alpine San Diego. Serving Viejas Casino, Alpine Boulevard, Cleveland National Forest, and all Alpine neighborhoods 24/7. Mountain terrain specialists.",
             url: "https://www.closebytowing.com/san-diego/alpine",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Alpine",
+              addressRegion: "CA",
+              postalCode: ALPINE_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.8351,
+              longitude: -116.7664,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Alpine",

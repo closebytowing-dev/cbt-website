@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Santee ZIP codes
+const SANTEE_ZIP_CODES = ["92071", "92072"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Santee Towing | 24/7 Service | CloseBy",
+  title: "Santee Towing | 92071 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in Santee. We cover Santee Lakes, Trolley Square, Mission Gorge & SR-52/SR-125 corridors. 20-40 min East County response.",
+    "Towing in Santee 92071. Serving Santee Lakes, Trolley Square, Mission Gorge & SR-52/SR-125 corridors. 20-40 min East County response.",
   keywords:
     "towing Santee, Santee tow truck, East County towing, roadside assistance Santee, SR-52 towing, tow truck near me Santee, Trolley Square towing",
   openGraph: {
@@ -397,7 +400,7 @@ export default function SanteePage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "el-cajon" ? "/el-cajon" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-amber-300 transition-colors">

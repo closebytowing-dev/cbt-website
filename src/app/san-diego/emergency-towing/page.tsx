@@ -330,7 +330,7 @@ export default function EmergencyTowingSanDiegoPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={area.slug === "chula-vista" ? "/chula-vista" : `/san-diego/${area.slug}`}
+                href={area.slug === "chula-vista" ? "/chula-vista" : area.slug === "el-cajon" ? "/el-cajon" : `/san-diego/${area.slug}`}
                 className="group flex items-center justify-between p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-[#ffba42] hover:bg-[#ffba42]/5 transition-all"
               >
                 <span className="font-medium text-[#1e1e4a]">{area.name}</span>

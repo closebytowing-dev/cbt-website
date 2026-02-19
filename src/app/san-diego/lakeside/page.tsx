@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Lakeside ZIP codes
+const LAKESIDE_ZIP_CODES = ["92040"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Lakeside Towing | 24/7 Service | CloseBy",
+  title: "Lakeside Towing | 92040 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in Lakeside. We cover Lake Jennings, Barona Casino, Wildcat Canyon & SR-67/I-8 corridors. 20-40 min rural response.",
+    "Towing in Lakeside 92040. Serving Lake Jennings, Barona Casino, Wildcat Canyon & SR-67/I-8 corridors. 20-40 min rural response.",
   keywords:
     "towing Lakeside, Lakeside tow truck, East County towing, roadside assistance Lakeside, SR-67 towing, tow truck near me Lakeside, Barona towing",
   openGraph: {
@@ -140,7 +143,7 @@ export default function LakesidePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-emerald-200 text-sm font-medium">Serving Lakeside 24/7</span>
+                <span className="text-emerald-200 text-sm font-medium">Serving Lakeside 24/7 • ZIP: {LAKESIDE_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function LakesidePage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] bg-emerald-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/highway-aerial.webp"
                     alt="Tow truck serving Lakeside San Diego East County near Lake Jennings"
                     fill
                     className="object-cover"
@@ -208,6 +211,10 @@ export default function LakesidePage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/70 to-transparent" />
+                  {/* ZIP Code overlay */}
+                  <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5">
+                    <span className="text-white text-sm font-bold">ZIP: {LAKESIDE_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -383,7 +390,7 @@ export default function LakesidePage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "el-cajon" ? "/el-cajon" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-emerald-300 transition-colors">
@@ -517,6 +524,18 @@ export default function LakesidePage() {
               "Fast towing and roadside assistance in Lakeside San Diego. Serving Lake Jennings, Barona Casino, and all rural East County areas 24/7.",
             url: "https://www.closebytowing.com/san-diego/lakeside",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Lakeside",
+              addressRegion: "CA",
+              postalCode: LAKESIDE_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.8574,
+              longitude: -116.9222,
+            },
             areaServed: {
               "@type": "City",
               name: "Lakeside",

@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// San Carlos ZIP codes
+const SAN_CARLOS_ZIP_CODES = ["92119"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "San Carlos Towing | 24/7 | CloseBy",
+  title: "San Carlos Towing | 92119 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in San Carlos. We cover Lake Murray, Cowles Mountain, Navajo neighborhoods & I-8/SR-125 access. 20-40 min response.",
+    "Towing in San Carlos 92119. Serving Lake Murray, Cowles Mountain, Navajo neighborhoods & I-8/SR-125 access. 20-40 min response.",
   keywords:
     "towing San Carlos, San Carlos tow truck, Lake Murray towing, roadside assistance San Carlos, I-8 towing, tow truck near me San Carlos",
   openGraph: {
@@ -140,7 +143,7 @@ export default function SanCarlosPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-amber-200 text-sm font-medium">Serving San Carlos 24/7</span>
+                <span className="text-amber-200 text-sm font-medium">Serving San Carlos 24/7 • ZIP: {SAN_CARLOS_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function SanCarlosPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] bg-stone-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/highway-aerial.webp"
                     alt="Tow truck serving San Carlos San Diego near Lake Murray"
                     fill
                     className="object-cover"
@@ -208,6 +211,10 @@ export default function SanCarlosPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-amber-900/70 to-transparent" />
+                  {/* ZIP Code Overlay */}
+                  <div className="absolute bottom-4 left-4 bg-amber-600/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <span className="text-white font-bold text-lg">ZIP: {SAN_CARLOS_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -383,7 +390,7 @@ export default function SanCarlosPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "el-cajon" ? "/el-cajon" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-amber-300 transition-colors">
@@ -517,6 +524,18 @@ export default function SanCarlosPage() {
               "Fast towing and roadside assistance in San Carlos San Diego. Serving Lake Murray, Cowles Mountain, and all Navajo neighborhoods 24/7.",
             url: "https://www.closebytowing.com/san-diego/san-carlos",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "San Diego",
+              addressRegion: "CA",
+              postalCode: SAN_CARLOS_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.7973,
+              longitude: -117.0441,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "San Carlos",

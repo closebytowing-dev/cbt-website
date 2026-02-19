@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Rancho San Diego ZIP codes
+const RANCHO_SAN_DIEGO_ZIP_CODES = ["91978"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Rancho San Diego | 24/7 Service | CloseBy Towing",
+  title: "Rancho San Diego Towing | 91978 | 24/7 | CloseBy",
   description:
-    "Professional towing & roadside assistance in Rancho San Diego. Serving Rancho San Diego Towne Center, Cuyamaca College, and East County. 15-30 min response time.",
+    "Towing in Rancho San Diego 91978. Serving Rancho San Diego Towne Center, Cuyamaca College, and East County. 15-30 min response time.",
   keywords:
     "towing Rancho San Diego, Rancho San Diego tow truck, roadside assistance Rancho San Diego, tow truck near me Rancho San Diego, East County towing, Cuyamaca College towing",
   openGraph: {
@@ -140,7 +143,7 @@ export default function RanchoSanDiegoPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-amber-200 text-sm font-medium">Serving Rancho San Diego 24/7</span>
+                <span className="text-amber-200 text-sm font-medium">Serving Rancho San Diego 24/7 • ZIP: {RANCHO_SAN_DIEGO_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function RanchoSanDiegoPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-500/30">
                 <div className="aspect-[4/3] bg-amber-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/suburban-street.webp"
                     alt="Professional tow truck serving Rancho San Diego near Towne Center"
                     fill
                     className="object-cover"
@@ -208,6 +211,10 @@ export default function RanchoSanDiegoPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-amber-950/70 to-transparent" />
+                  {/* ZIP Code Overlay */}
+                  <div className="absolute bottom-4 left-4 bg-amber-600/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <span className="text-white font-bold text-lg">ZIP: {RANCHO_SAN_DIEGO_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -383,7 +390,7 @@ export default function RanchoSanDiegoPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "el-cajon" ? "/el-cajon" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-amber-400 transition-colors">
@@ -517,6 +524,18 @@ export default function RanchoSanDiegoPage() {
               "Professional towing and roadside assistance in Rancho San Diego, East County. Serving Rancho San Diego Towne Center, Cuyamaca College, Steele Canyon, and all nearby neighborhoods 24/7.",
             url: "https://www.closebytowing.com/san-diego/rancho-san-diego",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Rancho San Diego",
+              addressRegion: "CA",
+              postalCode: RANCHO_SAN_DIEGO_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.7474,
+              longitude: -116.9317,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Rancho San Diego",
