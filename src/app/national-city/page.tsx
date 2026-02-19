@@ -222,17 +222,18 @@ export default function NationalCityPage() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.1] max-w-3xl">
-            South Bay&apos;s
+            Towing
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-teal-300 to-cyan-400 mt-2">
-              Towing Headquarters
+              National City
             </span>
           </h1>
 
           <p className="mt-6 text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl">
-            Home to the legendary <span className="text-cyan-300 font-semibold">Mile of Cars</span>,{" "}
-            <span className="text-cyan-300 font-semibold">Westfield Plaza Bonita</span>, and a bustling{" "}
-            <span className="text-cyan-300 font-semibold">Harbor District</span> on San Diego Bay — National City
-            keeps our trucks rolling around the clock.
+            Need a <span className="text-cyan-300 font-semibold">tow truck in National City</span>? From the{" "}
+            <span className="text-cyan-300 font-semibold">Mile of Cars</span> to{" "}
+            <span className="text-cyan-300 font-semibold">Westfield Plaza Bonita</span> and the{" "}
+            <span className="text-cyan-300 font-semibold">Harbor District</span> on San Diego Bay — our trucks
+            are already in the South Bay, ready to roll 24/7.
           </p>
 
           {/* Glassmorphism stat cards */}
