@@ -120,7 +120,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "skyline",
     "solana-beach",
     "sorrento-valley",
-    "spring-valley",
     "tierrasanta",
     "torrey-hills",
     "university-city",
@@ -139,6 +138,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "chula-vista", priority: 0.85 },
     { path: "el-cajon", priority: 0.85 },
     { path: "national-city", priority: 0.85 },
+    { path: "spring-valley", priority: 0.85 },
   ].map((page) => ({
     url: `${base}/${page.path}`,
     lastModified,

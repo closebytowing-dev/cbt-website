@@ -74,6 +74,7 @@ const TOP_LEVEL_ROUTES: Record<string, string> = {
   "el-cajon": "/el-cajon",
   "national-city": "/national-city",
   "san-diego": "/san-diego",
+  "spring-valley": "/spring-valley",
 };
 
 /** Resolve the correct href for a neighborhood slug */

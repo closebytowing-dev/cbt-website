@@ -696,7 +696,7 @@ export default function TowingSanDiegoPage() {
             {SAN_DIEGO_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={area.slug === "chula-vista" ? "/chula-vista" : area.slug === "el-cajon" ? "/el-cajon" : area.slug === "national-city" ? "/national-city" : `/san-diego/${area.slug}`}
+                href={area.slug === "chula-vista" ? "/chula-vista" : area.slug === "el-cajon" ? "/el-cajon" : area.slug === "national-city" ? "/national-city" : area.slug === "spring-valley" ? "/spring-valley" : `/san-diego/${area.slug}`}
                 className="group flex items-center justify-between p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-[#ffba42] hover:bg-[#ffba42]/5 transition-all duration-300"
               >
                 <span className="font-medium text-[#1e1e4a] group-hover:text-[#1e1e4a]">

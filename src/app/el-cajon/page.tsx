@@ -520,7 +520,7 @@ export default function ElCajonPage() {
             {NEARBY.map((a) => (
               <Link
                 key={a.slug}
-                href={`/san-diego/${a.slug}`}
+                href={a.slug === "spring-valley" ? "/spring-valley" : `/san-diego/${a.slug}`}
                 className="group bg-stone-50 hover:bg-amber-50 rounded-xl p-5 text-center transition-all border border-stone-200 hover:border-amber-300 hover:shadow-md"
               >
                 <span className="font-bold text-stone-800 group-hover:text-amber-700 transition-colors">{a.name}</span>

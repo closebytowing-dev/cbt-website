@@ -81,7 +81,7 @@ const REGIONS = [
       { name: "La Mesa", slug: "la-mesa" },
       { name: "Santee", slug: "santee" },
       { name: "Lakeside", slug: "lakeside" },
-      { name: "Spring Valley", slug: "spring-valley" },
+      { name: "Spring Valley", slug: "spring-valley", topLevel: true },
       { name: "Lemon Grove", slug: "lemon-grove" },
       { name: "Alpine", slug: "alpine" },
       { name: "San Carlos", slug: "san-carlos" },

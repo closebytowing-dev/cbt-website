@@ -390,7 +390,7 @@ export default function SkylinePage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={area.slug === "national-city" ? "/national-city" : `/san-diego/${area.slug}`}
+                href={area.slug === "national-city" ? "/national-city" : area.slug === "spring-valley" ? "/spring-valley" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-teal-400 transition-colors">
