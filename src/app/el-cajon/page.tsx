@@ -189,17 +189,29 @@ export default function ElCajonPage() {
   return (
     <main className="bg-stone-50">
 
-      {/* ══════════ HERO — Valley Mountain Theme ══════════ */}
-      <section className="relative min-h-[75vh] flex items-end overflow-hidden bg-gradient-to-br from-[#1c1917] via-[#292524] to-[#1c1917]">
-        {/* Placeholder for hero photo — replace with real image later */}
+      {/* ══════════ HERO — Full-bleed photo with cinematic overlays ══════════ */}
+      <section className="relative min-h-[85vh] flex items-end overflow-hidden bg-[#1c1917]">
+        {/* Real El Cajon towing photo */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[url('/neighborhoods/shared/flatbed-truck-1.webp')] bg-cover bg-center opacity-30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1c1917] via-[#1c1917]/70 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1c1917]/80 to-transparent" />
+          <Image
+            src="/hero/el-cajon-towing.jpg"
+            alt="CloseBy Towing truck servicing a vehicle at an El Cajon dealership"
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+          {/* Cinematic gradient overlays */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1c1917] via-[#1c1917]/60 to-[#1c1917]/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1c1917]/90 via-[#1c1917]/40 to-transparent" />
+          {/* Warm golden tint for cohesion */}
+          <div className="absolute inset-0 bg-amber-900/15 mix-blend-multiply" />
+          {/* Vignette edges */}
+          <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(0,0,0,0.5)]" />
         </div>
 
         {/* Mountain silhouette accent */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 opacity-20">
+        <div className="absolute bottom-0 left-0 right-0 h-32 opacity-15">
           <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className="w-full h-full">
             <path d="M0,120 L0,80 L120,40 L240,65 L360,25 L480,55 L600,15 L720,50 L840,20 L960,60 L1080,30 L1200,70 L1320,35 L1440,60 L1440,120 Z" fill="#a8744f" />
           </svg>
