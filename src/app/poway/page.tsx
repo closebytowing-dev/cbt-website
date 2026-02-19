@@ -228,9 +228,9 @@ export default function PowayPage() {
           />
         </div>
 
-        {/* Deep night sky overlay — dark blue-green cinematic grade */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e1a]/95 via-[#0a0e1a]/60 to-[#0a0e1a]/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e1a] via-[#0a0e1a]/50 to-transparent" />
+        {/* Lighter overlays — photo is already dark, just add text-readability gradients */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e1a]/70 via-[#0a0e1a]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e1a]/90 via-transparent to-transparent" />
 
         {/* Cool blue ambient glow — matching EV charger light spill */}
         <div className="absolute inset-0 bg-gradient-to-tl from-blue-600/8 via-transparent to-transparent" />
@@ -265,7 +265,7 @@ export default function PowayPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 pb-32 sm:pb-40 pt-36 sm:pt-44 w-full">
           <div className="max-w-2xl">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md border border-emerald-400/25 rounded-full px-5 py-2 mb-6">
+            <div className="inline-flex items-center gap-2 bg-black/40 border border-emerald-400/25 rounded-full px-5 py-2 mb-6">
               <span className="text-emerald-300 text-lg">🌿</span>
               <span className="text-emerald-200 text-sm font-semibold tracking-wide">The City in the Country</span>
             </div>
@@ -292,7 +292,7 @@ export default function PowayPage() {
                 { value: "24/7", label: "Always On" },
                 { value: "I-15", label: "& SR-67" },
               ].map((s) => (
-                <div key={s.label} className="bg-black/40 backdrop-blur-md rounded-xl p-3 sm:p-4 text-center border border-white/10">
+                <div key={s.label} className="bg-black/40 rounded-xl p-3 sm:p-4 text-center border border-white/10">
                   <div className="text-2xl sm:text-3xl font-black text-emerald-300">{s.value}</div>
                   <div className="text-xs text-white/50 mt-1">{s.label}</div>
                 </div>
@@ -314,7 +314,7 @@ export default function PowayPage() {
                 href={`https://wa.me/${CONTACT.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/15 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all border border-white/20 backdrop-blur-md"
+                className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/15 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all border border-white/20"
               >
                 WhatsApp Us
               </a>
