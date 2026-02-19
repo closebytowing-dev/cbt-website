@@ -1,5 +1,6 @@
 
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 import Reviews from "@/components/Reviews";
@@ -183,50 +184,63 @@ export default function SpringValleyPage() {
   return (
     <main className="bg-stone-50">
 
-      {/* ══════════ HERO — Hillside canyon theme ══════════ */}
-      <section className="relative min-h-[85vh] flex items-end overflow-hidden bg-[#1a2e1a]">
-        {/* Placeholder for hero photo — gradient background */}
+      {/* ══════════ HERO — Sunlit residential neighborhood ══════════ */}
+      <section className="relative min-h-[90vh] flex items-end overflow-hidden bg-[#1a2e1a]">
+        {/* Real Spring Valley towing photo — bright daytime residential */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1a2e1a] via-[#2d4a2d] to-[#1a2e1a]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1a2e1a] via-[#1a2e1a]/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1a2e1a]/90 via-[#1a2e1a]/40 to-transparent" />
-          {/* Vignette */}
-          <div className="absolute inset-0 shadow-[inset_0_0_200px_rgba(0,0,0,0.5)]" />
+          <Image
+            src="/hero/spring-valley-towing.webp"
+            alt="CloseBy Towing truck recovering a classic Ford in a Spring Valley neighborhood"
+            fill
+            priority
+            className="object-cover object-[center_40%]"
+            sizes="100vw"
+          />
+          {/* Warm golden-hour grade — preserves the sunny California feel */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1a2e1a] via-[#1a2e1a]/50 to-amber-900/10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1a2e1a]/90 via-[#1a2e1a]/45 to-transparent" />
+          {/* Warm tint to enhance the sunlit look */}
+          <div className="absolute inset-0 bg-amber-800/10 mix-blend-multiply" />
+          {/* Soft vignette */}
+          <div className="absolute inset-0 shadow-[inset_0_0_180px_rgba(0,0,0,0.4)]" />
         </div>
 
-        {/* Canyon silhouette accent at bottom */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 100" preserveAspectRatio="none" className="w-full h-16 sm:h-24">
-            <path d="M0,60 L80,35 L160,55 L280,20 L400,45 L520,15 L640,40 L760,25 L880,50 L1000,30 L1120,48 L1240,22 L1360,42 L1440,35 L1440,100 L0,100 Z" fill="#1c1917" opacity="0.15" />
-            <path d="M0,70 C360,100 720,50 1080,80 C1260,90 1380,75 1440,70 L1440,100 L0,100 Z" fill="#faf5f0" />
+        {/* Diagonal accent — unique to Spring Valley */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-emerald-500/[0.06] to-transparent pointer-events-none" />
+
+        {/* Canyon ridgeline silhouette at bottom — unique SVG */}
+        <div className="absolute bottom-0 left-0 right-0 z-[5]">
+          <svg viewBox="0 0 1440 100" preserveAspectRatio="none" className="w-full h-20 sm:h-28">
+            <path d="M0,55 L60,40 L140,58 L240,22 L340,48 L420,18 L540,42 L660,28 L780,52 L880,20 L1000,45 L1100,25 L1200,50 L1320,30 L1440,45 L1440,100 L0,100 Z" fill="#292524" opacity="0.08" />
+            <path d="M0,75 C240,95 480,60 720,80 C960,100 1200,65 1440,80 L1440,100 L0,100 Z" fill="#faf5f0" />
           </svg>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 pb-24 pt-32 sm:pb-32 sm:pt-40 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 pb-28 pt-32 sm:pb-36 sm:pt-44 w-full">
           {/* ZIP badge */}
-          <div className="inline-flex items-center gap-2 bg-green-500/15 backdrop-blur-sm border border-green-400/30 rounded-full px-5 py-2 mb-6">
+          <div className="inline-flex items-center gap-2 bg-green-500/20 backdrop-blur-md border border-green-400/30 rounded-full px-5 py-2.5 mb-6 shadow-lg shadow-black/10">
             <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-green-200 text-sm font-medium tracking-wide">
+            <span className="text-green-100 text-sm font-semibold tracking-wide">
               91977 &bull; 91978 &bull; East County
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.1] max-w-3xl">
+          <h1 className="text-4xl sm:text-6xl lg:text-8xl font-black text-white leading-[1.05] max-w-4xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.3)]">
             Towing
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-emerald-300 to-lime-400 mt-2">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-lime-300 via-green-300 to-emerald-400 mt-1">
               Spring Valley
             </span>
           </h1>
 
-          <p className="mt-6 text-lg sm:text-xl text-stone-300 leading-relaxed max-w-2xl">
-            Need a <span className="text-green-300 font-semibold">tow truck in Spring Valley</span>? From{" "}
-            <span className="text-green-300 font-semibold">Casa de Oro</span> to{" "}
-            <span className="text-green-300 font-semibold">Dictionary Hill</span> and the{" "}
-            <span className="text-green-300 font-semibold">Sweetwater canyons</span> — our trucks handle
+          <p className="mt-7 text-lg sm:text-xl text-stone-200 leading-relaxed max-w-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
+            Need a <span className="text-lime-300 font-semibold">tow truck in Spring Valley</span>? From{" "}
+            <span className="text-lime-300 font-semibold">Casa de Oro</span> to{" "}
+            <span className="text-lime-300 font-semibold">Dictionary Hill</span> and the{" "}
+            <span className="text-lime-300 font-semibold">Sweetwater canyons</span> — our trucks handle
             the hills, the curves, and the terrain that defines this community.
           </p>
 
-          {/* Glassmorphism stat cards */}
+          {/* Glassmorphism stat cards — warm backdrop for daytime photo */}
           <div className="mt-8 flex flex-wrap gap-4">
             {[
               { value: "~20", label: "Min Response" },
@@ -235,19 +249,19 @@ export default function SpringValleyPage() {
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="bg-white/[0.08] backdrop-blur-md rounded-2xl px-6 py-4 text-center border border-white/[0.12] min-w-[100px] hover:bg-white/[0.12] transition-colors"
+                className="bg-black/25 backdrop-blur-lg rounded-2xl px-7 py-4 text-center border border-white/[0.15] min-w-[110px] hover:bg-black/30 transition-colors shadow-lg"
               >
-                <div className="text-2xl sm:text-3xl font-black text-green-300">{stat.value}</div>
-                <div className="text-xs sm:text-sm text-stone-400 font-medium">{stat.label}</div>
+                <div className="text-2xl sm:text-3xl font-black text-lime-300">{stat.value}</div>
+                <div className="text-xs sm:text-sm text-stone-300 font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
 
-          {/* CTAs */}
+          {/* CTAs — warm green with amber glow */}
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <a
               href={`tel:${CONTACT.phoneRaw}`}
-              className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-green-600/25 hover:shadow-green-600/40 transition-all hover:scale-105 relative overflow-hidden"
+              className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white px-9 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-green-700/30 hover:shadow-green-600/50 transition-all hover:scale-105 relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               <svg className="w-5 h-5 relative" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -259,14 +273,14 @@ export default function SpringValleyPage() {
               href={`https://wa.me/${CONTACT.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all border border-white/20"
+              className="inline-flex items-center justify-center gap-3 bg-white/15 backdrop-blur-md hover:bg-white/25 text-white px-9 py-4 rounded-2xl font-bold text-lg transition-all border border-white/20 shadow-lg"
             >
               WhatsApp Us
             </a>
           </div>
 
           {/* Trust line */}
-          <div className="mt-10 flex flex-wrap gap-6 text-stone-400 text-sm">
+          <div className="mt-10 flex flex-wrap gap-6 text-stone-300 text-sm drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]">
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
               Dispatch active now
