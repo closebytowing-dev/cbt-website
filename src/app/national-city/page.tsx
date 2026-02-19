@@ -184,18 +184,29 @@ export default function NationalCityPage() {
   return (
     <main className="bg-slate-50">
 
-      {/* ══════════ HERO — Harbor/waterfront theme ══════════ */}
-      <section className="relative min-h-[80vh] flex items-end overflow-hidden bg-[#0c1929]">
-        {/* Placeholder for hero photo */}
+      {/* ══════════ HERO — Nighttime action shot ══════════ */}
+      <section className="relative min-h-[85vh] flex items-end overflow-hidden bg-[#0a0e1a]">
+        {/* Real National City towing photo */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[url('/neighborhoods/shared/flatbed-truck-1.webp')] bg-cover bg-center opacity-25" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0c1929] via-[#0c1929]/65 to-[#0c1929]/30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0c1929]/90 via-[#0c1929]/40 to-transparent" />
-          <div className="absolute inset-0 bg-blue-950/10 mix-blend-multiply" />
+          <Image
+            src="/hero/national-city-towing.webp"
+            alt="CloseBy Towing truck recovering a BMW at night in National City"
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+          {/* Cinematic gradient overlays — tuned for nighttime shot */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e1a] via-[#0a0e1a]/70 to-[#0a0e1a]/25" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e1a]/95 via-[#0a0e1a]/50 to-transparent" />
+          {/* Cool blue tint for night atmosphere */}
+          <div className="absolute inset-0 bg-blue-950/20 mix-blend-multiply" />
+          {/* Vignette edges */}
+          <div className="absolute inset-0 shadow-[inset_0_0_200px_rgba(0,0,0,0.6)]" />
         </div>
 
         {/* Wave accent at bottom */}
-        <div className="absolute bottom-0 left-0 right-0">
+        <div className="absolute bottom-0 left-0 right-0 z-10">
           <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-16 sm:h-20">
             <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill="#f8fafc" />
           </svg>
@@ -233,10 +244,10 @@ export default function NationalCityPage() {
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="bg-white/8 backdrop-blur-md rounded-2xl px-6 py-4 text-center border border-white/10 min-w-[100px]"
+                className="bg-white/[0.08] backdrop-blur-md rounded-2xl px-6 py-4 text-center border border-white/[0.12] min-w-[100px] hover:bg-white/[0.12] transition-colors"
               >
                 <div className="text-2xl sm:text-3xl font-black text-cyan-300">{stat.value}</div>
-                <div className="text-xs sm:text-sm text-slate-400">{stat.label}</div>
+                <div className="text-xs sm:text-sm text-slate-400 font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -282,22 +293,23 @@ export default function NationalCityPage() {
       </div>
 
       {/* ══════════ NATIONAL CITY IDENTITY ══════════ */}
-      <section className="py-20 sm:py-28 bg-white">
-        <div className="max-w-5xl mx-auto px-4">
+      <section className="py-20 sm:py-28 bg-white relative">
+        <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="inline-block text-cyan-600 font-semibold text-sm uppercase tracking-[0.2em] mb-3">
+            <span className="inline-block text-cyan-600 font-semibold text-sm uppercase tracking-[0.25em] mb-4">
               Why National City Needs Local Towers
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
               The South Bay&apos;s{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-teal-600">
                 Automotive Capital
               </span>
             </h2>
+            <div className="mt-4 mx-auto w-20 h-1 rounded-full bg-gradient-to-r from-cyan-500 to-teal-500" />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 items-start">
-            <div className="space-y-5 text-lg text-slate-600 leading-relaxed">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div className="space-y-6 text-[17px] text-slate-600 leading-relaxed">
               <p>
                 National City packs more automotive activity per square mile than almost anywhere in San Diego County.
                 The <strong className="text-slate-800">Mile of Cars</strong> on National City Boulevard — 32 dealerships
@@ -319,10 +331,11 @@ export default function NationalCityPage() {
               </p>
             </div>
 
-            {/* Key facts card */}
-            <div className="bg-[#0c1929] rounded-3xl p-8 text-white shadow-xl">
-              <h3 className="font-bold text-lg mb-6 text-cyan-400">National City at a Glance</h3>
-              <div className="space-y-4">
+            {/* Key facts card — elevated design */}
+            <div className="bg-gradient-to-br from-[#0a0e1a] via-[#0f1b2d] to-[#0a0e1a] rounded-3xl p-8 sm:p-10 text-white shadow-2xl border border-white/[0.06] relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl" />
+              <h3 className="font-bold text-lg mb-8 text-cyan-400 relative">National City at a Glance</h3>
+              <div className="space-y-5 relative">
                 {[
                   { label: "Mile of Cars", note: "32 dealerships on one boulevard" },
                   { label: "Highland Avenue", note: "Filipino-American cultural hub" },
@@ -333,8 +346,8 @@ export default function NationalCityPage() {
                   { label: "I-5 / I-805 Merge", note: "Region's busiest interchange" },
                   { label: "Civic Center", note: "City Hall, library, police HQ" },
                 ].map((item) => (
-                  <div key={item.label} className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2.5 shrink-0" />
+                  <div key={item.label} className="flex items-start gap-3 group">
+                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-cyan-400 to-teal-400 mt-2 shrink-0 group-hover:scale-125 transition-transform" />
                     <div>
                       <span className="font-semibold text-white">{item.label}</span>
                       <span className="text-slate-400 text-sm ml-2">— {item.note}</span>
@@ -348,10 +361,10 @@ export default function NationalCityPage() {
       </section>
 
       {/* ══════════ DISTRICT-BY-DISTRICT COVERAGE ══════════ */}
-      <section className="py-20 sm:py-28 bg-slate-100">
+      <section className="py-20 sm:py-28 bg-gradient-to-b from-slate-50 to-slate-100">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="inline-block text-cyan-600 font-semibold text-sm uppercase tracking-[0.2em] mb-3">
+            <span className="inline-block text-cyan-600 font-semibold text-sm uppercase tracking-[0.25em] mb-4">
               District-by-District Coverage
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900">
@@ -360,27 +373,28 @@ export default function NationalCityPage() {
                 National City
               </span>
             </h2>
-            <p className="mt-4 text-slate-600 text-lg max-w-2xl mx-auto">
+            <p className="mt-5 text-slate-500 text-lg max-w-2xl mx-auto">
               Six dispatch zones with dedicated response times. Our drivers don&apos;t GPS their way around — they grew up here.
             </p>
+            <div className="mt-4 mx-auto w-20 h-1 rounded-full bg-gradient-to-r from-cyan-500 to-teal-500" />
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {DISTRICTS.map((d) => (
               <div
                 key={d.name}
-                className="group bg-white rounded-2xl p-7 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 hover:border-cyan-300 relative overflow-hidden"
+                className="group bg-white rounded-3xl p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-200/80 hover:border-cyan-200 relative overflow-hidden hover:-translate-y-1"
               >
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${d.color} opacity-0 group-hover:opacity-100 transition-opacity`} />
+                <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${d.color} scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-bold text-lg text-slate-900 group-hover:text-cyan-700 transition-colors">
                     {d.name}
                   </h3>
-                  <span className="bg-cyan-100 text-cyan-800 text-xs font-bold px-3 py-1 rounded-full">
+                  <span className="bg-gradient-to-r from-cyan-50 to-teal-50 text-cyan-700 text-xs font-bold px-4 py-1.5 rounded-full border border-cyan-200/60">
                     {d.eta}
                   </span>
                 </div>
-                <p className="text-slate-500 text-xs font-medium uppercase tracking-wider mb-3">{d.streets}</p>
+                <p className="text-slate-400 text-xs font-semibold uppercase tracking-widest mb-3">{d.streets}</p>
                 <p className="text-slate-600 text-sm leading-relaxed">{d.detail}</p>
               </div>
             ))}
@@ -389,34 +403,37 @@ export default function NationalCityPage() {
       </section>
 
       {/* ══════════ FREEWAY & ROAD COVERAGE ══════════ */}
-      <section className="py-20 sm:py-28 bg-[#0c1929] text-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-cyan-500 via-teal-500 to-cyan-500" />
+      <section className="py-20 sm:py-28 bg-gradient-to-br from-[#0a0e1a] via-[#0f1b2d] to-[#0a0e1a] text-white relative overflow-hidden">
+        {/* Ambient glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/[0.04] rounded-full blur-[120px]" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent" />
 
         <div className="relative max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="inline-block text-cyan-400 font-semibold text-sm uppercase tracking-[0.2em] mb-3">
+            <span className="inline-block text-cyan-400 font-semibold text-sm uppercase tracking-[0.25em] mb-4">
               Road &amp; Freeway Coverage
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black">
               I-5, SR-54 &amp;{" "}
-              <span className="text-cyan-400">Highland Ave</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-teal-300">Highland Ave</span>
             </h2>
+            <div className="mt-4 mx-auto w-20 h-1 rounded-full bg-gradient-to-r from-cyan-500 to-teal-500" />
           </div>
 
           <div className="grid lg:grid-cols-3 gap-6">
             {ROAD_NETWORK.map((r) => (
               <div
                 key={r.tag}
-                className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-cyan-500/40 transition-all"
+                className="group bg-white/[0.04] backdrop-blur-sm rounded-3xl p-8 border border-white/[0.08] hover:border-cyan-500/30 transition-all duration-500 hover:bg-white/[0.07]"
               >
-                <div className="inline-flex items-center gap-2 bg-cyan-500 text-[#0c1929] px-4 py-1.5 rounded-full font-black text-lg mb-5">
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-teal-500 text-[#0a0e1a] px-5 py-2 rounded-full font-black text-lg mb-6 shadow-lg shadow-cyan-500/20">
                   {r.tag}
                 </div>
                 <h3 className="font-bold text-lg text-white mb-3">{r.route}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-5">{r.detail}</p>
+                <p className="text-slate-400 text-sm leading-relaxed mb-6">{r.detail}</p>
                 <div className="flex flex-wrap gap-2">
                   {r.exits.map((e) => (
-                    <span key={e} className="text-xs bg-white/10 text-slate-300 px-3 py-1 rounded-full border border-white/10">
+                    <span key={e} className="text-xs bg-white/[0.08] text-slate-300 px-3 py-1.5 rounded-full border border-white/[0.08] hover:border-cyan-500/30 transition-colors">
                       {e}
                     </span>
                   ))}
@@ -431,7 +448,7 @@ export default function NationalCityPage() {
       <section className="py-20 sm:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="inline-block text-cyan-600 font-semibold text-sm uppercase tracking-[0.2em] mb-3">
+            <span className="inline-block text-cyan-600 font-semibold text-sm uppercase tracking-[0.25em] mb-4">
               What We Do in National City
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900">
@@ -440,6 +457,7 @@ export default function NationalCityPage() {
                 the South Bay
               </span>
             </h2>
+            <div className="mt-4 mx-auto w-20 h-1 rounded-full bg-gradient-to-r from-cyan-500 to-teal-500" />
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -447,13 +465,14 @@ export default function NationalCityPage() {
               <Link
                 key={s.name}
                 href={s.href}
-                className="group bg-slate-50 hover:bg-cyan-50 rounded-2xl p-7 transition-all duration-300 hover:shadow-lg border border-slate-200 hover:border-cyan-300"
+                className="group bg-gradient-to-b from-white to-slate-50/80 hover:from-cyan-50 hover:to-white rounded-3xl p-8 transition-all duration-500 hover:shadow-xl hover:shadow-cyan-100/50 border border-slate-200/80 hover:border-cyan-300 hover:-translate-y-1 relative overflow-hidden"
               >
-                <span className="text-4xl block mb-4">{s.icon}</span>
-                <h3 className="font-bold text-lg text-slate-900 group-hover:text-cyan-700 transition-colors mb-2">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-cyan-50 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <span className="text-4xl block mb-5 relative">{s.icon}</span>
+                <h3 className="font-bold text-lg text-slate-900 group-hover:text-cyan-700 transition-colors mb-3 relative">
                   {s.name}
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{s.detail}</p>
+                <p className="text-slate-600 text-sm leading-relaxed relative">{s.detail}</p>
               </Link>
             ))}
           </div>
@@ -461,7 +480,7 @@ export default function NationalCityPage() {
       </section>
 
       {/* ══════════ TRUST DIFFERENTIATORS ══════════ */}
-      <section className="py-16 bg-slate-100">
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-white to-slate-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
@@ -472,9 +491,9 @@ export default function NationalCityPage() {
               { icon: "🇺🇸", label: "Military Discount" },
               { icon: "🌙", label: "True 24/7 Service" },
             ].map((t) => (
-              <div key={t.label} className="bg-white rounded-xl p-5 text-center shadow-sm border border-slate-200">
-                <span className="text-3xl block mb-2">{t.icon}</span>
-                <span className="text-slate-700 text-sm font-semibold">{t.label}</span>
+              <div key={t.label} className="group bg-white rounded-2xl p-6 text-center shadow-sm border border-slate-200/80 hover:shadow-lg hover:border-cyan-200 transition-all duration-300 hover:-translate-y-0.5">
+                <span className="text-3xl block mb-3 group-hover:scale-110 transition-transform duration-300">{t.icon}</span>
+                <span className="text-slate-700 text-sm font-bold">{t.label}</span>
               </div>
             ))}
           </div>
@@ -482,7 +501,7 @@ export default function NationalCityPage() {
       </section>
 
       {/* ══════════ NEARBY AREAS ══════════ */}
-      <section className="py-20 sm:py-28 bg-white">
+      <section className="py-20 sm:py-28 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
@@ -491,16 +510,18 @@ export default function NationalCityPage() {
                 Nearby Areas
               </span>
             </h2>
-            <p className="mt-3 text-slate-600">Neighboring communities we reach in minutes.</p>
+            <p className="mt-3 text-slate-500">Neighboring communities we reach in minutes.</p>
+            <div className="mt-4 mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-cyan-500 to-teal-500" />
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {NEARBY.map((a) => (
               <Link
                 key={a.name}
                 href={a.href}
-                className="group bg-slate-50 hover:bg-cyan-50 rounded-xl p-5 text-center transition-all border border-slate-200 hover:border-cyan-300 hover:shadow-md"
+                className="group bg-white hover:bg-gradient-to-br hover:from-cyan-50 hover:to-white rounded-2xl p-6 text-center transition-all duration-300 border border-slate-200/80 hover:border-cyan-300 hover:shadow-lg hover:-translate-y-0.5"
               >
                 <span className="font-bold text-slate-800 group-hover:text-cyan-700 transition-colors">{a.name}</span>
+                <span className="block text-xs text-slate-400 mt-1 group-hover:text-cyan-500 transition-colors">View area &rarr;</span>
               </Link>
             ))}
           </div>
@@ -508,24 +529,30 @@ export default function NationalCityPage() {
       </section>
 
       {/* ══════════ FAQ ══════════ */}
-      <section className="py-20 sm:py-28 bg-slate-100">
+      <section className="py-20 sm:py-28 bg-white">
         <div className="max-w-3xl mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center mb-14">
+            <span className="inline-block text-cyan-600 font-semibold text-sm uppercase tracking-[0.25em] mb-4">
+              Common Questions
+            </span>
             <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
               National City Towing{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-teal-600">FAQ</span>
             </h2>
+            <div className="mt-4 mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-cyan-500 to-teal-500" />
           </div>
-          <div className="space-y-3">
+          <div className="space-y-4">
             {FAQ_DATA.map((faq, i) => (
-              <details key={i} className="group bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-slate-50 transition-colors">
+              <details key={i} className="group bg-slate-50 rounded-2xl border border-slate-200/80 overflow-hidden hover:border-cyan-200 transition-colors">
+                <summary className="flex items-center justify-between p-6 sm:p-7 cursor-pointer hover:bg-white transition-colors">
                   <h3 className="font-semibold text-slate-900 pr-8 text-left">{faq.q}</h3>
-                  <svg className="w-5 h-5 text-cyan-500 transition-transform group-open:rotate-180 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
+                  <div className="w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center shrink-0 group-open:bg-cyan-500 transition-colors">
+                    <svg className="w-4 h-4 text-cyan-600 transition-all group-open:rotate-180 group-open:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
                 </summary>
-                <div className="px-6 pb-6">
+                <div className="px-6 sm:px-7 pb-6 sm:pb-7">
                   <p className="text-slate-600 leading-relaxed">{faq.a}</p>
                 </div>
               </details>
@@ -535,21 +562,26 @@ export default function NationalCityPage() {
       </section>
 
       {/* ══════════ FINAL CTA ══════════ */}
-      <section className="py-20 sm:py-28 bg-gradient-to-br from-[#0c1929] via-[#0f2847] to-[#0c1929] text-white relative overflow-hidden">
+      <section className="py-24 sm:py-32 bg-gradient-to-br from-[#0a0e1a] via-[#0f1b2d] to-[#0a0e1a] text-white relative overflow-hidden">
+        {/* Ambient glows */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/[0.06] rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-teal-500/[0.05] rounded-full blur-[100px]" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent" />
+
         <div className="relative max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl sm:text-5xl font-black">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight">
             Stranded in{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-teal-300">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-teal-300 to-cyan-400">
               National City?
             </span>
           </h2>
-          <p className="mt-6 text-xl text-slate-300">
+          <p className="mt-6 text-xl text-slate-300 max-w-lg mx-auto">
             Mile of Cars to the Marina — one call and we&apos;re on our way.
           </p>
-          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+          <div className="mt-12 flex flex-col sm:flex-row justify-center gap-5">
             <a
               href={`tel:${CONTACT.phoneRaw}`}
-              className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all hover:scale-105 relative overflow-hidden"
+              className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all hover:scale-105 relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               <svg className="w-6 h-6 relative" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -561,13 +593,15 @@ export default function NationalCityPage() {
               href={`https://wa.me/${CONTACT.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-10 py-5 rounded-2xl font-bold text-xl transition-all border border-white/20"
+              className="inline-flex items-center justify-center gap-3 bg-white/[0.08] hover:bg-white/[0.15] text-white px-10 py-5 rounded-2xl font-bold text-xl transition-all border border-white/[0.15] hover:border-white/30 backdrop-blur-sm"
             >
               WhatsApp Us
             </a>
           </div>
-          <div className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-3 text-slate-400 text-sm">
-            <span>5.0 ★ Google Rating</span>
+          <div className="mt-14 flex flex-wrap justify-center gap-x-8 gap-y-3 text-slate-400 text-sm">
+            <span className="flex items-center gap-2">
+              <span className="text-yellow-400">&#9733;</span> 5.0 Google Rating
+            </span>
             <span>No Hidden Fees</span>
             <span>All Payment Methods</span>
             <span>Se Habla Espa&ntilde;ol</span>
