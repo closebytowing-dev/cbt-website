@@ -6,7 +6,7 @@
  *
  * 1. Go to Google Ads → Tools → Conversions → Summary
  * 2. Click each conversion action → Tag setup → "Use Google Tag Manager"
- * 3. Copy the Conversion ID (AW-XXXXXXXXXX) and Conversion Label
+ * 3. Copy the Conversion ID (AW-992120764) and Conversion Label
  *
  * Once you have the real IDs, replace the values below.
  */
@@ -14,10 +14,10 @@
 // ──────────────────────────────────────────────
 // REPLACE THESE WITH YOUR ACTUAL GOOGLE ADS IDs
 // ──────────────────────────────────────────────
-export const GADS_CONVERSION_ID = "AW-XXXXXXXXXX";
-export const GADS_PHONE_LABEL = "AW-XXXXXXXXXX/YYYYYYYYYY";
-export const GADS_BOOKING_LABEL = "AW-XXXXXXXXXX/ZZZZZZZZZZ";
-export const GADS_WHATSAPP_LABEL = "AW-XXXXXXXXXX/WWWWWWWWWW";
+export const GADS_CONVERSION_ID = "AW-992120764";
+export const GADS_PHONE_LABEL = "AW-992120764/YYYYYYYYYY";
+export const GADS_BOOKING_LABEL = "AW-992120764/ZZZZZZZZZZ";
+export const GADS_WHATSAPP_LABEL = "AW-992120764/WWWWWWWWWW";
 // ──────────────────────────────────────────────
 
 declare global {
