@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Palm City ZIP codes
+const PALM_CITY_ZIP_CODES = ["92154"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Palm City Towing | 24/7 | CloseBy",
+  title: "Palm City Towing | 92154 | 24/7 | CloseBy",
   description:
-    "Reliable towing & roadside assistance in Palm City. Serving South San Diego near Imperial Beach, Palm Avenue, and local neighborhoods. 15-30 min response available 24/7.",
+    "Towing in Palm City 92154. Serving South San Diego near Imperial Beach, Palm Avenue, and local neighborhoods. 15-30 min response available 24/7.",
   keywords:
     "towing Palm City, Palm City tow truck, Palm Avenue towing, roadside assistance Palm City, South San Diego towing, tow truck near me Palm City",
   openGraph: {
@@ -140,7 +143,7 @@ export default function PalmCityPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-lime-200 text-sm font-medium">Serving Palm City 24/7</span>
+                <span className="text-lime-200 text-sm font-medium">Serving Palm City 24/7 • ZIP: {PALM_CITY_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -201,7 +204,7 @@ export default function PalmCityPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-lime-500/30">
                 <div className="aspect-[4/3] bg-lime-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/roadside-service.webp"
                     alt="Tow truck serving Palm City San Diego near Palm Avenue"
                     fill
                     className="object-cover"
@@ -209,6 +212,10 @@ export default function PalmCityPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-lime-950/70 to-transparent" />
+                  {/* ZIP Code Overlay */}
+                  <div className="absolute bottom-4 left-4 bg-lime-600/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <span className="text-white font-bold text-lg">ZIP: {PALM_CITY_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -384,7 +391,7 @@ export default function PalmCityPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "chula-vista" ? "/chula-vista" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-lime-400 transition-colors">
@@ -518,6 +525,18 @@ export default function PalmCityPage() {
               "Reliable towing and roadside assistance in Palm City San Diego. Serving Palm Avenue, residential neighborhoods, and South San Diego communities 24/7.",
             url: "https://www.closebytowing.com/san-diego/palm-city",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "San Diego",
+              addressRegion: "CA",
+              postalCode: PALM_CITY_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.5906,
+              longitude: -117.0553,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Palm City",

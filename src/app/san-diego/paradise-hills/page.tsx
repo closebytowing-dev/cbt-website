@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Paradise Hills ZIP codes
+const PARADISE_HILLS_ZIP_CODES = ["92139"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Paradise Hills Towing | 24/7 | CloseBy",
+  title: "Paradise Hills Towing | 92139 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in Paradise Hills. We serve Paradise Valley Road, Skyline Hills, SR-54/I-805 corridors. 25-40 min response.",
+    "Towing in Paradise Hills 92139. Serving Paradise Valley Road, Skyline Hills, SR-54/I-805 corridors. 25-40 min response.",
   keywords:
     "towing Paradise Hills, Paradise Hills tow truck, Paradise Valley Road towing, roadside assistance Paradise Hills, SR-54 towing, tow truck near me Paradise Hills",
   openGraph: {
@@ -147,7 +150,7 @@ export default function ParadiseHillsPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-rose-100 text-sm font-medium">Serving Paradise Hills 24/7</span>
+                <span className="text-rose-200 text-sm font-medium">Serving Paradise Hills 24/7 • ZIP: {PARADISE_HILLS_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -208,7 +211,7 @@ export default function ParadiseHillsPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] bg-rose-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/suburban-street.webp"
                     alt="Tow truck serving Paradise Hills San Diego hilltop neighborhoods"
                     fill
                     className="object-cover"
@@ -216,6 +219,10 @@ export default function ParadiseHillsPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-rose-900/70 to-transparent" />
+                  {/* ZIP Code Overlay */}
+                  <div className="absolute bottom-4 left-4 bg-rose-600/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <span className="text-white font-bold text-lg">ZIP: {PARADISE_HILLS_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -391,7 +398,7 @@ export default function ParadiseHillsPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "chula-vista" ? "/chula-vista" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-pink-200 transition-colors">
@@ -525,6 +532,18 @@ export default function ParadiseHillsPage() {
               "Fast towing and roadside assistance in Paradise Hills San Diego. Serving hilltop neighborhoods, Paradise Valley Road, and all Paradise Hills areas 24/7.",
             url: "https://www.closebytowing.com/san-diego/paradise-hills",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "San Diego",
+              addressRegion: "CA",
+              postalCode: PARADISE_HILLS_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.6871,
+              longitude: -117.0189,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Paradise Hills",

@@ -67,7 +67,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "bonita",
     "carmel-mountain",
     "carmel-valley",
-    "chula-vista",
     "clairemont",
     "college-area",
     "coronado",
@@ -129,6 +128,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // Top-level area pages (promoted from /san-diego/)
+  const topLevelAreaPages = [
+    { path: "chula-vista", priority: 0.85 },
+  ].map((page) => ({
+    url: `${base}/${page.path}`,
+    lastModified,
+    changeFrequency: "weekly" as const,
+    priority: page.priority,
+  }));
+
   // Information pages - medium priority
   const infoPages = [
     { path: "about", priority: 0.7 },
@@ -149,6 +158,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     sanDiegoHub,
     ...sanDiegoServicePages,
     ...sanDiegoAreaPages,
+    ...topLevelAreaPages,
     ...infoPages,
   ];
 }

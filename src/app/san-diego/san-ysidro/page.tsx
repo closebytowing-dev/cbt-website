@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// San Ysidro ZIP codes
+const SAN_YSIDRO_ZIP_CODES = ["92173"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "San Ysidro Towing | 24/7 | CloseBy",
+  title: "San Ysidro Towing | 92173 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in San Ysidro. We serve the border crossing, Las Americas Premium Outlets, I-5/I-805 corridors. 25-40 min response.",
+    "Towing in San Ysidro 92173. Serving the border crossing, Las Americas Premium Outlets, I-5/I-805 corridors. 25-40 min response.",
   keywords:
     "towing San Ysidro, San Ysidro tow truck, border crossing towing, Las Americas Outlets towing, roadside assistance San Ysidro, I-5 towing, tow truck near me San Ysidro",
   openGraph: {
@@ -146,7 +149,7 @@ export default function SanYsidroPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-yellow-200 text-sm font-medium">Serving San Ysidro 24/7</span>
+                <span className="text-yellow-200 text-sm font-medium">Serving San Ysidro 24/7 • ZIP: {SAN_YSIDRO_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -207,7 +210,7 @@ export default function SanYsidroPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] bg-orange-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/highway-aerial.webp"
                     alt="Tow truck serving San Ysidro San Diego near border crossing"
                     fill
                     className="object-cover"
@@ -215,6 +218,10 @@ export default function SanYsidroPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-orange-900/70 to-transparent" />
+                  {/* ZIP Code overlay */}
+                  <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5">
+                    <span className="text-white text-sm font-bold">ZIP: {SAN_YSIDRO_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -390,7 +397,7 @@ export default function SanYsidroPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "chula-vista" ? "/chula-vista" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-yellow-300 transition-colors">
@@ -524,6 +531,18 @@ export default function SanYsidroPage() {
               "Fast towing and roadside assistance in San Ysidro San Diego. Serving the border crossing, Las Americas Outlets, and all San Ysidro neighborhoods 24/7.",
             url: "https://www.closebytowing.com/san-diego/san-ysidro",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "San Diego",
+              addressRegion: "CA",
+              postalCode: SAN_YSIDRO_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.5555,
+              longitude: -117.0461,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "San Ysidro",

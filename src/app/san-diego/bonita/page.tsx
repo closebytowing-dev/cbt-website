@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Bonita ZIP codes
+const BONITA_ZIP_CODES = ["91902"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Bonita Towing | 24/7 Service | CloseBy",
+  title: "Bonita Towing | 91902 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in Bonita. We serve Sweetwater Valley, Plaza Bonita, SR-54/I-805 corridors. 25-40 min response time.",
+    "Towing in Bonita 91902. Serving Sweetwater Valley, Plaza Bonita & SR-54/I-805 corridors. 25-40 min response time.",
   keywords:
     "towing Bonita, Bonita tow truck, Plaza Bonita towing, roadside assistance Bonita, SR-54 towing, tow truck near me Bonita, Sweetwater Valley towing",
   openGraph: {
@@ -140,13 +143,13 @@ export default function BonitaPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div>
-              {/* Location badge */}
+              {/* Location badge with ZIP codes */}
               <div className="inline-flex items-center gap-2 bg-green-500/20 border border-green-400/30 rounded-full px-4 py-1.5 mb-6">
                 <svg className="w-4 h-4 text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-green-200 text-sm font-medium">Serving Bonita 24/7</span>
+                <span className="text-green-200 text-sm font-medium">Serving Bonita 24/7 • ZIP: {BONITA_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -207,7 +210,7 @@ export default function BonitaPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] bg-emerald-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/suburban-street.webp"
                     alt="Tow truck serving Bonita San Diego near Sweetwater Valley"
                     fill
                     className="object-cover"
@@ -215,6 +218,11 @@ export default function BonitaPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/70 to-transparent" />
+                  {/* ZIP code overlay */}
+                  <div className="absolute bottom-4 left-4 bg-emerald-900/80 backdrop-blur-sm rounded-lg px-3 py-2 border border-green-400/30">
+                    <div className="text-green-200 text-xs font-medium">ZIP Codes</div>
+                    <div className="text-white font-bold">{BONITA_ZIP_CODES.join(" • ")}</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -390,7 +398,7 @@ export default function BonitaPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "chula-vista" ? "/chula-vista" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-yellow-300 transition-colors">
@@ -524,6 +532,18 @@ export default function BonitaPage() {
               "Fast towing and roadside assistance in Bonita San Diego. Serving Sweetwater Valley, Plaza Bonita, and all Bonita neighborhoods 24/7.",
             url: "https://www.closebytowing.com/san-diego/bonita",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Bonita",
+              addressRegion: "CA",
+              postalCode: BONITA_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.6579,
+              longitude: -117.0295,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Bonita",

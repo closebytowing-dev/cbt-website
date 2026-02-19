@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Nestor ZIP codes
+const NESTOR_ZIP_CODES = ["92154"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Towing in Nestor San Diego | 24/7 Service | CloseBy Towing",
+  title: "Nestor Towing | 92154 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in Nestor. Serving Palm Avenue, Nestor community, and South Bay. 15-30 min response near Imperial Beach and San Ysidro.",
+    "Towing in Nestor 92154. Serving Palm Avenue, Nestor community, and South Bay. 15-30 min response near Imperial Beach and San Ysidro.",
   keywords:
     "towing Nestor, Nestor tow truck, roadside assistance Nestor, tow truck near me Nestor, South San Diego towing, Palm Avenue towing",
   openGraph: {
@@ -140,7 +143,7 @@ export default function NestorPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-amber-200 text-sm font-medium">Serving Nestor 24/7</span>
+                <span className="text-amber-200 text-sm font-medium">Serving Nestor 24/7 • ZIP: {NESTOR_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -200,7 +203,7 @@ export default function NestorPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-500/30">
                 <div className="aspect-[4/3] bg-orange-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/suburban-street.webp"
                     alt="Tow truck serving Nestor San Diego near Palm Avenue"
                     fill
                     className="object-cover"
@@ -208,6 +211,10 @@ export default function NestorPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-orange-950/70 to-transparent" />
+                  {/* ZIP Code overlay */}
+                  <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5">
+                    <span className="text-white text-sm font-bold">ZIP: {NESTOR_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -383,7 +390,7 @@ export default function NestorPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "chula-vista" ? "/chula-vista" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-amber-400 transition-colors">
@@ -517,6 +524,18 @@ export default function NestorPage() {
               "Professional towing and roadside assistance in Nestor San Diego. Serving Palm Avenue, Nestor community, and South Bay neighborhoods 24/7. Fast and reliable service.",
             url: "https://www.closebytowing.com/san-diego/nestor",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "San Diego",
+              addressRegion: "CA",
+              postalCode: NESTOR_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.5762,
+              longitude: -117.0578,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Nestor",

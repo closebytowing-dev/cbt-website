@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 
+// Otay Mesa ZIP codes
+const OTAY_MESA_ZIP_CODES = ["92154"];
+
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Otay Mesa Towing | 24/7 | CloseBy",
+  title: "Otay Mesa Towing | 92154 | 24/7 | CloseBy",
   description:
-    "Fast towing & roadside assistance in Otay Mesa. We serve border crossing, warehouses, industrial parks, SR-905/I-805. 25-40 min response.",
+    "Towing in Otay Mesa 92154. Serving border crossing, warehouses, industrial parks, SR-905/I-805. 25-40 min response.",
   keywords:
     "towing Otay Mesa, Otay Mesa tow truck, commercial towing Otay Mesa, border crossing towing, warehouse towing, roadside assistance Otay Mesa, SR-905 towing",
   openGraph: {
@@ -151,7 +154,7 @@ export default function OtayMesaPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-blue-200 text-sm font-medium">Serving Otay Mesa 24/7</span>
+                <span className="text-blue-200 text-sm font-medium">Serving Otay Mesa 24/7 • ZIP: {OTAY_MESA_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -212,7 +215,7 @@ export default function OtayMesaPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] bg-slate-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/flatbed-truck-1.webp"
                     alt="Tow truck serving Otay Mesa San Diego industrial and warehouse areas"
                     fill
                     className="object-cover"
@@ -220,6 +223,10 @@ export default function OtayMesaPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent" />
+                  {/* ZIP Code overlay */}
+                  <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5">
+                    <span className="text-white text-sm font-bold">ZIP: {OTAY_MESA_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -395,7 +402,7 @@ export default function OtayMesaPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "chula-vista" ? "/chula-vista" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-sky-300 transition-colors">
@@ -529,6 +536,18 @@ export default function OtayMesaPage() {
               "Fast towing and roadside assistance in Otay Mesa San Diego. Serving industrial parks, warehouses, border crossing, and all Otay Mesa areas 24/7.",
             url: "https://www.closebytowing.com/san-diego/otay-mesa",
             telephone: CONTACT.phone,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "San Diego",
+              addressRegion: "CA",
+              postalCode: OTAY_MESA_ZIP_CODES[0],
+              addressCountry: "US",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 32.5597,
+              longitude: -116.9715,
+            },
             areaServed: {
               "@type": "Neighborhood",
               name: "Otay Mesa",

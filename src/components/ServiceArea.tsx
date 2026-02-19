@@ -72,6 +72,16 @@ const AREA_SLUGS: Record<string, string> = {
   "Torrey Hills": "torrey-hills",
 };
 
+// Areas with top-level routes (not under /san-diego/)
+const TOP_LEVEL_ROUTES: Record<string, string> = {
+  "chula-vista": "/chula-vista",
+};
+
+/** Resolve the correct href for a neighborhood slug */
+function areaHref(slug: string) {
+  return TOP_LEVEL_ROUTES[slug] ?? `/san-diego/${slug}`;
+}
+
 // Areas with dedicated pages for SEO linking (for the browse section)
 const LINKED_AREAS = Object.entries(AREA_SLUGS).map(([name, slug]) => ({ name, slug }));
 
@@ -288,7 +298,7 @@ export default function ServiceArea() {
                             return hasPage ? (
                               <Link
                                 key={area}
-                                href={`/san-diego/${slug}`}
+                                href={areaHref(slug)}
                                 className="flex items-center gap-1.5 text-sm text-white/80 hover:text-cyan-400 transition-colors"
                               >
                                 <svg className={`w-3 h-3 text-${data.glowColor}`} fill="currentColor" viewBox="0 0 20 20">
@@ -357,7 +367,7 @@ export default function ServiceArea() {
                 {LINKED_AREAS.map((area) => (
                   <Link
                     key={area.slug}
-                    href={`/san-diego/${area.slug}`}
+                    href={areaHref(area.slug)}
                     className="text-sm text-white/70 hover:text-cyan-400 transition-colors py-1.5 px-2 rounded-lg hover:bg-white/5"
                   >
                     {area.name}

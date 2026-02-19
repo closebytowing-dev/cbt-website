@@ -9,7 +9,7 @@ const IB_ZIP_CODES = ["91932"];
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Imperial Beach Towing | 24/7 | CloseBy",
+  title: "Imperial Beach Towing | 91932 | 24/7 | CloseBy",
   description:
     "Towing in Imperial Beach 91932. From the IB Pier to Border Field State Park, the Silver Strand to Palm Avenue. California's most southwesterly beach town. 25-40 min.",
   keywords:
@@ -150,7 +150,7 @@ export default function ImperialBeachPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-orange-100 text-sm font-medium">Serving Imperial Beach 24/7</span>
+                <span className="text-orange-100 text-sm font-medium">Serving Imperial Beach 24/7 • ZIP: {IB_ZIP_CODES.join(", ")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -211,7 +211,7 @@ export default function ImperialBeachPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/3] bg-orange-900/50 relative">
                   <Image
-                    src="/hero/home-hero.webp"
+                    src="/neighborhoods/shared/city-night-road.webp"
                     alt="Tow truck serving Imperial Beach San Diego near the pier and beachfront"
                     fill
                     className="object-cover"
@@ -219,6 +219,10 @@ export default function ImperialBeachPage() {
                     sizes="50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-orange-900/70 to-transparent" />
+                  {/* ZIP Code Overlay */}
+                  <div className="absolute bottom-4 left-4 bg-orange-600/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <span className="text-white font-bold text-lg">ZIP: {IB_ZIP_CODES.join(", ")}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -402,7 +406,7 @@ export default function ImperialBeachPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={area.slug === "chula-vista" ? "/chula-vista" : `/san-diego/${area.slug}`}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-orange-200 transition-colors">
