@@ -39,6 +39,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // San Diego hub page - high priority
   const sanDiegoHub = {
+    url: `${base}/san-diego`,
+    lastModified,
+    changeFrequency: "weekly" as const,
+    priority: 0.9,
+  };
+
+  // San Diego towing page
+  const sanDiegoTowing = {
     url: `${base}/san-diego/towing`,
     lastModified,
     changeFrequency: "weekly" as const,
@@ -156,6 +164,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     servicesLanding,
     ...servicePages,
     sanDiegoHub,
+    sanDiegoTowing,
     ...sanDiegoServicePages,
     ...sanDiegoAreaPages,
     ...topLevelAreaPages,

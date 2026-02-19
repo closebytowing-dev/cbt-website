@@ -354,7 +354,7 @@ export default function ServiceArea() {
                   Browse by Area
                 </h3>
                 <Link
-                  href="/san-diego/towing"
+                  href="/san-diego"
                   className="text-cyan-400 hover:text-cyan-300 text-sm font-medium transition-colors flex items-center gap-1"
                 >
                   View All San Diego
