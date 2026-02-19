@@ -5,76 +5,73 @@ import { useState, useEffect } from "react";
 
 // Map of area names to their slugs (areas with dedicated pages)
 const AREA_SLUGS: Record<string, string> = {
-  // Downtown & Beaches
-  "Pacific Beach": "pacific-beach",
-  "La Jolla": "la-jolla",
-  "Mission Beach": "mission-beach",
-  "Mission Bay": "mission-bay",
-  "Ocean Beach": "ocean-beach",
-  "Point Loma": "point-loma",
-  "Coronado": "coronado",
-  "Del Mar": "del-mar",
-  "Solana Beach": "solana-beach",
-  "Encinitas": "encinitas",
-  // Central San Diego
-  "Downtown": "downtown",
-  "Mission Valley": "mission-valley",
-  "Hillcrest": "hillcrest",
-  "Bankers Hill": "bankers-hill",
-  "Mission Hills": "mission-hills",
-  "Kearny Mesa": "kearny-mesa",
-  "Clairemont": "clairemont",
-  "University City": "university-city",
-  "University Heights": "university-heights",
-  "North Park": "north-park",
-  "Normal Heights": "normal-heights",
-  "Linda Vista": "linda-vista",
-  "Serra Mesa": "serra-mesa",
-  // East County
-  "El Cajon": "el-cajon",
-  "La Mesa": "la-mesa",
-  "Spring Valley": "spring-valley",
-  "Santee": "santee",
-  "Lakeside": "lakeside",
-  "Alpine": "alpine",
-  "Lemon Grove": "lemon-grove",
-  "San Carlos": "san-carlos",
+  "4S Ranch": "4s-ranch",
   "Allied Gardens": "allied-gardens",
-  "Del Cerro": "del-cerro",
-  "College Area": "college-area",
-  "Rancho San Diego": "rancho-san-diego",
-  // South Bay
-  "Chula Vista": "chula-vista",
-  "National City": "national-city",
-  "San Ysidro": "san-ysidro",
+  "Alpine": "alpine",
+  "Bankers Hill": "bankers-hill",
   "Bonita": "bonita",
-  "Imperial Beach": "imperial-beach",
-  "Paradise Hills": "paradise-hills",
-  "Otay Mesa": "otay-mesa",
-  "Lincoln Park": "lincoln-park",
-  "Logan Heights": "logan-heights",
-  "Skyline": "skyline",
-  "Palm City": "palm-city",
-  "Nestor": "nestor",
-  // North County
-  "Mira Mesa": "mira-mesa",
-  "Poway": "poway",
-  "Scripps Ranch": "scripps-ranch",
-  "Tierrasanta": "tierrasanta",
-  "Rancho Bernardo": "rancho-bernardo",
   "Carmel Mountain": "carmel-mountain",
   "Carmel Valley": "carmel-valley",
-  "Sabre Springs": "sabre-springs",
+  "Chula Vista": "chula-vista",
+  "Clairemont": "clairemont",
+  "College Area": "college-area",
+  "Coronado": "coronado",
+  "Del Cerro": "del-cerro",
+  "Del Mar": "del-mar",
+  "Downtown": "downtown",
+  "El Cajon": "el-cajon",
+  "Encinitas": "encinitas",
+  "Hillcrest": "hillcrest",
+  "Imperial Beach": "imperial-beach",
+  "Kearny Mesa": "kearny-mesa",
+  "La Jolla": "la-jolla",
+  "La Mesa": "la-mesa",
+  "Lakeside": "lakeside",
+  "Lemon Grove": "lemon-grove",
+  "Lincoln Park": "lincoln-park",
+  "Linda Vista": "linda-vista",
+  "Logan Heights": "logan-heights",
+  "Mira Mesa": "mira-mesa",
+  "Mission Bay": "mission-bay",
+  "Mission Beach": "mission-beach",
+  "Mission Hills": "mission-hills",
+  "Mission Valley": "mission-valley",
+  "National City": "national-city",
+  "Nestor": "nestor",
+  "Normal Heights": "normal-heights",
+  "North Park": "north-park",
+  "Ocean Beach": "ocean-beach",
+  "Otay Mesa": "otay-mesa",
+  "Pacific Beach": "pacific-beach",
+  "Palm City": "palm-city",
+  "Paradise Hills": "paradise-hills",
+  "Point Loma": "point-loma",
+  "Poway": "poway",
+  "Rancho Bernardo": "rancho-bernardo",
   "Rancho Peñasquitos": "rancho-penasquitos",
-  "4S Ranch": "4s-ranch",
+  "Rancho San Diego": "rancho-san-diego",
   "Rancho Santa Fe": "rancho-santa-fe",
+  "Sabre Springs": "sabre-springs",
+  "San Carlos": "san-carlos",
+  "San Diego": "san-diego",
+  "San Ysidro": "san-ysidro",
+  "Santee": "santee",
+  "Scripps Ranch": "scripps-ranch",
+  "Serra Mesa": "serra-mesa",
+  "Skyline": "skyline",
+  "Solana Beach": "solana-beach",
   "Sorrento Valley": "sorrento-valley",
+  "Spring Valley": "spring-valley",
+  "Tierrasanta": "tierrasanta",
   "Torrey Hills": "torrey-hills",
+  "University City": "university-city",
+  "University Heights": "university-heights",
 };
 
 // Areas with top-level routes (not under /san-diego/)
 const TOP_LEVEL_ROUTES: Record<string, string> = {
   "chula-vista": "/chula-vista",
+  "san-diego": "/san-diego",
 };
 
 /** Resolve the correct href for a neighborhood slug */
@@ -82,8 +79,10 @@ function areaHref(slug: string) {
   return TOP_LEVEL_ROUTES[slug] ?? `/san-diego/${slug}`;
 }
 
-// Areas with dedicated pages for SEO linking (for the browse section)
-const LINKED_AREAS = Object.entries(AREA_SLUGS).map(([name, slug]) => ({ name, slug }));
+// Areas with dedicated pages for SEO linking (for the browse section) — sorted A-Z
+const LINKED_AREAS = Object.entries(AREA_SLUGS)
+  .map(([name, slug]) => ({ name, slug }))
+  .sort((a, b) => a.name.localeCompare(b.name));
 
 export default function ServiceArea() {
   const [activeRegion, setActiveRegion] = useState<string | null>(null);
