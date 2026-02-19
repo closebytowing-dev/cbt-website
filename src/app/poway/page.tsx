@@ -339,50 +339,70 @@ export default function PowayPage() {
         <Reviews />
       </div>
 
-      {/* ══════════ POWAY IDENTITY ══════════ */}
+      {/* ══════════ WHY YOU NEED A TOW IN POWAY ══════════ */}
       <section className="py-20 sm:py-28 bg-white relative">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <span className="inline-block text-emerald-700 font-semibold text-sm uppercase tracking-[0.25em] mb-4">
-              North County&apos;s Country Escape
+              Common Towing Situations
             </span>
             <h2 className="text-4xl sm:text-5xl font-black text-slate-900">
-              Why Poway Trusts{" "}
+              Why Poway Drivers Call{" "}
               <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">CloseBy</span>
             </h2>
             <p className="mt-6 text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              Poway isn&apos;t just another suburb — it&apos;s 39 square miles of rolling hills, horse trails, oak
-              woodlands, and a fiercely independent community of 50,000 that chose to stay &quot;The City in the
-              Country.&quot; The same terrain that makes Poway beautiful makes it challenging for towing. Steep grades
-              near Twin Peaks, dirt ranch driveways, narrow lake access roads, and the winding SR-67 corridor demand a
-              towing company with local expertise. That&apos;s us.
+              From overheated engines on SR-67&apos;s steep grades to fender-benders along Poway Road during rush hour,
+              breakdowns don&apos;t wait for a convenient time. Dead batteries at Poway Town Center, flat tires on the
+              way to Lake Poway, or vehicles stuck on steep ranch driveways — these are the calls we handle every day.
+              CloseBy Towing knows Poway&apos;s roads inside and out, and we respond fast.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                stat: "50,000+",
-                label: "Residents Served",
-                detail: "From Poway Road shopping to Blue Sky trailheads",
+                icon: (
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                  </svg>
+                ),
+                title: "SR-67 Breakdowns",
+                desc: "Steep grades and winding curves cause overheating and mechanical failures — especially during summer. We patrol this corridor daily.",
               },
               {
-                stat: "39 sq mi",
-                label: "City Coverage",
-                detail: "The largest city by area in inland North County",
+                icon: (
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0H21M3.375 14.25h17.25M3.375 14.25V6.75A1.125 1.125 0 0 1 4.5 5.625h7.5" />
+                  </svg>
+                ),
+                title: "Poway Road Accidents",
+                desc: "Poway Road handles heavy commuter traffic between I-15 and SR-67. Collisions near Community Park and Town Center keep us busy.",
               },
               {
-                stat: "92064",
-                label: "ZIP Code",
-                detail: "Complete coverage across all of Poway",
+                icon: (
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 10.5h.375c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125H21M3.75 18h15A2.25 2.25 0 0 0 21 15.75v-6a2.25 2.25 0 0 0-2.25-2.25h-15A2.25 2.25 0 0 0 1.5 9.75v6A2.25 2.25 0 0 0 3.75 18Z" />
+                  </svg>
+                ),
+                title: "Dead Batteries",
+                desc: "Left your lights on at Poway Town Center or Old Poway Park? We provide fast jump starts — or a tow if the battery is beyond help.",
+              },
+              {
+                icon: (
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21" />
+                  </svg>
+                ),
+                title: "Steep Ranch Driveways",
+                desc: "Poway's rural properties have steep, unpaved driveways. Vehicles slide, get stuck, or lose traction — our winch-out service handles it.",
               },
             ].map((item) => (
-              <div key={item.label} className="text-center p-8 rounded-2xl bg-gradient-to-b from-emerald-50 to-white border border-emerald-100">
-                <div className="text-4xl sm:text-5xl font-black bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                  {item.stat}
+              <div key={item.title} className="p-6 rounded-2xl bg-gradient-to-b from-emerald-50 to-white border border-emerald-100 text-center">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-emerald-100 text-emerald-700 mb-4">
+                  {item.icon}
                 </div>
-                <div className="mt-2 font-bold text-slate-900">{item.label}</div>
-                <p className="mt-2 text-sm text-slate-500">{item.detail}</p>
+                <h3 className="font-bold text-slate-900 text-lg">{item.title}</h3>
+                <p className="mt-2 text-sm text-slate-500 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
