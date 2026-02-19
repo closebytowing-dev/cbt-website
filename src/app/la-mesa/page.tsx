@@ -1,5 +1,6 @@
 
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 import Reviews from "@/components/Reviews";
@@ -213,83 +214,86 @@ export default function LaMesaPage() {
   return (
     <main className="bg-white">
 
-      {/* ══════════ HERO — Jewel of the Hills ══════════ */}
-      <section className="relative min-h-[80vh] flex items-center overflow-hidden">
-        {/* Deep amethyst/jewel gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1a1040] via-[#2d1854] to-[#1e0e3a]" />
-
-        {/* Warm gold radial glow */}
+      {/* ══════════ HERO — Golden-Hour Cinematic Photo ══════════ */}
+      <section className="relative min-h-[85vh] flex items-end overflow-hidden bg-[#1a1040]">
+        {/* Real La Mesa towing photo — dramatic golden-hour backlit shot */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[120px]" />
-          <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-violet-400/8 rounded-full blur-[100px]" />
+          <Image
+            src="/hero/la-mesa-towing.webp"
+            alt="CloseBy Towing truck towing a vehicle in La Mesa during golden hour"
+            fill
+            priority
+            className="object-cover object-[center_30%]"
+            sizes="100vw"
+            style={{ filter: "saturate(1.15) contrast(1.05)" }}
+          />
         </div>
 
-        {/* Jewel facet pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.04]" style={{
+        {/* Cinematic amber vignette — warm golden-hour enhancement */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1a1040]/90 via-[#1a1040]/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1040] via-[#1a1040]/40 to-transparent" />
+
+        {/* Diagonal amber light-beam from top-right (sun direction) */}
+        <div className="absolute inset-0 bg-gradient-to-bl from-amber-500/15 via-transparent to-transparent" />
+
+        {/* Subtle warm grain overlay */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='none' stroke='%23d4a543' stroke-width='0.5'/%3E%3C/svg%3E")`,
         }} />
 
-        {/* Rolling hills silhouette */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 200" preserveAspectRatio="none" className="w-full h-32 sm:h-44">
-            <defs>
-              <linearGradient id="hillGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#2d1854" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="#1a1040" stopOpacity="0.9" />
-              </linearGradient>
-            </defs>
-            {/* Back hills (lighter) */}
-            <path d="M0,140 C120,80 240,110 360,90 C480,70 540,100 660,85 C780,70 840,95 960,80 C1080,65 1200,100 1320,75 C1380,65 1420,85 1440,80 L1440,200 L0,200Z" fill="url(#hillGrad)" opacity="0.5" />
-            {/* Front hills (darker) */}
-            <path d="M0,160 C160,120 280,150 400,130 C520,110 600,140 720,125 C840,110 920,135 1040,120 C1160,105 1280,140 1400,115 L1440,110 L1440,200 L0,200Z" fill="#1a1040" opacity="0.7" />
-            {/* Foreground */}
-            <path d="M0,175 C200,150 350,170 500,155 C650,140 750,165 900,150 C1050,135 1150,160 1300,145 C1380,138 1420,150 1440,145 L1440,200 L0,200Z" fill="white" />
+        {/* Geometric diamond-cut bottom edge — faceted like a jewel */}
+        <div className="absolute bottom-0 left-0 right-0 z-20">
+          <svg viewBox="0 0 1440 100" preserveAspectRatio="none" className="w-full h-16 sm:h-24">
+            {/* Back facet layer */}
+            <path d="M0,100 L0,70 L180,40 L360,65 L540,30 L720,55 L900,25 L1080,50 L1260,20 L1440,45 L1440,100Z" fill="white" opacity="0.15" />
+            {/* Front facet layer — sharp geometric cuts */}
+            <path d="M0,100 L0,80 L120,55 L240,75 L360,45 L480,70 L600,40 L720,65 L840,35 L960,60 L1080,30 L1200,55 L1320,25 L1440,50 L1440,100Z" fill="white" />
           </svg>
         </div>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 py-20 sm:py-28 w-full">
-          <div className="max-w-3xl">
+        {/* Content — positioned at bottom-left */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 pb-28 sm:pb-36 pt-32 sm:pt-40 w-full">
+          <div className="max-w-2xl">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-amber-500/15 border border-amber-400/25 rounded-full px-5 py-2 mb-8 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 bg-black/30 backdrop-blur-md border border-amber-400/30 rounded-full px-5 py-2 mb-6">
               <span className="text-amber-300 text-lg">💎</span>
               <span className="text-amber-200 text-sm font-semibold tracking-wide">The Jewel of the Hills</span>
             </div>
 
-            {/* H1 */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tight">
+            {/* H1 — extra-large with dramatic drop shadow for photo legibility */}
+            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
               <span className="text-white">Towing</span>
               <br />
-              <span className="bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent drop-shadow-none" style={{ WebkitTextStroke: "0.5px rgba(212,165,67,0.3)" }}>
                 La Mesa
               </span>
             </h1>
 
-            <p className="mt-6 text-xl sm:text-2xl text-purple-100/80 leading-relaxed max-w-2xl">
+            <p className="mt-5 text-lg sm:text-xl text-white/85 leading-relaxed max-w-xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
               Your trusted <span className="text-amber-300 font-semibold">tow truck in La Mesa</span> — covering
               Downtown Village, Grossmont Center, Lake Murray &amp; the I-8 corridor with{" "}
               <span className="text-amber-300 font-semibold">20-minute average response</span>.
             </p>
 
-            {/* Stats */}
-            <div className="mt-10 grid grid-cols-3 gap-4 max-w-lg">
+            {/* Stats — glass-morphism cards over the photo */}
+            <div className="mt-8 grid grid-cols-3 gap-3 max-w-md">
               {[
                 { value: "20 min", label: "Avg Response" },
                 { value: "24/7", label: "Always On" },
                 { value: "I-8", label: "Corridor" },
               ].map((s) => (
-                <div key={s.label} className="bg-white/5 backdrop-blur-sm rounded-xl p-4 text-center border border-white/10">
+                <div key={s.label} className="bg-black/30 backdrop-blur-md rounded-xl p-3 sm:p-4 text-center border border-white/15">
                   <div className="text-2xl sm:text-3xl font-black text-amber-300">{s.value}</div>
-                  <div className="text-xs text-purple-200/70 mt-1">{s.label}</div>
+                  <div className="text-xs text-white/60 mt-1">{s.label}</div>
                 </div>
               ))}
             </div>
 
             {/* CTAs */}
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <a
                 href={`tel:${CONTACT.phoneRaw}`}
-                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-[#1a1040] px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-amber-500/25"
+                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-[#1a1040] px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-amber-500/30"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -300,14 +304,14 @@ export default function LaMesaPage() {
                 href={`https://wa.me/${CONTACT.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/15 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all border border-white/20 backdrop-blur-sm"
+                className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/15 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all border border-white/20 backdrop-blur-md"
               >
                 WhatsApp Us
               </a>
             </div>
 
             {/* Trust line */}
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-purple-200/60">
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/60">
               <span className="flex items-center gap-1.5">
                 <svg className="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
                 5.0 Stars
