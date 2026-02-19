@@ -195,7 +195,7 @@ export default function ElCajonPage() {
         {/* Real El Cajon towing photo */}
         <div className="absolute inset-0">
           <Image
-            src="/hero/el-cajon-towing.jpg"
+            src="/hero/el-cajon-towing.webp"
             alt="CloseBy Towing truck servicing a vehicle at an El Cajon dealership"
             fill
             priority

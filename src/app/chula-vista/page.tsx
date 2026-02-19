@@ -199,113 +199,103 @@ const FAQ_DATA = [
 export default function ChulaVistaPage() {
   return (
     <main className="bg-white">
-      {/* ── HERO ── */}
-      <section className="relative bg-gradient-to-br from-amber-900 via-orange-900 to-yellow-900 text-white overflow-hidden">
-        {/* Warm radial glow */}
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage:
-              "radial-gradient(ellipse at 70% 30%, rgba(255,186,66,0.25) 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(255,138,0,0.15) 0%, transparent 50%)",
-          }}
-        />
-        {/* Subtle grain */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url('/noise.png')", backgroundRepeat: "repeat" }} />
+      {/* ── HERO — Full-bleed sunset photo ── */}
+      <section className="relative min-h-[85vh] flex items-end overflow-hidden bg-[#1a0e05]">
+        {/* Real Chula Vista towing photo — sunset shot */}
+        <div className="absolute inset-0">
+          <Image
+            src="/hero/chula-vista-towing.webp"
+            alt="CloseBy Towing truck servicing a vehicle in Chula Vista at sunset"
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+          {/* Cinematic gradient overlays */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1a0e05] via-[#1a0e05]/55 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1a0e05]/85 via-[#1a0e05]/35 to-transparent" />
+          {/* Warm sunset tint to enhance the golden-hour sky */}
+          <div className="absolute inset-0 bg-orange-950/10 mix-blend-multiply" />
+          {/* Vignette */}
+          <div className="absolute inset-0 shadow-[inset_0_0_180px_rgba(0,0,0,0.5)]" />
+        </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 py-16 sm:py-24">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left — Copy */}
-            <div>
-              <div className="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-400/30 rounded-full px-4 py-1.5 mb-6">
-                <svg className="w-4 h-4 text-amber-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                </svg>
-                <span className="text-amber-200 text-sm font-medium">
-                  Serving Chula Vista 24/7 &bull; ZIP: {ZIP_CODES.slice(0, 3).join(", ")}
-                </span>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 pb-16 pt-32 sm:pb-24 sm:pt-40 w-full">
+          {/* ZIP badge */}
+          <div className="inline-flex items-center gap-2 bg-amber-500/20 backdrop-blur-sm border border-amber-400/30 rounded-full px-5 py-2 mb-6">
+            <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+            <span className="text-amber-200 text-sm font-medium tracking-wide">
+              Serving Chula Vista 24/7 &bull; {ZIP_CODES.slice(0, 3).join(" &bull; ")}
+            </span>
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.1] max-w-3xl">
+            Tow Truck Service
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-300 to-amber-400 mt-2">
+              in Chula Vista
+            </span>
+          </h1>
+
+          <p className="mt-6 text-lg sm:text-xl text-amber-100/90 leading-relaxed max-w-2xl">
+            San Diego County&apos;s second-largest city deserves fast, reliable towing. From{" "}
+            <span className="text-amber-300 font-semibold">Eastlake</span> to the{" "}
+            <span className="text-amber-300 font-semibold">Bayfront</span>, our drivers are stationed
+            throughout the South Bay for{" "}
+            <span className="text-amber-300 font-semibold">20-minute response</span>.
+          </p>
+
+          {/* Glassmorphism stat cards */}
+          <div className="mt-8 flex flex-wrap gap-4">
+            {[
+              { value: "~20", label: "Min Response" },
+              { value: "24/7", label: "Available" },
+              { value: "$95", label: "Starting At" },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className="bg-white/10 backdrop-blur-md rounded-2xl px-6 py-4 text-center border border-white/15 min-w-[100px]"
+              >
+                <div className="text-2xl sm:text-3xl font-black text-amber-300">{stat.value}</div>
+                <div className="text-xs sm:text-sm text-amber-100/70">{stat.label}</div>
               </div>
+            ))}
+          </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                Tow Truck Service
-                <span className="block text-amber-300 mt-2">in Chula Vista</span>
-              </h1>
+          {/* CTAs */}
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <a
+              href={`tel:${CONTACT.phoneRaw}`}
+              className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-amber-500/25 hover:shadow-amber-500/40 transition-all hover:scale-105 relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+              <svg className="w-5 h-5 relative" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <span className="relative">Call: {CONTACT.phone}</span>
+            </a>
+            <a
+              href={`https://wa.me/${CONTACT.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all border border-white/20"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.556 4.124 1.521 5.86L0 24l6.335-1.652A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.99 0-3.87-.528-5.49-1.45l-.394-.234-3.758.98.998-3.648-.257-.408A9.78 9.78 0 012.18 12c0-5.422 4.398-9.82 9.82-9.82 5.422 0 9.82 4.398 9.82 9.82 0 5.422-4.398 9.82-9.82 9.82z" />
+              </svg>
+              WhatsApp Us
+            </a>
+          </div>
 
-              <p className="mt-6 text-xl text-amber-100 leading-relaxed max-w-xl">
-                San Diego County&apos;s second-largest city deserves fast, reliable towing. From{" "}
-                <span className="text-amber-300 font-semibold">Eastlake</span> to the{" "}
-                <span className="text-amber-300 font-semibold">Bayfront</span>, our drivers are stationed
-                throughout the South Bay for{" "}
-                <span className="text-amber-300 font-semibold">20-minute response</span>.
-              </p>
-
-              {/* Quick stats */}
-              <div className="mt-8 grid grid-cols-3 gap-4">
-                <div className="bg-white/10 rounded-xl p-4 text-center border border-white/20 backdrop-blur-sm">
-                  <div className="text-2xl font-bold text-amber-300">~20</div>
-                  <div className="text-sm text-amber-100">Min Response</div>
-                </div>
-                <div className="bg-white/10 rounded-xl p-4 text-center border border-white/20 backdrop-blur-sm">
-                  <div className="text-2xl font-bold text-amber-300">24/7</div>
-                  <div className="text-sm text-amber-100">Available</div>
-                </div>
-                <div className="bg-white/10 rounded-xl p-4 text-center border border-white/20 backdrop-blur-sm">
-                  <div className="text-2xl font-bold text-amber-300">$95</div>
-                  <div className="text-sm text-amber-100">Starting At</div>
-                </div>
-              </div>
-
-              {/* CTAs */}
-              <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                <a
-                  href={`tel:${CONTACT.phoneRaw}`}
-                  className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-amber-950 px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-amber-500/25"
-                >
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  Call: {CONTACT.phone}
-                </a>
-                <a
-                  href={`https://wa.me/${CONTACT.whatsapp}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all border border-white/30"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-                    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.556 4.124 1.521 5.86L0 24l6.335-1.652A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.99 0-3.87-.528-5.49-1.45l-.394-.234-3.758.98.998-3.648-.257-.408A9.78 9.78 0 012.18 12c0-5.422 4.398-9.82 9.82-9.82 5.422 0 9.82 4.398 9.82 9.82 0 5.422-4.398 9.82-9.82 9.82z" />
-                  </svg>
-                  WhatsApp Us
-                </a>
-              </div>
-            </div>
-
-            {/* Right — Hero Image */}
-            <div className="relative hidden lg:block">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-                <div className="aspect-[4/3] relative">
-                  <Image
-                    src="/neighborhoods/shared/highway-aerial.webp"
-                    alt="Tow truck service on Chula Vista freeway"
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-amber-900/70 to-transparent" />
-                  <div className="absolute bottom-4 left-4 flex gap-2">
-                    {ZIP_CODES.slice(0, 3).map((zip) => (
-                      <span
-                        key={zip}
-                        className="bg-amber-600/90 backdrop-blur-sm px-3 py-1.5 rounded-lg text-white font-bold text-sm"
-                      >
-                        {zip}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* Trust strip */}
+          <div className="mt-10 flex flex-wrap gap-6 text-amber-200/60 text-sm">
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
+              Dispatch active now
+            </span>
+            <span>Licensed &amp; Insured</span>
+            <span>Se Habla Espa&ntilde;ol</span>
+            <span>Military Discount</span>
           </div>
         </div>
       </section>
