@@ -15,9 +15,9 @@
 // REPLACE THESE WITH YOUR ACTUAL GOOGLE ADS IDs
 // ──────────────────────────────────────────────
 export const GADS_CONVERSION_ID = "AW-992120764";
-export const GADS_PHONE_LABEL = "AW-992120764/YYYYYYYYYY";
+export const GADS_PHONE_LABEL = "AW-992120764/-2EkCNgAg4sBELy6ikhD";
 export const GADS_BOOKING_LABEL = "AW-992120764/ZZZZZZZZZZ";
-export const GADS_WHATSAPP_LABEL = "AW-992120764/WWWWWWWWWW";
+export const GADS_WHATSAPP_LABEL = "AW-992120764/KphOCNTFgfsbELyfitkD";
 // ──────────────────────────────────────────────
 
 declare global {
