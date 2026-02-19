@@ -304,114 +304,117 @@ export default function SanDiegoPage() {
 
   return (
     <main className="bg-white">
-      {/* ── HERO ── */}
-      <section className="relative bg-[#0a1628] text-white overflow-hidden">
-        {/* Layered gradients */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628] via-[#0f2847] to-[#1a3a5c]" />
-          <div
-            className="absolute inset-0 opacity-20"
-            style={{
-              backgroundImage:
-                "radial-gradient(ellipse at 30% 20%, rgba(56,189,248,0.2) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(255,186,66,0.15) 0%, transparent 50%)",
-            }}
-          />
+      {/* ── HERO — Full-bleed photo with overlay ── */}
+      <section className="relative min-h-[85vh] lg:min-h-[90vh] flex items-end text-white overflow-hidden">
+        {/* Background image */}
+        <Image
+          src="/hero/san-diego-flatbed.png"
+          alt="CloseBy Towing flatbed truck with vehicle loaded, San Diego skyline at golden hour"
+          fill
+          className="object-cover object-[center_60%]"
+          priority
+          sizes="100vw"
+          quality={90}
+        />
+
+        {/* Cinematic overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a2e] via-[#0a0a2e]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a2e]/80 via-transparent to-transparent" />
+        {/* Warm golden-hour color tint */}
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/10 via-transparent to-cyan-900/10" />
+
+        {/* Floating stat cards — desktop only */}
+        <div className="absolute top-28 right-8 xl:right-16 hidden lg:flex flex-col gap-3 z-10">
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-4 text-center shadow-2xl">
+            <div className="text-3xl font-bold text-[#ffba42]">{totalNeighborhoods}+</div>
+            <div className="text-xs text-white/70 font-medium mt-0.5">Neighborhoods</div>
+          </div>
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-4 text-center shadow-2xl">
+            <div className="text-3xl font-bold text-cyan-400">24/7</div>
+            <div className="text-xs text-white/70 font-medium mt-0.5">Always On</div>
+          </div>
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-4 text-center shadow-2xl">
+            <div className="text-3xl font-bold text-emerald-400">~20</div>
+            <div className="text-xs text-white/70 font-medium mt-0.5">Min Response</div>
+          </div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 py-20 sm:py-28">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left */}
-            <div>
-              <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
-                <svg className="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span className="text-white/80 text-sm font-medium">
-                  {totalNeighborhoods}+ Neighborhoods &bull; All of San Diego County
-                </span>
-              </div>
-
-              <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold leading-[1.1]">
-                Tow Truck Service
-                <span className="block bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mt-2">
-                  Across San Diego County
-                </span>
-              </h1>
-
-              <p className="mt-6 text-xl text-blue-100/80 leading-relaxed max-w-xl">
-                One call covers every corner of San Diego — from the{" "}
-                <span className="text-white font-medium">Oceanside coast</span> to the{" "}
-                <span className="text-white font-medium">Mexican border</span>, from{" "}
-                <span className="text-white font-medium">Pacific Beach</span> to{" "}
-                <span className="text-white font-medium">Alpine</span>. Towing, roadside assistance,
-                and every service in between — dispatched from the closest truck to you.
-              </p>
-
-              {/* Region pills */}
-              <div className="mt-8 flex flex-wrap gap-2">
-                {REGIONS.map((r) => (
-                  <span
-                    key={r.name}
-                    className="bg-white/10 border border-white/15 rounded-full px-3 py-1.5 text-sm text-white/80"
-                  >
-                    {r.icon} {r.name}
-                  </span>
-                ))}
-              </div>
-
-              {/* CTAs */}
-              <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                <a
-                  href={`tel:${CONTACT.phoneRaw}`}
-                  className="inline-flex items-center justify-center gap-2 bg-[#ffba42] hover:bg-[#ffc85c] text-[#1e1e4a] px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-[#ffba42]/20"
-                >
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  Call: {CONTACT.phone}
-                </a>
-                <a
-                  href={`https://wa.me/${CONTACT.whatsapp}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all border border-white/20"
-                >
-                  WhatsApp Us
-                </a>
-              </div>
+        {/* Content — anchored to bottom */}
+        <div className="relative z-10 w-full pb-12 sm:pb-16 pt-40 sm:pt-48">
+          <div className="max-w-7xl mx-auto px-4">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-6">
+              <svg className="w-4 h-4 text-[#ffba42]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span className="text-white/90 text-sm font-medium">
+                Covering {totalNeighborhoods}+ Neighborhoods &bull; Every Major Freeway
+              </span>
             </div>
 
-            {/* Right — SD Map / Stats */}
-            <div className="hidden lg:block">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
-                  <div className="text-4xl font-bold text-cyan-400">{totalNeighborhoods}+</div>
-                  <div className="text-sm text-white/60 mt-1">Neighborhoods</div>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
-                  <div className="text-4xl font-bold text-[#ffba42]">6</div>
-                  <div className="text-sm text-white/60 mt-1">Major Freeways</div>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
-                  <div className="text-4xl font-bold text-emerald-400">7</div>
-                  <div className="text-sm text-white/60 mt-1">Services Offered</div>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
-                  <div className="text-4xl font-bold text-rose-400">24/7</div>
-                  <div className="text-sm text-white/60 mt-1">Always Available</div>
-                </div>
-              </div>
+            {/* Headline */}
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] max-w-3xl">
+              Tow Truck Service
+              <span className="block text-[#ffba42] mt-1">Across San Diego</span>
+            </h1>
 
-              <div className="mt-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
-                <h3 className="text-sm font-bold text-white/60 uppercase tracking-widest mb-3">Freeway Coverage</h3>
-                <div className="flex flex-wrap gap-2">
-                  {["I-5", "I-8", "I-15", "I-805", "SR-163", "SR-56", "SR-52", "SR-67", "SR-78", "SR-125", "SR-54"].map((fw) => (
-                    <span key={fw} className="bg-white/10 text-white/80 text-sm font-mono font-bold px-3 py-1 rounded-lg">
-                      {fw}
-                    </span>
-                  ))}
-                </div>
-              </div>
+            <p className="mt-6 text-xl sm:text-2xl text-white/80 leading-relaxed max-w-2xl">
+              From <span className="text-white font-semibold">Oceanside</span> to the{" "}
+              <span className="text-white font-semibold">border</span>, from{" "}
+              <span className="text-white font-semibold">the coast</span> to{" "}
+              <span className="text-white font-semibold">Alpine</span> — one call, one company,{" "}
+              every corner of the county.
+            </p>
+
+            {/* Freeway tags — mobile visible */}
+            <div className="mt-6 flex flex-wrap gap-2">
+              {["I-5", "I-8", "I-15", "I-805", "SR-163", "SR-56"].map((fw) => (
+                <span
+                  key={fw}
+                  className="bg-white/10 backdrop-blur-sm border border-white/15 text-white/80 text-sm font-mono font-bold px-3 py-1 rounded-lg"
+                >
+                  {fw}
+                </span>
+              ))}
+              <span className="text-white/50 text-sm self-center">+ 5 more</span>
+            </div>
+
+            {/* CTAs */}
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <a
+                href={`tel:${CONTACT.phoneRaw}`}
+                className="group inline-flex items-center justify-center gap-3 bg-[#ffba42] hover:bg-[#ffc85c] text-[#1e1e4a] px-10 py-5 rounded-2xl font-bold text-xl transition-all hover:scale-105 shadow-xl shadow-[#ffba42]/30 relative overflow-hidden"
+              >
+                {/* Shimmer */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                <svg className="w-6 h-6 relative" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span className="relative">Call: {CONTACT.phone}</span>
+              </a>
+              <a
+                href={`https://wa.me/${CONTACT.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-10 py-5 rounded-2xl font-bold text-xl transition-all border border-white/25 hover:border-white/40"
+              >
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.556 4.124 1.521 5.86L0 24l6.335-1.652A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.99 0-3.87-.528-5.49-1.45l-.394-.234-3.758.98.998-3.648-.257-.408A9.78 9.78 0 012.18 12c0-5.422 4.398-9.82 9.82-9.82 5.422 0 9.82 4.398 9.82 9.82 0 5.422-4.398 9.82-9.82 9.82z" />
+                </svg>
+                WhatsApp Us
+              </a>
+            </div>
+
+            {/* Trust line — bottom edge */}
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-white/60 text-sm">
+              <span className="flex items-center gap-1.5">
+                <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                5.0 on Google
+              </span>
+              <span>Licensed &amp; Insured</span>
+              <span>No Hidden Fees</span>
+              <span>Se Habla Español</span>
             </div>
           </div>
         </div>
