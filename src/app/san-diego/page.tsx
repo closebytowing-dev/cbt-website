@@ -422,7 +422,9 @@ export default function SanDiegoPage() {
       </section>
 
       {/* ── REVIEWS — scrolling carousel from homepage ── */}
-      <Reviews />
+      <div className="relative z-20 -mt-12">
+        <Reviews />
+      </div>
 
       {/* ── ABOUT SAN DIEGO COVERAGE ── */}
       <section className="py-16 sm:py-24 bg-white">
