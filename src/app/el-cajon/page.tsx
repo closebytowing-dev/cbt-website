@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
+import Reviews from "@/components/Reviews";
 
 /* ─── SEO METADATA ─── */
 export const metadata: Metadata = {
@@ -277,6 +278,11 @@ export default function ElCajonPage() {
           </div>
         </div>
       </section>
+
+      {/* ── REVIEWS — scrolling carousel ── */}
+      <div className="relative z-20 -mt-12">
+        <Reviews />
+      </div>
 
       {/* ══════════ THE VALLEY — Geography narrative ══════════ */}
       <section className="py-20 sm:py-28 bg-white relative overflow-hidden">
