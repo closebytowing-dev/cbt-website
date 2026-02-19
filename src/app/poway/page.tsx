@@ -1,5 +1,6 @@
 
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 import Reviews from "@/components/Reviews";
@@ -212,77 +213,97 @@ export default function PowayPage() {
   return (
     <main className="bg-stone-50">
 
-      {/* ══════════ HERO — The City in the Country ══════════ */}
-      <section className="relative min-h-[80vh] flex items-center overflow-hidden">
-        {/* Deep sage/earth gradient — country warmth */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1a2a1a] via-[#2a3d20] to-[#1e2e14]" />
-
-        {/* Warm sunlight glow from top-right */}
+      {/* ══════════ HERO — Starlit Country Night ══════════ */}
+      <section className="relative min-h-[88vh] flex items-end overflow-hidden bg-[#0a0e1a]">
+        {/* Real Poway towing photo — nighttime EV charging station recovery */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-amber-400/8 rounded-full blur-[150px]" />
-          <div className="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] bg-emerald-500/6 rounded-full blur-[100px]" />
+          <Image
+            src="/hero/poway-towing.webp"
+            alt="CloseBy Towing truck recovering a blue EV at night in Poway"
+            fill
+            priority
+            className="object-cover object-[center_45%]"
+            sizes="100vw"
+            style={{ filter: "brightness(1.05) saturate(1.1)" }}
+          />
         </div>
 
-        {/* Tree canopy texture overlay */}
-        <div className="absolute inset-0 opacity-[0.05]" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='20' r='18' fill='none' stroke='%2390b880' stroke-width='0.5'/%3E%3Ccircle cx='20' cy='55' r='14' fill='none' stroke='%2390b880' stroke-width='0.5'/%3E%3Ccircle cx='60' cy='55' r='14' fill='none' stroke='%2390b880' stroke-width='0.5'/%3E%3C/svg%3E")`,
-        }} />
+        {/* Deep night sky overlay — dark blue-green cinematic grade */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0e1a]/95 via-[#0a0e1a]/60 to-[#0a0e1a]/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e1a] via-[#0a0e1a]/50 to-transparent" />
 
-        {/* Layered mountain/hill horizon silhouette — country landscape */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 180" preserveAspectRatio="none" className="w-full h-28 sm:h-40">
-            {/* Distant ridge */}
-            <path d="M0,120 C100,80 200,100 350,70 C500,40 600,90 750,55 C900,20 1000,65 1150,40 C1300,15 1380,50 1440,35 L1440,180 L0,180Z" fill="#1e2e14" opacity="0.4" />
-            {/* Mid ridge with tree bumps */}
-            <path d="M0,140 C60,125 90,110 140,120 C190,130 220,105 280,115 C340,125 380,100 440,110 C500,120 540,95 600,105 C660,115 700,90 760,100 C820,110 860,88 920,98 C980,108 1020,85 1080,95 C1140,105 1180,82 1240,92 C1300,102 1340,80 1400,90 L1440,85 L1440,180 L0,180Z" fill="#1e2e14" opacity="0.65" />
-            {/* Foreground */}
-            <path d="M0,160 C200,148 400,155 600,145 C800,135 1000,150 1200,140 C1350,133 1400,142 1440,138 L1440,180 L0,180Z" fill="#fafaf9" />
+        {/* Cool blue ambient glow — matching EV charger light spill */}
+        <div className="absolute inset-0 bg-gradient-to-tl from-blue-600/8 via-transparent to-transparent" />
+
+        {/* Starfield — unique to Poway "City in the Country" where you see stars */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute w-1 h-1 bg-white rounded-full top-[8%] left-[15%] opacity-50" />
+          <div className="absolute w-1.5 h-1.5 bg-white rounded-full top-[5%] left-[35%] opacity-40" />
+          <div className="absolute w-1 h-1 bg-white rounded-full top-[12%] left-[55%] opacity-60" />
+          <div className="absolute w-1 h-1 bg-white rounded-full top-[3%] left-[72%] opacity-35" />
+          <div className="absolute w-1.5 h-1.5 bg-white rounded-full top-[10%] left-[88%] opacity-45" />
+          <div className="absolute w-1 h-1 bg-white rounded-full top-[18%] left-[25%] opacity-30" />
+          <div className="absolute w-1 h-1 bg-white rounded-full top-[15%] left-[65%] opacity-55" />
+          <div className="absolute w-1 h-1 bg-white rounded-full top-[7%] left-[48%] opacity-25" />
+          <div className="absolute w-1.5 h-1.5 bg-blue-200 rounded-full top-[4%] left-[80%] opacity-30" />
+          <div className="absolute w-1 h-1 bg-white rounded-full top-[20%] left-[42%] opacity-20" />
+        </div>
+
+        {/* Oak tree-line silhouette bottom edge — Poway's signature oaks */}
+        <div className="absolute bottom-0 left-0 right-0 z-20">
+          <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className="w-full h-20 sm:h-28">
+            {/* Back tree canopy layer (darker, taller) */}
+            <path d="M0,90 C30,75 50,50 80,55 C110,60 120,40 150,35 C180,30 190,50 220,45 C250,40 260,25 290,30 C320,35 340,55 370,50 C400,45 410,30 440,35 C470,40 490,55 520,48 C550,41 560,28 590,32 C620,36 640,52 670,46 C700,40 710,26 740,30 C770,34 790,50 820,44 C850,38 860,24 890,28 C920,32 940,48 970,42 C1000,36 1010,22 1040,26 C1070,30 1090,46 1120,40 C1150,34 1160,20 1190,24 C1220,28 1240,44 1270,38 C1300,32 1310,18 1340,22 C1370,26 1390,42 1420,36 L1440,30 L1440,120 L0,120Z" fill="#0a0e1a" opacity="0.5" />
+            {/* Front tree canopy layer — rounded oak crowns */}
+            <path d="M0,100 C20,88 40,70 70,72 C100,74 110,58 140,55 C170,52 185,65 210,60 C235,55 245,42 275,45 C305,48 320,62 350,58 C380,54 390,40 420,43 C450,46 465,60 495,55 C525,50 535,38 565,41 C595,44 610,58 640,53 C670,48 680,36 710,39 C740,42 755,56 785,51 C815,46 825,34 855,37 C885,40 900,54 930,49 C960,44 970,32 1000,35 C1030,38 1045,52 1075,47 C1105,42 1115,30 1145,33 C1175,36 1190,50 1220,45 C1250,40 1260,28 1290,31 C1320,34 1335,48 1365,43 C1395,38 1410,28 1440,32 L1440,120 L0,120Z" fill="#0a0e1a" opacity="0.7" />
+            {/* Foreground ground line */}
+            <path d="M0,105 C200,95 400,100 600,92 C800,84 1000,96 1200,88 C1350,82 1400,90 1440,86 L1440,120 L0,120Z" fill="#fafaf9" />
           </svg>
         </div>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 py-20 sm:py-28 w-full">
-          <div className="max-w-3xl">
+        {/* Content — positioned at bottom-left over the night scene */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 pb-32 sm:pb-40 pt-36 sm:pt-44 w-full">
+          <div className="max-w-2xl">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-amber-600/15 border border-amber-500/25 rounded-full px-5 py-2 mb-8 backdrop-blur-sm">
-              <span className="text-amber-300 text-lg">🌿</span>
-              <span className="text-amber-200 text-sm font-semibold tracking-wide">The City in the Country</span>
+            <div className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md border border-emerald-400/25 rounded-full px-5 py-2 mb-6">
+              <span className="text-emerald-300 text-lg">🌿</span>
+              <span className="text-emerald-200 text-sm font-semibold tracking-wide">The City in the Country</span>
             </div>
 
-            {/* H1 */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tight">
+            {/* H1 — large with glow for nighttime legibility */}
+            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.7)]">
               <span className="text-white">Towing</span>
               <br />
-              <span className="bg-gradient-to-r from-lime-300 via-emerald-200 to-green-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-emerald-300 via-lime-200 to-green-300 bg-clip-text text-transparent">
                 Poway
               </span>
             </h1>
 
-            <p className="mt-6 text-xl sm:text-2xl text-green-100/80 leading-relaxed max-w-2xl">
-              Your trusted <span className="text-lime-300 font-semibold">tow truck in Poway</span> — covering
+            <p className="mt-5 text-lg sm:text-xl text-white/80 leading-relaxed max-w-xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+              Your trusted <span className="text-emerald-300 font-semibold">tow truck in Poway</span> — covering
               Lake Poway, Old Poway Park, Twin Peaks, Blue Sky Reserve &amp; the{" "}
-              <span className="text-lime-300 font-semibold">I-15 &amp; SR-67 corridors</span>.
+              <span className="text-emerald-300 font-semibold">I-15 &amp; SR-67 corridors</span>.
             </p>
 
-            {/* Stats */}
-            <div className="mt-10 grid grid-cols-3 gap-4 max-w-lg">
+            {/* Stats — dark glass cards for nighttime photo */}
+            <div className="mt-8 grid grid-cols-3 gap-3 max-w-md">
               {[
                 { value: "25 min", label: "Avg Response" },
                 { value: "24/7", label: "Always On" },
                 { value: "I-15", label: "& SR-67" },
               ].map((s) => (
-                <div key={s.label} className="bg-white/5 backdrop-blur-sm rounded-xl p-4 text-center border border-white/10">
-                  <div className="text-2xl sm:text-3xl font-black text-lime-300">{s.value}</div>
-                  <div className="text-xs text-green-200/60 mt-1">{s.label}</div>
+                <div key={s.label} className="bg-black/40 backdrop-blur-md rounded-xl p-3 sm:p-4 text-center border border-white/10">
+                  <div className="text-2xl sm:text-3xl font-black text-emerald-300">{s.value}</div>
+                  <div className="text-xs text-white/50 mt-1">{s.label}</div>
                 </div>
               ))}
             </div>
 
             {/* CTAs */}
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <a
                 href={`tel:${CONTACT.phoneRaw}`}
-                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-lime-500 to-emerald-500 hover:from-lime-400 hover:to-emerald-400 text-[#1a2a1a] px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-emerald-500/25"
+                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-400 hover:to-green-400 text-[#0a0e1a] px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-emerald-500/30"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -293,14 +314,14 @@ export default function PowayPage() {
                 href={`https://wa.me/${CONTACT.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/15 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all border border-white/20 backdrop-blur-sm"
+                className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/15 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all border border-white/20 backdrop-blur-md"
               >
                 WhatsApp Us
               </a>
             </div>
 
             {/* Trust line */}
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-green-200/50">
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/50">
               <span className="flex items-center gap-1.5">
                 <svg className="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
                 5.0 Stars
