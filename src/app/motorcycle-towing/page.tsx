@@ -1,5 +1,6 @@
 
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 import Reviews from "@/components/Reviews";
@@ -174,34 +175,43 @@ export default function MotorcycleTowingPage() {
   return (
     <main className="bg-gray-50">
 
-      {/* ══════════ HERO — Steel Gray ══════════ */}
-      <section className="relative min-h-[85vh] flex items-end overflow-hidden bg-[#18181b]">
-        {/* Abstract background — steel mesh pattern */}
-        <div className="absolute inset-0 opacity-[0.04]" style={{
-          backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(255,255,255,0.1) 49px, rgba(255,255,255,0.1) 50px),
-                            repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(255,255,255,0.1) 49px, rgba(255,255,255,0.1) 50px)`,
-        }} />
+      {/* ══════════ HERO — Real Photo + Chrome Steel ══════════ */}
+      <section className="relative min-h-[88vh] flex items-end overflow-hidden bg-[#0c0c0f]">
+        {/* Real motorcycle towing photo — Harley on flatbed at night */}
+        <div className="absolute inset-0">
+          <Image
+            src="/hero/motorcycle-towing.webp"
+            alt="Harley-Davidson motorcycle secured on CloseBy Towing flatbed at night in San Diego"
+            fill
+            priority
+            className="object-cover object-[center_40%]"
+            sizes="100vw"
+            style={{ filter: "brightness(1.1) contrast(1.05)" }}
+          />
+        </div>
 
-        {/* Chrome gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#18181b] via-[#18181b]/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#18181b] via-transparent to-transparent" />
+        {/* Overlays — photo is dark, keep it light for legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0c0c0f]/80 via-[#0c0c0f]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0f]/95 via-[#0c0c0f]/20 to-transparent" />
 
-        {/* Subtle warm highlight — like headlight glow */}
-        <div className="absolute bottom-0 left-1/4 w-[600px] h-[400px] bg-amber-500/5 rounded-full blur-[150px]" />
+        {/* Chrome headlight glow — picks up the Harley's dual headlamps */}
+        <div className="absolute top-[30%] right-[35%] w-[400px] h-[300px] bg-white/4 rounded-full blur-[100px]" />
 
-        {/* Chrome diagonal accent stripe */}
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-zinc-500/10 via-transparent to-transparent" />
+        {/* Warm city-light reflection along bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-amber-500/5 to-transparent" />
 
-        {/* Bottom edge — angular chrome cut */}
+        {/* Bottom edge — sharp diamond-plate inspired angular cut */}
         <div className="absolute bottom-0 left-0 right-0 z-20">
-          <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-16 sm:h-20">
-            <path d="M0,80 L0,50 L360,20 L720,45 L1080,10 L1440,40 L1440,80Z" fill="#f9fafb" />
-            <path d="M0,80 L0,55 L360,25 L720,50 L1080,15 L1440,45 L1440,80Z" fill="#f9fafb" opacity="0.5" />
+          <svg viewBox="0 0 1440 90" preserveAspectRatio="none" className="w-full h-16 sm:h-24">
+            {/* Back shadow layer */}
+            <path d="M0,90 L0,60 L240,30 L480,50 L720,15 L960,45 L1200,20 L1440,40 L1440,90Z" fill="#0c0c0f" opacity="0.4" />
+            {/* Main cut */}
+            <path d="M0,90 L0,65 L360,25 L720,50 L1080,12 L1440,42 L1440,90Z" fill="#f9fafb" />
           </svg>
         </div>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 pb-28 sm:pb-36 pt-36 sm:pt-44 w-full">
+        {/* Content — positioned bottom-left */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 pb-32 sm:pb-40 pt-36 sm:pt-44 w-full">
           <div className="max-w-2xl">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-white/5 border border-zinc-500/20 rounded-full px-5 py-2 mb-6">
