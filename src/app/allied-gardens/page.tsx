@@ -18,14 +18,14 @@ export const metadata: Metadata = {
   title:
     "Allied Gardens Towing | San Diego's Mid-Century Gem | 92120 | 24/7 | CloseBy",
   description:
-    "Towing in Allied Gardens & Grantville 92120. Covering I-8 corridor, Mission Gorge Rd, Waring Rd, Grantville Trolley Station, Mission Trails Regional Park gateway & all residential streets. 15-min response.",
+    "Towing in Allied Gardens & Grantville 92120. Covering I-8 corridor, Mission Gorge Rd, Waring Rd, Grantville Trolley Station, Mission Trails Regional Park gateway & all residential streets. 15-30 min response.",
   keywords:
     "towing Allied Gardens, Allied Gardens tow truck, 92120 towing, Grantville towing, Mission Gorge Road tow service, I-8 towing San Diego, Waring Road roadside assistance, Mission Trails towing",
   openGraph: {
     title:
       "Allied Gardens Towing | Mid-Century Neighborhood, Modern Service | CloseBy",
     description:
-      "Trusted towing for Allied Gardens & Grantville. I-8 freeway response, Grantville Trolley Station coverage, Mission Trails gateway service. 15-min response, 24/7.",
+      "Trusted towing for Allied Gardens & Grantville. I-8 freeway response, Grantville Trolley Station coverage, Mission Trails gateway service. 15-30 min response, 24/7.",
     url: "https://www.closebytowing.com/allied-gardens",
     type: "website",
     images: [
@@ -186,14 +186,6 @@ export default function AlliedGardensPage() {
         <div className="relative z-30 flex min-h-[60vh]">
           <div className="w-full lg:w-1/2 flex items-center">
             <div className="max-w-2xl ml-auto px-6 sm:px-12 lg:px-16 py-20 lg:py-16 relative">
-              {/* Identifier */}
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-0.5 bg-amber-400" />
-                <span className="text-amber-300 text-sm font-bold tracking-[0.2em] uppercase">
-                  Est. 1955 &bull; ZIP {ZIP}
-                </span>
-              </div>
-
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight">
                 Allied
                 <br />
@@ -213,7 +205,7 @@ export default function AlliedGardensPage() {
               {/* Hard stat blocks */}
               <div className="mt-10 flex gap-0">
                 <div className="bg-[#161638] px-6 py-4 border-r border-[#2a2a5a]">
-                  <div className="text-3xl font-black text-white">15</div>
+                  <div className="text-3xl font-black text-white">15-30</div>
                   <div className="text-xs text-amber-400 font-semibold uppercase tracking-wide mt-1">Min Response</div>
                 </div>
                 <div className="bg-[#161638] px-6 py-4 border-r border-[#2a2a5a]">
