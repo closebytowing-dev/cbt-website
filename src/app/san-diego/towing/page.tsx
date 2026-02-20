@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
-import { CONTACT } from "@/lib/constants";
+import { CONTACT, areaHref } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Towing San Diego | 24/7 Service | CloseBy",
@@ -696,7 +696,7 @@ export default function TowingSanDiegoPage() {
             {SAN_DIEGO_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={area.slug === "chula-vista" ? "/chula-vista" : area.slug === "el-cajon" ? "/el-cajon" : area.slug === "national-city" ? "/national-city" : area.slug === "spring-valley" ? "/spring-valley" : area.slug === "la-mesa" ? "/la-mesa" : area.slug === "poway" ? "/poway" : `/san-diego/${area.slug}`}
+                href={areaHref(area.slug)}
                 className="group flex items-center justify-between p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-[#ffba42] hover:bg-[#ffba42]/5 transition-all duration-300"
               >
                 <span className="font-medium text-[#1e1e4a] group-hover:text-[#1e1e4a]">

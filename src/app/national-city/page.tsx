@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT } from "@/lib/constants";
+import { CONTACT, areaHref } from "@/lib/constants";
 import Reviews from "@/components/Reviews";
 
 /* ─── SEO METADATA ─── */
@@ -167,14 +167,14 @@ const FAQ_DATA = [
 
 /* ─── NEARBY AREAS ─── */
 const NEARBY = [
-  { name: "Chula Vista", href: "/chula-vista" },
-  { name: "San Ysidro", href: "/san-diego/san-ysidro" },
-  { name: "Paradise Hills", href: "/san-diego/paradise-hills" },
-  { name: "Logan Heights", href: "/san-diego/logan-heights" },
-  { name: "Lincoln Park", href: "/san-diego/lincoln-park" },
-  { name: "Bonita", href: "/san-diego/bonita" },
-  { name: "Imperial Beach", href: "/san-diego/imperial-beach" },
-  { name: "Coronado", href: "/san-diego/coronado" },
+  { name: "Chula Vista", slug: "chula-vista" },
+  { name: "San Ysidro", slug: "san-ysidro" },
+  { name: "Paradise Hills", slug: "paradise-hills" },
+  { name: "Logan Heights", slug: "logan-heights" },
+  { name: "Lincoln Park", slug: "lincoln-park" },
+  { name: "Bonita", slug: "bonita" },
+  { name: "Imperial Beach", slug: "imperial-beach" },
+  { name: "Coronado", slug: "coronado" },
 ];
 
 /* ════════════════════════════════════════════════════════════ */
@@ -518,7 +518,7 @@ export default function NationalCityPage() {
             {NEARBY.map((a) => (
               <Link
                 key={a.name}
-                href={a.href}
+                href={areaHref(a.slug)}
                 className="group bg-white hover:bg-gradient-to-br hover:from-cyan-50 hover:to-white rounded-2xl p-6 text-center transition-all duration-300 border border-slate-200/80 hover:border-cyan-300 hover:shadow-lg hover:-translate-y-0.5"
               >
                 <span className="font-bold text-slate-800 group-hover:text-cyan-700 transition-colors">{a.name}</span>

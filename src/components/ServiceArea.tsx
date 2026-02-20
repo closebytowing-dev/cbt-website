@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { TOP_LEVEL_ROUTES, areaHref } from "@/lib/constants";
 
 // Map of area names to their slugs (areas with dedicated pages)
 const AREA_SLUGS: Record<string, string> = {
@@ -67,22 +68,6 @@ const AREA_SLUGS: Record<string, string> = {
   "University City": "university-city",
   "University Heights": "university-heights",
 };
-
-// Areas with top-level routes (not under /san-diego/)
-const TOP_LEVEL_ROUTES: Record<string, string> = {
-  "chula-vista": "/chula-vista",
-  "el-cajon": "/el-cajon",
-  "la-mesa": "/la-mesa",
-  "national-city": "/national-city",
-  "poway": "/poway",
-  "san-diego": "/san-diego",
-  "spring-valley": "/spring-valley",
-};
-
-/** Resolve the correct href for a neighborhood slug */
-function areaHref(slug: string) {
-  return TOP_LEVEL_ROUTES[slug] ?? `/san-diego/${slug}`;
-}
 
 // Areas with dedicated pages for SEO linking (for the browse section) — sorted A-Z
 const LINKED_AREAS = Object.entries(AREA_SLUGS)

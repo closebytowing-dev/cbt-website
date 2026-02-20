@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT } from "@/lib/constants";
+import { areaHref, CONTACT } from "@/lib/constants";
 
 // La Jolla ZIP Codes
 const LA_JOLLA_ZIP_CODES = ["92037", "92038", "92039", "92092", "92093"];
@@ -575,7 +575,7 @@ export default function LaJollaPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={areaHref(area.slug)}
                 className="group bg-white rounded-2xl p-6 text-center border border-slate-200 hover:border-amber-400 hover:shadow-lg transition-all duration-300"
               >
                 <div className="text-lg font-bold text-slate-900 group-hover:text-amber-600 transition-colors">

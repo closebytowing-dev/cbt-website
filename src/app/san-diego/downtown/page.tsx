@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT } from "@/lib/constants";
+import { areaHref, CONTACT } from "@/lib/constants";
 
 // Downtown San Diego ZIP codes
 const DOWNTOWN_ZIP_CODES = ["92101", "92102"];
@@ -435,7 +435,7 @@ export default function DowntownPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={areaHref(area.slug)}
                 className="group bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700 hover:border-indigo-500/50 transition-all hover:-translate-y-1"
               >
                 <span className="font-bold text-white group-hover:text-indigo-400 transition-colors">

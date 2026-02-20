@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT } from "@/lib/constants";
+import { CONTACT, areaHref } from "@/lib/constants";
 import Reviews from "@/components/Reviews";
 
 /* ─── SEO METADATA ─── */
@@ -167,14 +167,14 @@ const FAQ_DATA = [
 
 /* ─── NEARBY AREAS ─── */
 const NEARBY = [
-  { name: "La Mesa", href: "/la-mesa" },
-  { name: "El Cajon", href: "/el-cajon" },
-  { name: "Lemon Grove", href: "/san-diego/lemon-grove" },
-  { name: "National City", href: "/national-city" },
-  { name: "Chula Vista", href: "/chula-vista" },
-  { name: "Rancho San Diego", href: "/san-diego/rancho-san-diego" },
-  { name: "Bonita", href: "/san-diego/bonita" },
-  { name: "San Ysidro", href: "/san-diego/san-ysidro" },
+  { name: "La Mesa", slug: "la-mesa" },
+  { name: "El Cajon", slug: "el-cajon" },
+  { name: "Lemon Grove", slug: "lemon-grove" },
+  { name: "National City", slug: "national-city" },
+  { name: "Chula Vista", slug: "chula-vista" },
+  { name: "Rancho San Diego", slug: "rancho-san-diego" },
+  { name: "Bonita", slug: "bonita" },
+  { name: "San Ysidro", slug: "san-ysidro" },
 ];
 
 /* ════════════════════════════════════════════════════════════ */
@@ -524,7 +524,7 @@ export default function SpringValleyPage() {
             {NEARBY.map((a) => (
               <Link
                 key={a.name}
-                href={a.href}
+                href={areaHref(a.slug)}
                 className="group bg-white hover:bg-gradient-to-br hover:from-green-50 hover:to-white rounded-2xl p-6 text-center transition-all duration-300 border border-stone-200/80 hover:border-green-300 hover:shadow-lg hover:-translate-y-0.5"
               >
                 <span className="font-bold text-slate-800 group-hover:text-green-700 transition-colors">{a.name}</span>

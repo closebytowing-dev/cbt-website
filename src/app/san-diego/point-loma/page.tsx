@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT } from "@/lib/constants";
+import { areaHref, CONTACT } from "@/lib/constants";
 
 // Point Loma ZIP codes
 const POINT_LOMA_ZIP_CODES = ["92106", "92107"];
@@ -435,7 +435,7 @@ export default function PointLomaPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={areaHref(area.slug)}
                 className="group bg-slate-700/50 rounded-xl p-4 text-center border border-slate-600 hover:border-blue-500/50 transition-all hover:-translate-y-1"
               >
                 <span className="font-bold text-white group-hover:text-blue-400 transition-colors">

@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT } from "@/lib/constants";
+import { CONTACT, areaHref } from "@/lib/constants";
 
 // San Ysidro ZIP codes
 const SAN_YSIDRO_ZIP_CODES = ["92173"];
@@ -397,7 +397,7 @@ export default function SanYsidroPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={area.slug === "chula-vista" ? "/chula-vista" : area.slug === "national-city" ? "/national-city" : area.slug === "spring-valley" ? "/spring-valley" : `/san-diego/${area.slug}`}
+                href={areaHref(area.slug)}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-yellow-300 transition-colors">

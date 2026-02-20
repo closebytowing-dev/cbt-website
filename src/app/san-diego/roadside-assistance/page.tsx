@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, PRICING } from "@/lib/constants";
+import { areaHref, CONTACT, PRICING } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
@@ -412,7 +412,7 @@ export default function RoadsideAssistancePage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={areaHref(area.slug)}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <div className="w-10 h-10 mx-auto mb-3 rounded-full bg-emerald-500/30 flex items-center justify-center group-hover:bg-emerald-500/50 transition-colors">

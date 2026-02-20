@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT } from "@/lib/constants";
+import { CONTACT, areaHref } from "@/lib/constants";
 
 // Mira Mesa ZIP codes
 const MIRA_MESA_ZIP_CODES = ["92126", "92121"];
@@ -221,7 +221,7 @@ export default function MiraMesaPage() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {NEARBY_AREAS.map((a) => (
-              <Link key={a.slug} href={a.slug === "poway" ? "/poway" : `/san-diego/${a.slug}`} className="group bg-white/10 rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all">
+              <Link key={a.slug} href={areaHref(a.slug)} className="group bg-white/10 rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all">
                 <span className="font-semibold group-hover:text-purple-300">{a.name}</span>
               </Link>
             ))}

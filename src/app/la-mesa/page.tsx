@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT } from "@/lib/constants";
+import { CONTACT, areaHref } from "@/lib/constants";
 import Reviews from "@/components/Reviews";
 
 /* ─── SEO METADATA ─── */
@@ -200,14 +200,14 @@ const FAQ_DATA = [
 
 /* ─── NEARBY AREAS ─── */
 const NEARBY = [
-  { name: "El Cajon", href: "/el-cajon" },
-  { name: "Spring Valley", href: "/spring-valley" },
-  { name: "Lemon Grove", href: "/san-diego/lemon-grove" },
-  { name: "Santee", href: "/san-diego/santee" },
-  { name: "College Area", href: "/san-diego/college-area" },
-  { name: "San Carlos", href: "/san-diego/san-carlos" },
-  { name: "Del Cerro", href: "/san-diego/del-cerro" },
-  { name: "Allied Gardens", href: "/san-diego/allied-gardens" },
+  { name: "El Cajon", slug: "el-cajon" },
+  { name: "Spring Valley", slug: "spring-valley" },
+  { name: "Lemon Grove", slug: "lemon-grove" },
+  { name: "Santee", slug: "santee" },
+  { name: "College Area", slug: "college-area" },
+  { name: "San Carlos", slug: "san-carlos" },
+  { name: "Del Cerro", slug: "del-cerro" },
+  { name: "Allied Gardens", slug: "allied-gardens" },
 ];
 
 export default function LaMesaPage() {
@@ -585,7 +585,7 @@ export default function LaMesaPage() {
             {NEARBY.map((a) => (
               <Link
                 key={a.name}
-                href={a.href}
+                href={areaHref(a.slug)}
                 className="group bg-slate-50 hover:bg-violet-50 rounded-xl p-4 text-center border border-slate-100 hover:border-violet-200 transition-all"
               >
                 <span className="font-semibold text-slate-700 group-hover:text-violet-700 transition-colors">

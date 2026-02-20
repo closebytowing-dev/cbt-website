@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT } from "@/lib/constants";
+import { CONTACT, areaHref } from "@/lib/constants";
 import Reviews from "@/components/Reviews";
 
 /* ─── SEO METADATA ─── */
@@ -199,14 +199,14 @@ const FAQ_DATA = [
 
 /* ─── NEARBY AREAS ─── */
 const NEARBY = [
-  { name: "Rancho Bernardo", href: "/san-diego/rancho-bernardo" },
-  { name: "Scripps Ranch", href: "/san-diego/scripps-ranch" },
-  { name: "Sabre Springs", href: "/san-diego/sabre-springs" },
-  { name: "Rancho Penasquitos", href: "/san-diego/rancho-penasquitos" },
-  { name: "Carmel Mountain", href: "/san-diego/carmel-mountain" },
-  { name: "Mira Mesa", href: "/san-diego/mira-mesa" },
-  { name: "4S Ranch", href: "/san-diego/4s-ranch" },
-  { name: "Santee", href: "/san-diego/santee" },
+  { name: "Rancho Bernardo", slug: "rancho-bernardo" },
+  { name: "Scripps Ranch", slug: "scripps-ranch" },
+  { name: "Sabre Springs", slug: "sabre-springs" },
+  { name: "Rancho Penasquitos", slug: "rancho-penasquitos" },
+  { name: "Carmel Mountain", slug: "carmel-mountain" },
+  { name: "Mira Mesa", slug: "mira-mesa" },
+  { name: "4S Ranch", slug: "4s-ranch" },
+  { name: "Santee", slug: "santee" },
 ];
 
 export default function PowayPage() {
@@ -606,7 +606,7 @@ export default function PowayPage() {
             {NEARBY.map((a) => (
               <Link
                 key={a.name}
-                href={a.href}
+                href={areaHref(a.slug)}
                 className="group bg-stone-50 hover:bg-emerald-50 rounded-xl p-4 text-center border border-stone-100 hover:border-emerald-200 transition-all"
               >
                 <span className="font-semibold text-slate-700 group-hover:text-emerald-700 transition-colors">

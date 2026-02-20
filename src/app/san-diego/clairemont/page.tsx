@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT } from "@/lib/constants";
+import { areaHref, CONTACT } from "@/lib/constants";
 
 // Clairemont ZIP codes
 const CLAIREMONT_ZIP_CODES = ["92117", "92111"];
@@ -364,7 +364,7 @@ export default function ClairemontPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={areaHref(area.slug)}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all"
               >
                 <span className="font-semibold text-white group-hover:text-teal-300 transition-colors">

@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT } from "@/lib/constants";
+import { CONTACT, areaHref } from "@/lib/constants";
 import Reviews from "@/components/Reviews";
 
 // Chula Vista ZIP codes
@@ -516,7 +516,7 @@ export default function ChulaVistaPage() {
             {NEARBY_AREAS.map((a) => (
               <Link
                 key={a.slug}
-                href={a.slug === "national-city" ? "/national-city" : a.slug === "spring-valley" ? "/spring-valley" : `/san-diego/${a.slug}`}
+                href={areaHref(a.slug)}
                 className="group bg-white rounded-xl p-4 text-center border border-slate-200 hover:border-amber-300 hover:shadow-md transition-all"
               >
                 <span className="font-semibold text-slate-900 group-hover:text-amber-700 transition-colors">

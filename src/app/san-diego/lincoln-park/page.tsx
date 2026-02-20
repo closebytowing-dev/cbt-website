@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT } from "@/lib/constants";
+import { CONTACT, areaHref } from "@/lib/constants";
 
 // Lincoln Park ZIP codes
 const LINCOLN_PARK_ZIP_CODES = ["92113"];
@@ -390,7 +390,7 @@ export default function LincolnParkPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={area.slug === "national-city" ? "/national-city" : `/san-diego/${area.slug}`}
+                href={areaHref(area.slug)}
                 className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
               >
                 <span className="font-semibold text-white group-hover:text-emerald-400 transition-colors">

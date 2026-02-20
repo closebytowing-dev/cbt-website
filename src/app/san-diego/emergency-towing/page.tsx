@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { CONTACT } from "@/lib/constants";
+import { CONTACT, areaHref } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Emergency Towing San Diego | 24/7 | CloseBy",
@@ -330,7 +330,7 @@ export default function EmergencyTowingSanDiegoPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={area.slug === "chula-vista" ? "/chula-vista" : area.slug === "el-cajon" ? "/el-cajon" : area.slug === "la-mesa" ? "/la-mesa" : `/san-diego/${area.slug}`}
+                href={areaHref(area.slug)}
                 className="group flex items-center justify-between p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-[#ffba42] hover:bg-[#ffba42]/5 transition-all"
               >
                 <span className="font-medium text-[#1e1e4a]">{area.name}</span>

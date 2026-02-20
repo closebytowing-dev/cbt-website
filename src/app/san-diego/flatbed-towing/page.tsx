@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT } from "@/lib/constants";
+import { areaHref, CONTACT } from "@/lib/constants";
 
 // SEO Metadata
 export const metadata: Metadata = {
@@ -455,7 +455,7 @@ export default function FlatbedTowingPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={areaHref(area.slug)}
                 className="group bg-white rounded-xl p-4 text-center shadow hover:shadow-lg transition-all hover:-translate-y-1 border border-slate-100"
               >
                 <div className="w-10 h-10 mx-auto mb-3 rounded-full bg-amber-100 flex items-center justify-center group-hover:bg-amber-500 transition-colors">

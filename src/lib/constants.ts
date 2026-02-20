@@ -127,6 +127,24 @@ export const SEO = {
   twitterHandle: "@CloseByTowing",
 } as const;
 
+// ── Top-Level Area Routes ──
+// Neighborhoods promoted from /san-diego/[slug] to /[slug].
+// Add a slug here and areaHref() will return the short URL everywhere.
+export const TOP_LEVEL_ROUTES: Record<string, string> = {
+  "chula-vista": "/chula-vista",
+  "el-cajon": "/el-cajon",
+  "la-mesa": "/la-mesa",
+  "national-city": "/national-city",
+  "poway": "/poway",
+  "san-diego": "/san-diego",
+  "spring-valley": "/spring-valley",
+};
+
+/** Return the canonical href for a San Diego area slug. */
+export function areaHref(slug: string): string {
+  return TOP_LEVEL_ROUTES[slug] ?? `/san-diego/${slug}`;
+}
+
 // Business Hours
 export const BUSINESS_HOURS = {
   availability: "24/7",

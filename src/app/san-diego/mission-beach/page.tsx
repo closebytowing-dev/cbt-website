@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT } from "@/lib/constants";
+import { areaHref, CONTACT } from "@/lib/constants";
 
 // Mission Beach ZIP code
 const MISSION_BEACH_ZIP_CODES = ["92109"];
@@ -431,7 +431,7 @@ export default function MissionBeachPage() {
             {NEARBY_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                href={`/san-diego/${area.slug}`}
+                href={areaHref(area.slug)}
                 className="group bg-slate-700/50 rounded-xl p-4 text-center border border-slate-600 hover:border-cyan-500/50 transition-all hover:-translate-y-1"
               >
                 <span className="font-bold text-white group-hover:text-cyan-400 transition-colors">
