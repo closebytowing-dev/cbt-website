@@ -9,13 +9,13 @@ import Reviews from "@/components/Reviews";
 export const metadata: Metadata = {
   title: "Motorcycle Towing San Diego | Safe Bike Transport 24/7 | CloseBy Towing",
   description:
-    "Motorcycle towing San Diego — specialized flatbed & wheel-lift equipment for sport bikes, Harleys, cruisers & dirt bikes. No damage guaranteed. Starting at $65. 20-30 min response. Call (858) 999-9293.",
+    "Motorcycle towing San Diego — specialized flatbed & wheel-lift equipment for sport bikes, Harleys, cruisers & dirt bikes. No damage guaranteed. 20-30 min response. Call (858) 999-9293.",
   keywords:
     "motorcycle towing San Diego, motorcycle transport San Diego, bike tow truck, Harley towing, sport bike towing, motorcycle breakdown San Diego, motorcycle accident towing, dirt bike towing",
   openGraph: {
     title: "Motorcycle Towing San Diego | Safe Bike Transport 24/7 | CloseBy Towing",
     description:
-      "Specialized motorcycle towing across San Diego. Flatbed & wheel-lift equipment, no damage guaranteed. Starting at $65.",
+      "Specialized motorcycle towing across San Diego. Flatbed & wheel-lift equipment, no damage guaranteed. 20-30 min response.",
     url: "https://www.closebytowing.com/motorcycle-towing",
     type: "website",
   },
@@ -128,7 +128,7 @@ const FAQ_DATA = [
   {
     question: "How much does motorcycle towing cost in San Diego?",
     answer:
-      "Motorcycle towing starts at $65 for local San Diego pickups. Final price depends on distance, time of day, and pickup location (freeway recovery may include a safety surcharge). You get an exact quote before we dispatch — no surprises on your bill.",
+      "Pricing depends on distance, time of day, and pickup location. Call us and we'll give you an exact quote before we dispatch — no surprises on your bill. Freeway recovery may include a safety surcharge.",
   },
   {
     question: "Can you tow a motorcycle that's been in an accident?",
@@ -238,7 +238,7 @@ export default function MotorcycleTowingPage() {
             {/* Stats */}
             <div className="mt-8 grid grid-cols-3 gap-3 max-w-md">
               {[
-                { value: "$65", label: "Starting At" },
+                { value: "0%", label: "Damage Risk" },
                 { value: "20 min", label: "Avg Response" },
                 { value: "24/7", label: "Always On" },
               ].map((s) => (
@@ -428,18 +428,20 @@ export default function MotorcycleTowingPage() {
               Transparent Pricing
             </span>
             <h2 className="text-4xl sm:text-5xl font-black text-zinc-900">
-              Motorcycle Towing{" "}
-              <span className="bg-gradient-to-r from-zinc-600 to-zinc-400 bg-clip-text text-transparent">Rates</span>
+              Honest{" "}
+              <span className="bg-gradient-to-r from-zinc-600 to-zinc-400 bg-clip-text text-transparent">Pricing</span>
             </h2>
           </div>
 
           <div className="bg-gradient-to-br from-zinc-50 to-white rounded-3xl p-8 sm:p-12 border border-zinc-200 shadow-sm">
             <div className="text-center mb-8">
-              <div className="text-lg text-zinc-500 mb-2">Starting at</div>
-              <div className="text-7xl sm:text-8xl font-black text-zinc-900">
-                $65
-              </div>
-              <div className="text-zinc-500 mt-2">Local San Diego motorcycle tow</div>
+              <h3 className="text-2xl sm:text-3xl font-black text-zinc-900">
+                Call for a Free Quote
+              </h3>
+              <p className="text-zinc-500 mt-2 max-w-md mx-auto">
+                Every motorcycle tow is different. Call us and we&apos;ll give you an exact price
+                before we dispatch — no surprises, no hidden fees.
+              </p>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4 max-w-lg mx-auto">
@@ -468,7 +470,7 @@ export default function MotorcycleTowingPage() {
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                Get Your Exact Price
+                Get Your Free Quote
               </a>
             </div>
           </div>
@@ -583,7 +585,7 @@ export default function MotorcycleTowingPage() {
             </span>
             <span>No Damage Guarantee</span>
             <span>Licensed &amp; Insured</span>
-            <span>Starting at $65</span>
+            <span>Free Quote by Phone</span>
           </div>
         </div>
       </section>
@@ -624,17 +626,7 @@ export default function MotorcycleTowingPage() {
               },
             },
             serviceType: "Motorcycle Towing",
-            offers: {
-              "@type": "Offer",
-              price: "65",
-              priceCurrency: "USD",
-              priceSpecification: {
-                "@type": "PriceSpecification",
-                price: "65",
-                priceCurrency: "USD",
-                description: "Starting price for local motorcycle tow in San Diego",
-              },
-            },
+            priceRange: "$$",
           }),
         }}
       />
