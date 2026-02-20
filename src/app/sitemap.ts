@@ -67,8 +67,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  // All San Diego area/neighborhood pages
-  const sanDiegoAreaSlugs = [
+  // All neighborhood/area pages (top-level)
+  const areaPages = [
     "4s-ranch",
     "allied-gardens",
     "alpine",
@@ -76,17 +76,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "bonita",
     "carmel-mountain",
     "carmel-valley",
+    "chula-vista",
     "clairemont",
     "college-area",
     "coronado",
     "del-cerro",
     "del-mar",
     "downtown",
+    "el-cajon",
     "encinitas",
     "hillcrest",
     "imperial-beach",
     "kearny-mesa",
     "la-jolla",
+    "la-mesa",
     "lakeside",
     "lemon-grove",
     "lincoln-park",
@@ -97,6 +100,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "mission-beach",
     "mission-hills",
     "mission-valley",
+    "national-city",
     "nestor",
     "normal-heights",
     "north-park",
@@ -106,6 +110,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "palm-city",
     "paradise-hills",
     "point-loma",
+    "poway",
     "rancho-bernardo",
     "rancho-penasquitos",
     "rancho-san-diego",
@@ -119,32 +124,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "skyline",
     "solana-beach",
     "sorrento-valley",
+    "spring-valley",
     "tierrasanta",
     "torrey-hills",
     "university-city",
     "university-heights",
-  ];
-
-  const sanDiegoAreaPages = sanDiegoAreaSlugs.map((slug) => ({
-    url: `${base}/san-diego/${slug}`,
+  ].map((slug) => ({
+    url: `${base}/${slug}`,
     lastModified,
     changeFrequency: "weekly" as const,
-    priority: 0.8,
-  }));
-
-  // Top-level area pages (promoted from /san-diego/)
-  const topLevelAreaPages = [
-    { path: "chula-vista", priority: 0.85 },
-    { path: "el-cajon", priority: 0.85 },
-    { path: "la-mesa", priority: 0.85 },
-    { path: "national-city", priority: 0.85 },
-    { path: "poway", priority: 0.85 },
-    { path: "spring-valley", priority: 0.85 },
-  ].map((page) => ({
-    url: `${base}/${page.path}`,
-    lastModified,
-    changeFrequency: "weekly" as const,
-    priority: page.priority,
+    priority: 0.85,
   }));
 
   // Information pages - medium priority
@@ -167,8 +156,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     sanDiegoHub,
     sanDiegoTowing,
     ...sanDiegoServicePages,
-    ...sanDiegoAreaPages,
-    ...topLevelAreaPages,
+    ...areaPages,
     ...infoPages,
   ];
 }

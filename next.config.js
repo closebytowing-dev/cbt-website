@@ -11,15 +11,16 @@ const nextConfig = {
 
   // 301 Redirects for old/dead URLs indexed by Google
   async redirects() {
-    return [
+    // Legacy redirects
+    const legacy = [
       {
         source: '/towing-in-san-ysidro',
-        destination: '/san-diego/san-ysidro',
+        destination: '/san-ysidro',
         permanent: true,
       },
       {
         source: '/towing-in-san-ysidro/',
-        destination: '/san-diego/san-ysidro',
+        destination: '/san-ysidro',
         permanent: true,
       },
       {
@@ -33,6 +34,72 @@ const nextConfig = {
         permanent: true,
       },
     ];
+
+    // Neighborhood migration: /san-diego/[slug] → /[slug]
+    const neighborhoodSlugs = [
+      '4s-ranch',
+      'allied-gardens',
+      'alpine',
+      'bankers-hill',
+      'bonita',
+      'carmel-mountain',
+      'carmel-valley',
+      'clairemont',
+      'college-area',
+      'coronado',
+      'del-cerro',
+      'del-mar',
+      'downtown',
+      'encinitas',
+      'hillcrest',
+      'imperial-beach',
+      'kearny-mesa',
+      'la-jolla',
+      'lakeside',
+      'lemon-grove',
+      'lincoln-park',
+      'linda-vista',
+      'logan-heights',
+      'mira-mesa',
+      'mission-bay',
+      'mission-beach',
+      'mission-hills',
+      'mission-valley',
+      'nestor',
+      'normal-heights',
+      'north-park',
+      'ocean-beach',
+      'otay-mesa',
+      'pacific-beach',
+      'palm-city',
+      'paradise-hills',
+      'point-loma',
+      'rancho-bernardo',
+      'rancho-penasquitos',
+      'rancho-san-diego',
+      'rancho-santa-fe',
+      'sabre-springs',
+      'san-carlos',
+      'san-ysidro',
+      'santee',
+      'scripps-ranch',
+      'serra-mesa',
+      'skyline',
+      'solana-beach',
+      'sorrento-valley',
+      'tierrasanta',
+      'torrey-hills',
+      'university-city',
+      'university-heights',
+    ];
+
+    const neighborhoodRedirects = neighborhoodSlugs.map((slug) => ({
+      source: `/san-diego/${slug}`,
+      destination: `/${slug}`,
+      permanent: true,
+    }));
+
+    return [...legacy, ...neighborhoodRedirects];
   },
 
   // Security headers and caching
