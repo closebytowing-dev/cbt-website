@@ -92,8 +92,10 @@ export default function KearnyMesaPage() {
               </h1>
 
               <p className="mt-6 text-xl text-slate-300 leading-relaxed max-w-xl">
-                Kearny Mesa is San Diego&apos;s commercial powerhouse—home to Auto Row&apos;s 50+ car dealerships, the Convoy District with San Diego&apos;s best Asian cuisine, and Montgomery Field regional airport. Whether you need a dealer flatbed or broke down after pho on{" "}
-                <span className="text-blue-400 font-semibold">Convoy Street</span>, we respond in <span className="text-blue-400 font-semibold">20-30 minutes</span>.
+                Need a tow truck in Kearny Mesa? CloseBy Towing provides fast, reliable{" "}
+                <span className="text-blue-400 font-semibold">towing and roadside assistance</span> throughout the 92111 &amp; 92123
+                area. Dead battery, flat tire, lockout, or accident — our tow trucks are ready.
+                We respond in <span className="text-blue-400 font-semibold">20-30 minutes</span>, 24/7.
               </p>
 
               <div className="mt-8 grid grid-cols-3 gap-4">

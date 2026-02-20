@@ -152,10 +152,12 @@ export default function DelMarPage() {
               </h1>
 
               <p className="mt-6 text-xl text-teal-50 leading-relaxed max-w-xl">
-                Del Mar—&quot;Where the Turf Meets the Surf&quot;—is home to the legendary Del Mar Racetrack, the San Diego County Fair, and some of California&apos;s most exclusive oceanfront real estate along Camino del Mar. Whether your Porsche won&apos;t start at the{" "}
-                <span className="text-amber-300 font-semibold">Fairgrounds</span> or you need help on{" "}
-                <span className="text-amber-300 font-semibold">Coast Highway 101</span>, we respond in{" "}
-                <span className="text-amber-300 font-semibold">15-30 minutes</span>.
+                Need a tow truck in Del Mar? CloseBy Towing provides fast, professional{" "}
+                <span className="text-amber-300 font-semibold">towing and roadside assistance</span> throughout the 92014 area.
+                Flat tire, dead battery, lockout, or accident — our{" "}
+                <span className="text-amber-300 font-semibold">flatbed tow trucks</span> handle luxury and standard vehicles.
+                We respond in{" "}
+                <span className="text-amber-300 font-semibold">15-30 minutes</span>, 24/7.
               </p>
 
               {/* Quick stats */}

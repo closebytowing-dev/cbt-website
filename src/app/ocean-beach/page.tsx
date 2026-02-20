@@ -152,10 +152,11 @@ export default function OceanBeachPage() {
               </h1>
 
               <p className="mt-6 text-xl text-purple-100 leading-relaxed max-w-xl">
-                Ocean Beach is San Diego&apos;s last true bohemian beach town—where antique shops line Newport Avenue, surfers rule the pier, and dogs run free at California&apos;s original off-leash beach. Whether you&apos;re stuck near{" "}
-                <span className="text-orange-300 font-semibold">Sunset Cliffs</span> watching the sunset or broken down after the{" "}
-                <span className="text-orange-300 font-semibold">Wednesday Farmers Market</span>, we respond in{" "}
-                <span className="text-orange-300 font-semibold">15-30 minutes</span>.
+                Need a tow truck in Ocean Beach? CloseBy Towing provides fast, reliable{" "}
+                <span className="text-orange-300 font-semibold">towing and roadside assistance</span> throughout the 92107
+                area. Flat tire, dead battery, lockout, or accident — our tow trucks are ready to roll.
+                We respond in{" "}
+                <span className="text-orange-300 font-semibold">15-30 minutes</span>, 24/7.
               </p>
 
               {/* Quick stats */}

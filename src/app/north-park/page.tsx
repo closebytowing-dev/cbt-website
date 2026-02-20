@@ -152,10 +152,11 @@ export default function NorthParkPage() {
               </h1>
 
               <p className="mt-6 text-xl text-amber-100 leading-relaxed max-w-xl">
-                North Park is San Diego&apos;s creative heartbeat—home to 30th Street&apos;s famous craft brewery corridor with Modern Times and dozens more, the Ray at Night art walk, historic Craftsman bungalows, and Morley Field&apos;s disc golf course. Whether you&apos;re stuck after{" "}
-                <span className="text-amber-300 font-semibold">brewery hopping</span> or need help near{" "}
-                <span className="text-amber-300 font-semibold">Observatory North Park</span>, we respond in{" "}
-                <span className="text-amber-300 font-semibold">20-30 minutes</span>.
+                Need a tow truck in North Park? CloseBy Towing provides fast, affordable{" "}
+                <span className="text-amber-300 font-semibold">towing and roadside assistance</span> throughout the 92104
+                area. Dead battery, flat tire, lockout, or accident — our tow trucks cover every street
+                in North Park. We respond in{" "}
+                <span className="text-amber-300 font-semibold">20-30 minutes</span>, 24/7.
               </p>
 
               {/* Quick stats */}

@@ -135,10 +135,11 @@ export default function PacificBeachPage() {
               </h1>
 
               <p className="mt-6 text-xl text-blue-100 leading-relaxed max-w-xl">
-                Pacific Beach is San Diego&apos;s iconic boardwalk community where locals catch waves at Tourmaline and visitors pack Garnet Avenue&apos;s bars every weekend. Whether you&apos;re stuck near{" "}
-                <span className="text-cyan-200 font-semibold">Crystal Pier</span>, broken down on{" "}
-                <span className="text-cyan-200 font-semibold">Mission Boulevard</span>, or need help in the Crown Point area, we respond in{" "}
-                <span className="text-cyan-200 font-semibold">20-30 minutes</span>.
+                Need a tow truck in Pacific Beach? CloseBy Towing provides fast, affordable{" "}
+                <span className="text-cyan-200 font-semibold">towing and roadside assistance</span> throughout the 92109
+                area. Dead battery, flat tire, lockout, or accident — our tow trucks cover every street
+                in PB. We respond in{" "}
+                <span className="text-cyan-200 font-semibold">20-30 minutes</span>, 24/7.
               </p>
 
               <div className="mt-8 grid grid-cols-3 gap-4">

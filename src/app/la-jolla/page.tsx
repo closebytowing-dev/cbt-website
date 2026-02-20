@@ -240,9 +240,10 @@ export default function LaJollaPage() {
 
             {/* Unique Description */}
             <p className="mt-8 text-xl sm:text-2xl text-slate-300 leading-relaxed max-w-2xl">
-              Where Mediterranean-style coastline meets California luxury. From the sea caves of{" "}
-              <span className="text-amber-400 font-medium">La Jolla Cove</span> to the windswept bluffs of{" "}
-              <span className="text-amber-400 font-medium">Torrey Pines</span>, we deliver white-glove towing service worthy of San Diego's most exclusive enclave.
+              Need a tow truck in La Jolla? CloseBy Towing provides premium{" "}
+              <span className="text-amber-400 font-medium">towing and roadside assistance</span> throughout the 92037 area.
+              Flat tire, dead battery, lockout, or accident — our{" "}
+              <span className="text-amber-400 font-medium">flatbed tow trucks</span> specialize in luxury and exotic vehicles. White-glove service, 24/7.
             </p>
 
             {/* ZIP Code Display */}

@@ -250,10 +250,10 @@ export default function FourSRanchPage() {
 
             {/* Unique descriptor */}
             <p className="mt-8 text-xl sm:text-2xl text-teal-200/90 leading-relaxed max-w-xl">
-              From the packed parking lot at{" "}
-              <span className="text-emerald-400 font-medium">4S Commons</span> to the quiet cul-de-sacs of{" "}
-              <span className="text-emerald-400 font-medium">Pacific Highlands</span> — we know every school zone,
-              every speed bump, and every gate code in North County's favorite neighborhood.
+              Need a tow truck in 4S Ranch? CloseBy Towing provides fast, reliable{" "}
+              <span className="text-emerald-400 font-medium">towing and roadside assistance</span> throughout the 92127
+              area. Flat tire, dead battery, lockout, or accident — our{" "}
+              <span className="text-emerald-400 font-medium">flatbed tow trucks</span> are dispatching now.
             </p>
 
             {/* ZIP */}
