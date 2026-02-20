@@ -151,91 +151,104 @@ const NEARBY = [
 export default function AlliedGardensPage() {
   return (
     <main>
-      {/* ===== HERO — Hard 50/50 split, text left, photo right ===== */}
-      <section className="relative min-h-[60vh] flex overflow-hidden">
-        {/* LEFT — Deep navy block (matches nav bar #1e1e4a) */}
-        <div className="w-full lg:w-1/2 bg-[#1e1e4a] flex items-center relative">
-          {/* Diagonal edge on desktop */}
-          <div className="hidden lg:block absolute top-0 right-0 w-24 h-full bg-[#1e1e4a] origin-top-right" style={{ clipPath: "polygon(0 0, 100% 0, 0 100%)" }} />
-
-          <div className="max-w-2xl ml-auto px-6 sm:px-12 lg:px-16 py-20 lg:py-0 relative z-10">
-            {/* Identifier */}
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-0.5 bg-amber-400" />
-              <span className="text-amber-300 text-sm font-bold tracking-[0.2em] uppercase">
-                Est. 1955 &bull; ZIP {ZIP}
-              </span>
-            </div>
-
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight">
-              Allied
-              <br />
-              Gardens
-            </h1>
-
-            <p className="mt-6 text-2xl font-bold text-amber-300">
-              Towing & Roadside Assistance
-            </p>
-
-            <p className="mt-6 text-lg text-blue-100/80 leading-relaxed max-w-lg">
-              San Diego&apos;s original veteran-built neighborhood. Mid-century ranch homes under a canopy of oaks,
-              the I-8 corridor at the front door, and 7,220 acres of Mission Trails wilderness out the back.
-              We&apos;ve been towing these streets for years.
-            </p>
-
-            {/* Hard stat blocks */}
-            <div className="mt-10 flex gap-0">
-              <div className="bg-[#161638] px-6 py-4 border-r border-[#2a2a5a]">
-                <div className="text-3xl font-black text-white">15</div>
-                <div className="text-xs text-amber-400 font-semibold uppercase tracking-wide mt-1">Min Response</div>
-              </div>
-              <div className="bg-[#161638] px-6 py-4 border-r border-[#2a2a5a]">
-                <div className="text-3xl font-black text-white">I-8</div>
-                <div className="text-xs text-amber-400 font-semibold uppercase tracking-wide mt-1">Corridor</div>
-              </div>
-              <div className="bg-[#161638] px-6 py-4">
-                <div className="text-3xl font-black text-white">24/7</div>
-                <div className="text-xs text-amber-400 font-semibold uppercase tracking-wide mt-1">Year-Round</div>
-              </div>
-            </div>
-
-            {/* CTA */}
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <a
-                href={`tel:${CONTACT.phoneRaw}`}
-                className="inline-flex items-center justify-center gap-3 bg-amber-400 text-[#1e1e4a] px-8 py-4 font-black text-lg tracking-wide hover:bg-amber-300 transition-colors"
-              >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                {CONTACT.phone}
-              </a>
-              <a
-                href={`https://wa.me/${CONTACT.whatsapp}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 border-2 border-amber-400 text-amber-200 px-8 py-4 font-bold text-lg hover:bg-[#2a2a5a] transition-colors"
-              >
-                WhatsApp Us
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* RIGHT — Hero photo */}
-        <div className="hidden lg:flex w-1/2 relative overflow-hidden">
+      {/* ===== HERO — Diagonal split: navy left → gold stripe → photo right ===== */}
+      <section className="relative min-h-[60vh] overflow-hidden">
+        {/* Photo background — fills the entire hero, visible on the right */}
+        <div className="absolute inset-0 hidden lg:block">
           <Image
             src="/neighborhoods/allied-gardens/hero-street.webp"
             alt="Allied Gardens neighborhood — mid-century homes and tree-lined streets in San Diego"
             fill
             priority
             className="object-cover"
-            sizes="50vw"
+            sizes="100vw"
           />
         </div>
 
-        {/* Mobile: solid navy background (no broken image) */}
-        <div className="absolute inset-0 lg:hidden -z-10 bg-[#1e1e4a]" />
+        {/* Navy overlay with diagonal clip — covers left ~55%, angled edge */}
+        <div
+          className="hidden lg:block absolute inset-0 bg-[#1e1e4a] z-10"
+          style={{ clipPath: "polygon(0 0, 55% 0, 45% 100%, 0 100%)" }}
+        />
+
+        {/* Gold diagonal stripe — sits right along the angled edge */}
+        <div
+          className="hidden lg:block absolute inset-0 z-20"
+          style={{ clipPath: "polygon(55% 0, 56% 0, 46% 100%, 45% 100%)" }}
+        >
+          <div className="w-full h-full bg-[#ffba42]" />
+        </div>
+
+        {/* Mobile: solid navy background */}
+        <div className="absolute inset-0 lg:hidden bg-[#1e1e4a]" />
+
+        {/* Text content — sits on top of everything */}
+        <div className="relative z-30 flex min-h-[60vh]">
+          <div className="w-full lg:w-1/2 flex items-center">
+            <div className="max-w-2xl ml-auto px-6 sm:px-12 lg:px-16 py-20 lg:py-16 relative">
+              {/* Identifier */}
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-0.5 bg-amber-400" />
+                <span className="text-amber-300 text-sm font-bold tracking-[0.2em] uppercase">
+                  Est. 1955 &bull; ZIP {ZIP}
+                </span>
+              </div>
+
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight">
+                Allied
+                <br />
+                Gardens
+              </h1>
+
+              <p className="mt-6 text-2xl font-bold text-amber-300">
+                Towing & Roadside Assistance
+              </p>
+
+              <p className="mt-6 text-lg text-blue-100/80 leading-relaxed max-w-lg">
+                San Diego&apos;s original veteran-built neighborhood. Mid-century ranch homes under a canopy of oaks,
+                the I-8 corridor at the front door, and 7,220 acres of Mission Trails wilderness out the back.
+                We&apos;ve been towing these streets for years.
+              </p>
+
+              {/* Hard stat blocks */}
+              <div className="mt-10 flex gap-0">
+                <div className="bg-[#161638] px-6 py-4 border-r border-[#2a2a5a]">
+                  <div className="text-3xl font-black text-white">15</div>
+                  <div className="text-xs text-amber-400 font-semibold uppercase tracking-wide mt-1">Min Response</div>
+                </div>
+                <div className="bg-[#161638] px-6 py-4 border-r border-[#2a2a5a]">
+                  <div className="text-3xl font-black text-white">I-8</div>
+                  <div className="text-xs text-amber-400 font-semibold uppercase tracking-wide mt-1">Corridor</div>
+                </div>
+                <div className="bg-[#161638] px-6 py-4">
+                  <div className="text-3xl font-black text-white">24/7</div>
+                  <div className="text-xs text-amber-400 font-semibold uppercase tracking-wide mt-1">Year-Round</div>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="mt-10 flex flex-col sm:flex-row gap-4">
+                <a
+                  href={`tel:${CONTACT.phoneRaw}`}
+                  className="inline-flex items-center justify-center gap-3 bg-amber-400 text-[#1e1e4a] px-8 py-4 font-black text-lg tracking-wide hover:bg-amber-300 transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  {CONTACT.phone}
+                </a>
+                <a
+                  href={`https://wa.me/${CONTACT.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-3 border-2 border-amber-400 text-amber-200 px-8 py-4 font-bold text-lg hover:bg-[#2a2a5a] transition-colors"
+                >
+                  WhatsApp Us
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* ===== WHY CLOSEBY TOWING — Orange trust band ===== */}
