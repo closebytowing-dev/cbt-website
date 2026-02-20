@@ -187,19 +187,19 @@ export default function AlliedGardensPage() {
           <div className="w-full lg:w-1/2 flex items-center">
             <div className="max-w-2xl ml-auto px-6 sm:px-12 lg:px-16 py-20 lg:py-16 relative">
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight">
-                Allied
+                Allied Gardens
                 <br />
-                Gardens
+                Towing
               </h1>
 
               <p className="mt-6 text-2xl font-bold text-amber-300">
-                Towing & Roadside Assistance
+                24/7 Tow Truck &amp; Roadside Assistance
               </p>
 
               <p className="mt-6 text-lg text-blue-100/80 leading-relaxed max-w-lg">
-                San Diego&apos;s original veteran-built neighborhood. Mid-century ranch homes under a canopy of oaks,
-                the I-8 corridor at the front door, and 7,220 acres of Mission Trails wilderness out the back.
-                We&apos;ve been towing these streets for years.
+                Need a tow truck in Allied Gardens? CloseBy Towing provides fast, affordable towing
+                and roadside assistance anywhere in the 92120 area. Flat tire, dead battery, locked out,
+                or need a flatbed — we&apos;re dispatching now. Call and we&apos;re on our way.
               </p>
 
               {/* Hard stat blocks */}
