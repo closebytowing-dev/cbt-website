@@ -85,7 +85,7 @@ export default function CoronadoPage() {
             sizes="100vw"
           />
           {/* Only darken the bottom third where text lives */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-black/40 to-transparent" />
         </div>
 
         {/* Bottom content bar — sits over the photo */}
@@ -142,7 +142,7 @@ export default function CoronadoPage() {
       </section>
 
       {/* WHAT CUSTOMERS SAY — Scrolling Reviews */}
-      <section className="relative -mt-[15vh] z-20 py-6 lg:py-8 bg-gradient-to-b from-black to-slate-800 border-y border-amber-500/20 overflow-hidden">
+      <section className="relative py-8 lg:py-10 bg-slate-900 border-b border-amber-500/10 overflow-hidden">
         <div className="mx-auto max-w-[1600px] px-6 mb-8">
           <h2 className="text-3xl sm:text-4xl font-black text-white">
             What Our Customers Say
@@ -195,103 +195,108 @@ export default function CoronadoPage() {
         `}</style>
       </section>
 
-      {/* Complete Coronado Coverage — Cinematic Photo + Content */}
-      <section className="relative overflow-hidden">
-        {/* Full-width background photo */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/flatbed-coronado.webp"
-            alt="CloseBy Towing flatbed truck with San Diego skyline across Coronado Bay"
-            fill
-            className="object-cover object-center"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/85 to-slate-900/40" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
-          <div className="max-w-2xl">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight">
-              COMPLETE <span className="text-amber-400">CORONADO</span> COVERAGE
-            </h2>
-            <p className="mt-6 text-lg sm:text-xl text-white/70 leading-relaxed">
-              We know every street, landmark, and parking situation on Coronado Island. From the Coronado Bridge entrance to the Silver Strand, our drivers navigate the island efficiently to reach you fast.
-            </p>
-
-            {/* Areas + Routes */}
-            <div className="mt-10 grid sm:grid-cols-2 gap-4">
-              <div className="bg-slate-900/60 backdrop-blur-md rounded-xl p-5 border border-white/10">
-                <h3 className="font-bold text-amber-400 mb-3">Key Areas</h3>
-                <ul className="space-y-2 text-white/70">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
-                    Orange Avenue / Village
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
-                    Hotel del Coronado
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
-                    Ferry Landing
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
-                    Coronado Cays
-                  </li>
-                </ul>
-              </div>
-              <div className="bg-slate-900/60 backdrop-blur-md rounded-xl p-5 border border-white/10">
-                <h3 className="font-bold text-amber-400 mb-3">Major Routes</h3>
-                <ul className="space-y-2 text-white/70">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
-                    Coronado Bridge (SR-75)
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
-                    Silver Strand Blvd
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
-                    4th Street
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
-                    Ocean Boulevard
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* ZIP + Response Time */}
-            <div className="mt-8 flex flex-wrap gap-4">
-              <div className="bg-amber-500/10 backdrop-blur-md border border-amber-500/30 rounded-xl px-6 py-4 flex items-center gap-4">
-                <div className="text-3xl font-black text-amber-400">{CORONADO_ZIP_CODES[0]}</div>
-                <div>
-                  <div className="font-bold text-white text-sm">Coronado ZIP</div>
-                  <div className="text-white/50 text-xs">Full island coverage</div>
-                </div>
-              </div>
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl px-6 py-4 flex items-center gap-4">
-                <div className="text-3xl font-black text-green-400">15-25</div>
-                <div>
-                  <div className="font-bold text-white text-sm">Min Response</div>
-                  <div className="text-white/50 text-xs">Avg to Coronado</div>
+      {/* Complete Coronado Coverage — Framed Gallery Photo + Content */}
+      <section className="py-20 lg:py-24 bg-slate-900">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left: Framed gallery photo */}
+            <div className="p-3 rounded-2xl border border-amber-500/25 shadow-[0_4px_80px_rgba(245,158,11,0.06)] bg-slate-800/30">
+              <div className="relative aspect-[3/2] rounded-xl overflow-hidden">
+                <Image
+                  src="/images/flatbed-coronado.webp"
+                  alt="CloseBy Towing flatbed truck with San Diego skyline across Coronado Bay"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent pt-16 pb-4 px-5">
+                  <p className="text-white/70 text-sm tracking-wide text-center">
+                    San Diego&apos;s Most Trusted Towing — Serving Coronado Island 24/7
+                  </p>
                 </div>
               </div>
             </div>
 
-            <p className="mt-8 text-white/40 text-sm tracking-wide">
-              San Diego&apos;s Most Trusted Towing — Serving Coronado Island 24/7
-            </p>
+            {/* Right: Coverage content */}
+            <div>
+              <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight">
+                COMPLETE <span className="text-amber-400">CORONADO</span> COVERAGE
+              </h2>
+              <p className="mt-6 text-lg text-slate-400 leading-relaxed">
+                We know every street, landmark, and parking situation on Coronado Island. From the Coronado Bridge entrance to the Silver Strand, our drivers navigate the island efficiently to reach you fast.
+              </p>
+
+              {/* Areas + Routes */}
+              <div className="mt-10 grid sm:grid-cols-2 gap-4">
+                <div className="bg-slate-800/70 rounded-xl p-5 border border-slate-700">
+                  <h3 className="font-bold text-amber-400 mb-3">Key Areas</h3>
+                  <ul className="space-y-2.5 text-slate-300">
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0" />
+                      Orange Avenue / Village
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0" />
+                      Hotel del Coronado
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0" />
+                      Ferry Landing
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0" />
+                      Coronado Cays
+                    </li>
+                  </ul>
+                </div>
+                <div className="bg-slate-800/70 rounded-xl p-5 border border-slate-700">
+                  <h3 className="font-bold text-amber-400 mb-3">Major Routes</h3>
+                  <ul className="space-y-2.5 text-slate-300">
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0" />
+                      Coronado Bridge (SR-75)
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0" />
+                      Silver Strand Blvd
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0" />
+                      4th Street
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0" />
+                      Ocean Boulevard
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* ZIP + Response Time */}
+              <div className="mt-8 flex flex-wrap gap-4">
+                <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl px-6 py-4 flex items-center gap-4">
+                  <div className="text-3xl font-black text-amber-400">{CORONADO_ZIP_CODES[0]}</div>
+                  <div>
+                    <div className="font-bold text-white text-sm">Coronado ZIP</div>
+                    <div className="text-slate-500 text-xs">Full island coverage</div>
+                  </div>
+                </div>
+                <div className="bg-slate-800/70 border border-slate-700 rounded-xl px-6 py-4 flex items-center gap-4">
+                  <div className="text-3xl font-black text-green-400">15-25</div>
+                  <div>
+                    <div className="font-bold text-white text-sm">Min Response</div>
+                    <div className="text-slate-500 text-xs">Avg to Coronado</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-slate-800">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="py-20 lg:py-24 bg-slate-800">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-black text-white">
               TOWING SERVICES IN <span className="text-amber-400">CORONADO</span>
@@ -301,81 +306,81 @@ export default function CoronadoPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Service Card 1 */}
-            <div className="group bg-slate-700/50 rounded-2xl p-8 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
-              <div className="w-14 h-14 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="group bg-slate-700/50 rounded-2xl p-10 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
+              <div className="w-16 h-16 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-9 h-9 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Emergency Towing</h3>
-              <p className="text-slate-400">
+              <h3 className="text-2xl font-bold text-white mb-3">Emergency Towing</h3>
+              <p className="text-base text-slate-400 leading-relaxed">
                 24/7 emergency tow truck dispatch to anywhere in Coronado. Accidents, breakdowns, or any urgent situation - we respond fast.
               </p>
             </div>
 
             {/* Service Card 2 */}
-            <div className="group bg-slate-700/50 rounded-2xl p-8 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
-              <div className="w-14 h-14 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="group bg-slate-700/50 rounded-2xl p-10 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
+              <div className="w-16 h-16 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-9 h-9 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Flatbed Towing</h3>
-              <p className="text-slate-400">
+              <h3 className="text-2xl font-bold text-white mb-3">Flatbed Towing</h3>
+              <p className="text-base text-slate-400 leading-relaxed">
                 Safe flatbed transport for luxury vehicles, sports cars, and all-wheel-drive vehicles. Your car never touches the road.
               </p>
             </div>
 
             {/* Service Card 3 */}
-            <div className="group bg-slate-700/50 rounded-2xl p-8 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
-              <div className="w-14 h-14 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="group bg-slate-700/50 rounded-2xl p-10 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
+              <div className="w-16 h-16 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-9 h-9 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Roadside Assistance</h3>
-              <p className="text-slate-400">
+              <h3 className="text-2xl font-bold text-white mb-3">Roadside Assistance</h3>
+              <p className="text-base text-slate-400 leading-relaxed">
                 Jump starts, tire changes, fuel delivery, and lockout service. Quick help to get you moving without a tow.
               </p>
             </div>
 
             {/* Service Card 4 */}
-            <div className="group bg-slate-700/50 rounded-2xl p-8 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
-              <div className="w-14 h-14 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="group bg-slate-700/50 rounded-2xl p-10 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
+              <div className="w-16 h-16 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-9 h-9 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Accident Recovery</h3>
-              <p className="text-slate-400">
+              <h3 className="text-2xl font-bold text-white mb-3">Accident Recovery</h3>
+              <p className="text-base text-slate-400 leading-relaxed">
                 Professional accident scene towing and vehicle recovery. We work with insurance companies and law enforcement.
               </p>
             </div>
 
             {/* Service Card 5 */}
-            <div className="group bg-slate-700/50 rounded-2xl p-8 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
-              <div className="w-14 h-14 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="group bg-slate-700/50 rounded-2xl p-10 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
+              <div className="w-16 h-16 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-9 h-9 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Bridge Coverage</h3>
-              <p className="text-slate-400">
+              <h3 className="text-2xl font-bold text-white mb-3">Bridge Coverage</h3>
+              <p className="text-base text-slate-400 leading-relaxed">
                 Specialized Coronado Bridge emergency response. Safe vehicle removal from the bridge with proper traffic management.
               </p>
             </div>
 
             {/* Service Card 6 */}
-            <div className="group bg-slate-700/50 rounded-2xl p-8 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
-              <div className="w-14 h-14 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="group bg-slate-700/50 rounded-2xl p-10 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
+              <div className="w-16 h-16 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-9 h-9 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Motorcycle Towing</h3>
-              <p className="text-slate-400">
+              <h3 className="text-2xl font-bold text-white mb-3">Motorcycle Towing</h3>
+              <p className="text-base text-slate-400 leading-relaxed">
                 Careful motorcycle transport with specialized equipment. We secure and protect your bike during transport.
               </p>
             </div>
@@ -384,8 +389,8 @@ export default function CoronadoPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-slate-800">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="py-20 lg:py-24 bg-slate-900">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-black text-white">
               WHY <span className="text-amber-400">CORONADO</span> TRUSTS US
@@ -434,8 +439,8 @@ export default function CoronadoPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-slate-900">
-        <div className="max-w-4xl mx-auto px-4">
+      <section className="py-20 lg:py-24 bg-slate-800">
+        <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-black text-white">
               CORONADO TOWING <span className="text-amber-400">FAQ</span>
@@ -469,8 +474,8 @@ export default function CoronadoPage() {
       </section>
 
       {/* Nearby Areas */}
-      <section className="py-16 bg-slate-800">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="py-16 lg:py-20 bg-slate-900">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-black text-white">
               ALSO SERVING <span className="text-amber-400">NEARBY AREAS</span>
@@ -494,19 +499,19 @@ export default function CoronadoPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-gradient-to-br from-amber-500 to-amber-600">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl sm:text-5xl font-black text-slate-900">
-            NEED A TOW IN CORONADO?
+      <section className="py-24 bg-slate-900 border-t border-slate-700/50">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white">
+            NEED A TOW IN <span className="text-amber-400">CORONADO</span>?
           </h2>
-          <p className="mt-6 text-xl text-slate-800 max-w-2xl mx-auto">
+          <p className="mt-6 text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
             Don&apos;t wait stranded. Our professional team is ready 24/7 to help you anywhere on Coronado Island.
           </p>
 
           <div className="mt-10">
             <a
               href={`tel:${CONTACT.phoneRaw}`}
-              className="inline-flex items-center justify-center gap-3 bg-slate-900 hover:bg-slate-800 text-white px-12 py-6 rounded-xl font-black text-2xl transition-all hover:scale-105 shadow-2xl"
+              className="inline-flex items-center justify-center gap-3 bg-amber-500 hover:bg-amber-400 text-slate-900 px-12 py-6 rounded-xl font-black text-2xl transition-all hover:scale-105 shadow-2xl shadow-amber-500/20"
             >
               <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -515,24 +520,24 @@ export default function CoronadoPage() {
             </a>
           </div>
 
-          <div className="mt-10 flex flex-wrap justify-center gap-8 text-slate-800">
+          <div className="mt-10 flex flex-wrap justify-center gap-8 text-slate-400">
             <div className="flex items-center gap-2">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
-              <span className="font-bold">Licensed & Insured</span>
+              <span className="font-semibold">Licensed & Insured</span>
             </div>
             <div className="flex items-center gap-2">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
-              <span className="font-bold">24/7 Available</span>
+              <span className="font-semibold">24/7 Available</span>
             </div>
             <div className="flex items-center gap-2">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
-              <span className="font-bold">Fast Response</span>
+              <span className="font-semibold">Fast Response</span>
             </div>
           </div>
         </div>
