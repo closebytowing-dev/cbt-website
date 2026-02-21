@@ -107,7 +107,7 @@ export default function CoronadoPage() {
               </div>
 
               {/* Right: CTA + response time */}
-              <div className="flex flex-col items-start lg:items-end gap-4">
+              <div className="flex flex-col items-start lg:items-end gap-4 mb-3">
                 {/* Response time */}
                 <div className="flex items-center gap-3">
                   <div className="h-3 w-3 rounded-full bg-green-400 animate-pulse shadow-[0_0_12px_rgba(74,222,128,0.6)]" />
