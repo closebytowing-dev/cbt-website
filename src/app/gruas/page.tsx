@@ -5,13 +5,13 @@ import { CONTACT } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Grúas en San Diego | Servicio 24/7 | CloseBy Towing",
   description:
-    "¿Necesitas una grúa en San Diego? CloseBy Towing ofrece servicio de grúa rápido y confiable en toda el área. Llegamos en 15-25 minutos. Llama ahora: (858) 999-9293",
+    "Necesitas una grúa en San Diego — CloseBy Towing ofrece servicio de grúa rápido y confiable en toda el área. Llegamos en 15-25 minutos. Llama ahora: (858) 999-9293",
   keywords:
     "grúas San Diego, grúa cerca de mi, tow truck San Diego español, servicio de grúa 24 horas, remolque San Diego, grúa Chula Vista, grúa National City, grúa San Ysidro",
   openGraph: {
     title: "Grúas en San Diego | Servicio 24/7 | CloseBy Towing",
     description:
-      "¿Necesitas una grúa en San Diego? Respuesta en 15-25 minutos. Servicio profesional 24/7 en todo el condado. Hablamos español.",
+      "Necesitas una grúa en San Diego — Respuesta en 15-25 minutos. Servicio profesional 24/7 en todo el condado. Hablamos español.",
     url: "https://www.closebytowing.com/gruas",
     type: "website",
   },
@@ -36,7 +36,7 @@ const SERVICIOS = [
   },
   {
     titulo: "Arranque de Batería",
-    descripcion: "¿Batería muerta? Te ayudamos a arrancar tu vehículo en minutos, sin necesidad de grúa.",
+    descripcion: "Batería muerta — te ayudamos a arrancar tu vehículo en minutos, sin necesidad de grúa.",
     icono: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
@@ -45,7 +45,7 @@ const SERVICIOS = [
   },
   {
     titulo: "Apertura de Vehículo",
-    descripcion: "¿Llaves adentro del carro? Abrimos tu vehículo sin dañarlo. Servicio rápido y seguro.",
+    descripcion: "Llaves adentro del carro — abrimos tu vehículo sin dañarlo. Servicio rápido y seguro.",
     icono: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
@@ -54,7 +54,7 @@ const SERVICIOS = [
   },
   {
     titulo: "Cambio de Llanta",
-    descripcion: "¿Llanta ponchada en la carretera? Cambiamos tu llanta donde sea que te encuentres.",
+    descripcion: "Llanta ponchada en la carretera — cambiamos tu llanta donde sea que te encuentres.",
     icono: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <circle cx="12" cy="12" r="9" />
@@ -65,7 +65,7 @@ const SERVICIOS = [
   },
   {
     titulo: "Entrega de Gasolina",
-    descripcion: "¿Te quedaste sin gasolina? Te llevamos combustible directo a tu ubicación.",
+    descripcion: "Te quedaste sin gasolina — te llevamos combustible directo a tu ubicación.",
     icono: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
@@ -142,23 +142,23 @@ const PUNTOS_CONFIANZA = [
 
 const PREGUNTAS = [
   {
-    pregunta: "¿Cuánto tiempo tardan en llegar?",
+    pregunta: "Tiempo de llegada",
     respuesta: "Nuestro tiempo promedio de respuesta es de 15 a 25 minutos en toda el área de San Diego. Dependiendo del tráfico y tu ubicación exacta, puede ser incluso más rápido.",
   },
   {
-    pregunta: "¿Cuánto cuesta el servicio de grúa?",
+    pregunta: "Costo del servicio de grúa",
     respuesta: "El servicio de grúa comienza desde $95. El precio final depende de la distancia y el tipo de vehículo. Siempre te damos el precio exacto antes de llegar — sin sorpresas.",
   },
   {
-    pregunta: "¿Están disponibles de noche?",
+    pregunta: "Disponibilidad nocturna",
     respuesta: "Sí, estamos disponibles las 24 horas del día, los 7 días de la semana. No importa si es de madrugada, fin de semana o día festivo — siempre hay alguien listo para ayudarte.",
   },
   {
-    pregunta: "¿Hablan español?",
-    respuesta: "¡Sí! Nuestro equipo habla español. Puedes llamarnos o escribirnos por WhatsApp y te atenderemos en tu idioma sin problema.",
+    pregunta: "Servicio en español",
+    respuesta: "Sí, nuestro equipo habla español. Puedes llamarnos o escribirnos por WhatsApp y te atenderemos en tu idioma sin problema.",
   },
   {
-    pregunta: "¿Aceptan todas las formas de pago?",
+    pregunta: "Formas de pago aceptadas",
     respuesta: "Aceptamos efectivo, tarjetas de crédito y débito (Visa, Mastercard, American Express), y también pagos por Zelle y Venmo.",
   },
 ];
@@ -213,11 +213,11 @@ export default function GruasPage() {
           </h1>
 
           <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-amber-300/90 mb-6 tracking-wide text-center">
-            R&aacute;pido, Confiable y Disponible 24/7
+            Servicio R&aacute;pido, Profesional y Disponible 24/7
           </p>
 
           <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed text-center">
-            &iquest;Tu carro se averi&oacute;? Llegamos a ti en 15-25 minutos. Servimos todo San Diego &mdash; Chula Vista, National City, Logan Heights y m&aacute;s.
+            Tu carro se averi&oacute;. No te preocupes &mdash; llegamos a ti en 15-25 minutos. Servimos Chula Vista, National City, Logan Heights, Barrio Logan y toda el &aacute;rea de San Diego.
           </p>
 
           {/* CTA Buttons — WhatsApp FIRST and BIGGEST */}
@@ -340,13 +340,13 @@ export default function GruasPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════
-          ¿POR QUÉ ELEGIRNOS?
+          POR QUÉ ELEGIRNOS
       ══════════════════════════════════════════════════════════════ */}
       <section className="bg-slate-950 py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">
-              &iquest;Por Qu&eacute; <span className="text-amber-400">Elegirnos</span>?
+              Por Qu&eacute; <span className="text-amber-400">Elegirnos</span>
             </h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
               Somos la opci&oacute;n de confianza para la comunidad hispana de San Diego.
@@ -498,7 +498,7 @@ export default function GruasPage() {
             </div>
 
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-4">
-              &iquest;Necesitas una <span className="text-amber-400">Gr&uacute;a</span> Ahora?
+              Necesitas una <span className="text-amber-400">Gr&uacute;a</span> Ahora
             </h2>
             <p className="text-slate-400 text-lg mb-6 max-w-xl mx-auto">
               No te quedes varado. Ll&aacute;manos ahora y llegamos en 15-25 minutos.
