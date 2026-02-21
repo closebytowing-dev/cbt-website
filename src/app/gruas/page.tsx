@@ -197,8 +197,9 @@ export default function GruasPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/20 to-transparent" />
         </div>
 
-        {/* Hero content — middle left */}
-        <div className="relative z-10 w-full max-w-xl lg:max-w-2xl ml-6 lg:ml-16 px-6 pt-32 pb-20">
+        {/* Hero content — middle left, right-edge aligned with header logo */}
+        <div className="relative z-10 w-full mx-auto max-w-[1800px] px-4 sm:px-6 pt-32 pb-20">
+        <div className="max-w-xl lg:max-w-2xl lg:ml-14">
           {/* Badge */}
           <div className="flex justify-start mb-8">
             <div className="inline-flex items-center gap-2.5 bg-[#25D366]/15 border border-[#25D366]/40 rounded-full px-5 py-2.5">
@@ -243,6 +244,7 @@ export default function GruasPage() {
               Llamar Ahora: {CONTACT.phone}
             </a>
           </div>
+        </div>
         </div>
       </section>
 
