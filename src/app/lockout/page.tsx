@@ -39,8 +39,8 @@ export default function LockoutPage() {
     "@type": "LocalBusiness",
     "name": "CloseBy Towing - Lockout Service",
     "image": "https://closebytowing.com/services/lockout-hero.webp",
-    "@id": "https://closebytowing.com/services/lockout",
-    "url": "https://closebytowing.com/services/lockout",
+    "@id": "https://closebytowing.com/lockout",
+    "url": "https://closebytowing.com/lockout",
     "telephone": "+1-858-999-9293",
     "priceRange": loading ? "$75-$88" : `$${onlinePrice}-$${standardPrice}`,
     "address": {
@@ -577,12 +577,12 @@ export default function LockoutPage() {
           </div>
           <div className="flex flex-wrap justify-center gap-6">
             {[
-              { name: "Towing", href: "/services/towing" },
-              { name: "Jump Start", href: "/services/jump-start" },
-              { name: "Tire Change", href: "/services/tire-change" },
-              { name: "Gas Delivery", href: "/services/gas-delivery" },
-              { name: "Winch Out", href: "/services/winch-out" },
-              { name: "Collision Recovery", href: "/services/collision-recovery" }
+              { name: "Towing", href: "/towing" },
+              { name: "Jump Start", href: "/jump-start" },
+              { name: "Tire Change", href: "/tire-change" },
+              { name: "Gas Delivery", href: "/gas-delivery" },
+              { name: "Winch Out", href: "/winch-out" },
+              { name: "Collision Recovery", href: "/collision-recovery" }
             ].map((service) => (
               <Link
                 key={service.name}

@@ -23,7 +23,7 @@ const services: Service[] = [
     img: "/services/flatbed.webp",
     blurb:
       "Need luxury or all-wheel-drive towing? Our flatbeds protect low-clearance vehicles and long-distance transports. Wheel-lift is great for tight spots and quick moves. Damage-free equipment, soft straps, and careful loading.",
-    link: "/services/towing",
+    link: "/towing",
     gradient: "from-amber-500 via-orange-500 to-red-500",
     glowColor: "amber-500",
     stats: { label: "AVG RESPONSE", value: "25 min" },
@@ -35,7 +35,7 @@ const services: Service[] = [
     img: "/services/medium-duty-placeholder.webp",
     blurb:
       "Box trucks, RVs, delivery vehicles, and work trucks up to 26,000 lbs GVWR. Our medium duty fleet handles commercial vehicles, equipment transport, and oversized loads with professional care. Fully equipped for business needs.",
-    link: "/services/medium-duty",
+    link: "/medium-duty",
     gradient: "from-blue-500 via-indigo-500 to-purple-500",
     glowColor: "blue-500",
     stats: { label: "CAPACITY", value: "26K lbs" },
@@ -47,7 +47,7 @@ const services: Service[] = [
     img: "/services/heavy-duty-placeholder.webp",
     blurb:
       "Semi-trucks, buses, heavy equipment, and commercial vehicles. Our heavy duty wreckers handle the biggest jobs in San Diego County. Professional operators, specialized rigging, and the power to move anything safely.",
-    link: "/services/heavy-duty",
+    link: "/heavy-duty",
     gradient: "from-gray-600 via-zinc-600 to-slate-700",
     glowColor: "gray-500",
     stats: { label: "CAPACITY", value: "50+ tons" },
@@ -59,7 +59,7 @@ const services: Service[] = [
     img: "/services/collision-recovery.webp",
     blurb:
       "Accident? We provide fast, professional collision towing and recovery. Safe removal from accident scenes, insurance-friendly documentation, and careful transport to your preferred location. Available 24/7 across San Diego.",
-    link: "/services/collision-recovery",
+    link: "/collision-recovery",
     gradient: "from-red-500 via-rose-500 to-pink-500",
     glowColor: "red-500",
     stats: { label: "PRIORITY", value: "24/7" },
@@ -71,7 +71,7 @@ const services: Service[] = [
     img: "/services/jump.webp",
     blurb:
       "Dead battery? We bring the power to you. Surge-protected boosters and safe hookup procedures. Fast arrival across San Diego, day or night. No membership required — just a quick, professional jump to get you rolling again.",
-    link: "/services/jump-start",
+    link: "/jump-start",
     gradient: "from-yellow-400 via-amber-500 to-orange-500",
     glowColor: "yellow-400",
     stats: { label: "SUCCESS RATE", value: "99%" },
@@ -83,7 +83,7 @@ const services: Service[] = [
     img: "/services/lockout.webp",
     blurb:
       "Locked out of your car? Don't break a window. Our techs unlock vehicles quickly and without damage using pro air-wedge and long-reach tools. We service all makes and models. One quick call gets you back in your car.",
-    link: "/services/lockout",
+    link: "/lockout",
     gradient: "from-emerald-500 via-teal-500 to-cyan-500",
     glowColor: "emerald-500",
     stats: { label: "AVG UNLOCK", value: "3 min" },
@@ -95,7 +95,7 @@ const services: Service[] = [
     img: "/services/fuel.webp",
     blurb:
       "Out of gas? Stuck on empty? We deliver gasoline or diesel straight to your location anywhere in San Diego. No need to leave your car — we'll bring it to you, get you fueled, and send you safely on your way.",
-    link: "/services/gas-delivery",
+    link: "/gas-delivery",
     gradient: "from-cyan-500 via-blue-500 to-indigo-500",
     glowColor: "cyan-500",
     stats: { label: "DELIVERY", value: "2 gal" },
@@ -107,7 +107,7 @@ const services: Service[] = [
     img: "/services/tire.webp",
     blurb:
       "Flat tire? We can install your spare, reinflate, or assist with a safe swap on the shoulder. Lug nuts torqued to spec and a quick safety check before you roll. Friendly help when changing a tire feels overwhelming.",
-    link: "/services/tire-change",
+    link: "/tire-change",
     gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
     glowColor: "violet-500",
     stats: { label: "AVG CHANGE", value: "15 min" },
@@ -119,7 +119,7 @@ const services: Service[] = [
     img: "/services/winch.webp",
     blurb:
       "Stuck in sand, mud, or a driveway dip? We handle light recoveries from tight areas without vehicle damage. AWD, low-profile, and tricky angles welcome — we assess on arrival and recover carefully to get you moving again.",
-    link: "/services/winch-out",
+    link: "/winch-out",
     gradient: "from-slate-500 via-zinc-500 to-neutral-500",
     glowColor: "slate-400",
     stats: { label: "RECOVERY", value: "Safe" },

@@ -90,7 +90,7 @@ const CORRIDORS = [
 const SERVICES = [
   {
     name: "Emergency Towing",
-    href: "/services/towing",
+    href: "/towing",
     description: "Broke down on I-805 or SR-125? We dispatch the closest truck to your Chula Vista location immediately.",
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -100,7 +100,7 @@ const SERVICES = [
   },
   {
     name: "Flatbed Transport",
-    href: "/services/towing",
+    href: "/towing",
     description: "Safe flatbed towing for lowered vehicles, AWD, and luxury cars throughout the Chula Vista area.",
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -110,7 +110,7 @@ const SERVICES = [
   },
   {
     name: "Collision Recovery",
-    href: "/services/collision-recovery",
+    href: "/collision-recovery",
     description: "Accident on I-805 through Chula Vista? We coordinate with CHP and handle vehicle recovery safely.",
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -120,7 +120,7 @@ const SERVICES = [
   },
   {
     name: "Jump Start",
-    href: "/services/jump-start",
+    href: "/jump-start",
     description: "Dead battery at Otay Ranch Town Center or Eastlake? We jump start your car on the spot — fast.",
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -130,7 +130,7 @@ const SERVICES = [
   },
   {
     name: "Lockout Service",
-    href: "/services/lockout",
+    href: "/lockout",
     description: "Locked out at the Bayfront, the mall, or at home? We unlock your car without damage in minutes.",
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -140,7 +140,7 @@ const SERVICES = [
   },
   {
     name: "Gas Delivery",
-    href: "/services/gas-delivery",
+    href: "/gas-delivery",
     description: "Ran out of gas on the way to Otay Ranch? We deliver fuel to your exact location in Chula Vista.",
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

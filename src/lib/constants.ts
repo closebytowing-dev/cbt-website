@@ -34,37 +34,37 @@ export const COLORS = {
 export const SERVICES = {
   towing: {
     name: "Local Towing",
-    path: "/services/towing",
+    path: "/towing",
     description: "Professional towing services for all vehicle types",
   },
   jumpStart: {
     name: "Battery Jump Start",
-    path: "/services/jump-start",
+    path: "/jump-start",
     description: "Quick battery jump start service to get you moving",
   },
   lockout: {
     name: "Lockout Service",
-    path: "/services/lockout",
+    path: "/lockout",
     description: "Fast car lockout assistance without damage",
   },
   tireChange: {
     name: "Tire Change",
-    path: "/services/tire-change",
+    path: "/tire-change",
     description: "On-site tire change and flat tire assistance",
   },
   fuelDelivery: {
     name: "Fuel Delivery",
-    path: "/services/gas-delivery",
+    path: "/gas-delivery",
     description: "Emergency fuel delivery to your location",
   },
   collisionRecovery: {
     name: "Collision Recovery",
-    path: "/services/collision-recovery",
+    path: "/collision-recovery",
     description: "Safe collision recovery and accident towing",
   },
   winchOut: {
     name: "Winch-Out / Recovery",
-    path: "/services/winch-out",
+    path: "/winch-out",
     description: "Professional winch-out and recovery services",
   },
 } as const;

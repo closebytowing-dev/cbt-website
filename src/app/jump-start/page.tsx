@@ -708,22 +708,22 @@ export default function JumpStartPage() {
             <h3 className="text-2xl font-bold text-white">More Roadside Services</h3>
           </div>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/services/towing" className="px-6 py-3 rounded-xl bg-gradient-to-r from-slate-800 to-slate-900 border border-blue-500/20 hover:border-blue-500/50 hover:shadow-lg transition-all duration-300 font-semibold text-white hover:text-blue-400">
+            <Link href="/towing" className="px-6 py-3 rounded-xl bg-gradient-to-r from-slate-800 to-slate-900 border border-blue-500/20 hover:border-blue-500/50 hover:shadow-lg transition-all duration-300 font-semibold text-white hover:text-blue-400">
               Towing Service
             </Link>
-            <Link href="/services/tire-change" className="px-6 py-3 rounded-xl bg-gradient-to-r from-slate-800 to-slate-900 border border-blue-500/20 hover:border-blue-500/50 hover:shadow-lg transition-all duration-300 font-semibold text-white hover:text-blue-400">
+            <Link href="/tire-change" className="px-6 py-3 rounded-xl bg-gradient-to-r from-slate-800 to-slate-900 border border-blue-500/20 hover:border-blue-500/50 hover:shadow-lg transition-all duration-300 font-semibold text-white hover:text-blue-400">
               Tire Change
             </Link>
-            <Link href="/services/lockout" className="px-6 py-3 rounded-xl bg-gradient-to-r from-slate-800 to-slate-900 border border-blue-500/20 hover:border-blue-500/50 hover:shadow-lg transition-all duration-300 font-semibold text-white hover:text-blue-400">
+            <Link href="/lockout" className="px-6 py-3 rounded-xl bg-gradient-to-r from-slate-800 to-slate-900 border border-blue-500/20 hover:border-blue-500/50 hover:shadow-lg transition-all duration-300 font-semibold text-white hover:text-blue-400">
               Lockout Service
             </Link>
-            <Link href="/services/gas-delivery" className="px-6 py-3 rounded-xl bg-gradient-to-r from-slate-800 to-slate-900 border border-blue-500/20 hover:border-blue-500/50 hover:shadow-lg transition-all duration-300 font-semibold text-white hover:text-blue-400">
+            <Link href="/gas-delivery" className="px-6 py-3 rounded-xl bg-gradient-to-r from-slate-800 to-slate-900 border border-blue-500/20 hover:border-blue-500/50 hover:shadow-lg transition-all duration-300 font-semibold text-white hover:text-blue-400">
               Gas Delivery
             </Link>
-            <Link href="/services/winch-out" className="px-6 py-3 rounded-xl bg-gradient-to-r from-slate-800 to-slate-900 border border-blue-500/20 hover:border-blue-500/50 hover:shadow-lg transition-all duration-300 font-semibold text-white hover:text-blue-400">
+            <Link href="/winch-out" className="px-6 py-3 rounded-xl bg-gradient-to-r from-slate-800 to-slate-900 border border-blue-500/20 hover:border-blue-500/50 hover:shadow-lg transition-all duration-300 font-semibold text-white hover:text-blue-400">
               Winch Out
             </Link>
-            <Link href="/services/collision-recovery" className="px-6 py-3 rounded-xl bg-gradient-to-r from-slate-800 to-slate-900 border border-blue-500/20 hover:border-blue-500/50 hover:shadow-lg transition-all duration-300 font-semibold text-white hover:text-blue-400">
+            <Link href="/collision-recovery" className="px-6 py-3 rounded-xl bg-gradient-to-r from-slate-800 to-slate-900 border border-blue-500/20 hover:border-blue-500/50 hover:shadow-lg transition-all duration-300 font-semibold text-white hover:text-blue-400">
               Collision Recovery
             </Link>
           </div>

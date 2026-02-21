@@ -37,7 +37,7 @@ export default function CollisionRecoveryPage() {
     "@graph": [
       {
         "@type": "EmergencyService",
-        "@id": "https://www.closebytowing.com/services/collision-recovery#service",
+        "@id": "https://www.closebytowing.com/collision-recovery#service",
         "name": "CloseBy Towing - Emergency Collision Recovery",
         "description": "24/7 emergency collision recovery and accident towing service in San Diego County with less than 25 minute response time",
         "serviceType": ["Collision Recovery", "Accident Towing", "Emergency Vehicle Recovery"],
@@ -92,7 +92,7 @@ export default function CollisionRecoveryPage() {
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://www.closebytowing.com/services/collision-recovery#breadcrumb",
+        "@id": "https://www.closebytowing.com/collision-recovery#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
@@ -110,7 +110,7 @@ export default function CollisionRecoveryPage() {
             "@type": "ListItem",
             "position": 3,
             "name": "Collision Recovery",
-            "item": "https://www.closebytowing.com/services/collision-recovery"
+            "item": "https://www.closebytowing.com/collision-recovery"
           }
         ]
       }
@@ -955,12 +955,12 @@ export default function CollisionRecoveryPage() {
           </div>
           <div className="flex flex-wrap justify-center gap-6">
             {[
-              { name: "Jump Start", href: "/services/jump-start" },
-              { name: "Tire Change", href: "/services/tire-change" },
-              { name: "Lockout Service", href: "/services/lockout" },
-              { name: "General Towing", href: "/services/towing" },
-              { name: "Gas Delivery", href: "/services/gas-delivery" },
-              { name: "Winch Out", href: "/services/winch-out" }
+              { name: "Jump Start", href: "/jump-start" },
+              { name: "Tire Change", href: "/tire-change" },
+              { name: "Lockout Service", href: "/lockout" },
+              { name: "General Towing", href: "/towing" },
+              { name: "Gas Delivery", href: "/gas-delivery" },
+              { name: "Winch Out", href: "/winch-out" }
             ].map((service) => (
               <Link
                 key={service.name}

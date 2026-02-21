@@ -103,42 +103,42 @@ const EC_SERVICES = [
     name: "I-8 Freeway Recovery",
     detail:
       "Shoulder breakdowns, overheated engines climbing from the coast, and multi-car pileups at the SR-67 merge. CHP-coordinated response.",
-    href: "/services/towing",
+    href: "/towing",
     icon: "🛣️",
   },
   {
     name: "Parking Lot Towing",
     detail:
       "Parkway Plaza, Walmart, Costco, and the dozens of strip malls along Fletcher Parkway. Dead batteries and lockouts are our specialty.",
-    href: "/services/jump-start",
+    href: "/jump-start",
     icon: "🅿️",
   },
   {
     name: "Flatbed Transport",
     detail:
       "Low-clearance sports cars, AWD vehicles, and classic trucks from El Cajon's car culture. Damage-free flatbed loading every time.",
-    href: "/services/towing",
+    href: "/towing",
     icon: "🚛",
   },
   {
     name: "Hill & Canyon Recovery",
     detail:
       "Fletcher Hills, Granite Hills, and Crest-area vehicles that slide off steep driveways or narrow canyon roads. Winch-out equipped.",
-    href: "/services/winch-out",
+    href: "/winch-out",
     icon: "⛰️",
   },
   {
     name: "Lockout Assistance",
     detail:
       "Keys locked in your car at Gillespie Field, the swap meet, or Main Street? Non-destructive entry for all vehicle makes.",
-    href: "/services/lockout",
+    href: "/lockout",
     icon: "🔑",
   },
   {
     name: "Fuel & Tire Emergencies",
     detail:
       "Ran out of gas on Jamacha Road? Flat tire on Bradley Ave? We bring fuel or swap your spare — no tow needed.",
-    href: "/services/gas-delivery",
+    href: "/gas-delivery",
     icon: "⛽",
   },
 ];

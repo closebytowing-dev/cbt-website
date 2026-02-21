@@ -42,7 +42,7 @@ export default function WinchOutPage() {
       "latitude": "32.7157",
       "longitude": "-117.1611"
     },
-    "url": "https://closebytowing.com/services/winch-out",
+    "url": "https://closebytowing.com/winch-out",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",

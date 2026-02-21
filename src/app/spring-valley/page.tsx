@@ -102,37 +102,37 @@ const SV_SERVICES = [
   {
     name: "Canyon & Hill Recovery",
     detail: "Steep driveways, canyon roads, and the Dictionary Hill grades. Winch-equipped trucks for Spring Valley's unique terrain.",
-    href: "/services/winch-out",
+    href: "/winch-out",
     icon: "⛰️",
   },
   {
     name: "Freeway Breakdown Response",
     detail: "SR-54, SR-125, and SR-94 shoulder recoveries. CHP-coordinated rapid response for disabled vehicles.",
-    href: "/services/towing",
+    href: "/towing",
     icon: "🛣️",
   },
   {
     name: "Residential Towing",
     detail: "Narrow driveways, tight cul-de-sacs, and hillside properties. Our flatbed fits where others won't.",
-    href: "/services/towing",
+    href: "/towing",
     icon: "🏡",
   },
   {
     name: "Jump Start Service",
     detail: "Dead battery at Casa de Oro shopping center, Sweetwater Summit trailhead, or your driveway? 20-minute response.",
-    href: "/services/jump-start",
+    href: "/jump-start",
     icon: "🔋",
   },
   {
     name: "Lockout Service",
     detail: "Keys locked in your car at the Town Center, a trailhead, or a canyon overlook? Non-destructive entry in minutes.",
-    href: "/services/lockout",
+    href: "/lockout",
     icon: "🔑",
   },
   {
     name: "Tire & Fuel Help",
     detail: "Flat tire on Jamacha Rd or ran empty on Campo? We bring fuel or swap your spare on-site — no tow needed.",
-    href: "/services/tire-change",
+    href: "/tire-change",
     icon: "⛽",
   },
 ];

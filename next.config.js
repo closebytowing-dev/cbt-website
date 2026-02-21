@@ -99,7 +99,18 @@ const nextConfig = {
       permanent: true,
     }));
 
-    return [...legacy, ...neighborhoodRedirects];
+    // Service URL migration: /services/[slug] → /[slug]
+    const serviceRedirects = [
+      { source: "/services/towing", destination: "/towing", permanent: true },
+      { source: "/services/jump-start", destination: "/jump-start", permanent: true },
+      { source: "/services/lockout", destination: "/lockout", permanent: true },
+      { source: "/services/tire-change", destination: "/tire-change", permanent: true },
+      { source: "/services/gas-delivery", destination: "/gas-delivery", permanent: true },
+      { source: "/services/winch-out", destination: "/winch-out", permanent: true },
+      { source: "/services/collision-recovery", destination: "/collision-recovery", permanent: true },
+    ];
+
+    return [...legacy, ...neighborhoodRedirects, ...serviceRedirects];
   },
 
   // Security headers and caching

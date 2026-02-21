@@ -39,13 +39,13 @@ export default function Footer() {
             <div>
               <h3 className="text-lg font-bold mb-4">Our Services</h3>
               <nav className="flex flex-col gap-2 text-white/80">
-                <a href="/services/towing" className="hover:text-white transition">Emergency Towing</a>
-                <a href="/services/jump-start" className="hover:text-white transition">Jump Start Service</a>
-                <a href="/services/tire-change" className="hover:text-white transition">Tire Change</a>
-                <a href="/services/gas-delivery" className="hover:text-white transition">Fuel Delivery</a>
-                <a href="/services/lockout" className="hover:text-white transition">Lockout Service</a>
-                <a href="/services/collision-recovery" className="hover:text-white transition">Collision Recovery</a>
-                <a href="/services/winch-out" className="hover:text-white transition">Winch-Out Service</a>
+                <a href="/towing" className="hover:text-white transition">Emergency Towing</a>
+                <a href="/jump-start" className="hover:text-white transition">Jump Start Service</a>
+                <a href="/tire-change" className="hover:text-white transition">Tire Change</a>
+                <a href="/gas-delivery" className="hover:text-white transition">Fuel Delivery</a>
+                <a href="/lockout" className="hover:text-white transition">Lockout Service</a>
+                <a href="/collision-recovery" className="hover:text-white transition">Collision Recovery</a>
+                <a href="/winch-out" className="hover:text-white transition">Winch-Out Service</a>
               </nav>
             </div>
 

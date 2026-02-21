@@ -37,7 +37,7 @@ const NEARBY_AREAS = [
 const ROADSIDE_SERVICES = [
   {
     name: "Battery Jump Start",
-    slug: "/services/jump-start",
+    slug: "/jump-start",
     description: "Dead battery? We'll get you running in minutes with our professional jump start service.",
     price: `$${PRICING.jumpStart.standard}`,
     icon: (
@@ -50,7 +50,7 @@ const ROADSIDE_SERVICES = [
   },
   {
     name: "Car Lockout Service",
-    slug: "/services/lockout",
+    slug: "/lockout",
     description: "Locked your keys in the car? Our experts unlock all vehicle types without damage.",
     price: `$${PRICING.lockout.standard}`,
     icon: (
@@ -63,7 +63,7 @@ const ROADSIDE_SERVICES = [
   },
   {
     name: "Flat Tire Change",
-    slug: "/services/tire-change",
+    slug: "/tire-change",
     description: "We'll swap your flat for your spare, or provide temporary repair to get you moving.",
     price: `$${PRICING.tireChange.base}`,
     icon: (
@@ -77,7 +77,7 @@ const ROADSIDE_SERVICES = [
   },
   {
     name: "Fuel Delivery",
-    slug: "/services/gas-delivery",
+    slug: "/gas-delivery",
     description: "Ran out of gas? We'll bring fuel right to your location - regular, premium, or diesel.",
     price: `$${PRICING.fuelDelivery.light.min}+`,
     icon: (

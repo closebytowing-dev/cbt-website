@@ -94,12 +94,12 @@ const SERVICES = [
   },
   {
     name: "Trolley Station Jump Starts",
-    slug: "services/jump-start",
+    slug: "jump-start",
     text: "Grantville commuters leave cars 8-10 hours. Dome lights, old batteries, summer heat. We jump more cars here than almost any station in SD.",
   },
   {
     name: "Residential Lockouts",
-    slug: "services/lockout",
+    slug: "lockout",
     text: "1950s homes with narrow driveways, cars parked nose-in. We work carefully in tight spaces without scratching your vehicle or your neighbor's.",
   },
   {
@@ -109,7 +109,7 @@ const SERVICES = [
   },
   {
     name: "Tire Changes",
-    slug: "services/tire-change",
+    slug: "tire-change",
     text: "Mission Gorge Road construction debris and gravel shoulders puncture tires regularly. We carry standard sedan and SUV sizes.",
   },
 ];
@@ -421,7 +421,7 @@ export default function AlliedGardensPage() {
             {SERVICES.map((service, i) => (
               <Link
                 key={service.slug}
-                href={service.slug.startsWith("services/") ? `/${service.slug}` : `/san-diego/${service.slug}`}
+                href={["towing","jump-start","lockout","tire-change","gas-delivery","winch-out","collision-recovery"].includes(service.slug) ? `/${service.slug}` : `/san-diego/${service.slug}`}
                 className="group flex items-start justify-between gap-8 py-6 border-b border-stone-300 hover:bg-stone-200/50 transition-colors px-2"
               >
                 <div className="flex items-start gap-5">

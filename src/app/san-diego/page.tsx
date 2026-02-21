@@ -190,7 +190,7 @@ const FREEWAYS = [
 const ALL_SERVICES = [
   {
     name: "Towing",
-    href: "/services/towing",
+    href: "/towing",
     description: "Flatbed and wheel-lift towing for any vehicle — cars, SUVs, trucks, motorcycles, and luxury vehicles.",
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -200,7 +200,7 @@ const ALL_SERVICES = [
   },
   {
     name: "Collision Recovery",
-    href: "/services/collision-recovery",
+    href: "/collision-recovery",
     description: "Post-accident vehicle recovery. We coordinate with CHP, document for insurance, and transport safely.",
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -210,7 +210,7 @@ const ALL_SERVICES = [
   },
   {
     name: "Jump Start",
-    href: "/services/jump-start",
+    href: "/jump-start",
     description: "Dead battery? We come to you with professional jump-start equipment — no need for another car.",
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -220,7 +220,7 @@ const ALL_SERVICES = [
   },
   {
     name: "Lockout Service",
-    href: "/services/lockout",
+    href: "/lockout",
     description: "Locked your keys inside? We open your car without damage in minutes — any make, any model.",
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -230,7 +230,7 @@ const ALL_SERVICES = [
   },
   {
     name: "Tire Change",
-    href: "/services/tire-change",
+    href: "/tire-change",
     description: "Flat tire on the freeway or in a parking lot? We swap it for your spare quickly and safely.",
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -241,7 +241,7 @@ const ALL_SERVICES = [
   },
   {
     name: "Gas Delivery",
-    href: "/services/gas-delivery",
+    href: "/gas-delivery",
     description: "Ran out of fuel? We deliver enough gas to get you to the nearest station — wherever you are.",
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -251,7 +251,7 @@ const ALL_SERVICES = [
   },
   {
     name: "Winch-Out",
-    href: "/services/winch-out",
+    href: "/winch-out",
     description: "Stuck in mud, sand, a ditch, or an embankment? Our winch equipment pulls you out safely.",
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

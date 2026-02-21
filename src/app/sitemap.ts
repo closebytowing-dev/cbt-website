@@ -23,13 +23,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Main service pages - high priority
   const servicePages = [
-    { path: "services/towing", priority: 0.9 },
-    { path: "services/jump-start", priority: 0.9 },
-    { path: "services/lockout", priority: 0.9 },
-    { path: "services/tire-change", priority: 0.9 },
-    { path: "services/gas-delivery", priority: 0.9 },
-    { path: "services/winch-out", priority: 0.85 },
-    { path: "services/collision-recovery", priority: 0.85 },
+    { path: "towing", priority: 0.9 },
+    { path: "jump-start", priority: 0.9 },
+    { path: "lockout", priority: 0.9 },
+    { path: "tire-change", priority: 0.9 },
+    { path: "gas-delivery", priority: 0.9 },
+    { path: "winch-out", priority: 0.85 },
+    { path: "collision-recovery", priority: 0.85 },
     { path: "motorcycle-towing", priority: 0.85 },
   ].map((service) => ({
     url: `${base}/${service.path}`,

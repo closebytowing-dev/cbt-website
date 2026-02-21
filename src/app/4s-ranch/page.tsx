@@ -151,12 +151,12 @@ const SERVICES = [
   },
   {
     name: "Jump Start Service",
-    slug: "services/jump-start",
+    slug: "jump-start",
     why: "Target and Trader Joe's runs at 4S Commons leave dome lights on. We jump-start more vehicles in that parking lot than anywhere else in North County.",
   },
   {
     name: "Lockout Service",
-    slug: "services/lockout",
+    slug: "lockout",
     why: "Keyless entry systems glitch when proximity sensors interfere with shopping cart corrals. We unlock SUVs, minivans, and luxury vehicles at the Commons all week long.",
   },
   {
@@ -486,7 +486,7 @@ export default function FourSRanchPage() {
             {SERVICES.map((service, i) => (
               <Link
                 key={service.slug}
-                href={service.slug.startsWith("services/") ? `/${service.slug}` : `/san-diego/${service.slug}`}
+                href={["towing","jump-start","lockout","tire-change","gas-delivery","winch-out","collision-recovery"].includes(service.slug) ? `/${service.slug}` : `/san-diego/${service.slug}`}
                 className="group flex flex-col md:flex-row items-start md:items-center gap-6 bg-stone-50 hover:bg-gradient-to-r hover:from-teal-50 hover:to-emerald-50 rounded-2xl p-6 md:p-8 transition-all duration-300 border border-stone-100 hover:border-teal-200 hover:shadow-lg"
               >
                 {/* Number */}

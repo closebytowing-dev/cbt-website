@@ -102,37 +102,37 @@ const NC_SERVICES = [
   {
     name: "Dealer & Lot Towing",
     detail: "Mile of Cars dealership transports, auction vehicle moves, and lot management towing. We work with 20+ NC dealers.",
-    href: "/services/towing",
+    href: "/towing",
     icon: "🚗",
   },
   {
     name: "Freeway Recovery",
     detail: "I-5 shoulder breakdowns, I-805 merge accidents, and SR-54 commuter incidents. CHP-coordinated rapid response.",
-    href: "/services/collision-recovery",
+    href: "/collision-recovery",
     icon: "🛣️",
   },
   {
     name: "Parking Lot Assistance",
     detail: "Plaza Bonita, Sweetwater Town & Country, and strip mall lots. Jump starts, lockouts, and minor collision tows.",
-    href: "/services/jump-start",
+    href: "/jump-start",
     icon: "🅿️",
   },
   {
     name: "Flatbed Transport",
     detail: "Lowered imports, luxury vehicles, and classic cars. Damage-free flatbed loading for the South Bay car enthusiast community.",
-    href: "/services/towing",
+    href: "/towing",
     icon: "🚛",
   },
   {
     name: "Lockout Service",
     detail: "Keys locked in your car on Highland Ave, at the marina, or at Plaza Bonita? Non-destructive entry in minutes.",
-    href: "/services/lockout",
+    href: "/lockout",
     icon: "🔑",
   },
   {
     name: "Fuel & Tire Help",
     detail: "Ran empty on Sweetwater Road? Flat tire near the trolley station? We bring fuel or swap your spare on-site.",
-    href: "/services/gas-delivery",
+    href: "/gas-delivery",
     icon: "⛽",
   },
 ];

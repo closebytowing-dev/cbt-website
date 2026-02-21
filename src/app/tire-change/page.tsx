@@ -55,7 +55,7 @@ export default function TireChangePage() {
     },
     availableChannel: {
       "@type": "ServiceChannel",
-      serviceUrl: "https://www.closebytowing.com/services/tire-change",
+      serviceUrl: "https://www.closebytowing.com/tire-change",
       servicePhone: {
         "@type": "ContactPoint",
         telephone: "+1-858-999-9293",
@@ -704,22 +704,22 @@ export default function TireChangePage() {
             <h3 className="text-2xl font-bold text-slate-900">Explore Our Other Services</h3>
           </div>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/services/towing" className="px-6 py-3 rounded-xl bg-white border border-slate-200 hover:border-slate-900 hover:shadow-lg transition-all duration-300 font-semibold text-slate-700 hover:text-slate-900">
+            <Link href="/towing" className="px-6 py-3 rounded-xl bg-white border border-slate-200 hover:border-slate-900 hover:shadow-lg transition-all duration-300 font-semibold text-slate-700 hover:text-slate-900">
               Towing
             </Link>
-            <Link href="/services/collision-recovery" className="px-6 py-3 rounded-xl bg-white border border-slate-200 hover:border-slate-900 hover:shadow-lg transition-all duration-300 font-semibold text-slate-700 hover:text-slate-900">
+            <Link href="/collision-recovery" className="px-6 py-3 rounded-xl bg-white border border-slate-200 hover:border-slate-900 hover:shadow-lg transition-all duration-300 font-semibold text-slate-700 hover:text-slate-900">
               Collision Recovery
             </Link>
-            <Link href="/services/jump-start" className="px-6 py-3 rounded-xl bg-white border border-slate-200 hover:border-slate-900 hover:shadow-lg transition-all duration-300 font-semibold text-slate-700 hover:text-slate-900">
+            <Link href="/jump-start" className="px-6 py-3 rounded-xl bg-white border border-slate-200 hover:border-slate-900 hover:shadow-lg transition-all duration-300 font-semibold text-slate-700 hover:text-slate-900">
               Jump Start
             </Link>
-            <Link href="/services/lockout" className="px-6 py-3 rounded-xl bg-white border border-slate-200 hover:border-slate-900 hover:shadow-lg transition-all duration-300 font-semibold text-slate-700 hover:text-slate-900">
+            <Link href="/lockout" className="px-6 py-3 rounded-xl bg-white border border-slate-200 hover:border-slate-900 hover:shadow-lg transition-all duration-300 font-semibold text-slate-700 hover:text-slate-900">
               Lockout Service
             </Link>
-            <Link href="/services/gas-delivery" className="px-6 py-3 rounded-xl bg-white border border-slate-200 hover:border-slate-900 hover:shadow-lg transition-all duration-300 font-semibold text-slate-700 hover:text-slate-900">
+            <Link href="/gas-delivery" className="px-6 py-3 rounded-xl bg-white border border-slate-200 hover:border-slate-900 hover:shadow-lg transition-all duration-300 font-semibold text-slate-700 hover:text-slate-900">
               Gas Delivery
             </Link>
-            <Link href="/services/winch-out" className="px-6 py-3 rounded-xl bg-white border border-slate-200 hover:border-slate-900 hover:shadow-lg transition-all duration-300 font-semibold text-slate-700 hover:text-slate-900">
+            <Link href="/winch-out" className="px-6 py-3 rounded-xl bg-white border border-slate-200 hover:border-slate-900 hover:shadow-lg transition-all duration-300 font-semibold text-slate-700 hover:text-slate-900">
               Winch Out
             </Link>
           </div>

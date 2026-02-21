@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "24/7 Towing Service San Diego | 20 Min Response | CloseBy Towing",
   description: "Emergency towing in San Diego. Fast 20-min response, upfront pricing from $75. Licensed & insured. Call (858) 999-9293 anytime.",
   keywords: "towing service san diego, emergency towing near me, 24 hour towing service near me, local towing services, towing company near me, flatbed towing, san diego towing service, vehicle towing service, emergency towing service, towing san diego",
-  alternates: { canonical: "/services/towing" },
+  alternates: { canonical: "/towing" },
   openGraph: {
     title: "24/7 Towing Service San Diego | 20 Min Response | CloseBy Towing",
     description: "Emergency towing in San Diego. Fast 20-min response, upfront pricing from $75. Licensed & insured. Call (858) 999-9293 anytime.",
@@ -27,8 +27,8 @@ export default function TowingPage() {
     "@type": "LocalBusiness",
     "name": "CloseBy Towing",
     "image": "https://www.closebytowing.com/services/tow-truck-hero.webp",
-    "@id": "https://www.closebytowing.com/services/towing",
-    "url": "https://www.closebytowing.com/services/towing",
+    "@id": "https://www.closebytowing.com/towing",
+    "url": "https://www.closebytowing.com/towing",
     "telephone": "+1-858-999-9293",
     "priceRange": "$$",
     "address": {
@@ -828,12 +828,12 @@ export default function TowingPage() {
           </div>
           <div className="flex flex-wrap justify-center gap-6">
             {[
-              { name: "Collision Recovery", href: "/services/collision-recovery" },
-              { name: "Jump Start", href: "/services/jump-start" },
-              { name: "Tire Change", href: "/services/tire-change" },
-              { name: "Lockout Service", href: "/services/lockout" },
-              { name: "Gas Delivery", href: "/services/gas-delivery" },
-              { name: "Winch Out", href: "/services/winch-out" }
+              { name: "Collision Recovery", href: "/collision-recovery" },
+              { name: "Jump Start", href: "/jump-start" },
+              { name: "Tire Change", href: "/tire-change" },
+              { name: "Lockout Service", href: "/lockout" },
+              { name: "Gas Delivery", href: "/gas-delivery" },
+              { name: "Winch Out", href: "/winch-out" }
             ].map((service) => (
               <Link
                 key={service.name}
