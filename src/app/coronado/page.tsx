@@ -195,100 +195,6 @@ export default function CoronadoPage() {
         `}</style>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-20 bg-slate-800">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-black text-white">
-              TOWING SERVICES IN <span className="text-amber-400">CORONADO</span>
-            </h2>
-            <p className="mt-4 text-xl text-slate-400 max-w-3xl mx-auto">
-              Complete towing and roadside assistance for all of Coronado Island, ZIP code {CORONADO_ZIP_CODES[0]}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Service Card 1 */}
-            <div className="group bg-slate-700/50 rounded-2xl p-8 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
-              <div className="w-14 h-14 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">Emergency Towing</h3>
-              <p className="text-slate-400">
-                24/7 emergency tow truck dispatch to anywhere in Coronado. Accidents, breakdowns, or any urgent situation - we respond fast.
-              </p>
-            </div>
-
-            {/* Service Card 2 */}
-            <div className="group bg-slate-700/50 rounded-2xl p-8 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
-              <div className="w-14 h-14 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">Flatbed Towing</h3>
-              <p className="text-slate-400">
-                Safe flatbed transport for luxury vehicles, sports cars, and all-wheel-drive vehicles. Your car never touches the road.
-              </p>
-            </div>
-
-            {/* Service Card 3 */}
-            <div className="group bg-slate-700/50 rounded-2xl p-8 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
-              <div className="w-14 h-14 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">Roadside Assistance</h3>
-              <p className="text-slate-400">
-                Jump starts, tire changes, fuel delivery, and lockout service. Quick help to get you moving without a tow.
-              </p>
-            </div>
-
-            {/* Service Card 4 */}
-            <div className="group bg-slate-700/50 rounded-2xl p-8 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
-              <div className="w-14 h-14 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">Accident Recovery</h3>
-              <p className="text-slate-400">
-                Professional accident scene towing and vehicle recovery. We work with insurance companies and law enforcement.
-              </p>
-            </div>
-
-            {/* Service Card 5 */}
-            <div className="group bg-slate-700/50 rounded-2xl p-8 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
-              <div className="w-14 h-14 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">Bridge Coverage</h3>
-              <p className="text-slate-400">
-                Specialized Coronado Bridge emergency response. Safe vehicle removal from the bridge with proper traffic management.
-              </p>
-            </div>
-
-            {/* Service Card 6 */}
-            <div className="group bg-slate-700/50 rounded-2xl p-8 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
-              <div className="w-14 h-14 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">Motorcycle Towing</h3>
-              <p className="text-slate-400">
-                Careful motorcycle transport with specialized equipment. We secure and protect your bike during transport.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Complete Coronado Coverage — Cinematic Photo + Content */}
       <section className="relative overflow-hidden">
         {/* Full-width background photo */}
@@ -379,6 +285,100 @@ export default function CoronadoPage() {
             <p className="mt-8 text-white/40 text-sm tracking-wide">
               San Diego&apos;s Most Trusted Towing — Serving Coronado Island 24/7
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Grid */}
+      <section className="py-20 bg-slate-800">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-black text-white">
+              TOWING SERVICES IN <span className="text-amber-400">CORONADO</span>
+            </h2>
+            <p className="mt-4 text-xl text-slate-400 max-w-3xl mx-auto">
+              Complete towing and roadside assistance for all of Coronado Island, ZIP code {CORONADO_ZIP_CODES[0]}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Service Card 1 */}
+            <div className="group bg-slate-700/50 rounded-2xl p-8 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
+              <div className="w-14 h-14 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Emergency Towing</h3>
+              <p className="text-slate-400">
+                24/7 emergency tow truck dispatch to anywhere in Coronado. Accidents, breakdowns, or any urgent situation - we respond fast.
+              </p>
+            </div>
+
+            {/* Service Card 2 */}
+            <div className="group bg-slate-700/50 rounded-2xl p-8 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
+              <div className="w-14 h-14 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Flatbed Towing</h3>
+              <p className="text-slate-400">
+                Safe flatbed transport for luxury vehicles, sports cars, and all-wheel-drive vehicles. Your car never touches the road.
+              </p>
+            </div>
+
+            {/* Service Card 3 */}
+            <div className="group bg-slate-700/50 rounded-2xl p-8 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
+              <div className="w-14 h-14 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Roadside Assistance</h3>
+              <p className="text-slate-400">
+                Jump starts, tire changes, fuel delivery, and lockout service. Quick help to get you moving without a tow.
+              </p>
+            </div>
+
+            {/* Service Card 4 */}
+            <div className="group bg-slate-700/50 rounded-2xl p-8 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
+              <div className="w-14 h-14 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Accident Recovery</h3>
+              <p className="text-slate-400">
+                Professional accident scene towing and vehicle recovery. We work with insurance companies and law enforcement.
+              </p>
+            </div>
+
+            {/* Service Card 5 */}
+            <div className="group bg-slate-700/50 rounded-2xl p-8 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
+              <div className="w-14 h-14 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Bridge Coverage</h3>
+              <p className="text-slate-400">
+                Specialized Coronado Bridge emergency response. Safe vehicle removal from the bridge with proper traffic management.
+              </p>
+            </div>
+
+            {/* Service Card 6 */}
+            <div className="group bg-slate-700/50 rounded-2xl p-8 border border-slate-600 hover:border-amber-500/50 transition-all hover:-translate-y-1">
+              <div className="w-14 h-14 bg-amber-500/20 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Motorcycle Towing</h3>
+              <p className="text-slate-400">
+                Careful motorcycle transport with specialized equipment. We secure and protect your bike during transport.
+              </p>
+            </div>
           </div>
         </div>
       </section>
