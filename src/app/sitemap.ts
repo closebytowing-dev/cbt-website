@@ -136,6 +136,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
+  // Spanish landing page
+  const gruasPage = {
+    url: `${base}/gruas`,
+    lastModified,
+    changeFrequency: "weekly" as const,
+    priority: 0.85,
+  };
+
   // Information pages - medium priority
   const infoPages = [
     { path: "about", priority: 0.7 },
@@ -157,6 +165,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     sanDiegoTowing,
     ...sanDiegoServicePages,
     ...areaPages,
+    gruasPage,
     ...infoPages,
   ];
 }
