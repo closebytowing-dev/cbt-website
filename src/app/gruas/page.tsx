@@ -327,14 +327,18 @@ export default function GruasPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════
-          PHOTO SECTION (Flatbed Placeholder)
+          PHOTO SECTION
       ══════════════════════════════════════════════════════════════ */}
       <section className="bg-slate-900">
         <div className="max-w-7xl mx-auto px-6 py-16">
-          <div className="aspect-[21/9] bg-gradient-to-br from-[#1a2744] via-slate-800 to-[#0c1929] rounded-3xl border-2 border-dashed border-amber-400/20 flex items-center justify-center">
-            <span className="text-amber-400/30 text-2xl sm:text-3xl font-bold tracking-widest">
-              [ FOTO AQU&Iacute; ]
-            </span>
+          <div className="relative aspect-[21/9] rounded-3xl overflow-hidden">
+            <Image
+              src="/images/spanish-photo.webp"
+              alt="CloseBy Towing — servicio de grúa profesional en San Diego"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1280px) 100vw, 1280px"
+            />
           </div>
         </div>
       </section>
