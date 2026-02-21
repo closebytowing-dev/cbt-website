@@ -121,31 +121,33 @@ export default function JumpStartPage() {
                 </p>
               </div>
 
-              {/* Arrival Time Card */}
-              <div className="max-w-xs">
+              {/* Arrival Time + Phone — same row */}
+              <div className="flex flex-col sm:flex-row items-stretch gap-4">
                 <div className="relative group">
                   <div className="absolute -inset-1 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
-                  <div className="relative px-6 py-8 bg-slate-900 rounded-2xl border border-yellow-500/30">
-                    <div className="text-sm text-yellow-400 font-semibold mb-2">Arrival Time</div>
-                    <div className="text-5xl font-black text-white mb-1">&lt;25</div>
-                    <div className="text-xs text-white/60">Minutes</div>
+                  <div className="relative h-full px-6 py-5 bg-slate-900 rounded-2xl border border-yellow-500/30 flex items-center gap-4">
+                    <div>
+                      <div className="text-xs text-yellow-400 font-semibold">Arrival Time</div>
+                      <div className="text-4xl font-black text-white leading-none">&lt;25</div>
+                      <div className="text-xs text-white/60">Minutes</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <JumpStartCTAButton />
 
                 <a
                   href="tel:18589999293"
-                  className="group px-10 py-6 rounded-2xl font-bold text-2xl sm:text-3xl border-2 border-white/30 bg-white/5 backdrop-blur-xl text-white hover:bg-white hover:text-black transition-all duration-500 hover:scale-105 flex items-center justify-center gap-3 whitespace-nowrap"
+                  className="group px-8 py-5 rounded-2xl font-bold text-2xl sm:text-3xl border-2 border-white/30 bg-white/5 backdrop-blur-xl text-white hover:bg-white hover:text-black transition-all duration-500 hover:scale-105 flex items-center justify-center gap-3 whitespace-nowrap"
                 >
                   <svg className="w-7 h-7 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                   </svg>
                   (858) 999-9293
                 </a>
+              </div>
+
+              {/* CTA Button */}
+              <div>
+                <JumpStartCTAButton />
               </div>
 
               {/* Trust Indicators */}
@@ -173,7 +175,7 @@ export default function JumpStartPage() {
             </div>
 
             {/* Right: Feature Image with Electric Frame */}
-            <div className="relative h-[550px] lg:h-[850px]">
+            <div className="relative h-[450px] lg:h-[650px]">
               {/* Electric Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/30 via-cyan-500/30 to-blue-500/30 rounded-[4rem] blur-3xl animate-pulse"></div>
 
