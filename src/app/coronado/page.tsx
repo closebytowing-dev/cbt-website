@@ -198,27 +198,26 @@ export default function CoronadoPage() {
       {/* Complete Coronado Coverage — Framed Gallery Photo + Content */}
       <section className="py-20 lg:py-24 bg-slate-900">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left: Framed gallery photo */}
-            <div className="p-3 rounded-2xl border border-amber-500/25 shadow-[0_4px_80px_rgba(245,158,11,0.06)] bg-slate-800/30">
-              <div className="relative aspect-[3/2] rounded-xl overflow-hidden">
-                <Image
-                  src="/images/flatbed-coronado.webp"
-                  alt="CloseBy Towing flatbed truck with San Diego skyline across Coronado Bay"
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent pt-16 pb-4 px-5">
-                  <p className="text-white/70 text-sm tracking-wide text-center">
-                    San Diego&apos;s Most Trusted Towing — Serving Coronado Island 24/7
-                  </p>
-                </div>
+          {/* Full-width framed gallery photo */}
+          <div className="p-3 sm:p-4 rounded-2xl border border-amber-500/25 shadow-[0_4px_80px_rgba(245,158,11,0.06)] bg-slate-800/30 mb-16">
+            <div className="relative aspect-[3/2] rounded-xl overflow-hidden">
+              <Image
+                src="/images/flatbed-coronado.webp"
+                alt="CloseBy Towing flatbed truck with San Diego skyline across Coronado Bay"
+                fill
+                className="object-cover object-center"
+                sizes="100vw"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent pt-20 pb-5 px-6">
+                <p className="text-white/70 text-base sm:text-lg tracking-wide text-center">
+                  San Diego&apos;s Most Trusted Towing — Serving Coronado Island 24/7
+                </p>
               </div>
             </div>
+          </div>
 
-            {/* Right: Coverage content */}
-            <div>
+          {/* Coverage content below */}
+          <div className="max-w-4xl mx-auto">
               <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight">
                 COMPLETE <span className="text-amber-400">CORONADO</span> COVERAGE
               </h2>
@@ -289,7 +288,6 @@ export default function CoronadoPage() {
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </section>
