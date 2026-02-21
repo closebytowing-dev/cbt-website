@@ -192,9 +192,9 @@ export default function GruasPage() {
             className="object-cover"
             sizes="100vw"
           />
-          {/* Dark gradient overlays for text readability against bright sunset */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/30 to-transparent" />
+          {/* Light gradient overlays — just enough for text readability, let the sunset shine */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/40 via-transparent to-transparent" />
         </div>
 
         {/* Hero content */}
