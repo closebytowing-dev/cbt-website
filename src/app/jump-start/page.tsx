@@ -196,27 +196,90 @@ export default function JumpStartPage() {
         </div>
       </section>
 
-      {/* ANIMATED STATS COUNTER */}
-      <section className="relative py-8 lg:py-12 bg-gradient-to-b from-black to-slate-900 border-y border-blue-500/20 overflow-visible">
-        <div className="mx-auto max-w-[1400px] px-6">
-          <div className="grid md:grid-cols-4 gap-8">
+      {/* WHAT CUSTOMERS SAY — Scrolling Reviews */}
+      <section className="relative py-12 lg:py-16 bg-gradient-to-b from-black to-slate-900 border-y border-blue-500/20 overflow-hidden">
+        <div className="mx-auto max-w-[1600px] px-6 mb-8">
+          <h2 className="text-3xl sm:text-4xl font-black text-white">
+            What Our Customers Say
+          </h2>
+        </div>
+
+        {/* Scrolling row 1 — left to right */}
+        <div className="relative mb-4">
+          <div className="flex gap-4 animate-[scrollLeft_40s_linear_infinite] w-max">
             {[
-              { number: "5,000+", label: "Jump Starts", icon: "⚡" },
-              { number: "< 25 min", label: "Avg Response", icon: "⏱️" },
-              { number: "100%", label: "Success Rate", icon: "✓" },
-              { number: loading ? "$..." : `$${onlinePrice}`, label: "Online Price", icon: "💰" },
-            ].map((stat, idx) => (
-              <div key={idx} className="group relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-3xl opacity-0 group-hover:opacity-50 blur transition duration-500"></div>
-                <div className="relative text-center p-8 bg-slate-900/50 backdrop-blur-xl rounded-3xl border border-blue-500/20 hover:border-blue-500/50 transition-all duration-500">
-                  <div className="text-5xl mb-3">{stat.icon}</div>
-                  <div className="text-5xl font-black text-white mb-2">{stat.number}</div>
-                  <div className="text-sm text-blue-400 font-semibold uppercase tracking-wider">{stat.label}</div>
+              { name: "Joe Barajas", text: "I had my 1968 MGB towed by Closeby Towing. Daniel was friendly, professional and the price was reasonable. Highly recommend.", date: "4 days ago" },
+              { name: "Paul Stevenson", text: "Daniel was very professional and helpful. He got my Jeep Compass home after being stranded. I recommend CloseBy Towing in San Diego.", date: "1 week ago" },
+              { name: "Brenda Valadez", text: "Great service! The driver arrived sooner than expected, and made a stressful situation much easier! If you ever need roadside assistance this is the company to call!", date: "13 hours ago" },
+              { name: "Jacob Perkins", text: "Fantastic and professional towing service. Very friendly and very fair, affordable prices. Would recommend to anyone looking for a tow.", date: "14 hours ago" },
+              { name: "Adam Perse'", text: "This company was very fast and helpful. I blew a tire on Olympic Parkway during rush hour traffic and they truly made me feel like a priority.", date: "17 hours ago" },
+              { name: "Joe Barajas", text: "I had my 1968 MGB towed by Closeby Towing. Daniel was friendly, professional and the price was reasonable. Highly recommend.", date: "4 days ago" },
+              { name: "Paul Stevenson", text: "Daniel was very professional and helpful. He got my Jeep Compass home after being stranded. I recommend CloseBy Towing in San Diego.", date: "1 week ago" },
+              { name: "Brenda Valadez", text: "Great service! The driver arrived sooner than expected, and made a stressful situation much easier! If you ever need roadside assistance this is the company to call!", date: "13 hours ago" },
+              { name: "Jacob Perkins", text: "Fantastic and professional towing service. Very friendly and very fair, affordable prices. Would recommend to anyone looking for a tow.", date: "14 hours ago" },
+              { name: "Adam Perse'", text: "This company was very fast and helpful. I blew a tire on Olympic Parkway during rush hour traffic and they truly made me feel like a priority.", date: "17 hours ago" },
+            ].map((r, i) => (
+              <div key={i} className="flex-shrink-0 w-[340px] bg-slate-900/80 backdrop-blur-xl rounded-2xl p-5 border border-blue-500/20">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-bold text-white">{r.name}</span>
+                  <span className="text-xs text-white/40">{r.date}</span>
                 </div>
+                <div className="flex gap-0.5 mb-2">
+                  {[...Array(5)].map((_, j) => (
+                    <svg key={j} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-sm text-white/70 leading-relaxed">{r.text}</p>
               </div>
             ))}
           </div>
         </div>
+
+        {/* Scrolling row 2 — right to left */}
+        <div className="relative">
+          <div className="flex gap-4 animate-[scrollRight_45s_linear_infinite] w-max">
+            {[
+              { name: "Maria S.", text: "Called at midnight with a dead battery. They were there in 20 minutes and had me started in no time. Lifesavers!", date: "2 days ago" },
+              { name: "Chris D.", text: "Super quick response. My car wouldn't start in a parking garage and they navigated right to me. Very professional.", date: "3 days ago" },
+              { name: "Lisa R.", text: "Best towing company in San Diego. Fair prices, fast service, and genuinely nice people. Won't call anyone else.", date: "5 days ago" },
+              { name: "Mike T.", text: "Had a flat tire on the 8 freeway. They changed it fast and got me back on the road safely. Thank you CloseBy!", date: "1 week ago" },
+              { name: "Sarah K.", text: "Locked my keys in the car at the mall. They got me in without a scratch. So grateful for the fast response.", date: "6 days ago" },
+              { name: "Maria S.", text: "Called at midnight with a dead battery. They were there in 20 minutes and had me started in no time. Lifesavers!", date: "2 days ago" },
+              { name: "Chris D.", text: "Super quick response. My car wouldn't start in a parking garage and they navigated right to me. Very professional.", date: "3 days ago" },
+              { name: "Lisa R.", text: "Best towing company in San Diego. Fair prices, fast service, and genuinely nice people. Won't call anyone else.", date: "5 days ago" },
+              { name: "Mike T.", text: "Had a flat tire on the 8 freeway. They changed it fast and got me back on the road safely. Thank you CloseBy!", date: "1 week ago" },
+              { name: "Sarah K.", text: "Locked my keys in the car at the mall. They got me in without a scratch. So grateful for the fast response.", date: "6 days ago" },
+            ].map((r, i) => (
+              <div key={i} className="flex-shrink-0 w-[340px] bg-slate-900/80 backdrop-blur-xl rounded-2xl p-5 border border-blue-500/20">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-bold text-white">{r.name}</span>
+                  <span className="text-xs text-white/40">{r.date}</span>
+                </div>
+                <div className="flex gap-0.5 mb-2">
+                  {[...Array(5)].map((_, j) => (
+                    <svg key={j} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-sm text-white/70 leading-relaxed">{r.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <style jsx>{`
+          @keyframes scrollLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          @keyframes scrollRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+          }
+        `}</style>
       </section>
 
       {/* WHAT'S INCLUDED - Electric Cards */}
@@ -414,116 +477,6 @@ export default function JumpStartPage() {
                 ))}
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* REVIEWS SECTION */}
-      <section className="py-24 px-6 bg-gradient-to-b from-black to-slate-900">
-        <div className="mx-auto max-w-[1600px]">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-12">
-            <h2 className="text-4xl sm:text-5xl font-black text-white">
-              What Our Customers Say
-            </h2>
-
-            {/* Aggregate rating display */}
-            <div className="flex items-center gap-4 bg-white/5 backdrop-blur-sm px-6 py-3 rounded-xl shadow-lg border border-blue-500/20">
-              <div className="text-center">
-                <div className="text-3xl font-extrabold text-white">5.0</div>
-                <div className="flex gap-0.5 mt-1">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <span key={i} className="text-yellow-500 text-lg">★</span>
-                  ))}
-                </div>
-              </div>
-              <div className="border-l-2 border-white/20 pl-4">
-                <div className="text-sm font-semibold text-white/70">Based on</div>
-                <div className="text-xl font-bold text-white"></div>
-                <div className="flex gap-2 mt-1">
-                  <span className="text-xs font-semibold text-white/60">Google</span>
-                  <span className="text-xs font-semibold text-white/60">Yelp</span>
-                  <span className="text-xs font-semibold text-white/60">Facebook</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {[
-              {
-                name: "Joe Barajas",
-                rating: 5,
-                text: "I had my 1968 MGB towed by Closeby Towing. Daniel was friendly, professional and the price was reasonable. Highly recommend.",
-                date: "4 days ago",
-                verified: true
-              },
-              {
-                name: "Paul Stevenson",
-                rating: 5,
-                text: "Daniel was very professional and helpful. He got my Jeep Compass home after being stranded. I recommend CloseBy Towing in San Diego.",
-                date: "1 week ago",
-                verified: true
-              },
-              {
-                name: "Brenda Valadez",
-                rating: 5,
-                text: "Great service! The driver arrived sooner than expected, and made a stressful situation much easier! If you ever need roadside assistance this is the company to call!",
-                date: "13 hours ago",
-                verified: true
-              },
-              {
-                name: "Jacob Perkins",
-                rating: 5,
-                text: "Fantastic and professional towing service. Very friendly and very fair, affordable prices. Would recommend to anyone looking for a tow.",
-                date: "14 hours ago",
-                verified: true
-              },
-              {
-                name: "Adam Perse'",
-                rating: 5,
-                text: "This company was very fast and helpful. I blew a tire on Olympic Parkway during rush hour traffic and they truly made me feel like a priority.",
-                date: "17 hours ago",
-                verified: true
-              },
-            ].map((review, idx) => (
-              <div
-                key={idx}
-                className="relative group"
-              >
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl opacity-20 group-hover:opacity-40 blur transition duration-500"></div>
-                <div className="relative bg-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300 h-full flex flex-col">
-                  <div className="flex items-start justify-between mb-3">
-                    <div>
-                      <div className="font-bold text-white text-lg">{review.name}</div>
-                      <div className="text-sm text-white/50">{review.date}</div>
-                    </div>
-                    {review.verified && (
-                      <div className="flex-shrink-0">
-                        <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                    )}
-                  </div>
-                  <div className="flex gap-1 mb-3">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <svg
-                        key={i}
-                        className="w-5 h-5 text-yellow-400"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        style={{
-                          animation: `starTwinkle 3s ease-in-out infinite ${i * 0.2}s, starPulse 2s ease-in-out infinite ${i * 0.15}s`
-                        }}
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <p className="text-white/80 leading-relaxed flex-grow">{review.text}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
