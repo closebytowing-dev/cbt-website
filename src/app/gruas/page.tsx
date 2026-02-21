@@ -251,7 +251,7 @@ export default function GruasPage() {
       {/* ══════════════════════════════════════════════════════════════
           LO QUE DICEN NUESTROS CLIENTES — Scrolling Reviews
       ══════════════════════════════════════════════════════════════ */}
-      <section className="bg-gradient-to-r from-amber-500 to-amber-400 pt-10 pb-8 lg:pb-10 overflow-hidden">
+      <section className="bg-[#1e1e4a] pt-10 pb-8 lg:pb-10 overflow-hidden">
         <div className="mx-auto max-w-[1600px] px-6 mb-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-black text-white">
             Lo Que Dicen Nuestros <span className="text-amber-400">Clientes</span>
