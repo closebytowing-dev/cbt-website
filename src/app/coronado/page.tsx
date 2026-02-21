@@ -98,8 +98,11 @@ export default function CoronadoPage() {
                   CORONADO
                   <span className="block text-amber-400">TOWING</span>
                 </h1>
+                <p className="mt-3 text-2xl sm:text-3xl font-bold text-amber-300 tracking-wide">
+                  Island Response. Mainland Speed.
+                </p>
                 <p className="mt-5 text-lg sm:text-xl text-white/80 leading-relaxed max-w-lg">
-                  Need a tow in Coronado? CloseBy Towing provides fast, professional towing and roadside assistance across the entire island — bridge, beach, and everything in between.
+                  Stuck on the island? We cross the bridge so you don&apos;t have to worry. CloseBy Towing serves all of Coronado — Hotel Del, the Strand, the base, and everywhere in between. 15-25 minute response, 24/7.
                 </p>
               </div>
 
