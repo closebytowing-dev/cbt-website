@@ -89,7 +89,7 @@ export default function CoronadoPage() {
         </div>
 
         {/* Bottom content bar — sits over the photo */}
-        <div className="relative z-10 w-full pb-16 pt-20 px-6 lg:px-12">
+        <div className="relative z-10 w-full pb-20 pt-20 px-6 lg:px-12">
           <div className="max-w-[1600px] mx-auto">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
               {/* Left: headline + description */}
