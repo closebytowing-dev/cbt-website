@@ -88,25 +88,6 @@ export default function CoronadoPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
         </div>
 
-        {/* Top-left floating badge */}
-        <div className="absolute top-24 left-6 lg:left-12 z-20">
-          <div className="inline-flex items-center gap-2 bg-amber-500 text-slate-900 px-4 py-2 rounded-lg font-black text-sm shadow-xl">
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            ZIP {CORONADO_ZIP_CODES[0]}
-          </div>
-        </div>
-
-        {/* Top-right floating stat */}
-        <div className="absolute top-24 right-6 lg:right-12 z-20">
-          <div className="bg-black/60 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-4 text-center shadow-xl">
-            <div className="text-3xl font-black text-amber-400">24/7</div>
-            <div className="text-xs text-white/70 font-semibold">Always On Call</div>
-          </div>
-        </div>
-
         {/* Bottom content bar — sits over the photo */}
         <div className="relative z-10 w-full pb-16 pt-20 px-6 lg:px-12">
           <div className="max-w-[1600px] mx-auto">
