@@ -289,116 +289,96 @@ export default function CoronadoPage() {
         </div>
       </section>
 
-      {/* Cinematic Brand Photo */}
-      <section className="py-16 lg:py-20 bg-slate-900">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="relative p-3 sm:p-4 rounded-2xl border border-amber-500/30 shadow-[0_0_60px_rgba(245,158,11,0.08)]">
-            <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-xl overflow-hidden">
-              <Image
-                src="/images/flatbed-coronado.webp"
-                alt="CloseBy Towing flatbed truck with San Diego skyline across Coronado Bay"
-                fill
-                className="object-cover object-center"
-                sizes="(max-width: 1400px) 100vw, 1400px"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pt-20 pb-6 px-6 sm:px-8">
-                <p className="text-white text-lg sm:text-xl lg:text-2xl font-semibold tracking-wide text-center">
-                  San Diego&apos;s Most Trusted Towing — Serving Coronado Island 24/7
-                </p>
-              </div>
-            </div>
-          </div>
+      {/* Complete Coronado Coverage — Cinematic Photo + Content */}
+      <section className="relative overflow-hidden">
+        {/* Full-width background photo */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/flatbed-coronado.webp"
+            alt="CloseBy Towing flatbed truck with San Diego skyline across Coronado Bay"
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/85 to-slate-900/40" />
         </div>
-      </section>
 
-      {/* Coverage Area Section */}
-      <section className="py-20 bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight">
-                COMPLETE <span className="text-amber-400">CORONADO</span> COVERAGE
-              </h2>
-              <p className="mt-6 text-xl text-slate-400">
-                We know every street, landmark, and parking situation on Coronado Island. From the Coronado Bridge entrance to the Silver Strand, our drivers navigate the island efficiently to reach you fast.
-              </p>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
+          <div className="max-w-2xl">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight">
+              COMPLETE <span className="text-amber-400">CORONADO</span> COVERAGE
+            </h2>
+            <p className="mt-6 text-lg sm:text-xl text-white/70 leading-relaxed">
+              We know every street, landmark, and parking situation on Coronado Island. From the Coronado Bridge entrance to the Silver Strand, our drivers navigate the island efficiently to reach you fast.
+            </p>
 
-              {/* Areas List */}
-              <div className="mt-10 grid sm:grid-cols-2 gap-4">
-                <div className="bg-slate-800 rounded-xl p-5 border border-slate-700">
-                  <h3 className="font-bold text-white mb-3">Key Areas</h3>
-                  <ul className="space-y-2 text-slate-400">
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
-                      Orange Avenue / Village
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
-                      Hotel del Coronado
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
-                      Ferry Landing
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
-                      Coronado Cays
-                    </li>
-                  </ul>
-                </div>
-                <div className="bg-slate-800 rounded-xl p-5 border border-slate-700">
-                  <h3 className="font-bold text-white mb-3">Major Routes</h3>
-                  <ul className="space-y-2 text-slate-400">
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
-                      Coronado Bridge (SR-75)
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
-                      Silver Strand Blvd
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
-                      4th Street
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
-                      Ocean Boulevard
-                    </li>
-                  </ul>
+            {/* Areas + Routes */}
+            <div className="mt-10 grid sm:grid-cols-2 gap-4">
+              <div className="bg-slate-900/60 backdrop-blur-md rounded-xl p-5 border border-white/10">
+                <h3 className="font-bold text-amber-400 mb-3">Key Areas</h3>
+                <ul className="space-y-2 text-white/70">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
+                    Orange Avenue / Village
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
+                    Hotel del Coronado
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
+                    Ferry Landing
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
+                    Coronado Cays
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-slate-900/60 backdrop-blur-md rounded-xl p-5 border border-white/10">
+                <h3 className="font-bold text-amber-400 mb-3">Major Routes</h3>
+                <ul className="space-y-2 text-white/70">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
+                    Coronado Bridge (SR-75)
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
+                    Silver Strand Blvd
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
+                    4th Street
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
+                    Ocean Boulevard
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* ZIP + Response Time */}
+            <div className="mt-8 flex flex-wrap gap-4">
+              <div className="bg-amber-500/10 backdrop-blur-md border border-amber-500/30 rounded-xl px-6 py-4 flex items-center gap-4">
+                <div className="text-3xl font-black text-amber-400">{CORONADO_ZIP_CODES[0]}</div>
+                <div>
+                  <div className="font-bold text-white text-sm">Coronado ZIP</div>
+                  <div className="text-white/50 text-xs">Full island coverage</div>
                 </div>
               </div>
-
-              {/* ZIP Code Callout */}
-              <div className="mt-8 bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
-                <div className="flex items-center gap-4">
-                  <div className="text-4xl font-black text-amber-400">{CORONADO_ZIP_CODES[0]}</div>
-                  <div>
-                    <div className="font-bold text-white">Coronado ZIP Code</div>
-                    <div className="text-slate-400">Full island coverage including Naval Base adjacent areas</div>
-                  </div>
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl px-6 py-4 flex items-center gap-4">
+                <div className="text-3xl font-black text-green-400">15-25</div>
+                <div>
+                  <div className="font-bold text-white text-sm">Min Response</div>
+                  <div className="text-white/50 text-xs">Avg to Coronado</div>
                 </div>
               </div>
             </div>
 
-            {/* Image Side */}
-            <div className="relative">
-              <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/neighborhoods/shared/city-night-road.webp"
-                  alt="Tow truck responding to call in Coronado at night"
-                  width={600}
-                  height={450}
-                  className="object-cover w-full"
-                />
-              </div>
-              {/* Floating Stats */}
-              <div className="absolute -bottom-6 -left-6 bg-slate-800 rounded-xl p-6 border border-slate-700 shadow-xl">
-                <div className="text-3xl font-black text-amber-400">15-25</div>
-                <div className="text-white font-medium">Min Response</div>
-                <div className="text-slate-500 text-sm">Avg to Coronado</div>
-              </div>
-            </div>
+            <p className="mt-8 text-white/40 text-sm tracking-wide">
+              San Diego&apos;s Most Trusted Towing — Serving Coronado Island 24/7
+            </p>
           </div>
         </div>
       </section>
