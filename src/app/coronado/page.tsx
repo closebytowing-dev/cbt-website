@@ -142,7 +142,7 @@ export default function CoronadoPage() {
       </section>
 
       {/* WHAT CUSTOMERS SAY — Scrolling Reviews */}
-      <section className="relative -mt-[10vh] z-20 py-6 lg:py-8 bg-gradient-to-b from-black to-slate-800 border-y border-amber-500/20 overflow-hidden">
+      <section className="relative -mt-[15vh] z-20 py-6 lg:py-8 bg-gradient-to-b from-black to-slate-800 border-y border-amber-500/20 overflow-hidden">
         <div className="mx-auto max-w-[1600px] px-6 mb-8">
           <h2 className="text-3xl sm:text-4xl font-black text-white">
             What Our Customers Say
