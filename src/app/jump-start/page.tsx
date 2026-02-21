@@ -121,50 +121,14 @@ export default function JumpStartPage() {
                 </p>
               </div>
 
-              {/* Pricing Cards - Side by Side */}
-              <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="relative group">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
-                    <div className="relative px-6 py-8 bg-slate-900 rounded-2xl border border-blue-500/30">
-                      <div className="text-sm text-blue-400 font-semibold mb-2">Online Price</div>
-                      <div className="flex items-end gap-2 mb-1">
-                        <div className="text-3xl font-black text-white/40 line-through">
-                          <PriceDisplay price={standardPrice} loading={loading} fallback="$..." />
-                        </div>
-                        <div className="text-5xl font-black text-cyan-400">
-                          <PriceDisplay price={onlinePrice} loading={loading} fallback="$..." />
-                        </div>
-                      </div>
-                      <div className="text-xs text-green-400 font-bold">Save 15% Online!</div>
-                    </div>
-                  </div>
-                  <div className="relative group">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
-                    <div className="relative px-6 py-8 bg-slate-900 rounded-2xl border border-yellow-500/30">
-                      <div className="text-sm text-yellow-400 font-semibold mb-2">Arrival Time</div>
-                      <div className="text-5xl font-black text-white mb-1">&lt;25</div>
-                      <div className="text-xs text-white/60">Minutes</div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* High Demand & Guarantee Badges - Single Row */}
-                <div className="grid grid-cols-2 gap-4">
-                  {/* High Demand Badge */}
-                  <div className="relative bg-gradient-to-r from-green-600/20 to-emerald-600/20 border-2 border-green-500/50 rounded-xl px-3 py-3 text-center overflow-hidden">
-                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-green-400/10 to-transparent animate-pulse"></div>
-                    <p className="relative text-white font-bold text-xs sm:text-sm">
-                      🚨 <span className="text-yellow-300 animate-pulse">HIGH DEMAND</span>
-                    </p>
-                  </div>
-
-                  {/* Guarantee Badge */}
-                  <div className="flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600/10 to-pink-600/10 border border-purple-400/30 rounded-xl px-3 py-3">
-                    <svg className="w-4 h-4 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-xs sm:text-sm font-bold text-purple-300">Satisfaction Guaranteed</span>
+              {/* Arrival Time Card */}
+              <div className="max-w-xs">
+                <div className="relative group">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                  <div className="relative px-6 py-8 bg-slate-900 rounded-2xl border border-yellow-500/30">
+                    <div className="text-sm text-yellow-400 font-semibold mb-2">Arrival Time</div>
+                    <div className="text-5xl font-black text-white mb-1">&lt;25</div>
+                    <div className="text-xs text-white/60">Minutes</div>
                   </div>
                 </div>
               </div>
@@ -226,10 +190,6 @@ export default function JumpStartPage() {
               <div className="absolute left-2 top-2 lg:-left-6 lg:-top-6 bg-gradient-to-br from-blue-600 to-cyan-600 text-white px-6 py-4 rounded-2xl shadow-2xl rotate-[-5deg] hover:rotate-0 transition-transform duration-300 animate-[float_6s_ease-in-out_infinite]">
                 <div className="text-3xl font-black">412+</div>
                 <div className="text-xs opacity-80">This Month</div>
-              </div>
-              <div className="absolute right-2 bottom-2 lg:-right-6 lg:-bottom-6 bg-gradient-to-br from-green-500 to-emerald-500 text-white px-6 py-4 rounded-2xl shadow-2xl rotate-[5deg] hover:rotate-0 transition-transform duration-300 animate-[float_6s_ease-in-out_infinite_1s]">
-                <div className="text-3xl font-black">5.0★</div>
-                <div className="text-xs opacity-80">Rating</div>
               </div>
             </div>
           </div>
