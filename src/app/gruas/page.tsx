@@ -181,7 +181,7 @@ export default function GruasPage() {
       {/* ══════════════════════════════════════════════════════════════
           HERO SECTION
       ══════════════════════════════════════════════════════════════ */}
-      <section className="relative min-h-[92vh] flex items-end overflow-hidden">
+      <section className="relative min-h-[92vh] flex items-start justify-end overflow-hidden">
         {/* Hero photo */}
         <div className="absolute inset-0">
           <Image
@@ -197,31 +197,31 @@ export default function GruasPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/40 via-transparent to-transparent" />
         </div>
 
-        {/* Hero content */}
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 pb-20 pt-36">
+        {/* Hero content — top right */}
+        <div className="relative z-10 w-full max-w-xl lg:max-w-2xl ml-auto mr-6 lg:mr-16 px-6 pt-32 pb-20">
           {/* Badge */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-start mb-8">
             <div className="inline-flex items-center gap-2.5 bg-[#25D366]/15 border border-[#25D366]/40 rounded-full px-5 py-2.5">
               <span className="w-2.5 h-2.5 bg-[#25D366] rounded-full animate-pulse" />
               <span className="text-[#25D366] text-sm font-bold tracking-wide">Disponible Ahora &mdash; Hablamos Espa&ntilde;ol</span>
             </div>
           </div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black mb-5 leading-[0.95] text-center">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-5 leading-[0.95] text-left">
             <span className="text-white">Gr&uacute;as en </span>
             <span className="text-amber-400">San Diego</span>
           </h1>
 
-          <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-amber-300/90 mb-6 tracking-wide text-center">
+          <p className="text-xl sm:text-2xl font-bold text-amber-300/90 mb-6 tracking-wide text-left">
             Servicio R&aacute;pido, Profesional y Disponible 24/7
           </p>
 
-          <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed text-center">
-            Tu carro se averi&oacute;. No te preocupes &mdash; llegamos a ti en 15-25 minutos. Servimos Chula Vista, National City, Logan Heights, Barrio Logan y toda el &aacute;rea de San Diego.
+          <p className="text-lg sm:text-xl text-slate-300 mb-10 leading-relaxed text-left">
+            Tu carro se averi&oacute;. No te preocupes &mdash; llegamos a ti en 15-25 minutos. Servimos Chula Vista, National City, Spring Valley, Logan Heights, Barrio Logan y toda el &aacute;rea de San Diego.
           </p>
 
           {/* CTA Buttons — WhatsApp FIRST and BIGGEST */}
-          <div className="flex flex-col items-center gap-4">
+          <div className="flex flex-col items-start gap-4">
             <a
               href={`https://wa.me/${CONTACT.whatsapp}`}
               target="_blank"
