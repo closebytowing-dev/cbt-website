@@ -89,7 +89,7 @@ export default function CoronadoPage() {
         </div>
 
         {/* Bottom content bar — sits over the photo */}
-        <div className="relative z-10 w-full pb-[11rem] pt-20 px-6 lg:px-12">
+        <div className="relative z-10 w-full pb-[16rem] pt-20 px-6 lg:px-12">
           <div className="max-w-[1600px] mx-auto">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
               {/* Left: headline + description */}
@@ -142,7 +142,7 @@ export default function CoronadoPage() {
       </section>
 
       {/* WHAT CUSTOMERS SAY — Scrolling Reviews */}
-      <section className="relative pt-4 pb-8 lg:pt-6 lg:pb-10 bg-slate-900 border-b border-amber-500/10 overflow-hidden">
+      <section className="relative -mt-20 z-20 pb-8 lg:pb-10 bg-slate-900 border-b border-amber-500/10 overflow-hidden">
         <div className="mx-auto max-w-[1600px] px-6 mb-8">
           <h2 className="text-3xl sm:text-4xl font-black text-white">
             What Our <span className="text-amber-400">Customers</span> Say
