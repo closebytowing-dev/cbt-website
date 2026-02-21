@@ -142,7 +142,7 @@ export default function CoronadoPage() {
       </section>
 
       {/* WHAT CUSTOMERS SAY — Scrolling Reviews */}
-      <section className="relative -mt-[280px] z-20 pb-8 lg:pb-10 bg-slate-900 border-b border-amber-500/10 overflow-hidden">
+      <section className="relative -mt-[248px] z-20 pb-8 lg:pb-10 bg-slate-900 border-b border-amber-500/10 overflow-hidden">
         <div className="mx-auto max-w-[1600px] px-6 mb-8">
           <h2 className="text-3xl sm:text-4xl font-black text-white">
             What Our <span className="text-amber-400">Customers</span> Say
