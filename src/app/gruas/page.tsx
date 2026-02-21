@@ -181,7 +181,7 @@ export default function GruasPage() {
       {/* ══════════════════════════════════════════════════════════════
           HERO SECTION
       ══════════════════════════════════════════════════════════════ */}
-      <section className="relative min-h-[92vh] flex items-center justify-start overflow-hidden">
+      <section className="relative min-h-[75vh] flex items-center justify-start overflow-hidden">
         {/* Hero photo */}
         <div className="absolute inset-0">
           <Image
