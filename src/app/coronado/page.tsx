@@ -145,7 +145,7 @@ export default function CoronadoPage() {
       <section className="relative py-8 lg:py-10 bg-slate-900 border-b border-amber-500/10 overflow-hidden">
         <div className="mx-auto max-w-[1600px] px-6 mb-8">
           <h2 className="text-3xl sm:text-4xl font-black text-white">
-            What Our Customers Say
+            What Our <span className="text-amber-400">Customers</span> Say
           </h2>
         </div>
 
