@@ -204,8 +204,8 @@ export default function JumpStartPage() {
           </h2>
         </div>
 
-        {/* Scrolling row 1 — left to right */}
-        <div className="relative mb-4">
+        {/* Scrolling row */}
+        <div className="relative">
           <div className="flex gap-4 animate-[scrollLeft_40s_linear_infinite] w-max">
             {[
               { name: "Joe Barajas", text: "I had my 1968 MGB towed by Closeby Towing. Daniel was friendly, professional and the price was reasonable. Highly recommend.", date: "4 days ago" },
@@ -213,44 +213,17 @@ export default function JumpStartPage() {
               { name: "Brenda Valadez", text: "Great service! The driver arrived sooner than expected, and made a stressful situation much easier! If you ever need roadside assistance this is the company to call!", date: "13 hours ago" },
               { name: "Jacob Perkins", text: "Fantastic and professional towing service. Very friendly and very fair, affordable prices. Would recommend to anyone looking for a tow.", date: "14 hours ago" },
               { name: "Adam Perse'", text: "This company was very fast and helpful. I blew a tire on Olympic Parkway during rush hour traffic and they truly made me feel like a priority.", date: "17 hours ago" },
+              { name: "Maria S.", text: "Called at midnight with a dead battery. They were there in 20 minutes and had me started in no time. Lifesavers!", date: "2 days ago" },
+              { name: "Chris D.", text: "Super quick response. My car wouldn't start in a parking garage and they navigated right to me. Very professional.", date: "3 days ago" },
+              { name: "Lisa R.", text: "Best towing company in San Diego. Fair prices, fast service, and genuinely nice people. Won't call anyone else.", date: "5 days ago" },
               { name: "Joe Barajas", text: "I had my 1968 MGB towed by Closeby Towing. Daniel was friendly, professional and the price was reasonable. Highly recommend.", date: "4 days ago" },
               { name: "Paul Stevenson", text: "Daniel was very professional and helpful. He got my Jeep Compass home after being stranded. I recommend CloseBy Towing in San Diego.", date: "1 week ago" },
               { name: "Brenda Valadez", text: "Great service! The driver arrived sooner than expected, and made a stressful situation much easier! If you ever need roadside assistance this is the company to call!", date: "13 hours ago" },
               { name: "Jacob Perkins", text: "Fantastic and professional towing service. Very friendly and very fair, affordable prices. Would recommend to anyone looking for a tow.", date: "14 hours ago" },
               { name: "Adam Perse'", text: "This company was very fast and helpful. I blew a tire on Olympic Parkway during rush hour traffic and they truly made me feel like a priority.", date: "17 hours ago" },
-            ].map((r, i) => (
-              <div key={i} className="flex-shrink-0 w-[340px] bg-slate-900/80 backdrop-blur-xl rounded-2xl p-5 border border-blue-500/20">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-bold text-white">{r.name}</span>
-                  <span className="text-xs text-white/40">{r.date}</span>
-                </div>
-                <div className="flex gap-0.5 mb-2">
-                  {[...Array(5)].map((_, j) => (
-                    <svg key={j} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-sm text-white/70 leading-relaxed">{r.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Scrolling row 2 — right to left */}
-        <div className="relative">
-          <div className="flex gap-4 animate-[scrollRight_45s_linear_infinite] w-max">
-            {[
               { name: "Maria S.", text: "Called at midnight with a dead battery. They were there in 20 minutes and had me started in no time. Lifesavers!", date: "2 days ago" },
               { name: "Chris D.", text: "Super quick response. My car wouldn't start in a parking garage and they navigated right to me. Very professional.", date: "3 days ago" },
               { name: "Lisa R.", text: "Best towing company in San Diego. Fair prices, fast service, and genuinely nice people. Won't call anyone else.", date: "5 days ago" },
-              { name: "Mike T.", text: "Had a flat tire on the 8 freeway. They changed it fast and got me back on the road safely. Thank you CloseBy!", date: "1 week ago" },
-              { name: "Sarah K.", text: "Locked my keys in the car at the mall. They got me in without a scratch. So grateful for the fast response.", date: "6 days ago" },
-              { name: "Maria S.", text: "Called at midnight with a dead battery. They were there in 20 minutes and had me started in no time. Lifesavers!", date: "2 days ago" },
-              { name: "Chris D.", text: "Super quick response. My car wouldn't start in a parking garage and they navigated right to me. Very professional.", date: "3 days ago" },
-              { name: "Lisa R.", text: "Best towing company in San Diego. Fair prices, fast service, and genuinely nice people. Won't call anyone else.", date: "5 days ago" },
-              { name: "Mike T.", text: "Had a flat tire on the 8 freeway. They changed it fast and got me back on the road safely. Thank you CloseBy!", date: "1 week ago" },
-              { name: "Sarah K.", text: "Locked my keys in the car at the mall. They got me in without a scratch. So grateful for the fast response.", date: "6 days ago" },
             ].map((r, i) => (
               <div key={i} className="flex-shrink-0 w-[340px] bg-slate-900/80 backdrop-blur-xl rounded-2xl p-5 border border-blue-500/20">
                 <div className="flex items-center justify-between mb-2">
@@ -274,10 +247,6 @@ export default function JumpStartPage() {
           @keyframes scrollLeft {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
-          }
-          @keyframes scrollRight {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
           }
         `}</style>
       </section>
