@@ -181,7 +181,7 @@ export default function GruasPage() {
       {/* ══════════════════════════════════════════════════════════════
           HERO SECTION
       ══════════════════════════════════════════════════════════════ */}
-      <section className="relative min-h-[92vh] flex items-start justify-end overflow-hidden">
+      <section className="relative min-h-[92vh] flex items-center justify-start overflow-hidden">
         {/* Hero photo */}
         <div className="absolute inset-0">
           <Image
@@ -194,11 +194,11 @@ export default function GruasPage() {
           />
           {/* Light gradient overlays — just enough for text readability, let the sunset shine */}
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/40 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/20 to-transparent" />
         </div>
 
-        {/* Hero content — top right */}
-        <div className="relative z-10 w-full max-w-xl lg:max-w-2xl ml-auto mr-6 lg:mr-16 px-6 pt-32 pb-20">
+        {/* Hero content — middle left */}
+        <div className="relative z-10 w-full max-w-xl lg:max-w-2xl ml-6 lg:ml-16 px-6 pt-32 pb-20">
           {/* Badge */}
           <div className="flex justify-start mb-8">
             <div className="inline-flex items-center gap-2.5 bg-[#25D366]/15 border border-[#25D366]/40 rounded-full px-5 py-2.5">
