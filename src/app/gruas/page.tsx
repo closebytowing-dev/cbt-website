@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -181,14 +182,19 @@ export default function GruasPage() {
           HERO SECTION
       ══════════════════════════════════════════════════════════════ */}
       <section className="relative min-h-[92vh] flex items-end overflow-hidden">
-        {/* Photo placeholder background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1a2744] via-slate-900 to-[#0c1929]">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-amber-400/30 text-2xl font-bold tracking-widest border-2 border-dashed border-amber-400/20 px-16 py-10 rounded-2xl">
-              [ FOTO AQU&Iacute; ]
-            </span>
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent" />
+        {/* Hero photo */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/grua-san-diego.webp"
+            alt="Grúa CloseBy Towing con el horizonte de San Diego al atardecer"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+          {/* Dark gradient overlays for text readability against bright sunset */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/30 to-transparent" />
         </div>
 
         {/* Hero content */}
