@@ -289,6 +289,28 @@ export default function CoronadoPage() {
         </div>
       </section>
 
+      {/* Cinematic Brand Photo */}
+      <section className="py-16 lg:py-20 bg-slate-900">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+          <div className="relative p-3 sm:p-4 rounded-2xl border border-amber-500/30 shadow-[0_0_60px_rgba(245,158,11,0.08)]">
+            <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-xl overflow-hidden">
+              <Image
+                src="/images/flatbed-coronado.webp"
+                alt="CloseBy Towing flatbed truck with San Diego skyline across Coronado Bay"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1400px) 100vw, 1400px"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pt-20 pb-6 px-6 sm:px-8">
+                <p className="text-white text-lg sm:text-xl lg:text-2xl font-semibold tracking-wide text-center">
+                  San Diego&apos;s Most Trusted Towing — Serving Coronado Island 24/7
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Coverage Area Section */}
       <section className="py-20 bg-slate-900">
         <div className="max-w-7xl mx-auto px-4">
