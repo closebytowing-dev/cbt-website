@@ -73,7 +73,7 @@ export default function CoronadoPage() {
   return (
     <main className="bg-slate-900">
       {/* Hero Section - Full-bleed photo with bottom content overlay */}
-      <section className="relative min-h-[95vh] flex items-end overflow-hidden">
+      <section className="relative min-h-[95vh] flex items-center overflow-hidden">
         {/* Full-bleed background photo — big and bright */}
         <div className="absolute inset-0">
           <Image
@@ -108,9 +108,9 @@ export default function CoronadoPage() {
         </div>
 
         {/* Bottom content bar — sits over the photo */}
-        <div className="relative z-10 w-full pb-10 pt-32 px-6 lg:px-12">
+        <div className="relative z-10 w-full py-10 px-6 lg:px-12">
           <div className="max-w-[1600px] mx-auto">
-            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
               {/* Left: headline + description */}
               <div className="max-w-2xl">
                 <h1 className="text-6xl sm:text-7xl lg:text-9xl font-black text-white leading-[0.85] tracking-tight">
