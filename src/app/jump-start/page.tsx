@@ -199,7 +199,7 @@ export default function JumpStartPage() {
       </section>
 
       {/* WHAT CUSTOMERS SAY — Scrolling Reviews */}
-      <section className="relative py-12 lg:py-16 bg-gradient-to-b from-black to-slate-900 border-y border-blue-500/20 overflow-hidden">
+      <section className="relative py-6 lg:py-8 bg-gradient-to-b from-black to-slate-900 border-y border-blue-500/20 overflow-hidden">
         <div className="mx-auto max-w-[1600px] px-6 mb-8">
           <h2 className="text-3xl sm:text-4xl font-black text-white">
             What Our Customers Say
@@ -251,72 +251,6 @@ export default function JumpStartPage() {
             100% { transform: translateX(-50%); }
           }
         `}</style>
-      </section>
-
-      {/* WHAT'S INCLUDED - Electric Cards */}
-      <section className="py-24 px-6 bg-slate-900">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="text-center mb-16">
-            <h2 className="text-6xl lg:text-7xl font-black text-white mb-4">
-              What's <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Included</span>
-            </h2>
-            <p className="text-xl text-white/60">Professional service, every single time</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Pro-Grade Equipment",
-                desc: "Commercial booster packs with surge protection for your vehicle's electronics",
-                icon: "M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z",
-                color: "from-blue-600 to-cyan-600"
-              },
-              {
-                title: "Safety First",
-                desc: "Complete electrical system checks to prevent damage during jump start",
-                icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
-                color: "from-green-600 to-emerald-600"
-              },
-              {
-                title: "Battery Assessment",
-                desc: "Quick diagnostic to check if your battery needs replacement or just a charge",
-                icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01",
-                color: "from-yellow-600 to-orange-600"
-              },
-              {
-                title: "Alternator Check",
-                desc: "We verify your alternator is charging properly to prevent future issues",
-                icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
-                color: "from-purple-600 to-pink-600"
-              },
-              {
-                title: "Clean Connections",
-                desc: "We clean corroded terminals to ensure optimal electrical flow",
-                icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
-                color: "from-cyan-600 to-blue-600"
-              },
-              {
-                title: "Expert Advice",
-                desc: "Honest recommendations on whether you need a new battery or tow service",
-                icon: "M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z",
-                color: "from-red-600 to-rose-600"
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="group relative">
-                <div className={`absolute -inset-1 bg-gradient-to-r ${item.color} rounded-3xl opacity-20 group-hover:opacity-40 blur transition duration-500`}></div>
-                <div className="relative h-full p-8 bg-slate-800/80 backdrop-blur-xl rounded-3xl border border-white/10 hover:border-white/30 transition-all duration-500">
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}>
-                    <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-3">{item.title}</h3>
-                  <p className="text-white/60 leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* PROCESS WITH IMAGES - Unique Vertical Timeline */}
@@ -395,6 +329,72 @@ export default function JumpStartPage() {
                       <p className="text-xl text-white/70 leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT'S INCLUDED - Electric Cards */}
+      <section className="py-24 px-6 bg-slate-900">
+        <div className="mx-auto max-w-[1400px]">
+          <div className="text-center mb-16">
+            <h2 className="text-6xl lg:text-7xl font-black text-white mb-4">
+              What's <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Included</span>
+            </h2>
+            <p className="text-xl text-white/60">Professional service, every single time</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Pro-Grade Equipment",
+                desc: "Commercial booster packs with surge protection for your vehicle's electronics",
+                icon: "M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z",
+                color: "from-blue-600 to-cyan-600"
+              },
+              {
+                title: "Safety First",
+                desc: "Complete electrical system checks to prevent damage during jump start",
+                icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+                color: "from-green-600 to-emerald-600"
+              },
+              {
+                title: "Battery Assessment",
+                desc: "Quick diagnostic to check if your battery needs replacement or just a charge",
+                icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01",
+                color: "from-yellow-600 to-orange-600"
+              },
+              {
+                title: "Alternator Check",
+                desc: "We verify your alternator is charging properly to prevent future issues",
+                icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
+                color: "from-purple-600 to-pink-600"
+              },
+              {
+                title: "Clean Connections",
+                desc: "We clean corroded terminals to ensure optimal electrical flow",
+                icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
+                color: "from-cyan-600 to-blue-600"
+              },
+              {
+                title: "Expert Advice",
+                desc: "Honest recommendations on whether you need a new battery or tow service",
+                icon: "M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z",
+                color: "from-red-600 to-rose-600"
+              },
+            ].map((item, idx) => (
+              <div key={idx} className="group relative">
+                <div className={`absolute -inset-1 bg-gradient-to-r ${item.color} rounded-3xl opacity-20 group-hover:opacity-40 blur transition duration-500`}></div>
+                <div className="relative h-full p-8 bg-slate-800/80 backdrop-blur-xl rounded-3xl border border-white/10 hover:border-white/30 transition-all duration-500">
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}>
+                    <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-3">{item.title}</h3>
+                  <p className="text-white/60 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
