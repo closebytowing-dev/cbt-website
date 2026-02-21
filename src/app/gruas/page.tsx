@@ -247,35 +247,38 @@ export default function GruasPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════
-          TRUST BAR
+          LO QUE DICEN NUESTROS CLIENTES — Scrolling Reviews
       ══════════════════════════════════════════════════════════════ */}
-      <section className="bg-slate-900 border-y border-amber-400/15">
-        <div className="max-w-7xl mx-auto px-6 py-5">
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
-            <span className="flex items-center gap-2 text-sm sm:text-base font-semibold text-slate-300">
-              <svg className="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              Licenciados y Asegurados
-            </span>
-            <span className="flex items-center gap-2 text-sm sm:text-base font-semibold text-slate-300">
-              <svg className="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              5 Estrellas en Google
-            </span>
-            <span className="flex items-center gap-2 text-sm sm:text-base font-semibold text-slate-300">
-              <svg className="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-              </svg>
-              15-25 Min Respuesta
-            </span>
-            <span className="flex items-center gap-2 text-sm sm:text-base font-semibold text-slate-300">
-              <svg className="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              24/7 Disponible
-            </span>
+      <section className="bg-slate-900 pt-10 pb-8 lg:pb-10 border-b border-amber-500/10 overflow-hidden">
+        <div className="mx-auto max-w-[1600px] px-6 mb-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-black text-white">
+            Lo Que Dicen Nuestros <span className="text-amber-400">Clientes</span>
+          </h2>
+        </div>
+
+        <div className="relative">
+          <div className="flex gap-5 animate-[scrollLeft_50s_linear_infinite] w-max">
+            {[...REVIEWS, ...REVIEWS].map((review, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 w-[420px] min-h-[200px] bg-slate-800/60 border border-slate-700/50 rounded-2xl p-7 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex gap-1 mb-3">
+                    {Array.from({ length: review.stars }).map((_, s) => (
+                      <svg key={s} className="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="text-slate-300 leading-relaxed mb-4">&ldquo;{review.text}&rdquo;</p>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-white font-bold">{review.name}</span>
+                  <span className="text-slate-500 text-sm">{review.date}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -411,43 +414,6 @@ export default function GruasPage() {
           <p className="text-center text-slate-500 mt-8 text-sm">
             ...y todas las &aacute;reas circundantes del condado de San Diego.
           </p>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════
-          LO QUE DICEN NUESTROS CLIENTES — Scrolling Reviews
-      ══════════════════════════════════════════════════════════════ */}
-      <section className="bg-slate-950 py-20 lg:py-24 overflow-hidden">
-        <div className="mx-auto max-w-[1600px] px-6 mb-10 text-center">
-          <h2 className="text-4xl sm:text-5xl font-black text-white">
-            Lo Que Dicen Nuestros <span className="text-amber-400">Clientes</span>
-          </h2>
-        </div>
-
-        <div className="relative">
-          <div className="flex gap-5 animate-[scrollLeft_50s_linear_infinite] w-max">
-            {[...REVIEWS, ...REVIEWS].map((review, i) => (
-              <div
-                key={i}
-                className="flex-shrink-0 w-[420px] min-h-[200px] bg-slate-900/80 border border-slate-700/50 rounded-2xl p-7 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex gap-1 mb-3">
-                    {Array.from({ length: review.stars }).map((_, s) => (
-                      <svg key={s} className="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <p className="text-slate-300 leading-relaxed mb-4">&ldquo;{review.text}&rdquo;</p>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-white font-bold">{review.name}</span>
-                  <span className="text-slate-500 text-sm">{review.date}</span>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
