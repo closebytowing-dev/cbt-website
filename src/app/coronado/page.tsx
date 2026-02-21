@@ -72,76 +72,86 @@ const FAQ_DATA = [
 export default function CoronadoPage() {
   return (
     <main className="bg-slate-900">
-      {/* Hero Section - Towing-focused with dramatic styling */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-        {/* Background Image */}
+      {/* Hero Section - Full-bleed photo with bottom content overlay */}
+      <section className="relative min-h-[95vh] flex items-end overflow-hidden">
+        {/* Full-bleed background photo — big and bright */}
         <div className="absolute inset-0">
           <Image
-            src="/neighborhoods/shared/flatbed-truck-1.webp"
-            alt="Professional tow truck providing 24/7 emergency towing service in Coronado San Diego"
+            src="/neighborhoods/coronado/hero-towing.webp"
+            alt="CloseBy Towing truck on service call in Coronado San Diego"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-slate-900/40" />
+          {/* Only darken the bottom third where text lives */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 py-20">
-          <div className="max-w-2xl">
-            {/* ZIP Code Badge */}
-            <div className="inline-flex items-center gap-2 bg-amber-500 text-slate-900 px-4 py-2 rounded-lg font-bold text-sm mb-6">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              SERVING ZIP CODE {CORONADO_ZIP_CODES[0]}
-            </div>
+        {/* Top-left floating badge */}
+        <div className="absolute top-24 left-6 lg:left-12 z-20">
+          <div className="inline-flex items-center gap-2 bg-amber-500 text-slate-900 px-4 py-2 rounded-lg font-black text-sm shadow-xl">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            ZIP {CORONADO_ZIP_CODES[0]}
+          </div>
+        </div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[0.9]">
-              CORONADO
-              <span className="block text-amber-400">TOWING</span>
-            </h1>
+        {/* Top-right floating stat */}
+        <div className="absolute top-24 right-6 lg:right-12 z-20">
+          <div className="bg-black/60 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-4 text-center shadow-xl">
+            <div className="text-3xl font-black text-amber-400">24/7</div>
+            <div className="text-xs text-white/70 font-semibold">Always On Call</div>
+          </div>
+        </div>
 
-            <p className="mt-6 text-xl sm:text-2xl text-slate-300 leading-relaxed">
-              24/7 emergency towing and roadside assistance for Coronado Island. Fast response across the bridge, Orange Avenue, and all island neighborhoods.
-            </p>
-
-            {/* Response Time Highlight */}
-            <div className="mt-8 flex items-center gap-4">
-              <div className="bg-green-500/20 border border-green-400/50 rounded-xl px-6 py-4">
-                <div className="text-3xl font-black text-green-400">15-25 MIN</div>
-                <div className="text-sm text-green-300">Average Response</div>
+        {/* Bottom content bar — sits over the photo */}
+        <div className="relative z-10 w-full pb-10 pt-32 px-6 lg:px-12">
+          <div className="max-w-[1600px] mx-auto">
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+              {/* Left: headline + description */}
+              <div className="max-w-2xl">
+                <h1 className="text-6xl sm:text-7xl lg:text-9xl font-black text-white leading-[0.85] tracking-tight">
+                  CORONADO
+                  <span className="block text-amber-400">TOWING</span>
+                </h1>
+                <p className="mt-5 text-lg sm:text-xl text-white/80 leading-relaxed max-w-lg">
+                  Need a tow in Coronado? CloseBy Towing provides fast, professional towing and roadside assistance across the entire island — bridge, beach, and everything in between.
+                </p>
               </div>
-              <div className="bg-white/10 border border-white/20 rounded-xl px-6 py-4">
-                <div className="text-3xl font-black text-white">24/7</div>
-                <div className="text-sm text-slate-400">Always Available</div>
-              </div>
-            </div>
 
-            {/* CTA Buttons */}
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <a
-                href={`tel:${CONTACT.phoneRaw}`}
-                className="inline-flex items-center justify-center gap-3 bg-amber-500 hover:bg-amber-400 text-slate-900 px-8 py-5 rounded-xl font-black text-xl transition-all hover:scale-105 shadow-2xl shadow-amber-500/30"
-              >
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                {CONTACT.phone}
-              </a>
-              <a
-                href={`https://wa.me/${CONTACT.whatsapp}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-5 rounded-xl font-bold text-xl transition-all border border-white/30 backdrop-blur-sm"
-              >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                </svg>
-                WhatsApp
-              </a>
+              {/* Right: CTA + response time */}
+              <div className="flex flex-col items-start lg:items-end gap-4">
+                {/* Response time */}
+                <div className="flex items-center gap-3">
+                  <div className="h-3 w-3 rounded-full bg-green-400 animate-pulse shadow-[0_0_12px_rgba(74,222,128,0.6)]" />
+                  <span className="text-green-400 font-black text-lg">15-25 MIN RESPONSE</span>
+                </div>
+
+                {/* CTA buttons */}
+                <a
+                  href={`tel:${CONTACT.phoneRaw}`}
+                  className="inline-flex items-center gap-3 bg-amber-500 hover:bg-amber-400 text-slate-900 px-10 py-5 rounded-xl font-black text-2xl transition-all hover:scale-105 shadow-2xl shadow-amber-500/30"
+                >
+                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  {CONTACT.phone}
+                </a>
+                <a
+                  href={`https://wa.me/${CONTACT.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-10 py-4 rounded-xl font-bold text-lg transition-all border border-white/30 backdrop-blur-md"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                  </svg>
+                  WhatsApp Us
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -501,7 +511,7 @@ export default function CoronadoPage() {
               "24/7 emergency towing and roadside assistance in Coronado, CA 92118. Fast response to Coronado Bridge, Orange Avenue, Hotel del Coronado, and all island areas. Professional flatbed towing, jump starts, tire changes, and lockout service.",
             url: "https://www.closebytowing.com/coronado",
             telephone: CONTACT.phone,
-            image: "https://www.closebytowing.com/neighborhoods/shared/flatbed-truck-1.webp",
+            image: "https://www.closebytowing.com/neighborhoods/coronado/hero-towing.webp",
             address: {
               "@type": "PostalAddress",
               addressLocality: "Coronado",
