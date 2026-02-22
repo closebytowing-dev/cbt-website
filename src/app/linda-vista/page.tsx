@@ -11,7 +11,7 @@ const LINDA_VISTA_ZIP_CODES = ["92111"];
 export const metadata: Metadata = {
   title: "Linda Vista Towing | 92111 | 24/7 | CloseBy",
   description:
-    "Towing in Linda Vista 92111. Serving USD campus, Linda Vista Plaza, residential neighborhoods & I-5/SR-163 access. 20-30 min response.",
+    "Towing in Linda Vista 92111. Serving USD campus, Linda Vista Plaza, residential neighborhoods & I-5/SR-163 access. 15-25 min response.",
   keywords:
     "towing Linda Vista, Linda Vista tow truck, USD towing, roadside assistance Linda Vista, Linda Vista Plaza towing, tow truck near me Linda Vista",
   openGraph: {
@@ -89,7 +89,7 @@ const FAQ_DATA = [
   {
     question: "How quickly can you reach Linda Vista residential areas?",
     answer:
-      "We typically arrive in Linda Vista residential neighborhoods within 20-30 minutes. Our drivers know the area well, including the hillside streets, apartment complexes, and family homes. We're familiar with the community layout and can navigate efficiently to your location.",
+      "We typically arrive in Linda Vista residential neighborhoods within 15-25 minutes. Our drivers know the area well, including the hillside streets, apartment complexes, and family homes. We're familiar with the community layout and can navigate efficiently to your location.",
   },
   {
     question: "Can you help near Linda Vista Plaza and shopping areas?",
@@ -154,13 +154,13 @@ export default function LindaVistaPage() {
               <p className="mt-6 text-xl text-orange-100 leading-relaxed max-w-xl">
                 Your trusted neighborhood towing service. From <span className="text-lime-300 font-semibold">USD campus</span> to{" "}
                 <span className="text-lime-300 font-semibold">Linda Vista Plaza</span>, we know your community and respond in{" "}
-                <span className="text-lime-300 font-semibold">20-30 minutes</span>.
+                <span className="text-lime-300 font-semibold">15-25 minutes</span>.
               </p>
 
               {/* Quick stats */}
               <div className="mt-8 grid grid-cols-3 gap-4">
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
-                  <div className="text-2xl font-bold text-lime-300">20-30</div>
+                  <div className="text-2xl font-bold text-lime-300">15-25</div>
                   <div className="text-sm text-orange-100">Min Response</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">

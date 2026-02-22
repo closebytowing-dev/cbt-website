@@ -84,7 +84,7 @@ const FAQ_DATA = [
   {
     question: "How quickly can you get to Mission Trails Regional Park?",
     answer:
-      "We typically arrive at Mission Trails Regional Park within 25-35 minutes. Our drivers know the park's multiple access points, trailhead parking areas, and visitor center location. Whether you're at Cowles Mountain trailhead, the lake area, or other park locations, we can reach you efficiently.",
+      "We typically arrive at Mission Trails Regional Park within 15-25 minutes. Our drivers know the park's multiple access points, trailhead parking areas, and visitor center location. Whether you're at Cowles Mountain trailhead, the lake area, or other park locations, we can reach you efficiently.",
   },
   {
     question: "Do you handle the hilly canyon terrain in Tierrasanta?",

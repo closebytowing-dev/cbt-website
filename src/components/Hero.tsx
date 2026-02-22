@@ -17,7 +17,7 @@ export default function Hero() {
           </p>
 
           <h1 className="mt-3 text-2xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
-            Fast, Affordable, Professional Towing — <span className="text-white/90">ETA 20–35 Minutes</span>
+            Fast, Affordable, Professional Towing — <span className="text-white/90">ETA 15-25 Minutes</span>
           </h1>
 
           {/* moved up slightly to increase gap above the buttons */}
@@ -25,8 +25,7 @@ export default function Hero() {
             <span className="text-[#E8B923] font-semibold">Affordable</span> and{" "}
             <span className="text-[#E8B923] font-semibold">upfront pricing</span>. Open{" "}
             <span className="text-[#E8B923] font-semibold">24 hours</span>,{" "}
-            <span className="text-[#E8B923] font-semibold">7 days</span>. <span className="hidden sm:inline">Fast, courteous
-            operators.</span>
+            <span className="text-[#E8B923] font-semibold">7 days</span>. <span className="hidden sm:inline">Serving La Jolla, Coronado, Downtown San Diego & all neighborhoods.</span>
           </p>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3">

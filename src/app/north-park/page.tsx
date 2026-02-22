@@ -11,7 +11,7 @@ const NP_ZIP_CODES = ["92104"];
 export const metadata: Metadata = {
   title: "North Park Towing | 92104 | 24/7 | CloseBy",
   description:
-    "Towing in North Park 92104. From the 30th Street craft brewery corridor to Ray at Night art walks and Morley Field disc golf. 20-30 min response to SD's hippest hood.",
+    "Towing in North Park 92104. From the 30th Street craft brewery corridor to Ray at Night art walks and Morley Field disc golf. 15-25 min response to SD's hippest hood.",
   keywords:
     "towing North Park, North Park tow truck, 92104 towing, 30th Street towing, craft brewery district towing, University Avenue towing, Morley Field towing",
   openGraph: {
@@ -156,13 +156,13 @@ export default function NorthParkPage() {
                 <span className="text-amber-300 font-semibold">towing and roadside assistance</span> throughout the 92104
                 area. Dead battery, flat tire, lockout, or accident — our tow trucks cover every street
                 in North Park. We respond in{" "}
-                <span className="text-amber-300 font-semibold">20-30 minutes</span>, 24/7.
+                <span className="text-amber-300 font-semibold">15-25 minutes</span>, 24/7.
               </p>
 
               {/* Quick stats */}
               <div className="mt-8 grid grid-cols-3 gap-4">
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
-                  <div className="text-2xl font-bold text-amber-300">20-30</div>
+                  <div className="text-2xl font-bold text-amber-300">15-25</div>
                   <div className="text-sm text-amber-100">Min Response</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">

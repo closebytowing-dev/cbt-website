@@ -9,7 +9,7 @@ const UNIVERSITY_CITY_ZIP_CODES = ["92122", "92093"];
 
 export const metadata: Metadata = {
   title: "University City Towing | 92122 | 24/7 | CloseBy",
-  description: "Towing in University City 92122. Serving UCSD, UTC, Westfield UTC, I-5 & I-805 corridors. 20-30 min response.",
+  description: "Towing in University City 92122. Serving UCSD, UTC, Westfield UTC, I-5 & I-805 corridors. 15-25 min response.",
   keywords: "towing University City, UTC tow truck, UCSD towing, Westfield UTC roadside assistance, La Jolla towing",
   openGraph: { title: "Towing in University City San Diego | 24/7 | CloseBy Towing", url: "https://www.closebytowing.com/university-city", type: "website" },
   alternates: { canonical: "https://www.closebytowing.com/university-city" },
@@ -61,9 +61,9 @@ export default function UniversityCityPage() {
                 <span className="text-blue-200 text-sm font-medium">Serving University City 24/7 • ZIP: {UNIVERSITY_CITY_ZIP_CODES.join(", ")}</span>
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">University City<span className="block text-blue-300 mt-2">Towing & Roadside</span></h1>
-              <p className="mt-6 text-xl text-blue-100 leading-relaxed max-w-xl">Academic district towing experts. Serving <span className="text-blue-300 font-semibold">UCSD</span>, <span className="text-blue-300 font-semibold">Westfield UTC</span>, and surrounding communities with <span className="text-blue-300 font-semibold">20-30 minute</span> response.</p>
+              <p className="mt-6 text-xl text-blue-100 leading-relaxed max-w-xl">Academic district towing experts. Serving <span className="text-blue-300 font-semibold">UCSD</span>, <span className="text-blue-300 font-semibold">Westfield UTC</span>, and surrounding communities with <span className="text-blue-300 font-semibold">15-25 minute</span> response.</p>
               <div className="mt-8 grid grid-cols-3 gap-4">
-                <div className="bg-white/10 rounded-xl p-4 text-center border border-white/20"><div className="text-2xl font-bold text-blue-300">20-30</div><div className="text-sm text-blue-100">Min Response</div></div>
+                <div className="bg-white/10 rounded-xl p-4 text-center border border-white/20"><div className="text-2xl font-bold text-blue-300">15-25</div><div className="text-sm text-blue-100">Min Response</div></div>
                 <div className="bg-white/10 rounded-xl p-4 text-center border border-white/20"><div className="text-2xl font-bold text-blue-300">24/7</div><div className="text-sm text-blue-100">Available</div></div>
                 <div className="bg-white/10 rounded-xl p-4 text-center border border-white/20"><div className="text-2xl font-bold text-blue-300">UCSD</div><div className="text-sm text-blue-100">& UTC</div></div>
               </div>

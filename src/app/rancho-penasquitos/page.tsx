@@ -84,7 +84,7 @@ const FAQ_DATA = [
   {
     question: "How quickly can you get to Los Penasquitos Canyon?",
     answer:
-      "We typically arrive at Los Penasquitos Canyon Preserve within 25-35 minutes. Our drivers are familiar with both the eastern and western trailhead access points, waterfall parking areas, and the canyon's multiple entry locations. Whether you need help at Adobe Falls or other trail areas, we can navigate to you efficiently.",
+      "We typically arrive at Los Penasquitos Canyon Preserve within 15-25 minutes. Our drivers are familiar with both the eastern and western trailhead access points, waterfall parking areas, and the canyon's multiple entry locations. Whether you need help at Adobe Falls or other trail areas, we can navigate to you efficiently.",
   },
   {
     question: "Do you handle the canyon and hillside terrain in PQ?",

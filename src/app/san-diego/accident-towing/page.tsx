@@ -8,7 +8,7 @@ import { CONTACT, areaHref } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Accident Towing San Diego | 24/7 | CloseBy",
   description:
-    "Professional accident towing and collision recovery in San Diego. We coordinate with police, insurance companies, and body shops. 24/7 response in 20-35 minutes.",
+    "Professional accident towing and collision recovery in San Diego. We coordinate with police, insurance companies, and body shops. 24/7 response in 15-25 minutes.",
   keywords:
     "accident towing San Diego, collision towing, car accident tow truck, post-accident recovery, insurance towing, wreck removal, crash towing service",
   openGraph: {
@@ -77,7 +77,7 @@ const ACCIDENT_STEPS = [
   {
     number: "04",
     title: "Call CloseBy Towing",
-    description: "We'll arrive in 20-35 minutes to safely remove your vehicle and take it wherever you need.",
+    description: "We'll arrive in 15-25 minutes to safely remove your vehicle and take it wherever you need.",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -120,7 +120,7 @@ const WHY_CHOOSE_US = [
   },
   {
     title: "24/7 Immediate Response",
-    description: "Accidents don't wait for business hours. We're available around the clock, every day of the year, with 20-35 minute response times.",
+    description: "Accidents don't wait for business hours. We're available around the clock, every day of the year, with 15-25 minute response times.",
     icon: "⏰",
   },
   {
@@ -199,7 +199,7 @@ export default function AccidentTowingPage() {
 
               <p className="mt-6 text-xl text-blue-100 leading-relaxed max-w-xl">
                 Been in an accident? Take a breath - we&apos;ve got you covered. Our professional team arrives in{" "}
-                <span className="text-blue-300 font-semibold">20-35 minutes</span>, coordinates with police and
+                <span className="text-blue-300 font-semibold">15-25 minutes</span>, coordinates with police and
                 insurance, and safely transports your vehicle anywhere you need.
               </p>
 

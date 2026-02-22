@@ -8,7 +8,7 @@ import { areaHref, CONTACT, PRICING } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Roadside Assistance San Diego | CloseBy",
   description:
-    "Fast roadside assistance in San Diego: jump starts, lockouts, tire changes, fuel delivery & more. 20-35 min response, 24/7. No membership required.",
+    "Fast roadside assistance in San Diego: jump starts, lockouts, tire changes, fuel delivery & more. 15-25 min response, 24/7. No membership required.",
   keywords:
     "roadside assistance San Diego, jump start service, car lockout help, flat tire change, fuel delivery, battery service, mobile mechanic, 24/7 roadside help",
   openGraph: {
@@ -108,7 +108,7 @@ const FAQ_DATA = [
   {
     question: "How quickly can you get to me?",
     answer:
-      "Our average response time throughout San Diego is 20-35 minutes. Response times vary based on your location, traffic conditions, and time of day, but we always dispatch the closest available technician to minimize your wait time.",
+      "Our average response time throughout San Diego is 15-25 minutes. Response times vary based on your location, traffic conditions, and time of day, but we always dispatch the closest available technician to minimize your wait time.",
   },
   {
     question: "What if I don't know what's wrong with my car?",
@@ -162,7 +162,7 @@ export default function RoadsideAssistancePage() {
 
               <p className="mt-6 text-xl text-emerald-100 leading-relaxed max-w-xl">
                 Stranded? We&apos;ve got your back. From dead batteries to flat tires, locked keys to empty tanks -
-                our <span className="text-emerald-300 font-semibold">20-35 minute response</span> gets you back on the road fast.
+                our <span className="text-emerald-300 font-semibold">15-25 minute response</span> gets you back on the road fast.
               </p>
 
               {/* Service quick links */}
@@ -336,7 +336,7 @@ export default function RoadsideAssistancePage() {
                   {
                     icon: "⚡",
                     title: "Faster Than AAA",
-                    description: "20-35 minute average response. We dispatch immediately - no membership verification delays.",
+                    description: "15-25 minute average response. We dispatch immediately - no membership verification delays.",
                   },
                   {
                     icon: "💵",
@@ -375,7 +375,7 @@ export default function RoadsideAssistancePage() {
 
                 {[
                   { feature: "Annual Fee", closeby: "$0", aaa: "$56-164/yr" },
-                  { feature: "Wait Time", closeby: "20-35 min", aaa: "45-90 min" },
+                  { feature: "Wait Time", closeby: "15-25 min", aaa: "45-90 min" },
                   { feature: "Membership Required", closeby: "No", aaa: "Yes" },
                   { feature: "Coverage Limits", closeby: "None", aaa: "4 calls/yr" },
                   { feature: "Service Area", closeby: "San Diego", aaa: "Nationwide" },
@@ -527,7 +527,7 @@ export default function RoadsideAssistancePage() {
           </h2>
 
           <p className="mt-6 text-xl text-emerald-100 max-w-2xl mx-auto">
-            Don&apos;t wait. We&apos;ll have a professional technician at your location in 20-35 minutes. Jump starts, lockouts, flat tires, fuel delivery - we handle it all.
+            Don&apos;t wait. We&apos;ll have a professional technician at your location in 15-25 minutes. Jump starts, lockouts, flat tires, fuel delivery - we handle it all.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -614,7 +614,7 @@ export default function RoadsideAssistancePage() {
             "@id": "https://www.closebytowing.com/san-diego/roadside-assistance",
             name: "CloseBy Towing - Roadside Assistance San Diego",
             description:
-              "Fast roadside assistance in San Diego: jump starts, lockouts, tire changes, fuel delivery. 20-35 min response, 24/7. No membership required.",
+              "Fast roadside assistance in San Diego: jump starts, lockouts, tire changes, fuel delivery. 15-25 min response, 24/7. No membership required.",
             url: "https://www.closebytowing.com/san-diego/roadside-assistance",
             telephone: CONTACT.phone,
             areaServed: {

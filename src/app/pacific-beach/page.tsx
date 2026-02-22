@@ -7,7 +7,7 @@ import { areaHref, CONTACT } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Pacific Beach Towing | 92109 | 24/7 | CloseBy",
   description:
-    "Towing in Pacific Beach 92109. Serving Garnet Ave, Crystal Pier, Mission Bay & boardwalk. Fast 20-30 min response from PB's local beach community tow experts.",
+    "Towing in Pacific Beach 92109. Serving Garnet Ave, Crystal Pier, Mission Bay & boardwalk. Fast 15-25 min response from PB's local beach community tow experts.",
   keywords:
     "towing Pacific Beach, PB tow truck, 92109 towing, Garnet Avenue towing, Crystal Pier roadside assistance, Mission Boulevard towing, beach towing San Diego",
   openGraph: {
@@ -139,12 +139,12 @@ export default function PacificBeachPage() {
                 <span className="text-cyan-200 font-semibold">towing and roadside assistance</span> throughout the 92109
                 area. Dead battery, flat tire, lockout, or accident — our tow trucks cover every street
                 in PB. We respond in{" "}
-                <span className="text-cyan-200 font-semibold">20-30 minutes</span>, 24/7.
+                <span className="text-cyan-200 font-semibold">15-25 minutes</span>, 24/7.
               </p>
 
               <div className="mt-8 grid grid-cols-3 gap-4">
                 <div className="bg-white/10 rounded-xl p-4 text-center border border-white/20">
-                  <div className="text-2xl font-bold text-cyan-200">20-30</div>
+                  <div className="text-2xl font-bold text-cyan-200">15-25</div>
                   <div className="text-sm text-blue-100">Min Response</div>
                 </div>
                 <div className="bg-white/10 rounded-xl p-4 text-center border border-white/20">

@@ -105,9 +105,9 @@ export const PRICING = {
 
 // Response Times
 export const RESPONSE_TIME = {
-  average: "less than 25 minutes",
-  emergency: "less than 25 minutes",
-  standard: "30-45 minutes",
+  average: "15-25 minutes",
+  emergency: "15-25 minutes",
+  standard: "15-25 minutes",
 } as const;
 
 // Social Proof

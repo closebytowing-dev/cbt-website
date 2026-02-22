@@ -84,7 +84,7 @@ const FAQ_DATA = [
   {
     question: "How quickly can you get to Lake Miramar area?",
     answer:
-      "We typically arrive at Lake Miramar within 25-35 minutes. Our drivers are familiar with the lake's trail parking areas, boat launch access, and the surrounding residential neighborhoods. Whether you need help at the lake or along Scripps Lake Drive, we can reach you quickly.",
+      "We typically arrive at Lake Miramar within 15-25 minutes. Our drivers are familiar with the lake's trail parking areas, boat launch access, and the surrounding residential neighborhoods. Whether you need help at the lake or along Scripps Lake Drive, we can reach you quickly.",
   },
   {
     question: "Do you service The Marketplace and shopping areas?",

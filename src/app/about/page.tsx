@@ -110,7 +110,7 @@ export default function AboutPage() {
                 {
                   icon: "⚡",
                   title: "Speed & Reliability",
-                  description: "20-35 minute average response time. We arrive fast and get you moving faster."
+                  description: "15-25 minute average response time. We arrive fast and get you moving faster."
                 },
                 {
                   icon: "💰",
@@ -143,7 +143,7 @@ export default function AboutPage() {
               {[
                 { number: "15,000+", label: "Services Completed" },
                 { number: "5.0★", label: "Google Rating" },
-                { number: "20-35", label: "Min Response Time" },
+                { number: "15-25", label: "Min Response Time" },
                 { number: "24/7/365", label: "Always Available" },
               ].map((stat, idx) => (
                 <div key={idx} className="text-center">
@@ -166,7 +166,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 "✅ Licensed & Insured - Full coverage for your protection",
-                "✅ 20-35 Minute ETA - Fastest response in San Diego",
+                "✅ 15-25 Minute ETA - Fastest response in San Diego",
                 "✅ Upfront Pricing - No surprises, no hidden fees",
                 "✅ 24/7 Availability - We never close, even on holidays",
                 "✅ Professional Drivers - Background checked and trained",

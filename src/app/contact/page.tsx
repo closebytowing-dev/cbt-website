@@ -236,7 +236,7 @@ export default function ContactPage() {
                   <ul className="space-y-3">
                     <li className="flex items-center gap-2">
                       <span className="text-[#ffba42]">✓</span>
-                      <span>20-35 minute average response time</span>
+                      <span>15-25 minute average response time</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="text-[#ffba42]">✓</span>

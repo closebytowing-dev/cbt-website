@@ -84,7 +84,7 @@ const FAQ_DATA = [
   {
     question: "How quickly can you get to Carmel Mountain Ranch?",
     answer:
-      "We typically arrive in Carmel Mountain Ranch within 25-35 minutes. Our drivers are familiar with the Town Center shopping areas, residential neighborhoods, and all the modern developments throughout Carmel Mountain Ranch. We know the area's street layout and can navigate efficiently to your location.",
+      "We typically arrive in Carmel Mountain Ranch within 15-25 minutes. Our drivers are familiar with the Town Center shopping areas, residential neighborhoods, and all the modern developments throughout Carmel Mountain Ranch. We know the area's street layout and can navigate efficiently to your location.",
   },
   {
     question: "Do you service the new residential communities?",

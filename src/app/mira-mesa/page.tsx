@@ -10,7 +10,7 @@ const MIRA_MESA_ZIP_CODES = ["92126", "92121"];
 export const metadata: Metadata = {
   title: "Mira Mesa Towing | 92126, 92121 | 24/7 | CloseBy",
   description:
-    "Towing in Mira Mesa 92126 & Sorrento Valley 92121. Serving Miramar, tech corridor, I-15 & Mira Mesa Blvd. 20-35 min response, 24/7.",
+    "Towing in Mira Mesa 92126 & Sorrento Valley 92121. Serving Miramar, tech corridor, I-15 & Mira Mesa Blvd. 15-25 min response, 24/7.",
   keywords:
     "towing Mira Mesa, Mira Mesa tow truck, Sorrento Valley towing, Miramar roadside assistance, I-15 towing",
   openGraph: {
@@ -51,7 +51,7 @@ const SERVICES = [
 const FAQ_DATA = [
   {
     question: "How fast can you get to Mira Mesa?",
-    answer: "Our typical response time to Mira Mesa is 20-35 minutes. We're well-positioned to serve all of Mira Mesa, from the residential areas near Miramar to the tech campuses in Sorrento Valley. I-15 access makes reaching most locations quick.",
+    answer: "Our typical response time to Mira Mesa is 15-25 minutes. We're well-positioned to serve all of Mira Mesa, from the residential areas near Miramar to the tech campuses in Sorrento Valley. I-15 access makes reaching most locations quick.",
   },
   {
     question: "Do you service the Sorrento Valley tech campuses?",
@@ -95,12 +95,12 @@ export default function MiraMesaPage() {
               <p className="mt-6 text-xl text-purple-100 leading-relaxed max-w-xl">
                 From <span className="text-purple-300 font-semibold">Sorrento Valley tech parks</span> to{" "}
                 <span className="text-purple-300 font-semibold">Miramar communities</span>, we provide fast, reliable towing with{" "}
-                <span className="text-purple-300 font-semibold">20-35 minute</span> response.
+                <span className="text-purple-300 font-semibold">15-25 minute</span> response.
               </p>
 
               <div className="mt-8 grid grid-cols-3 gap-4">
                 <div className="bg-white/10 rounded-xl p-4 text-center border border-white/20">
-                  <div className="text-2xl font-bold text-purple-300">20-35</div>
+                  <div className="text-2xl font-bold text-purple-300">15-25</div>
                   <div className="text-sm text-purple-100">Min Response</div>
                 </div>
                 <div className="bg-white/10 rounded-xl p-4 text-center border border-white/20">

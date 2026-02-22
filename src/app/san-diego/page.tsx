@@ -271,7 +271,7 @@ const FAQ_DATA = [
   {
     question: "How does your response time vary across San Diego?",
     answer:
-      "We stage drivers in each region of San Diego County for consistent response times. Coastal and central San Diego: 15–25 minutes. East County and North County: 20–30 minutes. South Bay: 15–25 minutes. Freeway breakdowns often get faster response because we can dispatch from multiple directions.",
+      "We stage drivers in each region of San Diego County for consistent response times. Coastal and central San Diego: 15–25 minutes. East County and North County: 15-25 minutes. South Bay: 15–25 minutes. Freeway breakdowns often get faster response because we can dispatch from multiple directions.",
   },
   {
     question: "Which San Diego freeways do you respond to?",

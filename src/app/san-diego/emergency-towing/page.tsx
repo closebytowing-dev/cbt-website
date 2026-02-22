@@ -5,7 +5,7 @@ import { CONTACT, areaHref } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Emergency Towing San Diego | 24/7 | CloseBy",
   description:
-    "Need emergency towing in San Diego? We respond in 20-35 minutes, 24/7. Highway breakdowns, accidents, urgent situations. Call now for immediate dispatch.",
+    "Need emergency towing in San Diego? We respond in 15-25 minutes, 24/7. Highway breakdowns, accidents, urgent situations. Call now for immediate dispatch.",
   keywords:
     "emergency towing San Diego, 24/7 towing, urgent tow truck, highway towing San Diego, roadside emergency, fast towing service",
   alternates: { canonical: "https://www.closebytowing.com/san-diego/emergency-towing" },
@@ -36,7 +36,7 @@ const RELATED_SERVICES = [
 const FAQ_DATA = [
   {
     question: "How fast can you reach me in an emergency?",
-    answer: "Our average emergency response time in San Diego is 20-35 minutes. For highway breakdowns on I-5, I-8, I-15, or SR-163, we often arrive faster due to our strategic positioning. When you call, we dispatch the nearest available truck immediately and give you an accurate ETA.",
+    answer: "Our average emergency response time in San Diego is 15-25 minutes. For highway breakdowns on I-5, I-8, I-15, or SR-163, we often arrive faster due to our strategic positioning. When you call, we dispatch the nearest available truck immediately and give you an accurate ETA.",
   },
   {
     question: "What should I do while waiting for the tow truck?",
@@ -151,7 +151,7 @@ export default function EmergencyTowingSanDiegoPage() {
             </h1>
 
             <p className="text-xl sm:text-2xl text-white/80 leading-relaxed mb-8 max-w-2xl">
-              When every minute counts. Immediate dispatch, average arrival 20-35 minutes. Highway breakdowns, accidents, urgent situations.
+              When every minute counts. Immediate dispatch, average arrival 15-25 minutes. Highway breakdowns, accidents, urgent situations.
             </p>
 
             {/* Dual CTAs */}
@@ -182,7 +182,7 @@ export default function EmergencyTowingSanDiegoPage() {
                 <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                20-35 min avg response
+                15-25 min avg response
               </span>
               <span className="flex items-center gap-2">
                 <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">

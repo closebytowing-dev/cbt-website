@@ -11,7 +11,7 @@ const ALPINE_ZIP_CODES = ["91901", "91903"];
 export const metadata: Metadata = {
   title: "Alpine Towing | 91901 | 24/7 | CloseBy",
   description:
-    "Towing in Alpine 91901. Serving Viejas Casino, Alpine Boulevard, Wright's Field & Cleveland National Forest. 20-35 min response.",
+    "Towing in Alpine 91901. Serving Viejas Casino, Alpine Boulevard, Wright's Field & Cleveland National Forest. 15-25 min response.",
   keywords:
     "towing Alpine, Alpine tow truck, Viejas Casino towing, roadside assistance Alpine, East County towing, tow truck near me Alpine",
   openGraph: {
@@ -84,7 +84,7 @@ const FAQ_DATA = [
   {
     question: "Do you provide towing service to and from Viejas Casino?",
     answer:
-      "Yes, absolutely. We regularly service Viejas Casino & Resort, including the casino parking lots, hotel areas, and outlet center. Whether you need a jump start after a long day at the casino or a tow back home, we're familiar with the entire Viejas complex and can reach you quickly, typically within 20-30 minutes.",
+      "Yes, absolutely. We regularly service Viejas Casino & Resort, including the casino parking lots, hotel areas, and outlet center. Whether you need a jump start after a long day at the casino or a tow back home, we're familiar with the entire Viejas complex and can reach you quickly, typically within 15-25 minutes.",
   },
   {
     question: "Can you handle mountain roads and steep grades in Alpine?",
@@ -94,12 +94,12 @@ const FAQ_DATA = [
   {
     question: "Do you service the rural areas and ranches outside Alpine?",
     answer:
-      "Yes, we serve the entire Alpine area including rural properties, ranches, and outlying areas like Harbison Canyon, Descanso, and Japatul Valley. Our response time to remote areas may be 25-35 minutes depending on your exact location, but we're equipped to handle dirt roads and challenging access points.",
+      "Yes, we serve the entire Alpine area including rural properties, ranches, and outlying areas like Harbison Canyon, Descanso, and Japatul Valley. Our response time to remote areas may be 15-25 minutes depending on your exact location, but we're equipped to handle dirt roads and challenging access points.",
   },
   {
     question: "How quickly can you reach Wright's Field Airport?",
     answer:
-      "We typically reach Wright's Field and the surrounding aviation community within 20-25 minutes. We understand the unique needs of aircraft owners and pilots, and can provide careful towing for vehicles near hangars and aviation facilities.",
+      "We typically reach Wright's Field and the surrounding aviation community within 15-25 minutes. We understand the unique needs of aircraft owners and pilots, and can provide careful towing for vehicles near hangars and aviation facilities.",
   },
   {
     question: "Are your services available 24/7 in Alpine?",
@@ -154,13 +154,13 @@ export default function AlpinePage() {
               <p className="mt-6 text-xl text-green-100 leading-relaxed max-w-xl">
                 Alpine's trusted towing service for mountain roads and rural areas. From <span className="text-emerald-300 font-semibold">Viejas Casino</span> to{" "}
                 <span className="text-emerald-300 font-semibold">Cleveland National Forest</span>, reliable service with{" "}
-                <span className="text-emerald-300 font-semibold">20-35 minute</span> response times.
+                <span className="text-emerald-300 font-semibold">15-25 minute</span> response times.
               </p>
 
               {/* Quick stats */}
               <div className="mt-8 grid grid-cols-3 gap-4">
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
-                  <div className="text-2xl font-bold text-emerald-400">20-35</div>
+                  <div className="text-2xl font-bold text-emerald-400">15-25</div>
                   <div className="text-sm text-green-100">Min Response</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
@@ -269,7 +269,7 @@ export default function AlpinePage() {
                   Whether you&apos;re visiting Viejas Casino & Resort, heading to Cleveland National Forest, shopping at the Viejas Outlet Center, or living in one of Alpine&apos;s ranch properties, CloseBy Towing delivers professional service for all vehicle types with experience navigating mountain terrain.
                 </p>
                 <p>
-                  Our drivers understand Alpine&apos;s unique challenges—from steep I-8 grades to winding rural roads and forest access points. We provide fast 20-35 minute response times while ensuring your vehicle receives expert care on challenging terrain.
+                  Our drivers understand Alpine&apos;s unique challenges—from steep I-8 grades to winding rural roads and forest access points. We provide fast 15-25 minute response times while ensuring your vehicle receives expert care on challenging terrain.
                 </p>
               </div>
 

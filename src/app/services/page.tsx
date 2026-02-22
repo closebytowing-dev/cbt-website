@@ -551,7 +551,7 @@ export default function ServicesPage() {
               <AnimatedText delay={400}>
                 <div className="mt-12 flex flex-wrap gap-6 md:gap-10">
                   {[
-                    { value: "20-35", suffix: "min", label: "Response" },
+                    { value: "15-25", suffix: "min", label: "Response" },
                     { value: "15K", suffix: "+", label: "Customers" },
                     { value: "5.0", suffix: "★", label: "Google Rating" },
                   ].map((stat, idx) => (
@@ -857,7 +857,7 @@ export default function ServicesPage() {
 
               <div className="space-y-6">
                 {[
-                  { icon: "lightning", title: "Fastest Response Times", desc: "Average 20-35 minute arrival across all of San Diego County" },
+                  { icon: "lightning", title: "Fastest Response Times", desc: "Average 15-25 minute arrival across all of San Diego County" },
                   { icon: "shield", title: "Fully Licensed & Insured", desc: "CA DOT certified with $1M+ liability coverage for your peace of mind" },
                   { icon: "dollar", title: "Transparent Pricing", desc: "Upfront quotes with no hidden fees. What we quote is what you pay." },
                   { icon: "star", title: "5-Star Service Guarantee", desc: "5.0 perfect rating on Google. Satisfaction guaranteed or money back." },
@@ -929,7 +929,7 @@ export default function ServicesPage() {
             {[
               { step: "01", title: "Call or Book Online", desc: "Reach us 24/7 via phone, text, or our online form. Describe your situation and location.", time: "1 min" },
               { step: "02", title: "Get Instant Quote", desc: "Receive upfront, transparent pricing with no hidden fees. Approve and we dispatch immediately.", time: "2 min" },
-              { step: "03", title: "Track Your Driver", desc: "Watch your driver approach in real-time with GPS tracking and ETA updates.", time: "20-35 min" },
+              { step: "03", title: "Track Your Driver", desc: "Watch your driver approach in real-time with GPS tracking and ETA updates.", time: "15-25 min" },
               { step: "04", title: "Problem Solved", desc: "Our certified technician resolves your issue professionally. Pay only what was quoted.", time: "Done!" },
             ].map((item, idx) => (
               <AnimatedText key={idx} delay={idx * 150}>

@@ -210,7 +210,7 @@ export default function ServiceArea() {
                 <p className="text-lg sm:text-xl text-white/70 max-w-xl">
                   From the beaches to the mountains, we&apos;re there when you need us.
                   <span className="block mt-2 text-cyan-400 font-semibold">
-                    ⚡ 20-35 minute average response time
+                    ⚡ 15-25 minute average response time
                   </span>
                 </p>
               </div>

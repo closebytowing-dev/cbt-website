@@ -84,7 +84,7 @@ const FAQ_DATA = [
   {
     question: "How quickly can you get to Sabre Springs?",
     answer:
-      "We typically arrive in Sabre Springs within 25-35 minutes. Our drivers are familiar with Sabre Springs Parkway, Lopez Ridge, and all the modern residential communities throughout the area. We understand the neighborhood layout and can navigate efficiently to reach you.",
+      "We typically arrive in Sabre Springs within 15-25 minutes. Our drivers are familiar with Sabre Springs Parkway, Lopez Ridge, and all the modern residential communities throughout the area. We understand the neighborhood layout and can navigate efficiently to reach you.",
   },
   {
     question: "Do you service the hillside neighborhoods?",

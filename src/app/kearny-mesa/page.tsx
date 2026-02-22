@@ -10,7 +10,7 @@ const KM_ZIP_CODES = ["92111", "92123"];
 export const metadata: Metadata = {
   title: "Kearny Mesa Towing | 24/7 | CloseBy",
   description:
-    "Towing in Kearny Mesa 92111 & 92123. From Auto Row dealerships to Convoy District's famous Asian food scene to Montgomery Field. 20-30 min response.",
+    "Towing in Kearny Mesa 92111 & 92123. From Auto Row dealerships to Convoy District's famous Asian food scene to Montgomery Field. 15-25 min response.",
   keywords:
     "towing Kearny Mesa, Kearny Mesa tow truck, 92111 towing, 92123 towing, Convoy Street towing, auto dealer towing, Montgomery Field towing",
   openGraph: {
@@ -95,12 +95,12 @@ export default function KearnyMesaPage() {
                 Need a tow truck in Kearny Mesa? CloseBy Towing provides fast, reliable{" "}
                 <span className="text-blue-400 font-semibold">towing and roadside assistance</span> throughout the 92111 &amp; 92123
                 area. Dead battery, flat tire, lockout, or accident — our tow trucks are ready.
-                We respond in <span className="text-blue-400 font-semibold">20-30 minutes</span>, 24/7.
+                We respond in <span className="text-blue-400 font-semibold">15-25 minutes</span>, 24/7.
               </p>
 
               <div className="mt-8 grid grid-cols-3 gap-4">
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
-                  <div className="text-2xl font-bold text-blue-400">20-30</div>
+                  <div className="text-2xl font-bold text-blue-400">15-25</div>
                   <div className="text-sm text-slate-300">Min Response</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">

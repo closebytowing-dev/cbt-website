@@ -31,7 +31,7 @@ const SERVICE_TYPES = [
 // ─── FAQ DATA ────────────────────────────────────────────────────
 const FAQS = [
   { q: "How much does a tow cost in San Diego?", a: "Local towing typically starts at $95. You'll know your exact price before we dispatch — no hidden fees, no surprises at the curb. Get your quote in 60 seconds through our online form." },
-  { q: "How fast can you get to me?", a: "Our average response time is 20–35 minutes across San Diego County. We dispatch the nearest available truck and give you real-time ETA updates." },
+  { q: "How fast can you get to me?", a: "Our average response time is 15-25 minutes across San Diego County. We dispatch the nearest available truck and give you real-time ETA updates." },
   { q: "What payment methods do you accept?", a: "We accept all major credit cards, debit cards, Apple Pay, Google Pay, and cash. Payment is collected after the job is complete." },
   { q: "Will my car be damaged during towing?", a: "No. We use modern flatbed and wheel-lift equipment designed to prevent any damage. All vehicles are secured with professional-grade straps. We're fully insured for your peace of mind." },
   { q: "Do you work with insurance companies?", a: "Yes. We work with all major insurance providers and can coordinate directly with your insurer for accident towing and roadside claims." },
@@ -105,7 +105,7 @@ function HeroContent() {
             <TowTruckLandingCTA />
           </div>
 
-          <p className="text-white/40 text-xs">Average response: 20–35 minutes &bull; San Diego County</p>
+          <p className="text-white/40 text-xs">Average response: 15-25 minutes &bull; San Diego County</p>
         </div>
       </div>
     </section>

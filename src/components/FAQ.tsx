@@ -9,7 +9,7 @@ import "./PopupAnimations.css";
 const getQA = (discountPercentage: number) => [
   {
     q: "How fast can you get to me?",
-    a: "Most calls in San Diego see 20-35 minute ETAs depending on traffic and distance. We text or call with updates if anything changes.",
+    a: "Most calls in San Diego see 15-25 minute ETAs depending on traffic and distance. We text or call with updates if anything changes.",
     icon: "⚡",
     category: "speed"
   },
@@ -360,7 +360,7 @@ export default function FAQ() {
               {/* Trust indicators */}
               <div className="flex flex-wrap justify-center gap-6 sm:gap-10 mb-12">
                 {[
-                  { icon: "⚡", text: "20-35 min Response" },
+                  { icon: "⚡", text: "15-25 min Response" },
                   { icon: "🛡️", text: "Licensed & Insured" },
                   { icon: "⭐", text: "5.0★ Google Rating" },
                   { icon: "💳", text: "All Cards Accepted" },

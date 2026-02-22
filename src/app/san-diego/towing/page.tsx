@@ -109,7 +109,7 @@ const FAQ_DATA = [
   {
     question: "How quickly can you get to me?",
     answer:
-      "Our average response time in San Diego is 25-35 minutes. Response times can vary based on traffic conditions, time of day, and your exact location within San Diego County. When you call, we'll give you an accurate ETA and dispatch the nearest available truck immediately. For highway breakdowns on I-5, I-8, I-15, or SR-163, we often arrive even faster due to our strategic positioning.",
+      "Our average response time in San Diego is 15-25 minutes. Response times can vary based on traffic conditions, time of day, and your exact location within San Diego County. When you call, we'll give you an accurate ETA and dispatch the nearest available truck immediately. For highway breakdowns on I-5, I-8, I-15, or SR-163, we often arrive even faster due to our strategic positioning.",
   },
   {
     question: "How much does towing cost in San Diego?",
@@ -332,7 +332,7 @@ export default function TowingSanDiegoPage() {
               {/* Secondary text */}
               <p className="text-sm sm:text-base text-white/60">
                 Average response time:{" "}
-                <span className="text-white/90 font-semibold">25-35 minutes</span>
+                <span className="text-white/90 font-semibold">15-25 minutes</span>
               </p>
             </div>
 

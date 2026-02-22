@@ -84,7 +84,7 @@ const FAQ_DATA = [
   {
     question: "How quickly can you get to Trolley Square in Santee?",
     answer:
-      "We typically arrive at Trolley Square within 20-35 minutes. Our drivers know the shopping center well, including Target, Walmart, and all the surrounding retail parking areas. We handle everything from dead batteries to towing from the parking structures.",
+      "We typically arrive at Trolley Square within 15-25 minutes. Our drivers know the shopping center well, including Target, Walmart, and all the surrounding retail parking areas. We handle everything from dead batteries to towing from the parking structures.",
   },
   {
     question: "Do you service SR-52 and SR-125 in the Santee area?",

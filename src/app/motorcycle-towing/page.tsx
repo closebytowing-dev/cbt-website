@@ -9,13 +9,13 @@ import Reviews from "@/components/Reviews";
 export const metadata: Metadata = {
   title: "Motorcycle Towing San Diego | Safe Bike Transport 24/7 | CloseBy Towing",
   description:
-    "Motorcycle towing San Diego — specialized flatbed & wheel-lift equipment for sport bikes, Harleys, cruisers & dirt bikes. No damage guaranteed. 20-30 min response. Call (858) 999-9293.",
+    "Motorcycle towing San Diego — specialized flatbed & wheel-lift equipment for sport bikes, Harleys, cruisers & dirt bikes. No damage guaranteed. 15-25 min response. Call (858) 999-9293.",
   keywords:
     "motorcycle towing San Diego, motorcycle transport San Diego, bike tow truck, Harley towing, sport bike towing, motorcycle breakdown San Diego, motorcycle accident towing, dirt bike towing",
   openGraph: {
     title: "Motorcycle Towing San Diego | Safe Bike Transport 24/7 | CloseBy Towing",
     description:
-      "Specialized motorcycle towing across San Diego. Flatbed & wheel-lift equipment, no damage guaranteed. 20-30 min response.",
+      "Specialized motorcycle towing across San Diego. Flatbed & wheel-lift equipment, no damage guaranteed. 15-25 min response.",
     url: "https://www.closebytowing.com/motorcycle-towing",
     type: "website",
   },
@@ -143,7 +143,7 @@ const FAQ_DATA = [
   {
     question: "How fast can you get to me?",
     answer:
-      "Our average response time across San Diego is 20–30 minutes. Freeway breakdowns on I-5, I-8, or I-15 are often faster because we have trucks positioned along major corridors. We dispatch the closest available truck the moment you call.",
+      "Our average response time across San Diego is 15-25 minutes. Freeway breakdowns on I-5, I-8, or I-15 are often faster because we have trucks positioned along major corridors. We dispatch the closest available truck the moment you call.",
   },
   {
     question: "Can you transport my motorcycle long distance?",
@@ -613,7 +613,7 @@ export default function MotorcycleTowingPage() {
             "@id": "https://www.closebytowing.com/motorcycle-towing",
             name: "Motorcycle Towing San Diego",
             description:
-              "Specialized motorcycle towing service in San Diego. Flatbed and wheel-lift equipment for sport bikes, Harleys, cruisers, dirt bikes, and trikes. No damage guaranteed. 20-30 minute response.",
+              "Specialized motorcycle towing service in San Diego. Flatbed and wheel-lift equipment for sport bikes, Harleys, cruisers, dirt bikes, and trikes. No damage guaranteed. 15-25 minute response.",
             url: "https://www.closebytowing.com/motorcycle-towing",
             provider: {
               "@type": "LocalBusiness",

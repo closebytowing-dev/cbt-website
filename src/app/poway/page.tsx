@@ -61,7 +61,7 @@ const NEIGHBORHOODS = [
     streets: "Espola Rd, Titan Way, Pomerado Rd (north section)",
     character:
       "Where suburban Poway meets open country. Horse properties, citrus groves, and semi-rural lots line the roads north of Lake Poway Road. Unpaved shoulders and gravel driveways require careful positioning — our drivers carry extra ground mats to protect your property during recovery.",
-    eta: "25–35 min",
+    eta: "15-25 min",
     accent: "from-lime-600 to-green-700",
   },
   {
@@ -124,7 +124,7 @@ const SERVICES = [
   {
     name: "Trail & Recreation Towing",
     description:
-      "Dead battery at Lake Poway? Flat tire at Blue Sky trailhead? We reach Poway's recreation areas in 20–30 minutes with jump start kits, spare air, and flatbed capability.",
+      "Dead battery at Lake Poway? Flat tire at Blue Sky trailhead? We reach Poway's recreation areas in 15-25 minutes with jump start kits, spare air, and flatbed capability.",
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />

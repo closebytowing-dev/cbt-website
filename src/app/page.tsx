@@ -45,10 +45,12 @@ const businessSchema = {
     "latitude": "32.7157",
     "longitude": "-117.1611"
   },
-  "areaServed": {
-    "@type": "City",
-    "name": "San Diego"
-  },
+  "areaServed": [
+    { "@type": "City", "name": "San Diego" },
+    { "@type": "Neighborhood", "name": "La Jolla", "containedInPlace": { "@type": "City", "name": "San Diego" } },
+    { "@type": "Neighborhood", "name": "Coronado", "containedInPlace": { "@type": "City", "name": "San Diego" } },
+    { "@type": "Neighborhood", "name": "Downtown San Diego", "containedInPlace": { "@type": "City", "name": "San Diego" } }
+  ],
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],

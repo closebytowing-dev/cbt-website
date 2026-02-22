@@ -84,7 +84,7 @@ const FAQ_DATA = [
   {
     question: "How quickly can you get to RB Town Center?",
     answer:
-      "We typically arrive at RB Town Center within 25-35 minutes. Our drivers are very familiar with the shopping center layout, restaurant parking, and surrounding retail areas. Whether you're at a store, restaurant, or theater, we can navigate the parking structures and access roads efficiently.",
+      "We typically arrive at RB Town Center within 15-25 minutes. Our drivers are very familiar with the shopping center layout, restaurant parking, and surrounding retail areas. Whether you're at a store, restaurant, or theater, we can navigate the parking structures and access roads efficiently.",
   },
   {
     question: "Do you service the Bernardo Winery area?",

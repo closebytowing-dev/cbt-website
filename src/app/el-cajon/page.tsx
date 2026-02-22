@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "El Cajon Tow Truck — East County's Fastest Response | CloseBy",
     description:
-      "Stuck in The Box? CloseBy Towing reaches every corner of El Cajon in under 25 minutes. Parkway Plaza, Fletcher Hills, Downtown & beyond.",
+      "Stuck in The Box? CloseBy Towing reaches every corner of El Cajon in 15-25 minutes. Parkway Plaza, Fletcher Hills, Downtown & beyond.",
     url: "https://www.closebytowing.com/el-cajon",
     type: "website",
   },
@@ -486,7 +486,7 @@ export default function ElCajonPage() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
               { icon: "🏔️", label: "Valley-Based Trucks" },
-              { icon: "⏱️", label: "Under 25 Min Avg" },
+              { icon: "⏱️", label: "15-25 Min Avg" },
               { icon: "🛡️", label: "Licensed & Insured" },
               { icon: "💰", label: "Upfront Pricing" },
               { icon: "🇺🇸", label: "Military Discount" },

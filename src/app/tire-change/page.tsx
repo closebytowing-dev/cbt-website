@@ -68,7 +68,7 @@ export default function TireChangePage() {
       "@type": "Offer",
       priceCurrency: "USD",
       price: loading ? "65-75" : `${onlinePrice}-${standardPrice}`,
-      description: loading ? "Professional roadside tire change service. Fast 20-35 minute response time." : `Professional roadside tire change service. $${onlinePrice} when ordered online, $${standardPrice} standard rate. Fast 20-35 minute response time.`,
+      description: loading ? "Professional roadside tire change service. Fast 15-25 minute response time." : `Professional roadside tire change service. $${onlinePrice} when ordered online, $${standardPrice} standard rate. Fast 15-25 minute response time.`,
       availability: "https://schema.org/InStock"
     },
     image: "https://closebytowing.com/services/tire-change-hero.webp",
@@ -98,7 +98,7 @@ export default function TireChangePage() {
         "name": "How fast can you change my tire?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We arrive in less than 25 minutes on average, and the actual tire change takes 15-20 minutes. You'll be back on the road in under an hour from your initial call."
+          "text": "We arrive in 15-25 minutes on average, and the actual tire change takes 15-20 minutes. You'll be back on the road in under an hour from your initial call."
         }
       },
       {
@@ -156,14 +156,14 @@ export default function TireChangePage() {
               </h1>
 
               <p className="text-lg sm:text-xl lg:text-2xl text-white/80 leading-relaxed max-w-xl">
-                Professional roadside assistance serving <span className="font-bold text-white">all of San Diego County</span>. Arrives in <span className="font-bold text-yellow-400">20-35 minutes</span>.
+                Professional roadside assistance serving <span className="font-bold text-white">all of San Diego County</span>. Arrives in <span className="font-bold text-yellow-400">15-25 minutes</span>.
                 No damage. 100% guaranteed.
               </p>
 
               {/* Response time */}
               <div className="flex items-center gap-4 pt-4">
                 <div className="text-center">
-                  <div className="text-5xl font-black text-yellow-400">20-35</div>
+                  <div className="text-5xl font-black text-yellow-400">15-25</div>
                   <div className="text-sm text-white/60 mt-1">Minutes ETA</div>
                 </div>
               </div>
@@ -241,7 +241,7 @@ export default function TireChangePage() {
               {
                 step: "02",
                 title: "We Arrive",
-                desc: "Professional technician arrives in 20-35 minutes with all the right tools.",
+                desc: "Professional technician arrives in 15-25 minutes with all the right tools.",
                 icon: "M13 10V3L4 14h7v7l9-11h-7z"
               },
               {
@@ -375,7 +375,7 @@ export default function TireChangePage() {
               Ready to Get Back on the Road?
             </h2>
             <p className="text-xl sm:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Don't wait in the heat or cold. Our expert technicians will arrive in <span className="font-bold text-yellow-300">20-35 minutes</span> with professional equipment to change your tire safely.
+              Don't wait in the heat or cold. Our expert technicians will arrive in <span className="font-bold text-yellow-300">15-25 minutes</span> with professional equipment to change your tire safely.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6">
@@ -451,7 +451,7 @@ export default function TireChangePage() {
                   },
                   {
                     title: "Lightning Fast Response",
-                    desc: "Average 20-35 minute arrival time. Real-time GPS tracking so you know exactly when we'll arrive.",
+                    desc: "Average 15-25 minute arrival time. Real-time GPS tracking so you know exactly when we'll arrive.",
                     icon: "M13 10V3L4 14h7v7l9-11h-7z"
                   },
                   {
@@ -617,7 +617,7 @@ export default function TireChangePage() {
               Most spare tires don't have TPMS (Tire Pressure Monitoring System) sensors, so your dashboard light may illuminate after we install your spare. This is normal. We recommend getting your flat tire repaired or replaced as soon as possible to restore full TPMS functionality.
             </PremiumFaq>
             <PremiumFaq q="How long does a tire change take?">
-              Most tire changes take 15-20 minutes once we arrive. Combined with our less than 25 minute average response time, you'll be back on the road quickly.
+              Most tire changes take 15-20 minutes once we arrive. Combined with our 15-25 minute average response time, you'll be back on the road quickly.
             </PremiumFaq>
             <PremiumFaq q="Do you service all vehicle types?">
               Yes! We service cars, SUVs, trucks, and most other vehicle types. Our technicians have the proper equipment and expertise to handle various vehicle sizes safely.

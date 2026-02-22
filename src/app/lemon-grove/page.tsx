@@ -84,7 +84,7 @@ const FAQ_DATA = [
   {
     question: "How quickly can you get to the Lemon Grove Trolley Station?",
     answer:
-      "We typically arrive at the Lemon Grove Trolley Station within 20-30 minutes. Our drivers are familiar with the Orange Line station, park-and-ride lots, and surrounding streets. Whether you need a jump start in the parking lot or towing from the station area, we provide fast service.",
+      "We typically arrive at the Lemon Grove Trolley Station within 15-25 minutes. Our drivers are familiar with the Orange Line station, park-and-ride lots, and surrounding streets. Whether you need a jump start in the parking lot or towing from the station area, we provide fast service.",
   },
   {
     question: "Do you service SR-94 and SR-125 near Lemon Grove?",

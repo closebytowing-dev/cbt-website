@@ -29,7 +29,7 @@ export default function CollisionRecoveryPage() {
       metaDesc.setAttribute('name', 'description');
       document.head.appendChild(metaDesc);
     }
-    metaDesc.setAttribute('content', 'IMMEDIATE accident towing San Diego! Professional collision recovery in less than 25 minutes. Insurance direct billing. Licensed, insured, GPS tracking. Call (858) 999-9293 NOW!');
+    metaDesc.setAttribute('content', 'IMMEDIATE accident towing San Diego! Professional collision recovery in 15-25 minutes. Insurance direct billing. Licensed, insured, GPS tracking. Call (858) 999-9293 NOW!');
   }, []);
 
   const enhancedSchema = {
@@ -39,7 +39,7 @@ export default function CollisionRecoveryPage() {
         "@type": "EmergencyService",
         "@id": "https://www.closebytowing.com/collision-recovery#service",
         "name": "CloseBy Towing - Emergency Collision Recovery",
-        "description": "24/7 emergency collision recovery and accident towing service in San Diego County with less than 25 minute response time",
+        "description": "24/7 emergency collision recovery and accident towing service in San Diego County with 15-25 minute response time",
         "serviceType": ["Collision Recovery", "Accident Towing", "Emergency Vehicle Recovery"],
         "provider": {
           "@type": "LocalBusiness",
@@ -301,7 +301,7 @@ export default function CollisionRecoveryPage() {
 
                 <div className="absolute bottom-8 right-8 bg-gradient-to-br from-red-600/30 to-orange-600/30 backdrop-blur-2xl rounded-2xl p-4 border border-red-500/30 shadow-2xl">
                   <div className="text-white/80 text-xs uppercase tracking-wider mb-1">Response Time</div>
-                  <div className="text-white font-black text-2xl">Less Than 25 Min</div>
+                  <div className="text-white font-black text-2xl">15-25 Min</div>
                 </div>
               </div>
             </div>
@@ -773,7 +773,7 @@ export default function CollisionRecoveryPage() {
             {[
               {
                 q: "How fast can you respond to an accident scene?",
-                a: "Our average response time is less than 25 minutes for emergency calls in San Diego County. We have strategically positioned trucks and drivers ready 24/7 to reach you as quickly as possible."
+                a: "Our average response time is 15-25 minutes for emergency calls in San Diego County. We have strategically positioned trucks and drivers ready 24/7 to reach you as quickly as possible."
               },
               {
                 q: "Will my insurance cover the towing?",
@@ -934,7 +934,7 @@ export default function CollisionRecoveryPage() {
           <div className="pt-16 flex flex-wrap justify-center gap-12 text-white/60">
             {[
               { icon: "🛡️", text: "Licensed & Insured" },
-              { icon: "⚡", text: "Less Than 25 Min Response" },
+              { icon: "⚡", text: "15-25 Min Response" },
               { icon: "💯", text: "All Insurance Accepted" },
               { icon: "🏆", text: "15+ Years Experience" }
             ].map((item, idx) => (

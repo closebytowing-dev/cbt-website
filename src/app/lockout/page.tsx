@@ -90,7 +90,7 @@ export default function LockoutPage() {
         "name": "How fast can you unlock my car?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our average arrival time is less than 25 minutes. We have trucks strategically positioned across San Diego County for rapid emergency response 24/7."
+          "text": "Our average arrival time is 15-25 minutes. We have trucks strategically positioned across San Diego County for rapid emergency response 24/7."
         }
       },
       {
@@ -178,7 +178,7 @@ export default function LockoutPage() {
               <h1 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-black leading-[1.05] text-slate-900">
                 Locked Out?
                 <span className="block mt-2 sm:mt-3 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent">
-                  We'll Be There in Less Than 25 Minutes
+                  We'll Be There in 15-25 Minutes
                 </span>
               </h1>
 
@@ -401,8 +401,8 @@ export default function LockoutPage() {
               {
                 step: "2",
                 title: "We Arrive Fast",
-                desc: "Our average arrival time is less than 25 minutes. Track your technician in real-time.",
-                time: "less than 25 minutes",
+                desc: "Our average arrival time is 15-25 minutes. Track your technician in real-time.",
+                time: "15-25 minutes",
                 icon: "🚗"
               },
               {
@@ -518,12 +518,12 @@ export default function LockoutPage() {
           <h2 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-black text-white leading-tight">
             Locked Out?
             <span className="block mt-3 sm:mt-4 bg-gradient-to-r from-yellow-400 via-orange-300 to-red-500 bg-clip-text text-transparent">
-              Help Is Less Than 25 Minutes Away
+              Help Is 15-25 Minutes Away
             </span>
           </h2>
 
           <p className="text-xl sm:text-2xl lg:text-3xl text-white/80 max-w-4xl mx-auto leading-relaxed">
-            Don't panic. We'll unlock your car safely in <span className="font-black text-yellow-400">less than 25 minutes</span> with our <span className="font-black text-yellow-400">zero damage guarantee.</span>
+            Don't panic. We'll unlock your car safely in <span className="font-black text-yellow-400">15-25 minutes</span> with our <span className="font-black text-yellow-400">zero damage guarantee.</span>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">

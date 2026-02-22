@@ -11,7 +11,7 @@ const CLAIREMONT_ZIP_CODES = ["92117", "92111"];
 export const metadata: Metadata = {
   title: "Clairemont Towing | 92117, 92111 | 24/7 | CloseBy",
   description:
-    "Towing in Clairemont 92117 & 92111. Serving Clairemont Square, Mesa College, Bay Park & I-5/I-805 corridors. 20-35 min response, 24/7.",
+    "Towing in Clairemont 92117 & 92111. Serving Clairemont Square, Mesa College, Bay Park & I-5/I-805 corridors. 15-25 min response, 24/7.",
   keywords:
     "towing Clairemont, Clairemont Mesa tow truck, Clairemont Square towing, Mesa College roadside assistance, Bay Park towing, tow truck near me Clairemont",
   openGraph: {
@@ -84,7 +84,7 @@ const FAQ_DATA = [
   {
     question: "How fast can you get to Clairemont?",
     answer:
-      "Our average response time to Clairemont is 20-30 minutes. We're strategically positioned to reach all parts of Clairemont quickly, whether you're near Mesa College, Clairemont Square, or in the residential areas near Bay Park.",
+      "Our average response time to Clairemont is 15-25 minutes. We're strategically positioned to reach all parts of Clairemont quickly, whether you're near Mesa College, Clairemont Square, or in the residential areas near Bay Park.",
   },
   {
     question: "Do you service the I-5 and I-805 through Clairemont?",
@@ -144,13 +144,13 @@ export default function ClairemontPage() {
               <p className="mt-6 text-xl text-teal-100 leading-relaxed max-w-xl">
                 Your trusted neighborhood towing service in Clairemont. From <span className="text-teal-300 font-semibold">Mesa College</span> to{" "}
                 <span className="text-teal-300 font-semibold">Bay Park</span>, we provide fast, reliable service with{" "}
-                <span className="text-teal-300 font-semibold">20-30 minute</span> response times.
+                <span className="text-teal-300 font-semibold">15-25 minute</span> response times.
               </p>
 
               {/* Quick stats */}
               <div className="mt-8 grid grid-cols-3 gap-4">
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
-                  <div className="text-2xl font-bold text-teal-300">20-30</div>
+                  <div className="text-2xl font-bold text-teal-300">15-25</div>
                   <div className="text-sm text-teal-100">Min Response</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">

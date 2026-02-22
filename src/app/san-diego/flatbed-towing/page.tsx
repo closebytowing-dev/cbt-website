@@ -8,7 +8,7 @@ import { areaHref, CONTACT } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Flatbed Towing San Diego | 24/7 | CloseBy",
   description:
-    "Premium flatbed towing in San Diego for luxury cars, AWD vehicles, lowered cars & motorcycles. Zero-damage guarantee. 24/7 service with 20-35 min response.",
+    "Premium flatbed towing in San Diego for luxury cars, AWD vehicles, lowered cars & motorcycles. Zero-damage guarantee. 24/7 service with 15-25 min response.",
   keywords:
     "flatbed towing San Diego, flatbed tow truck, luxury car towing, exotic car transport, AWD towing, motorcycle towing, lowered car towing, safe vehicle transport",
   openGraph: {
@@ -197,7 +197,7 @@ export default function FlatbedTowingPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <span className="text-slate-200 font-medium">20-35 Min Response</span>
+                  <span className="text-slate-200 font-medium">15-25 Min Response</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center">
@@ -571,7 +571,7 @@ export default function FlatbedTowingPage() {
           </h2>
 
           <p className="mt-6 text-xl text-slate-300 max-w-2xl mx-auto">
-            Protect your investment with professional flatbed towing. We respond in 20-35 minutes, 24/7, with upfront pricing and zero-damage guarantee.
+            Protect your investment with professional flatbed towing. We respond in 15-25 minutes, 24/7, with upfront pricing and zero-damage guarantee.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">

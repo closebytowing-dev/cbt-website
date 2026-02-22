@@ -91,7 +91,7 @@ export default function GasDeliveryPage() {
             <p className="text-2xl text-slate-300 leading-relaxed max-w-xl">
               Emergency fuel delivery to your exact location.
               <span className="font-bold text-orange-400"> Gas, diesel, or premium</span> for any vehicle type.
-              <span className="font-bold text-orange-400"> 20-35 minutes</span> arrival time.
+              <span className="font-bold text-orange-400"> 15-25 minutes</span> arrival time.
             </p>
 
             {/* Trust Indicators */}
@@ -416,7 +416,7 @@ export default function GasDeliveryPage() {
               {[
                 { num: 1, title: "Call or Text Us", desc: "Contact us at (858) 999-9293 with your location and fuel type needed.", time: "< 1 min" },
                 { num: 2, title: "Get Instant Quote & ETA", desc: "Upfront pricing and real-time GPS tracking of your driver.", time: "Immediate" },
-                { num: 3, title: "We Arrive & Deliver", desc: "Certified technician arrives with fresh fuel in DOT-approved containers.", time: "20-35 min" },
+                { num: 3, title: "We Arrive & Deliver", desc: "Certified technician arrives with fresh fuel in DOT-approved containers.", time: "15-25 min" },
                 { num: 4, title: "You're Back on the Road", desc: "Pay with cash, card, or digital payment. Quick and easy.", time: "Done!" },
               ].map((step, i) => (
                 <div key={i} className="relative flex items-start gap-6">
@@ -564,7 +564,7 @@ export default function GasDeliveryPage() {
             Out of Fuel Right Now?
           </h2>
           <p className="text-2xl text-white/90 mb-12 max-w-3xl mx-auto">
-            We're ready to help. Fast delivery in 20-35 minutes. Call or request online instantly.
+            We're ready to help. Fast delivery in 15-25 minutes. Call or request online instantly.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center">

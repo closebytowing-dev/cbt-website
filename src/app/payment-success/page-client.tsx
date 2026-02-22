@@ -147,7 +147,7 @@ export default function PaymentSuccessClient() {
               <span className="text-2xl font-bold">Estimated Arrival</span>
             </div>
             <div className="text-4xl font-bold">
-              Less than 30 minutes
+              15-25 minutes
             </div>
             <p className="text-blue-100 mt-2">Your operator will call you in the next few minutes with the exact ETA</p>
           </div>

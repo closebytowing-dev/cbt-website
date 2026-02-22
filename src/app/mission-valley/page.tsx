@@ -11,7 +11,7 @@ const MISSION_VALLEY_ZIP_CODES = ["92108", "92110"];
 export const metadata: Metadata = {
   title: "Mission Valley Towing | 92108, 92110 | 24/7 | CloseBy",
   description:
-    "Towing in Mission Valley 92108 & 92110. Serving Fashion Valley Mall, Westfield, Hotel Circle & I-8/I-15 corridors. 20-35 min response.",
+    "Towing in Mission Valley 92108 & 92110. Serving Fashion Valley Mall, Westfield, Hotel Circle & I-8/I-15 corridors. 15-25 min response.",
   keywords:
     "towing Mission Valley, Mission Valley tow truck, Fashion Valley towing, roadside assistance Mission Valley, I-8 towing, tow truck near me Mission Valley",
   openGraph: {
@@ -99,7 +99,7 @@ const FAQ_DATA = [
   {
     question: "What if I'm stuck in Mission Valley during rush hour?",
     answer:
-      "Mission Valley traffic can be challenging, but our local drivers know the area intimately. We use Friars Road, Mission Center Road, and local shortcuts to reach you as fast as possible. Even during peak hours, we typically arrive within 25-35 minutes.",
+      "Mission Valley traffic can be challenging, but our local drivers know the area intimately. We use Friars Road, Mission Center Road, and local shortcuts to reach you as fast as possible. Even during peak hours, we typically arrive within 15-25 minutes.",
   },
   {
     question: "Do you provide service to Mission Valley apartment complexes?",
@@ -154,13 +154,13 @@ export default function MissionValleyPage() {
               <p className="mt-6 text-xl text-orange-100 leading-relaxed max-w-xl">
                 Your local towing experts in the heart of San Diego. From <span className="text-orange-300 font-semibold">Fashion Valley Mall</span> to{" "}
                 <span className="text-orange-300 font-semibold">Hotel Circle</span>, we know every corner of Mission Valley and respond in{" "}
-                <span className="text-orange-300 font-semibold">20-35 minutes</span>.
+                <span className="text-orange-300 font-semibold">15-25 minutes</span>.
               </p>
 
               {/* Quick stats */}
               <div className="mt-8 grid grid-cols-3 gap-4">
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
-                  <div className="text-2xl font-bold text-orange-300">20-35</div>
+                  <div className="text-2xl font-bold text-orange-300">15-25</div>
                   <div className="text-sm text-orange-100">Min Response</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">

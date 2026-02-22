@@ -117,7 +117,7 @@ export default function JumpStartPage() {
                   </span>
                 </h1>
                 <p className="text-2xl lg:text-3xl text-white/70 font-light leading-relaxed">
-                  We'll get you <span className="font-bold text-cyan-400">powered up</span> and back on the road in <span className="font-bold text-yellow-400">under 25 minutes</span>.
+                  We'll get you <span className="font-bold text-cyan-400">powered up</span> and back on the road in <span className="font-bold text-yellow-400">15-25 minutes</span>.
                 </p>
               </div>
 
@@ -276,7 +276,7 @@ export default function JumpStartPage() {
               {
                 step: "02",
                 title: "Expert Arrives Fast",
-                desc: "Certified technician arrives in under 25 minutes with professional-grade equipment.",
+                desc: "Certified technician arrives in 15-25 minutes with professional-grade equipment.",
                 imgLabel: "Technician Arriving with Equipment",
                 imgSrc: "/services/jump-start-step-2.webp",
                 align: "right"
@@ -574,7 +574,7 @@ export default function JumpStartPage() {
               { icon: "⚡", text: "Instant Dispatch" },
               { icon: "🔒", text: "Licensed & Insured" },
               { icon: "⭐", text: "5-Star Service" },
-              { icon: "🚀", text: "Under 25 Minutes" },
+              { icon: "🚀", text: "15-25 Minutes" },
             ].map((badge, idx) => (
               <div key={idx} className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10">
                 <div className="text-3xl">{badge.icon}</div>

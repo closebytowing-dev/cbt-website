@@ -21,7 +21,7 @@ export default function WinchOutPage() {
       document.head.appendChild(metaDesc);
     }
 
-    metaDesc.setAttribute('content', "Stuck in mud, sand, ditch, or snow? Professional winch-out service in San Diego. Heavy-duty winches, 20-35 min response. Licensed & insured. Call (858) 999-9293 for immediate help.");
+    metaDesc.setAttribute('content', "Stuck in mud, sand, ditch, or snow? Professional winch-out service in San Diego. Heavy-duty winches, 15-25 min response. Licensed & insured. Call (858) 999-9293 for immediate help.");
   }, []);
   // LocalBusiness Schema
   const schema = {
@@ -81,7 +81,7 @@ export default function WinchOutPage() {
         "name": "How fast can you arrive for winch-out service?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Average response time is 20-35 minutes in San Diego County. We have winch-equipped trucks strategically located throughout the region. After calling (858) 999-9293, we'll provide an accurate ETA and send real-time GPS tracking. Dangerous situations (traffic hazards, unstable positions) receive priority response."
+          "text": "Average response time is 15-25 minutes in San Diego County. We have winch-equipped trucks strategically located throughout the region. After calling (858) 999-9293, we'll provide an accurate ETA and send real-time GPS tracking. Dangerous situations (traffic hazards, unstable positions) receive priority response."
         }
       },
       {
@@ -153,7 +153,7 @@ export default function WinchOutPage() {
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
               </svg>
-              <span>20-35 Min Response</span>
+              <span>15-25 Min Response</span>
             </div>
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -201,7 +201,7 @@ export default function WinchOutPage() {
                 </h1>
 
                 <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-                  Professional winch-out and vehicle recovery service. Stuck in mud, sand, ditch, or off-road? We'll safely extract your vehicle in <span className="font-bold text-emerald-400">20-35 minutes</span>.
+                  Professional winch-out and vehicle recovery service. Stuck in mud, sand, ditch, or off-road? We'll safely extract your vehicle in <span className="font-bold text-emerald-400">15-25 minutes</span>.
                 </p>
 
                 {/* Trust Badges */}
@@ -890,7 +890,7 @@ export default function WinchOutPage() {
                 </summary>
                 <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer" className="px-6 pb-6">
                   <p itemProp="text" className="text-slate-300 leading-relaxed">
-                    Average response time is 20-35 minutes in San Diego County. We have winch-equipped trucks strategically located throughout the region. After calling (858) 999-9293, we'll provide an accurate ETA and send real-time GPS tracking. Dangerous situations (traffic hazards, unstable positions) receive priority response.
+                    Average response time is 15-25 minutes in San Diego County. We have winch-equipped trucks strategically located throughout the region. After calling (858) 999-9293, we'll provide an accurate ETA and send real-time GPS tracking. Dangerous situations (traffic hazards, unstable positions) receive priority response.
                   </p>
                 </div>
               </details>

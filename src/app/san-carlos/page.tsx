@@ -84,7 +84,7 @@ const FAQ_DATA = [
   {
     question: "How quickly can you reach Lake Murray area?",
     answer:
-      "We typically arrive at Lake Murray within 20-35 minutes. Our drivers know the lake's parking areas, walking trails, and access roads well. Whether you're stuck in the main parking lot, at one of the trailheads, or on the surrounding streets, we provide fast service to this popular recreation area.",
+      "We typically arrive at Lake Murray within 15-25 minutes. Our drivers know the lake's parking areas, walking trails, and access roads well. Whether you're stuck in the main parking lot, at one of the trailheads, or on the surrounding streets, we provide fast service to this popular recreation area.",
   },
   {
     question: "Can you help with steep driveways in San Carlos hillside homes?",
@@ -94,7 +94,7 @@ const FAQ_DATA = [
   {
     question: "Do you service Cowles Mountain trailhead parking?",
     answer:
-      "Yes, we serve the Cowles Mountain trailhead regularly. This popular hiking destination often has vehicles that won't start after a long hike. We're familiar with the parking area layout and can provide jump starts, tire changes, or towing services. Response time is typically 20-35 minutes.",
+      "Yes, we serve the Cowles Mountain trailhead regularly. This popular hiking destination often has vehicles that won't start after a long hike. We're familiar with the parking area layout and can provide jump starts, tire changes, or towing services. Response time is typically 15-25 minutes.",
   },
   {
     question: "What about towing on I-8 near San Carlos?",

@@ -8,8 +8,8 @@ import GadsConversionTracker from "@/components/GadsConversionTracker";
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.closebytowing.com'),
   title: "CloseBy Towing San Diego | 24/7 Emergency Towing & Roadside Assistance",
-  description: "Fast, reliable 24/7 towing and roadside assistance in San Diego. Jump starts, tire changes, fuel delivery, lockout service, and collision recovery. Call (858) 999-9293 for immediate help!",
-  keywords: "towing San Diego, roadside assistance, emergency towing, jump start, tire change, fuel delivery, lockout service, collision recovery, 24/7 towing, San Diego towing company",
+  description: "Fast, reliable 24/7 towing and roadside assistance in San Diego. Serving La Jolla, Coronado, Downtown San Diego and all neighborhoods. Jump starts, tire changes, fuel delivery, lockout service, and collision recovery. Call (858) 999-9293 for immediate help!",
+  keywords: "towing San Diego, roadside assistance, emergency towing, jump start, tire change, fuel delivery, lockout service, collision recovery, 24/7 towing, San Diego towing company, towing La Jolla, towing Coronado, towing Downtown San Diego",
   authors: [{ name: "CloseBy Towing" }],
   openGraph: {
     title: "CloseBy Towing San Diego | 24/7 Emergency Towing & Roadside Assistance",

@@ -11,7 +11,7 @@ const SERRA_MESA_ZIP_CODES = ["92123"];
 export const metadata: Metadata = {
   title: "Serra Mesa Towing | 92123 | 24/7 | CloseBy",
   description:
-    "Towing in Serra Mesa 92123. Serving Sandrock Road, residential neighborhoods, shopping centers & I-15/SR-163 corridors. 20-30 min response.",
+    "Towing in Serra Mesa 92123. Serving Sandrock Road, residential neighborhoods, shopping centers & I-15/SR-163 corridors. 15-25 min response.",
   keywords:
     "towing Serra Mesa, Serra Mesa tow truck, Sandrock Road towing, roadside assistance Serra Mesa, I-15 towing, tow truck near me Serra Mesa",
   openGraph: {
@@ -84,7 +84,7 @@ const FAQ_DATA = [
   {
     question: "How quickly can you reach Serra Mesa residential neighborhoods?",
     answer:
-      "We typically arrive in Serra Mesa within 20-30 minutes. Our drivers are very familiar with the neighborhood layout, including the residential streets off Sandrock Road, the apartment complexes, and the newer housing developments. We know the area well and can navigate efficiently to your home.",
+      "We typically arrive in Serra Mesa within 15-25 minutes. Our drivers are very familiar with the neighborhood layout, including the residential streets off Sandrock Road, the apartment complexes, and the newer housing developments. We know the area well and can navigate efficiently to your home.",
   },
   {
     question: "Do you provide service to Serra Mesa schools and family areas?",
@@ -154,13 +154,13 @@ export default function SerraMessaPage() {
               <p className="mt-6 text-xl text-slate-200 leading-relaxed max-w-xl">
                 Your reliable neighborhood towing service. From <span className="text-teal-300 font-semibold">family homes</span> to{" "}
                 <span className="text-teal-300 font-semibold">business parks</span>, we know your community and respond in{" "}
-                <span className="text-teal-300 font-semibold">20-30 minutes</span>.
+                <span className="text-teal-300 font-semibold">15-25 minutes</span>.
               </p>
 
               {/* Quick stats */}
               <div className="mt-8 grid grid-cols-3 gap-4">
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
-                  <div className="text-2xl font-bold text-teal-300">20-30</div>
+                  <div className="text-2xl font-bold text-teal-300">15-25</div>
                   <div className="text-sm text-slate-200">Min Response</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
