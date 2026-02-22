@@ -47,7 +47,7 @@ const services: Service[] = [
     img: "/services/heavy-duty-placeholder.webp",
     blurb:
       "Semi-trucks, buses, heavy equipment, and commercial vehicles. Our heavy duty wreckers handle the biggest jobs in San Diego County. Professional operators, specialized rigging, and the power to move anything safely.",
-    link: "/heavy-duty",
+    link: "/heavyduty",
     gradient: "from-gray-600 via-zinc-600 to-slate-700",
     glowColor: "gray-500",
     stats: { label: "CAPACITY", value: "50+ tons" },

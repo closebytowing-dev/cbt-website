@@ -31,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "winch-out", priority: 0.85 },
     { path: "collision-recovery", priority: 0.85 },
     { path: "motorcycle-towing", priority: 0.85 },
+    { path: "heavyduty", priority: 0.85 },
   ].map((service) => ({
     url: `${base}/${service.path}`,
     lastModified,

@@ -110,7 +110,12 @@ const nextConfig = {
       { source: "/services/collision-recovery", destination: "/collision-recovery", permanent: true },
     ];
 
-    return [...legacy, ...neighborhoodRedirects, ...serviceRedirects];
+    // Heavy duty alias redirect
+    const miscRedirects = [
+      { source: "/heavy-duty", destination: "/heavyduty", permanent: true },
+    ];
+
+    return [...legacy, ...neighborhoodRedirects, ...serviceRedirects, ...miscRedirects];
   },
 
   // Security headers and caching
