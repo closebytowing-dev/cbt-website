@@ -113,6 +113,7 @@ const nextConfig = {
     // Heavy duty alias redirect
     const miscRedirects = [
       { source: "/heavy-duty", destination: "/heavyduty", permanent: true },
+      { source: "/services/heavy-duty", destination: "/heavyduty", permanent: true },
     ];
 
     return [...legacy, ...neighborhoodRedirects, ...serviceRedirects, ...miscRedirects];
