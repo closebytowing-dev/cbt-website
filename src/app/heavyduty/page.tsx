@@ -299,15 +299,12 @@ export default function HeavyDutyTowingPage() {
                     </span>
                   </button>
                 )}
-              </div>
 
-              {/* WhatsApp */}
-              <div className="flex flex-wrap gap-4 pt-2">
                 <a
                   href="https://wa.me/18589999293?text=I%20need%20heavy%20duty%20towing"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#25D366] hover:brightness-110 rounded-xl text-white font-semibold transition-all hover:scale-105 text-sm"
+                  className="inline-flex items-center gap-2 px-6 py-6 bg-[#25D366] hover:brightness-110 rounded-2xl text-white font-bold text-xl transition-all hover:scale-105"
                   style={{ boxShadow: "0 0 15px rgba(37, 211, 102, 0.3)" }}
                 >
                   <span className="text-xl">📱</span>
