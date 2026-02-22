@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import LeftPopup from "@/components/LeftPopup";
 import { useEffect } from "react";
 import { useVisibility } from "@/hooks/useVisibility";
@@ -340,15 +341,15 @@ export default function HeavyDutyTowingPage() {
             <div className="relative">
               <div className="absolute -inset-10 bg-gradient-to-r from-gray-600/20 via-slate-500/20 to-gray-600/20 rounded-[4rem] blur-3xl" />
               <div className="relative aspect-[4/5] rounded-[4rem] overflow-hidden border-2 border-white/10 shadow-[0_0_80px_rgba(100,100,120,0.2)]">
-                {/* Gradient placeholder — swap for real image later */}
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-700 via-slate-800 to-gray-900 flex items-center justify-center">
-                  <div className="text-center space-y-6 p-8">
-                    <span className="text-[120px] block">🚜</span>
-                    <p className="text-white/50 font-bold text-xl">
-                      Heavy Duty Wrecker
-                    </p>
-                  </div>
-                </div>
+                <Image
+                  src="/services/heavy-duty-hero.webp"
+                  alt="Heavy duty tow truck for semi-trucks and commercial vehicle towing in San Diego"
+                  fill
+                  className="object-cover"
+                  priority
+                  quality={85}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
                 {/* Floating Info Cards */}
