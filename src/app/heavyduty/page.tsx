@@ -190,7 +190,7 @@ export default function HeavyDutyTowingPage() {
       {/* ============================================ */}
       {/* HERO SECTION */}
       {/* ============================================ */}
-      <section className="relative flex items-center justify-center overflow-hidden pt-8 pb-16 md:pt-12 md:pb-20">
+      <section className="relative flex items-center justify-center overflow-hidden pt-4 pb-16 md:pt-6 md:pb-20">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-gray-900/40 to-slate-950" />
 
         {/* Subtle grid pattern */}
@@ -207,28 +207,7 @@ export default function HeavyDutyTowingPage() {
         <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-amber-600/8 rounded-full blur-[120px]" />
         <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-gray-500/10 rounded-full blur-[100px]" />
 
-        <div className="relative z-10 mx-auto max-w-[1800px] w-full px-6 lg:px-16 py-8 md:py-12">
-          {/* Top Badge */}
-          <div className="text-center mb-6 md:mb-8">
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-gray-700/30 via-slate-700/30 to-gray-700/30 backdrop-blur-2xl border border-white/20 shadow-lg">
-              <span className="text-3xl">🚜</span>
-              <span className="text-sm font-bold text-white tracking-wider uppercase">
-                Heavy Duty Fleet
-              </span>
-              <div className="flex gap-1">
-                <div className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping" />
-                <div
-                  className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping"
-                  style={{ animationDelay: "0.2s" }}
-                />
-                <div
-                  className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping"
-                  style={{ animationDelay: "0.4s" }}
-                />
-              </div>
-            </div>
-          </div>
-
+        <div className="relative z-10 mx-auto max-w-[1800px] w-full px-6 lg:px-16 py-4 md:py-6">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
             {/* Left: Copy */}
             <div className="space-y-10">
