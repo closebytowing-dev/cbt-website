@@ -31,6 +31,17 @@ export default function GasDeliveryPage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Set canonical URL
+  useEffect(() => {
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://www.closebytowing.com/gas-delivery');
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#0a0a1f] text-white overflow-hidden">
 

@@ -34,6 +34,15 @@ export default function JumpStartPage() {
     } else {
       metaDesc.setAttribute('content', "Dead battery? We'll jump start your vehicle fast. Order online and save 15%.");
     }
+
+    // Set canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://www.closebytowing.com/jump-start');
   }, [loading, standardPrice, onlinePrice]);
 
   const schema = {

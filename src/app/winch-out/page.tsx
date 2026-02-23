@@ -22,6 +22,15 @@ export default function WinchOutPage() {
     }
 
     metaDesc.setAttribute('content', "Stuck in mud, sand, ditch, or snow? Professional winch-out service in San Diego. Heavy-duty winches, 15-25 min response. Licensed & insured. Call (858) 999-9293 for immediate help.");
+
+    // Set canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://www.closebytowing.com/winch-out');
   }, []);
   // LocalBusiness Schema
   const schema = {
