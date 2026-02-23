@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { CONTACT, PRICING } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 import LeftPopup from "@/components/LeftPopup";
 
 const BRAND = "#1e1e4a";
@@ -13,7 +13,6 @@ const ROADSIDE_SERVICES = [
     name: "Battery Jump Start",
     slug: "/jump-start",
     description: "Dead battery? We'll diagnose the issue and get your engine running in minutes. All vehicle types including hybrids.",
-    price: `$${PRICING.jumpStart.standard}`,
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
@@ -26,7 +25,6 @@ const ROADSIDE_SERVICES = [
     name: "Flat Tire Change",
     slug: "/tire-change",
     description: "We'll swap your flat for your spare tire quickly and safely. Lug nut torque check and tire inspection included.",
-    price: `$${PRICING.tireChange.base}`,
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
@@ -39,7 +37,6 @@ const ROADSIDE_SERVICES = [
     name: "Fuel Delivery",
     slug: "/gas-delivery",
     description: "Ran out of gas? We'll bring fuel directly to your location — regular, premium, or diesel. Minimum 2 gallons.",
-    price: `$${PRICING.fuelDelivery.light.min}+`,
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
@@ -53,7 +50,6 @@ const ROADSIDE_SERVICES = [
     name: "Car Lockout Service",
     slug: "/lockout",
     description: "Keys locked in the car? Our technicians unlock all makes and models with zero damage guaranteed.",
-    price: `$${PRICING.lockout.standard}`,
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
@@ -66,7 +62,6 @@ const ROADSIDE_SERVICES = [
     name: "Winch-Out Recovery",
     slug: "/winch-out",
     description: "Stuck in mud, sand, a ditch, or off-road? Our heavy-duty winches will extract your vehicle safely.",
-    price: `$${PRICING.winchOut.light}+`,
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
@@ -131,7 +126,7 @@ const FAQ_DATA = [
   {
     question: "How much does roadside assistance cost?",
     answer:
-      `Pricing depends on the service: Jump starts start at $${PRICING.jumpStart.standard}, lockouts at $${PRICING.lockout.standard}, tire changes at $${PRICING.tireChange.base}, and fuel delivery from $${PRICING.fuelDelivery.light.min}. All prices are quoted upfront before we start work — no surprises.`,
+      "Pricing depends on the service you need. All prices are quoted upfront before we start work — no surprises, no hidden fees. Call us for a quick quote.",
   },
 ];
 
@@ -196,36 +191,11 @@ export default function RoadsideAssistancePage() {
           "@type": "OfferCatalog",
           name: "Roadside Assistance Services",
           itemListElement: [
-            {
-              "@type": "Offer",
-              itemOffered: { "@type": "Service", name: "Battery Jump Start" },
-              priceCurrency: "USD",
-              price: String(PRICING.jumpStart.standard),
-            },
-            {
-              "@type": "Offer",
-              itemOffered: { "@type": "Service", name: "Flat Tire Change" },
-              priceCurrency: "USD",
-              price: String(PRICING.tireChange.base),
-            },
-            {
-              "@type": "Offer",
-              itemOffered: { "@type": "Service", name: "Fuel Delivery" },
-              priceCurrency: "USD",
-              price: String(PRICING.fuelDelivery.light.min),
-            },
-            {
-              "@type": "Offer",
-              itemOffered: { "@type": "Service", name: "Car Lockout Service" },
-              priceCurrency: "USD",
-              price: String(PRICING.lockout.standard),
-            },
-            {
-              "@type": "Offer",
-              itemOffered: { "@type": "Service", name: "Winch-Out Recovery" },
-              priceCurrency: "USD",
-              price: String(PRICING.winchOut.light),
-            },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Battery Jump Start" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Flat Tire Change" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Fuel Delivery" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Car Lockout Service" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Winch-Out Recovery" } },
           ],
         },
         openingHoursSpecification: {
@@ -364,63 +334,19 @@ export default function RoadsideAssistancePage() {
               </div>
             </div>
 
-            {/* Right: Pricing card */}
-            <div className="space-y-6">
-              <div className="bg-white rounded-3xl p-8 shadow-2xl border border-slate-200">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-sky-100 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h2 className="font-black text-xl text-slate-900">Transparent Pricing</h2>
-                    <p className="text-slate-500 text-sm">No membership fees. Pay only when you need us.</p>
-                  </div>
-                </div>
-
-                <div className="space-y-3">
-                  {[
-                    { service: "Jump Start", price: `$${PRICING.jumpStart.standard}`, icon: "⚡" },
-                    { service: "Tire Change", price: `$${PRICING.tireChange.base}`, icon: "🛞" },
-                    { service: "Fuel Delivery", price: `from $${PRICING.fuelDelivery.light.min}`, icon: "⛽" },
-                    { service: "Lockout", price: `$${PRICING.lockout.standard}`, icon: "🔑" },
-                    { service: "Winch-Out", price: `from $${PRICING.winchOut.light}`, icon: "🪝" },
-                  ].map((row) => (
-                    <div key={row.service} className="flex items-center justify-between py-3 px-4 bg-slate-50 rounded-xl">
-                      <div className="flex items-center gap-3">
-                        <span className="text-xl">{row.icon}</span>
-                        <span className="font-semibold text-slate-800">{row.service}</span>
-                      </div>
-                      <span className="font-black text-sky-600 text-lg">{row.price}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-6 bg-sky-50 rounded-xl p-4 border border-sky-100">
-                  <p className="text-sm text-sky-800 font-medium text-center">
-                    Prices quoted upfront before work begins. No hidden fees.
-                  </p>
-                </div>
-              </div>
-
-              {/* Comparison snippet */}
-              <div className="bg-slate-900 rounded-2xl p-6 text-white">
-                <h3 className="font-bold text-lg mb-4">CloseBy vs. AAA</h3>
-                <div className="space-y-3 text-sm">
-                  {[
-                    { feature: "Annual fee", us: "$0", them: "$56-164/yr" },
-                    { feature: "Response time", us: "15-25 min", them: "45-90 min" },
-                    { feature: "Membership", us: "Not required", them: "Required" },
-                    { feature: "Call limits", us: "Unlimited", them: "4/year" },
-                  ].map((row) => (
-                    <div key={row.feature} className="grid grid-cols-3 gap-2 items-center">
-                      <span className="text-slate-400">{row.feature}</span>
-                      <span className="font-bold text-emerald-400 text-center">{row.us}</span>
-                      <span className="text-slate-500 text-center">{row.them}</span>
-                    </div>
-                  ))}
-                </div>
+            {/* Right: Hero Image */}
+            <div className="relative mt-4 lg:mt-0">
+              <div className="relative rounded-[2rem] overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.25)] border-4 border-white">
+                <Image
+                  src="/services/roadside-assistance-hero.webp"
+                  alt="CloseBy Towing roadside assistance technician helping a stranded driver in San Diego"
+                  width={1536}
+                  height={1024}
+                  priority
+                  quality={85}
+                  className="w-full h-auto object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
               </div>
             </div>
           </div>
@@ -456,7 +382,6 @@ export default function RoadsideAssistancePage() {
                     <h3 className="font-bold text-xl text-slate-900 group-hover:text-sky-600 transition-colors">
                       {service.name}
                     </h3>
-                    <span className="text-sky-600 font-black text-lg">{service.price}</span>
                   </div>
                 </div>
 
