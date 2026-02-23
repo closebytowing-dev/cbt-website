@@ -49,6 +49,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: '/',
+    languages: {
+      'en': 'https://www.closebytowing.com',
+      'es': 'https://www.closebytowing.com/gruas',
+    },
   },
 };
 
