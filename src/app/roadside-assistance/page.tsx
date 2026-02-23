@@ -263,7 +263,7 @@ export default function RoadsideAssistancePage() {
 
       {/* HERO SECTION — Split layout */}
       <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 overflow-hidden">
-        <div className="grid lg:grid-cols-2 min-h-[85vh]">
+        <div className="grid lg:grid-cols-2 min-h-[65vh]">
           {/* Left: Content */}
           <div className="flex flex-col justify-center px-6 sm:px-10 lg:pl-[max(2rem,calc((100vw-80rem)/2+2rem))] lg:pr-16 py-16 lg:py-20">
               {/* Badge */}
