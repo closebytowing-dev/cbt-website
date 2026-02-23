@@ -31,32 +31,57 @@ const LOCAL_LANDMARKS = [
   {
     name: "San Ysidro Port of Entry",
     description: "24/7 service near the world's busiest border crossing",
-    icon: "🛂",
+    icon: (
+      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+      </svg>
+    ),
   },
   {
     name: "Las Americas Premium Outlets",
     description: "Quick response to outlet mall parking & shopping areas",
-    icon: "🛍️",
+    icon: (
+      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+      </svg>
+    ),
   },
   {
     name: "I-5 & I-805 Border Area",
     description: "Fast freeway service near border approach lanes",
-    icon: "🚗",
+    icon: (
+      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+      </svg>
+    ),
   },
   {
     name: "Camino de la Plaza",
     description: "Serving all retail & commercial areas",
-    icon: "🏪",
+    icon: (
+      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.15c0 .415.336.75.75.75z" />
+      </svg>
+    ),
   },
   {
     name: "San Ysidro Transit Center",
     description: "Park & ride, trolley station, and commuter areas",
-    icon: "🚉",
+    icon: (
+      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+      </svg>
+    ),
   },
   {
     name: "Beyer Boulevard Corridor",
     description: "Residential neighborhoods & local businesses",
-    icon: "🏘️",
+    icon: (
+      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+      </svg>
+    ),
   },
 ];
 
@@ -72,11 +97,11 @@ const NEARBY_AREAS = [
 
 // Services offered
 const SERVICES = [
-  { name: "General Towing", slug: "towing", icon: "🚗" },
-  { name: "Emergency Towing", slug: "emergency-towing", icon: "🚨" },
-  { name: "Flatbed Towing", slug: "flatbed-towing", icon: "🛻" },
-  { name: "Accident Towing", slug: "accident-towing", icon: "💥" },
-  { name: "Roadside Assistance", slug: "roadside-assistance", icon: "🔧" },
+  { name: "General Towing", slug: "towing", desc: "Standard & flatbed towing for all vehicles" },
+  { name: "Emergency Towing", slug: "emergency-towing", desc: "Urgent response for accidents & breakdowns" },
+  { name: "Flatbed Towing", slug: "flatbed-towing", desc: "Safe transport for luxury & low-profile cars" },
+  { name: "Accident Towing", slug: "accident-towing", desc: "Post-collision recovery & insurance coordination" },
+  { name: "Roadside Assistance", slug: "roadside-assistance", desc: "Jump starts, lockouts, tire changes & fuel" },
 ];
 
 // FAQ Data specific to San Ysidro
@@ -110,179 +135,154 @@ const FAQ_DATA = [
 
 export default function SanYsidroPage() {
   return (
-    <main className="bg-white">
-      {/* Hero Section - Warm terracotta/gold border community theme */}
-      <section className="relative bg-gradient-to-br from-orange-900 via-amber-700 to-yellow-800 text-white overflow-hidden">
-        {/* Border-inspired geometric decoration */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-400 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-500 rounded-full blur-3xl"></div>
-        </div>
+    <main className="bg-slate-950">
+      {/* HERO — Full-bleed photo with overlay */}
+      <section className="relative min-h-[92vh] md:min-h-[88vh] flex items-end overflow-hidden">
+        {/* Background Image */}
+        <Image
+          src="/neighborhoods/san-ysidro-hero.webp"
+          alt="San Ysidro neighborhood near the US-Mexico border crossing in San Diego"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+          quality={85}
+        />
 
-        {/* Wave decoration */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 overflow-hidden">
-          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="absolute bottom-0 w-full h-24 text-white">
-            <path
-              d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-              fill="currentColor"
-              opacity=".25"
-            />
-            <path
-              d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-              fill="currentColor"
-              opacity=".5"
-            />
-            <path
-              d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
-              fill="currentColor"
-            />
-          </svg>
-        </div>
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/20" />
 
-        <div className="relative max-w-7xl mx-auto px-4 py-16 sm:py-24 pb-32">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div>
-              {/* Location badge */}
-              <div className="inline-flex items-center gap-2 bg-yellow-500/20 border border-yellow-400/30 rounded-full px-4 py-1.5 mb-6">
-                <svg className="w-4 h-4 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <span className="text-yellow-200 text-sm font-medium">Serving San Ysidro 24/7 • ZIP: {SAN_YSIDRO_ZIP_CODES.join(", ")}</span>
-              </div>
+        {/* Accent line at top */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400" />
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                San Ysidro
-                <span className="block text-yellow-300 mt-2">Towing & Roadside</span>
-              </h1>
+        <div className="relative w-full max-w-7xl mx-auto px-4 pb-12 md:pb-20 pt-32">
+          {/* ZIP badge */}
+          <div className="inline-flex items-center gap-2 bg-emerald-500/15 border border-emerald-400/30 backdrop-blur-md rounded-full px-5 py-2 mb-6">
+            <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-emerald-300 text-sm font-semibold tracking-wide uppercase">
+              San Ysidro &bull; ZIP {SAN_YSIDRO_ZIP_CODES[0]} &bull; 24/7 Service
+            </span>
+          </div>
 
-              <p className="mt-6 text-xl text-yellow-100 leading-relaxed max-w-xl">
-                Your trusted towing partner at San Diego's southern gateway. From the{" "}
-                <span className="text-yellow-300 font-semibold">border crossing</span> to{" "}
-                <span className="text-yellow-300 font-semibold">Las Americas Outlets</span>, we respond in{" "}
-                <span className="text-yellow-300 font-semibold">25-40 minutes</span>.
-              </p>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight max-w-3xl">
+            Towing at San Diego&apos;s
+            <span className="block bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+              Southern Gateway
+            </span>
+          </h1>
 
-              {/* Quick stats */}
-              <div className="mt-8 grid grid-cols-3 gap-4">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
-                  <div className="text-2xl font-bold text-yellow-300">25-40</div>
-                  <div className="text-sm text-yellow-100">Min Response</div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
-                  <div className="text-2xl font-bold text-yellow-300">24/7</div>
-                  <div className="text-sm text-yellow-100">Available</div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
-                  <div className="text-2xl font-bold text-yellow-300">🛂</div>
-                  <div className="text-sm text-yellow-100">Border Area</div>
-                </div>
-              </div>
+          <p className="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl leading-relaxed">
+            From the <span className="text-white font-semibold">border crossing</span> to{" "}
+            <span className="text-white font-semibold">Las Americas Outlets</span> &mdash; fast, professional towing
+            with <span className="text-emerald-400 font-semibold">25-40 minute</span> response times.
+          </p>
 
-              {/* CTAs */}
-              <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                <a
-                  href={`tel:${CONTACT.phoneRaw}`}
-                  className="inline-flex items-center justify-center gap-2 bg-yellow-500 hover:bg-yellow-400 text-slate-900 px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-yellow-500/30"
-                >
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  Call: {CONTACT.phone}
-                </a>
-                <a
-                  href={`https://wa.me/${CONTACT.whatsapp}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all border border-white/30"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                  </svg>
-                  WhatsApp
-                </a>
-              </div>
+          {/* CTA Row */}
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <a
+              href={`tel:${CONTACT.phoneRaw}`}
+              className="group inline-flex items-center justify-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-white hover:text-slate-900 px-8 py-5 rounded-2xl font-bold text-lg transition-all duration-200 shadow-lg shadow-emerald-500/25 hover:shadow-emerald-400/40"
+            >
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              {CONTACT.phone}
+            </a>
+            <a
+              href={`https://wa.me/${CONTACT.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-8 py-5 rounded-2xl font-bold text-lg transition-all border border-white/20 hover:border-white/40"
+            >
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+              WhatsApp Us
+            </a>
+          </div>
+
+          {/* Quick stats bar */}
+          <div className="mt-10 flex flex-wrap gap-6 text-sm text-slate-400">
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span><span className="text-white font-semibold">25-40 min</span> response</span>
             </div>
-
-            {/* Right - Image */}
-            <div className="relative hidden lg:block">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <div className="aspect-[4/3] bg-orange-900/50 relative">
-                  <Image
-                    src="/neighborhoods/shared/highway-aerial.webp"
-                    alt="Tow truck serving San Ysidro San Diego near border crossing"
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-orange-900/70 to-transparent" />
-                  {/* ZIP Code overlay */}
-                  <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1.5">
-                    <span className="text-white text-sm font-bold">ZIP: {SAN_YSIDRO_ZIP_CODES.join(", ")}</span>
-                  </div>
-                </div>
-              </div>
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span><span className="text-white font-semibold">24/7</span> availability</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span><span className="text-white font-semibold">Licensed</span> & insured</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span><span className="text-white font-semibold">Border area</span> experts</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Local Landmarks Section */}
-      <section className="py-16 sm:py-24 bg-white">
+      {/* LANDMARKS — Dark cards with teal accents */}
+      <section className="relative py-20 sm:py-28 bg-slate-950">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
-              We Know <span className="text-amber-600">San Ysidro</span>
+          <div className="text-center mb-14">
+            <p className="text-emerald-400 font-semibold text-sm tracking-widest uppercase mb-3">Local Expertise</p>
+            <h2 className="text-3xl sm:text-5xl font-bold text-white">
+              We Know San Ysidro
             </h2>
-            <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
-              From the border crossing to Las Americas Outlets, our drivers know every street and landmark in San Ysidro's unique border community.
+            <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
+              From the border crossing to Las Americas Outlets, our drivers know every street in this unique international gateway.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {LOCAL_LANDMARKS.map((landmark, index) => (
               <div
                 key={index}
-                className="group bg-slate-50 hover:bg-amber-50 rounded-xl p-6 transition-all hover:shadow-lg border border-slate-100 hover:border-amber-200"
+                className="group relative bg-slate-900/80 hover:bg-slate-800/80 border border-slate-800 hover:border-emerald-500/40 rounded-2xl p-6 transition-all duration-300"
               >
-                <div className="text-4xl mb-4">{landmark.icon}</div>
-                <h3 className="font-bold text-lg text-slate-900 group-hover:text-amber-600 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-4 group-hover:bg-emerald-500/20 transition-colors">
+                  {landmark.icon}
+                </div>
+                <h3 className="font-bold text-lg text-white group-hover:text-emerald-400 transition-colors">
                   {landmark.name}
                 </h3>
-                <p className="mt-2 text-slate-600 text-sm">{landmark.description}</p>
+                <p className="mt-2 text-slate-400 text-sm leading-relaxed">{landmark.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* About San Ysidro Section */}
-      <section className="py-16 sm:py-24 bg-slate-50">
+      {/* ABOUT — Split layout with coverage info */}
+      <section className="py-20 sm:py-28 bg-slate-900">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
-                San Ysidro&apos;s <span className="text-amber-600">Trusted Towing Partner</span>
+          <div className="grid lg:grid-cols-5 gap-12 items-start">
+            {/* Left content — 3 cols */}
+            <div className="lg:col-span-3">
+              <p className="text-emerald-400 font-semibold text-sm tracking-widest uppercase mb-3">About This Area</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight">
+                San Ysidro&apos;s Trusted
+                <span className="text-emerald-400"> Towing Partner</span>
               </h2>
 
-              <div className="mt-6 prose prose-lg text-slate-600">
+              <div className="mt-8 space-y-5 text-slate-300 text-lg leading-relaxed">
                 <p>
-                  San Ysidro is home to the world&apos;s busiest land border crossing, connecting San Diego to Tijuana, Mexico. With thousands of vehicles passing through daily, plus major shopping destinations like Las Americas Premium Outlets, this vibrant community has unique towing needs.
+                  San Ysidro is home to the <span className="text-white font-medium">world&apos;s busiest land border crossing</span>, connecting San Diego to Tijuana, Mexico. With thousands of vehicles passing through daily, plus major shopping destinations like Las Americas Premium Outlets, this vibrant community has unique towing needs.
                 </p>
                 <p>
-                  Whether you&apos;re a local resident, cross-border shopper, commuter, or traveler, CloseBy Towing understands the urgency of vehicle breakdowns in this busy international gateway. Our drivers know the area intimately - from Camino de la Plaza to Beyer Boulevard, from the border approach lanes to the transit center.
+                  Whether you&apos;re a local resident, cross-border shopper, commuter, or traveler, CloseBy Towing understands the urgency of vehicle breakdowns in this busy international gateway. Our drivers know the area intimately &mdash; from Camino de la Plaza to Beyer Boulevard, from the border approach lanes to the transit center.
                 </p>
                 <p>
-                  We provide fast, professional towing and roadside assistance throughout San Ysidro, with typical response times of 25-40 minutes. Our team is experienced in handling everything from simple jump starts to complex accident recovery, all while navigating the unique traffic patterns of this border community.
+                  We provide fast, professional towing and roadside assistance throughout San Ysidro, with typical response times of <span className="text-emerald-400 font-semibold">25-40 minutes</span>. Our team handles everything from simple jump starts to complex accident recovery.
                 </p>
               </div>
 
-              {/* Common services callout */}
-              <div className="mt-8 bg-amber-100 rounded-xl p-6">
-                <h3 className="font-bold text-slate-900 mb-4">Common San Ysidro Calls:</h3>
-                <div className="grid grid-cols-2 gap-2 text-sm">
+              {/* Common calls */}
+              <div className="mt-10 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-6">
+                <h3 className="font-bold text-white mb-4 text-lg">Common San Ysidro Calls</h3>
+                <div className="grid sm:grid-cols-2 gap-3">
                   {[
                     "Border area breakdowns",
                     "Outlet mall dead batteries",
@@ -291,104 +291,125 @@ export default function SanYsidroPage() {
                     "Camino de la Plaza towing",
                     "24/7 emergency service",
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-2">
-                      <svg className="w-4 h-4 text-amber-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <div key={i} className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-emerald-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                      <span className="text-slate-700">{item}</span>
+                      <span className="text-slate-300">{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Map/visual representation */}
-            <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200">
-              <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
-                <svg className="w-5 h-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                </svg>
-                San Ysidro Coverage Area
-              </h3>
-
-              <div className="space-y-3">
-                <div className="bg-slate-50 rounded-lg p-4">
-                  <h4 className="font-semibold text-slate-900 text-sm mb-2">Major Roads We Service:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {["Camino de la Plaza", "Beyer Boulevard", "San Ysidro Blvd", "Dairy Mart Road", "East San Ysidro Blvd", "I-5 Corridor"].map((road) => (
-                      <span key={road} className="bg-white px-3 py-1 rounded-full text-sm text-slate-600 border border-slate-200">
-                        {road}
-                      </span>
-                    ))}
+            {/* Right — Coverage card — 2 cols */}
+            <div className="lg:col-span-2 space-y-5">
+              <div className="bg-slate-800/60 border border-slate-700 rounded-2xl p-6">
+                <h3 className="font-bold text-white mb-4 flex items-center gap-2">
+                  <svg className="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
+                  </svg>
+                  Coverage Area
+                </h3>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Major Roads</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {["Camino de la Plaza", "Beyer Blvd", "San Ysidro Blvd", "Dairy Mart Rd", "E. San Ysidro Blvd", "I-5 Corridor"].map((road) => (
+                        <span key={road} className="bg-slate-700/60 px-3 py-1.5 rounded-lg text-sm text-slate-300 border border-slate-600/50">
+                          {road}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Freeways</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {["I-5 South", "I-805 Connection", "Border Approach", "Via de San Ysidro"].map((freeway) => (
+                        <span key={freeway} className="bg-emerald-500/10 text-emerald-400 px-3 py-1.5 rounded-lg text-sm font-medium border border-emerald-500/20">
+                          {freeway}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Key Locations</h4>
+                    <div className="grid grid-cols-2 gap-2 text-sm text-slate-300">
+                      {["Las Americas Outlets", "Border Crossing", "Transit Center", "Outlet Center", "PedWest/PedEast", "Local Neighborhoods"].map((loc) => (
+                        <div key={loc} className="flex items-center gap-2">
+                          <div className="w-1 h-1 rounded-full bg-emerald-400" />
+                          {loc}
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
+              </div>
 
-                <div className="bg-slate-50 rounded-lg p-4">
-                  <h4 className="font-semibold text-slate-900 text-sm mb-2">Freeway Access:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {["I-5 South", "I-805 Connection", "Border Approach", "Via de San Ysidro"].map((freeway) => (
-                      <span key={freeway} className="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-sm font-medium">
-                        {freeway}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="bg-slate-50 rounded-lg p-4">
-                  <h4 className="font-semibold text-slate-900 text-sm mb-2">Key Locations:</h4>
-                  <div className="grid grid-cols-2 gap-1 text-sm text-slate-600">
-                    <span>• Las Americas Outlets</span>
-                    <span>• Border Crossing</span>
-                    <span>• Transit Center</span>
-                    <span>• Outlet Center</span>
-                    <span>• PedWest/PedEast</span>
-                    <span>• Local Neighborhoods</span>
-                  </div>
-                </div>
+              {/* Quick call card */}
+              <div className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-6 text-center">
+                <p className="text-emerald-100 text-sm font-medium mb-2">Need help now?</p>
+                <a
+                  href={`tel:${CONTACT.phoneRaw}`}
+                  className="text-2xl font-black text-white hover:text-emerald-200 transition-colors"
+                >
+                  {CONTACT.phone}
+                </a>
+                <p className="text-emerald-200 text-sm mt-2">Available around the clock</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-16 sm:py-24 bg-white">
+      {/* SERVICES — Horizontal cards */}
+      <section className="py-20 sm:py-28 bg-slate-950">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
-              Services in <span className="text-amber-600">San Ysidro</span>
+          <div className="text-center mb-14">
+            <p className="text-emerald-400 font-semibold text-sm tracking-widest uppercase mb-3">What We Offer</p>
+            <h2 className="text-3xl sm:text-5xl font-bold text-white">
+              Services in San Ysidro
             </h2>
-            <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
-              Full range of towing and roadside services available 24/7 throughout San Ysidro.
+            <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
+              Full range of towing and roadside services available 24/7 throughout the border community.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {SERVICES.map((service) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {SERVICES.map((service, i) => (
               <Link
                 key={service.slug}
                 href={`/san-diego/${service.slug}`}
-                className="group bg-slate-50 hover:bg-amber-50 rounded-xl p-6 transition-all hover:shadow-lg border border-slate-100 hover:border-amber-200 text-center"
+                className="group relative bg-slate-900/80 hover:bg-slate-800/80 border border-slate-800 hover:border-emerald-500/40 rounded-2xl p-6 transition-all duration-300"
               >
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="font-bold text-slate-900 group-hover:text-amber-600 transition-colors">
-                  {service.name}
-                </h3>
-                <p className="text-sm text-slate-500 mt-2">Available in San Ysidro</p>
+                <div className="flex items-start justify-between mb-3">
+                  <h3 className="font-bold text-white text-lg group-hover:text-emerald-400 transition-colors">
+                    {service.name}
+                  </h3>
+                  <svg className="w-5 h-5 text-slate-600 group-hover:text-emerald-400 transition-colors flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                  </svg>
+                </div>
+                <p className="text-slate-400 text-sm leading-relaxed">{service.desc}</p>
+                <div className="mt-4 flex items-center gap-2 text-xs text-emerald-400 font-medium">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  Available in San Ysidro
+                </div>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Nearby Areas Section */}
-      <section className="py-16 sm:py-24 bg-gradient-to-br from-orange-900 via-amber-700 to-yellow-800 text-white">
+      {/* NEARBY AREAS */}
+      <section className="py-20 sm:py-28 bg-slate-900 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold">
-              Also Serving <span className="text-yellow-300">Nearby Areas</span>
+          <div className="text-center mb-14">
+            <p className="text-emerald-400 font-semibold text-sm tracking-widest uppercase mb-3">Expanding Reach</p>
+            <h2 className="text-3xl sm:text-5xl font-bold text-white">
+              Also Serving Nearby Areas
             </h2>
-            <p className="mt-4 text-lg text-yellow-200 max-w-2xl mx-auto">
+            <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
               San Ysidro connects to many South Bay communities. We serve them all.
             </p>
           </div>
@@ -398,9 +419,9 @@ export default function SanYsidroPage() {
               <Link
                 key={area.slug}
                 href={areaHref(area.slug)}
-                className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-1"
+                className="group bg-slate-800/60 hover:bg-emerald-500/10 border border-slate-700 hover:border-emerald-500/30 rounded-xl py-5 px-4 text-center transition-all duration-300"
               >
-                <span className="font-semibold text-white group-hover:text-yellow-300 transition-colors">
+                <span className="font-semibold text-white group-hover:text-emerald-400 transition-colors">
                   {area.name}
                 </span>
               </Link>
@@ -409,34 +430,36 @@ export default function SanYsidroPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-16 sm:py-24 bg-slate-50">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
-              San Ysidro Towing <span className="text-amber-600">FAQ</span>
+      {/* FAQ */}
+      <section className="py-20 sm:py-28 bg-slate-950">
+        <div className="max-w-3xl mx-auto px-4">
+          <div className="text-center mb-14">
+            <p className="text-emerald-400 font-semibold text-sm tracking-widest uppercase mb-3">Common Questions</p>
+            <h2 className="text-3xl sm:text-5xl font-bold text-white">
+              San Ysidro Towing FAQ
             </h2>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             {FAQ_DATA.map((faq, index) => (
               <details
                 key={index}
-                className="group bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden"
+                className="group bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden transition-colors open:border-emerald-500/30"
               >
-                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-slate-50 transition-colors">
-                  <h3 className="font-semibold text-slate-900 pr-8">{faq.question}</h3>
+                <summary className="flex items-center justify-between p-6 cursor-pointer select-none">
+                  <h3 className="font-semibold text-white pr-6 text-[15px] leading-snug">{faq.question}</h3>
                   <svg
-                    className="w-5 h-5 text-amber-500 flex-shrink-0 transition-transform group-open:rotate-180"
+                    className="w-5 h-5 text-emerald-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-45"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
+                    strokeWidth={2}
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                   </svg>
                 </summary>
-                <div className="px-6 pb-6">
-                  <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
+                <div className="px-6 pb-6 -mt-1">
+                  <p className="text-slate-400 leading-relaxed text-[15px]">{faq.answer}</p>
                 </div>
               </details>
             ))}
@@ -444,48 +467,69 @@ export default function SanYsidroPage() {
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="py-16 sm:py-24 bg-gradient-to-br from-orange-900 via-amber-700 to-yellow-800 text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl sm:text-5xl font-bold">
-            Need a Tow in <span className="text-yellow-300">San Ysidro?</span>
+      {/* FINAL CTA */}
+      <section className="relative py-24 sm:py-32 overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 via-teal-900 to-slate-950" />
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-500 rounded-full blur-[200px]" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-teal-600 rounded-full blur-[150px]" />
+        </div>
+
+        <div className="relative max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-4xl sm:text-6xl font-black text-white leading-tight">
+            Need a Tow in
+            <span className="block bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+              San Ysidro?
+            </span>
           </h2>
 
-          <p className="mt-6 text-xl text-yellow-100 max-w-2xl mx-auto">
+          <p className="mt-6 text-xl text-emerald-100/80 max-w-2xl mx-auto">
             Don&apos;t wait. Our local drivers are ready to help you 24/7. Fast response, fair prices, professional service.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={`tel:${CONTACT.phoneRaw}`}
-              className="inline-flex items-center justify-center gap-2 bg-yellow-500 hover:bg-yellow-400 text-slate-900 px-10 py-5 rounded-xl font-bold text-xl transition-all hover:scale-105 shadow-lg"
+              className="inline-flex items-center justify-center gap-3 bg-white text-slate-900 px-10 py-5 rounded-2xl font-bold text-xl transition-all hover:scale-105 shadow-2xl shadow-black/30"
             >
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              Call: {CONTACT.phone}
+              {CONTACT.phone}
+            </a>
+            <a
+              href={`https://wa.me/${CONTACT.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-10 py-5 rounded-2xl font-bold text-xl transition-all border border-white/20"
+            >
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+              WhatsApp
             </a>
           </div>
 
-          {/* Trust indicators */}
-          <div className="mt-12 flex flex-wrap justify-center gap-8 text-yellow-200">
+          {/* Trust row */}
+          <div className="mt-12 flex flex-wrap justify-center gap-8 text-emerald-200/70 text-sm">
             <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
-              <span>Licensed & Insured</span>
+              Licensed & Insured
             </div>
             <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <span>Trusted by San Diego Drivers</span>
+              5-Star Rated
             </div>
             <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
               </svg>
-              <span>24/7 San Ysidro Service</span>
+              24/7 Service
             </div>
           </div>
         </div>
@@ -495,29 +539,14 @@ export default function SanYsidroPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-            {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://www.closebytowing.com"
-            },
-            {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "San Diego Towing",
-                  "item": "https://www.closebytowing.com/san-diego/towing"
-            },
-            {
-                  "@type": "ListItem",
-                  "position": 3,
-                  "name": "San Ysidro",
-                  "item": "https://www.closebytowing.com/san-ysidro"
-            }
-      ]
-}) }}
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.closebytowing.com" },
+            { "@type": "ListItem", "position": 2, "name": "San Diego Towing", "item": "https://www.closebytowing.com/san-diego/towing" },
+            { "@type": "ListItem", "position": 3, "name": "San Ysidro", "item": "https://www.closebytowing.com/san-ysidro" },
+          ],
+        }) }}
       />
       <script
         type="application/ld+json"
@@ -546,10 +575,7 @@ export default function SanYsidroPage() {
             areaServed: {
               "@type": "Neighborhood",
               name: "San Ysidro",
-              containedInPlace: {
-                "@type": "City",
-                name: "San Diego",
-              },
+              containedInPlace: { "@type": "City", name: "San Diego" },
             },
             serviceType: ["Towing Service", "Roadside Assistance"],
             priceRange: "$$",
@@ -571,10 +597,7 @@ export default function SanYsidroPage() {
             mainEntity: FAQ_DATA.map((faq) => ({
               "@type": "Question",
               name: faq.question,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: faq.answer,
-              },
+              acceptedAnswer: { "@type": "Answer", text: faq.answer },
             })),
           }),
         }}
