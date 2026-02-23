@@ -10,9 +10,11 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: [
           "/_next/",
+          "/_next/static/",
           "/api/",
           "/admin/",
           "/partners/",
+          "/favicon.ico",
           "/*.json$",
           "/*.js$",
           "/*.css$",
