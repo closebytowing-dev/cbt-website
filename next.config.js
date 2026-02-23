@@ -114,6 +114,7 @@ const nextConfig = {
     const miscRedirects = [
       { source: "/heavy-duty", destination: "/heavyduty", permanent: true },
       { source: "/services/heavy-duty", destination: "/heavyduty", permanent: true },
+      { source: "/san-diego/roadside-assistance", destination: "/roadside-assistance", permanent: true },
     ];
 
     return [...legacy, ...neighborhoodRedirects, ...serviceRedirects, ...miscRedirects];
