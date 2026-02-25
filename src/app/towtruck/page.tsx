@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import { CONTACT, STATS, SERVICE_AREAS } from "@/lib/constants";
@@ -36,7 +37,191 @@ const FAQS = [
   { q: "Will my car be damaged during towing?", a: "No. We use modern flatbed and wheel-lift equipment designed to prevent any damage. All vehicles are secured with professional-grade straps. We're fully insured for your peace of mind." },
   { q: "Do you work with insurance companies?", a: "Yes. We work with all major insurance providers and can coordinate directly with your insurer for accident towing and roadside claims." },
   { q: "Are you available on holidays and weekends?", a: "Yes — we're available 24/7, 365 days a year including all holidays. Emergencies don't wait, and neither do we." },
+  { q: "What is the difference between a flatbed tow truck and a wheel-lift tow truck?", a: "A flatbed tow truck carries your entire vehicle on a hydraulic platform, keeping all four wheels off the ground. This is ideal for luxury cars, AWD vehicles, and vehicles with significant damage. A wheel-lift tow truck lifts either the front or rear wheels off the ground and tows the vehicle with the remaining wheels rolling on the road. Wheel-lift trucks are faster to load and work well for standard front-wheel-drive and rear-wheel-drive vehicles on short-distance tows." },
+  { q: "Can you tow my car if it's in a parking garage or tight space?", a: "Yes. Our drivers are experienced in navigating parking garages, narrow alleys, and tight residential streets throughout San Diego. We carry specialized equipment to safely extract vehicles from confined spaces without causing damage to your vehicle or the surrounding property." },
 ];
+
+// ─── FLEET DATA ──────────────────────────────────────────────────
+const FLEET = [
+  {
+    name: "Flatbed Tow Trucks",
+    desc: "Our flatbed tow trucks are the safest way to transport any vehicle. The entire car rides on a hydraulic platform with all four wheels off the ground, eliminating any risk of drivetrain damage during transport. Flatbed trucks are the preferred choice for luxury vehicles, all-wheel-drive cars, electric vehicles, and any vehicle with significant damage after a collision. Our flatbeds can handle vehicles up to 10,000 lbs and are equipped with soft tie-down straps to protect your wheels and paint.",
+    features: ["All four wheels off the ground", "Best for luxury, AWD & EVs", "Up to 10,000 lb capacity", "Soft tie-down straps included"],
+    icon: "🚛",
+  },
+  {
+    name: "Wheel-Lift Tow Trucks",
+    desc: "Wheel-lift tow trucks use a metal yoke that slides under the front or rear wheels to lift one end of the vehicle while the other end rolls on the road. This method is fast, efficient, and perfect for standard vehicles that need a short to medium-distance tow. Wheel-lift trucks are more maneuverable than flatbeds, making them ideal for tight parking lots, narrow streets, and quick highway recoveries. Our operators select front or rear lift based on your vehicle's drivetrain to prevent any mechanical damage.",
+    features: ["Fast hookup and dispatch", "Ideal for tight spaces", "Great for short-distance tows", "Drivetrain-safe technique"],
+    icon: "🔧",
+  },
+];
+
+// ─── CROSS-SERVICE LINKS DATA ────────────────────────────────────
+const CROSS_SERVICES = [
+  { name: "General Towing", href: "/towing", desc: "Full-service local and long-distance towing across San Diego County.", icon: "🚗" },
+  { name: "Heavy Duty Towing", href: "/heavyduty", desc: "Commercial trucks, RVs, and oversized vehicles up to 26,000 lbs.", icon: "🚚" },
+  { name: "Motorcycle Towing", href: "/motorcycle-towing", desc: "Specialized motorcycle transport with secure cradle systems.", icon: "🏍️" },
+  { name: "Collision Recovery", href: "/collision-recovery", desc: "Post-accident vehicle recovery with insurance coordination.", icon: "⚠️" },
+  { name: "Roadside Assistance", href: "/roadside-assistance", desc: "Jump starts, lockouts, tire changes, and fuel delivery.", icon: "🔧" },
+];
+
+// ─── SCHEMA.ORG STRUCTURED DATA ─────────────────────────────────
+const SCHEMA_JSON = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://www.closebytowing.com/towtruck#service",
+      "name": "Tow Truck Service",
+      "description": "Professional 24/7 tow truck service in San Diego. Flatbed and wheel-lift tow trucks with upfront pricing, fast dispatch, and trained operators covering all of San Diego County.",
+      "serviceType": "Tow Truck Service",
+      "areaServed": {
+        "@type": "Place",
+        "name": "San Diego County, CA",
+        "geo": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 32.7157,
+            "longitude": -117.1611
+          },
+          "geoRadius": "80000"
+        }
+      },
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://www.closebytowing.com/#business",
+        "name": "CloseBy Towing",
+        "image": "https://www.closebytowing.com/services/tow-truck-hero.webp",
+        "url": "https://www.closebytowing.com",
+        "telephone": "+1-858-999-9293",
+        "email": "info@closebytowing.com",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "San Diego",
+          "addressRegion": "CA",
+          "postalCode": "92101",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 32.7157,
+          "longitude": -117.1611
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "00:00",
+          "closes": "23:59"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "50",
+          "bestRating": "5"
+        },
+        "sameAs": [
+          "https://facebook.com/closebytowing",
+          "https://twitter.com/closebytowing"
+        ]
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "95",
+        "priceCurrency": "USD",
+        "description": "Local towing starting at $95"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.closebytowing.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tow Truck Service",
+          "item": "https://www.closebytowing.com/towtruck"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does a tow cost in San Diego?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Local towing typically starts at $95. You'll know your exact price before we dispatch — no hidden fees, no surprises at the curb. Get your quote in 60 seconds through our online form."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How fast can you get to me?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our average response time is 15-25 minutes across San Diego County. We dispatch the nearest available truck and give you real-time ETA updates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What payment methods do you accept?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept all major credit cards, debit cards, Apple Pay, Google Pay, and cash. Payment is collected after the job is complete."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will my car be damaged during towing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. We use modern flatbed and wheel-lift equipment designed to prevent any damage. All vehicles are secured with professional-grade straps. We're fully insured for your peace of mind."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with insurance companies?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We work with all major insurance providers and can coordinate directly with your insurer for accident towing and roadside claims."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are you available on holidays and weekends?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — we're available 24/7, 365 days a year including all holidays. Emergencies don't wait, and neither do we."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between a flatbed tow truck and a wheel-lift tow truck?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A flatbed tow truck carries your entire vehicle on a hydraulic platform, keeping all four wheels off the ground. This is ideal for luxury cars, AWD vehicles, and vehicles with significant damage. A wheel-lift tow truck lifts either the front or rear wheels off the ground and tows the vehicle with the remaining wheels rolling on the road. Wheel-lift trucks are faster to load and work well for standard front-wheel-drive and rear-wheel-drive vehicles on short-distance tows."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you tow my car if it's in a parking garage or tight space?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Our drivers are experienced in navigating parking garages, narrow alleys, and tight residential streets throughout San Diego. We carry specialized equipment to safely extract vehicles from confined spaces without causing damage to your vehicle or the surrounding property."
+          }
+        }
+      ]
+    }
+  ]
+};
 
 // ─── HERO COMPONENT WITH A/B TESTING ────────────────────────────
 function HeroContent() {
@@ -62,6 +247,15 @@ function HeroContent() {
       </div>
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 py-16 sm:py-20 lg:py-24">
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb" className="mb-6">
+          <ol className="flex items-center gap-2 text-sm text-white/50">
+            <li><Link href="/" className="hover:text-white/80 transition-colors">Home</Link></li>
+            <li><span className="mx-1">/</span></li>
+            <li className="text-white/80 font-medium">Tow Truck Service</li>
+          </ol>
+        </nav>
+
         {/* Hero content */}
         <div className="max-w-2xl">
           {/* Emergency badge */}
@@ -136,6 +330,21 @@ export default function TowTruckLandingPage() {
       viewport.name = "viewport";
       viewport.content = "width=device-width, initial-scale=1, viewport-fit=cover";
       document.head.appendChild(viewport);
+    }
+  }, []);
+
+  // Inject schema.org structured data
+  useEffect(() => {
+    const existingScript = document.querySelector('script[data-schema="towtruck"]');
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.setAttribute("data-schema", "towtruck");
+      script.textContent = JSON.stringify(SCHEMA_JSON);
+      document.head.appendChild(script);
+      return () => {
+        script.remove();
+      };
     }
   }, []);
 
@@ -216,7 +425,7 @@ export default function TowTruckLandingPage() {
       <section className="py-10 sm:py-14 px-6 bg-white">
         <div className="max-w-[800px] mx-auto text-center">
           <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-            Looking for a tow truck near you in San Diego? CloseBy Towing provides 24 hour emergency tow truck service across the city. Whether you&apos;re stuck on I-5, I-8, 163, or 805, our San Diego tow truck team is ready to dispatch fast.
+            Looking for a tow truck near you in San Diego? CloseBy Towing provides 24 hour emergency tow truck service across the city. Whether you&apos;re stuck on I-5, I-8, 163, or 805, our San Diego tow truck team is ready to dispatch fast. We operate a fleet of modern flatbed and wheel-lift tow trucks strategically positioned throughout San Diego County so that the nearest available truck is always just minutes away from your location.
           </p>
         </div>
       </section>
@@ -289,8 +498,11 @@ export default function TowTruckLandingPage() {
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 text-center mb-6">
             24 Hour Tow Truck Service in San Diego
           </h2>
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed text-center">
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed text-center mb-4">
             When your vehicle breaks down at 2 a.m. or during rush hour on the freeway, you need an emergency tow truck you can count on. CloseBy Towing is a local tow truck company serving all of San Diego County with fast dispatch, upfront pricing, and professional drivers available around the clock. From flatbed tow trucks for luxury vehicles to rapid roadside towing service for everyday breakdowns, we handle it all.
+          </p>
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed text-center">
+            Our tow truck operators are licensed and insured, and every driver undergoes rigorous training on vehicle loading, securing, and safe transport. Whether you need a <Link href="/towing" className="text-[#1e1e4a] font-semibold underline underline-offset-2 hover:text-[#ffba42] transition-colors">standard tow</Link>, <Link href="/heavyduty" className="text-[#1e1e4a] font-semibold underline underline-offset-2 hover:text-[#ffba42] transition-colors">heavy duty towing</Link> for a larger vehicle, or <Link href="/roadside-assistance" className="text-[#1e1e4a] font-semibold underline underline-offset-2 hover:text-[#ffba42] transition-colors">roadside assistance</Link> like a jump start or tire change, CloseBy Towing is the name San Diego trusts.
           </p>
         </div>
       </section>
@@ -395,18 +607,65 @@ export default function TowTruckLandingPage() {
 
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 5: COVERAGE AREA
+          SECTION: OUR FLEET — FLATBED & WHEEL-LIFT TOW TRUCKS
+      ═══════════════════════════════════════════════════════════ */}
+      <section ref={setSectionRef(8)} className="animate-fade-up py-16 sm:py-24 px-6" style={{ background: '#f8f7f4' }}>
+        <div className="max-w-[1400px] mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 text-center mb-4">
+            Our Fleet of Tow Trucks
+          </h2>
+          <p className="text-slate-500 text-center mb-12 max-w-2xl mx-auto">
+            CloseBy Towing maintains a diverse fleet of professionally equipped tow trucks ready to handle any situation. Every truck in our fleet is regularly serviced, inspected, and outfitted with the latest towing technology to ensure your vehicle is transported safely.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {FLEET.map((truck) => (
+              <div
+                key={truck.name}
+                className="bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-lg transition-all"
+              >
+                <div className="text-4xl mb-4">{truck.icon}</div>
+                <h3 className="text-2xl font-black text-slate-900 mb-4">{truck.name}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">{truck.desc}</p>
+                <ul className="space-y-2">
+                  {truck.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-2 text-slate-700 text-sm">
+                      <svg className="w-5 h-5 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 max-w-[800px] mx-auto">
+            <p className="text-slate-600 text-sm leading-relaxed text-center">
+              Not sure which tow truck type you need? Our dispatchers will recommend the right equipment based on your vehicle type, condition, and destination. For <Link href="/motorcycle-towing" className="text-[#1e1e4a] font-semibold underline underline-offset-2 hover:text-[#ffba42] transition-colors">motorcycle towing</Link>, we use specialized cradle systems that keep your bike secure and upright during transport. For post-accident situations, our <Link href="/collision-recovery" className="text-[#1e1e4a] font-semibold underline underline-offset-2 hover:text-[#ffba42] transition-colors">collision recovery</Link> team brings the appropriate equipment to safely extract and transport damaged vehicles.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 5: SAN DIEGO TOWING COVERAGE
       ═══════════════════════════════════════════════════════════ */}
       <section ref={setSectionRef(3)} className="animate-fade-up py-16 sm:py-24 px-6" style={{ background: '#fafafa' }}>
         <div className="max-w-[1400px] mx-auto">
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 text-center mb-4">
-            All Across San Diego
+            San Diego Towing Coverage
           </h2>
           <p className="text-slate-500 text-center mb-6 max-w-lg mx-auto">
             Covering I-5, I-8, 163 &amp; 805 — and every neighborhood in between.
           </p>
+          <p className="text-slate-500 text-center mb-6 max-w-2xl mx-auto text-sm leading-relaxed">
+            From Downtown San Diego to Pacific Beach, Mission Valley, La Jolla, El Cajon, and Chula Vista — our local tow truck drivers are already nearby. We provide tow truck service across all major San Diego freeways including Interstate 5, Interstate 8, Interstate 15, State Route 163, State Route 52, and Interstate 805.
+          </p>
           <p className="text-slate-500 text-center mb-12 max-w-2xl mx-auto text-sm leading-relaxed">
-            From Downtown San Diego to Pacific Beach, Mission Valley, La Jolla, El Cajon, and Chula Vista — our local tow truck drivers are already nearby.
+            Our drivers know every shortcut and back road in the county. Whether you break down near the Gaslamp Quarter, along the coast in Encinitas, or out east in Lakeside, a CloseBy tow truck is never far away. We also cover the border areas including San Ysidro, Otay Mesa, and Imperial Beach, and extend our service north to Carlsbad, Oceanside, and Escondido.
           </p>
 
           <div className="flex flex-wrap justify-center gap-3">
@@ -478,9 +737,12 @@ export default function TowTruckLandingPage() {
       ═══════════════════════════════════════════════════════════ */}
       <section ref={setSectionRef(5)} className="animate-fade-up py-16 sm:py-24 px-6 bg-white">
         <div className="max-w-[800px] mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 text-center mb-12">
-            Common Questions
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 text-center mb-4">
+            Tow Truck FAQ
           </h2>
+          <p className="text-slate-500 text-center mb-12 max-w-lg mx-auto">
+            Answers to common questions about our tow truck service, pricing, and fleet.
+          </p>
 
           <div className="space-y-4">
             {FAQS.map((faq, i) => (
@@ -503,6 +765,40 @@ export default function TowTruckLandingPage() {
                   </div>
                 )}
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION: CROSS-SERVICE LINKS
+      ═══════════════════════════════════════════════════════════ */}
+      <section ref={setSectionRef(9)} className="animate-fade-up py-16 sm:py-24 px-6" style={{ background: '#f8f7f4' }}>
+        <div className="max-w-[1400px] mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 text-center mb-4">
+            Explore Our Other Services
+          </h2>
+          <p className="text-slate-500 text-center mb-12 max-w-2xl mx-auto">
+            Beyond tow truck service, CloseBy Towing offers a full range of roadside and recovery solutions across San Diego County. Whatever your vehicle emergency, we have the equipment and expertise to help.
+          </p>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {CROSS_SERVICES.map((service) => (
+              <Link
+                key={service.name}
+                href={service.href}
+                className="group bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:border-amber-300 transition-all block"
+              >
+                <div className="text-3xl mb-4">{service.icon}</div>
+                <h3 className="font-bold text-slate-900 text-lg mb-2 group-hover:text-[#1e1e4a] transition-colors">
+                  {service.name}
+                  <svg className="inline-block w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </h3>
+                <p className="text-slate-500 text-sm leading-relaxed">{service.desc}</p>
+              </Link>
             ))}
           </div>
         </div>

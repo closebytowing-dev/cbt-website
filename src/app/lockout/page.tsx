@@ -69,6 +69,19 @@ export default function LockoutPage() {
       "opens": "00:00",
       "closes": "23:59"
     },
+    "areaServed": {
+      "@type": "Place",
+      "name": "San Diego County",
+      "geo": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 32.7157,
+          "longitude": -117.1611
+        },
+        "geoRadius": "50"
+      }
+    },
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
@@ -80,6 +93,25 @@ export default function LockoutPage() {
       "price": loading ? "75" : String(onlinePrice),
       "description": loading ? "Professional lockout service. Non-destructive car unlock." : `Professional lockout service. Non-destructive car unlock. $${onlinePrice} online, $${standardPrice} standard rate.`
     }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.closebytowing.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Lockout Service",
+        "item": "https://www.closebytowing.com/lockout"
+      }
+    ]
   };
 
   const faqSchema = {
@@ -117,6 +149,38 @@ export default function LockoutPage() {
           "@type": "Answer",
           "text": "Yes, we unlock all vehicles including Toyota, Honda, Ford, Tesla, and all other makes and models. Our technicians are trained on all vehicle types including keyless entry systems."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you unlock my car if I have a smart key or push-button start?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our technicians are trained to handle modern vehicles with smart keys, push-button start, and keyless entry systems. We use specialized techniques that work with all electronic lock systems without causing any damage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if my keys are locked in the trunk?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We handle trunk lockouts regularly. Our technicians can unlock the main cabin first and then access the trunk release, or use specialized tools to open the trunk directly depending on your vehicle model."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide lockout service for commercial vehicles and vans?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. We provide lockout service for all vehicle types including commercial vans, box trucks, work trucks, and fleet vehicles. Our technicians carry tools for both standard and commercial vehicle locks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is your lockout service available on holidays?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We operate 24 hours a day, 365 days a year, including all major holidays. Lockouts don't wait for business hours, and neither do we. Call us anytime at (858) 999-9293."
+        }
       }
     ]
   };
@@ -127,6 +191,10 @@ export default function LockoutPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <script
         type="application/ld+json"
@@ -152,7 +220,7 @@ export default function LockoutPage() {
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
-            <span>5.0 ⭐ Perfect Rating on Google</span>
+            <span>5.0 Perfect Rating on Google</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-2xl">🔓</span>
@@ -452,6 +520,82 @@ export default function LockoutPage() {
         </div>
       </section>
 
+      {/* TYPES OF LOCKOUTS WE HANDLE */}
+      <section className="py-24 px-6 bg-gradient-to-b from-white to-slate-50">
+        <div className="mx-auto max-w-[1400px]">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-slate-900 mb-4">
+              Types of Lockouts <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">We Handle</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
+              No matter how you got locked out, our trained technicians have the right tools and experience to get you back in your vehicle quickly and safely.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Standard Car Door Lockout",
+                desc: "The most common lockout scenario. Whether your keys are sitting on the seat, stuck in the ignition, or you accidentally hit the lock button while closing the door, we use professional air-wedge and long-reach tools to open your door in minutes. Works on all sedans, coupes, hatchbacks, and compact cars.",
+                icon: "🔑",
+                color: "from-red-500 to-orange-600"
+              },
+              {
+                title: "Trunk Lockout",
+                desc: "Keys locked in the trunk is more common than you might think. Our technicians access the trunk either through the cabin release or with specialized trunk-entry tools. We handle rear-entry vehicles, split-folding seats, and sealed trunk compartments across all vehicle makes and models.",
+                icon: "🚗",
+                color: "from-blue-500 to-cyan-600"
+              },
+              {
+                title: "Smart Key & Push-Button Start",
+                desc: "Modern vehicles with keyless entry and push-button start systems require specialized knowledge. Our technicians are trained on proximity key systems from Toyota, Honda, BMW, Mercedes, Tesla, and all other manufacturers. We bypass the electronic lock safely without affecting your key programming.",
+                icon: "📱",
+                color: "from-purple-500 to-indigo-600"
+              },
+              {
+                title: "SUV & Truck Lockout",
+                desc: "Larger vehicles like SUVs, pickup trucks, and crossovers often have different lock mechanisms than standard cars. Our technicians carry specialized long-reach tools sized for taller vehicles and are experienced with heavy-duty door frames on trucks from Ford, Chevy, Ram, Toyota, and more.",
+                icon: "🛻",
+                color: "from-green-500 to-emerald-600"
+              },
+              {
+                title: "Commercial Vehicle Lockout",
+                desc: "Locked out of your work van, box truck, or fleet vehicle? Downtime costs money. We prioritize commercial lockout calls and carry tools for commercial-grade lock systems found on Sprinter vans, cargo vans, and utility trucks. Get back to work fast with our rapid response service.",
+                icon: "📦",
+                color: "from-yellow-500 to-amber-600"
+              },
+              {
+                title: "Child or Pet Locked in Car",
+                desc: "This is our highest priority emergency. If a child or pet is locked inside a vehicle, call us immediately at (858) 999-9293 and also call 911. We dispatch our nearest technician at top speed for these life-threatening situations. There is no charge for child or pet rescue lockouts.",
+                icon: "🚨",
+                color: "from-red-600 to-red-800"
+              }
+            ].map((lockout, idx) => (
+              <div key={idx} className="group relative">
+                <div className={`absolute -inset-1 bg-gradient-to-r ${lockout.color} rounded-3xl opacity-0 group-hover:opacity-20 blur transition duration-500`}></div>
+                <div className="relative h-full p-8 bg-white rounded-3xl border-2 border-slate-200 hover:border-transparent transition-all duration-500 shadow-lg hover:shadow-2xl">
+                  <div className="text-5xl mb-4" aria-hidden="true">{lockout.icon}</div>
+                  <h3 className="text-xl font-black text-slate-900 mb-3">{lockout.title}</h3>
+                  <p className="text-slate-600 leading-relaxed">{lockout.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              Not sure if we can handle your specific lockout situation? Call us at{" "}
+              <a href="tel:+18589999293" className="font-bold text-red-600 hover:underline">(858) 999-9293</a>{" "}
+              and describe your situation. Our dispatchers will let you know exactly how we can help. If your vehicle also needs{" "}
+              <Link href="/towing" className="font-bold text-red-600 hover:underline">towing</Link>{" "}
+              or other{" "}
+              <Link href="/roadside-assistance" className="font-bold text-red-600 hover:underline">roadside assistance</Link>,
+              we can bundle services to save you time and money.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* WHY CHOOSE US */}
       <section className="py-24 px-6 bg-gradient-to-b from-slate-50 to-white">
         <div className="mx-auto max-w-[1400px]">
@@ -518,6 +662,127 @@ export default function LockoutPage() {
         </div>
       </section>
 
+      {/* SAN DIEGO COVERAGE AREA */}
+      <section className="py-24 px-6 bg-white">
+        <div className="mx-auto max-w-[1400px]">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-slate-900 mb-4">
+              San Diego <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">Lockout Coverage</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
+              We provide car lockout service across all of San Diego County. Our trucks are positioned throughout the region so we can reach you in 15-25 minutes no matter where you are.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Coverage description */}
+            <div className="space-y-6">
+              <h3 className="text-2xl font-black text-slate-900">Serving Every Corner of San Diego County</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Whether you are locked out in the busy streets of Downtown San Diego, at a beachside parking lot in Pacific Beach or Ocean Beach, or stranded in a suburban neighborhood in Poway or Rancho Bernardo, our lockout technicians are never far away. We cover all of central San Diego including Hillcrest, North Park, Mission Valley, and Kearny Mesa. Our coverage extends south to Chula Vista, National City, and Imperial Beach near the border, and north all the way through Del Mar, Encinitas, and Solana Beach along the coast.
+              </p>
+              <p className="text-slate-600 leading-relaxed">
+                Inland communities are fully covered as well. From La Mesa and El Cajon in the east to Mira Mesa, Scripps Ranch, and Rancho Penasquitos in the north, our dispatchers know the fastest routes to reach you. We also serve Coronado, Point Loma, Mission Beach, La Jolla, and University City. If you are anywhere in San Diego County and need a car unlocked, call us at{" "}
+                <a href="tel:+18589999293" className="font-bold text-red-600 hover:underline">(858) 999-9293</a>.
+              </p>
+              <p className="text-slate-600 leading-relaxed">
+                Our lockout service pairs perfectly with our other{" "}
+                <Link href="/roadside-assistance" className="font-bold text-red-600 hover:underline">roadside assistance</Link>{" "}
+                offerings. If you need a{" "}
+                <Link href="/jump-start" className="font-bold text-red-600 hover:underline">jump start</Link>,{" "}
+                <Link href="/tire-change" className="font-bold text-red-600 hover:underline">tire change</Link>,{" "}
+                <Link href="/gas-delivery" className="font-bold text-red-600 hover:underline">gas delivery</Link>, or{" "}
+                <Link href="/towing" className="font-bold text-red-600 hover:underline">towing service</Link>{" "}
+                at the same time, our technician can handle multiple services in a single visit.
+              </p>
+            </div>
+
+            {/* Area grid */}
+            <div>
+              <h3 className="text-2xl font-black text-slate-900 mb-6">Areas We Cover</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {[
+                  "Downtown", "Hillcrest", "North Park", "Pacific Beach",
+                  "Ocean Beach", "Point Loma", "La Jolla", "Mission Valley",
+                  "Kearny Mesa", "Mira Mesa", "Scripps Ranch", "Poway",
+                  "Rancho Bernardo", "Rancho Penasquitos", "Del Mar", "Encinitas",
+                  "Solana Beach", "Chula Vista", "National City", "Imperial Beach",
+                  "Coronado", "La Mesa", "El Cajon", "Santee",
+                  "Clairemont", "University City", "Carmel Valley", "Tierrasanta",
+                  "Mission Beach", "Spring Valley"
+                ].map((area) => (
+                  <div key={area} className="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 hover:bg-red-50 hover:border-red-200 transition-colors">
+                    <svg className="w-4 h-4 text-red-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-sm font-semibold text-slate-700">{area}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-4 text-sm text-slate-500 italic">
+                Plus many more neighborhoods throughout San Diego County. Call to confirm coverage in your area.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ SECTION */}
+      <section className="py-24 px-6 bg-gradient-to-b from-slate-50 to-white">
+        <div className="mx-auto max-w-[1000px]">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-4">
+              Frequently Asked <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">Questions</span>
+            </h2>
+            <p className="text-lg text-slate-600">Everything you need to know about our car lockout service in San Diego</p>
+          </div>
+
+          <div className="space-y-6">
+            {[
+              {
+                q: "How much does a car lockout service cost in San Diego?",
+                a: loading
+                  ? "Our lockout service has a flat rate when ordered online with no hidden fees, and our zero damage guarantee is included. We believe in transparent pricing with no surprise charges after the job is done."
+                  : `Our lockout service costs $${onlinePrice} flat rate when ordered online, or $${standardPrice} for phone orders. No hidden fees, and our zero damage guarantee is included. The price is the same whether it is daytime, nighttime, a weekend, or a holiday. We believe in transparent pricing with no surprise charges after the job is done.`
+              },
+              {
+                q: "How fast can you unlock my car?",
+                a: "Our average arrival time is 15-25 minutes. We have trucks strategically positioned across San Diego County for rapid emergency response 24/7. Once our technician arrives, the actual unlock process typically takes just 5 to 10 minutes depending on your vehicle type and lock system."
+              },
+              {
+                q: "Will you damage my car when unlocking it?",
+                a: "Absolutely not. We use professional air-wedge and long-reach tools with zero damage guaranteed. That means no scratches on your paint, no broken locks, and no damaged weatherstripping or door seals. Our technicians are specifically trained in non-destructive entry techniques. If any damage were to occur, our insurance fully covers it."
+              },
+              {
+                q: "Do you unlock all car makes and models?",
+                a: "Yes, we unlock all vehicles including Toyota, Honda, Ford, Chevrolet, Nissan, Hyundai, Kia, BMW, Mercedes-Benz, Audi, Tesla, and every other make and model on the road today. Our technicians carry a full range of tools and are trained on both domestic and import vehicles, including older classic cars and the latest models with advanced electronic locks."
+              },
+              {
+                q: "Can you unlock my car if I have a smart key or push-button start?",
+                a: "Yes. Our technicians are trained to handle modern vehicles with smart keys, push-button start, and keyless entry systems. We use specialized techniques that work with all electronic lock systems without causing any damage or affecting your key fob programming. This includes vehicles from Tesla, BMW, Mercedes, Lexus, and all other brands with proximity key technology."
+              },
+              {
+                q: "What if my keys are locked in the trunk?",
+                a: "We handle trunk lockouts regularly. Our technicians can unlock the main cabin first and then access the trunk release, or use specialized tools to open the trunk directly depending on your vehicle model. Either way, we get your keys back without damaging your vehicle."
+              },
+              {
+                q: "Do you provide lockout service for commercial vehicles and vans?",
+                a: "Absolutely. We provide lockout service for all vehicle types including commercial vans, box trucks, work trucks, and fleet vehicles. Our technicians carry tools for commercial-grade lock systems found on Sprinter vans, Ford Transits, cargo vans, and utility trucks. We know that downtime costs your business money, so we prioritize commercial lockout calls."
+              },
+              {
+                q: "Is your lockout service available on holidays and late at night?",
+                a: "Yes. We operate 24 hours a day, 365 days a year, including all major holidays such as Christmas, Thanksgiving, New Year's, and the Fourth of July. Lockouts do not wait for business hours, and neither do we. The price stays the same regardless of when you call. Reach us anytime at (858) 999-9293."
+              }
+            ].map((faq, idx) => (
+              <div key={idx} className="bg-white rounded-2xl border-2 border-slate-200 p-6 sm:p-8 hover:shadow-lg transition-shadow">
+                <h3 className="text-lg sm:text-xl font-black text-slate-900 mb-3">{faq.q}</h3>
+                <p className="text-slate-600 leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section className="relative py-32 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-red-900 via-slate-900 to-orange-900"></div>
@@ -578,15 +843,87 @@ export default function LockoutPage() {
         </div>
       </section>
 
-      {/* Other Services */}
-      <section className="py-20 px-6 bg-slate-50 border-t border-slate-200">
-        <div className="mx-auto max-w-[1600px]">
+      {/* CROSS-SERVICE LINKS */}
+      <section className="py-20 px-6 bg-white border-t border-slate-200">
+        <div className="mx-auto max-w-[1400px]">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-slate-900">Other Emergency Services</h3>
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mb-4">
+              Complete <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">Roadside Assistance</span> Services
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Locked out and need more help? CloseBy Towing offers a full range of emergency roadside services across San Diego County. Our technician can handle multiple services in one visit.
+            </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-6">
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Towing Service",
+                href: "/towing",
+                desc: "Flatbed and wheel-lift towing for all vehicle types. 24/7 emergency towing with a 20-minute average response time across San Diego.",
+                icon: "🚛"
+              },
+              {
+                name: "Roadside Assistance",
+                href: "/roadside-assistance",
+                desc: "Comprehensive roadside help including lockouts, jump starts, tire changes, and fuel delivery. One call covers all your needs.",
+                icon: "🛣️"
+              },
+              {
+                name: "Jump Start Service",
+                href: "/jump-start",
+                desc: "Dead battery? Our technicians carry professional-grade jump packs that work on all vehicles, including trucks and SUVs with large engines.",
+                icon: "🔋"
+              },
+              {
+                name: "Gas Delivery",
+                href: "/gas-delivery",
+                desc: "Ran out of gas on the freeway or in a parking lot? We deliver enough fuel to get you to the nearest gas station safely.",
+                icon: "⛽"
+              },
+              {
+                name: "Tire Change Service",
+                href: "/tire-change",
+                desc: "Flat tire and no spare experience? Our technicians swap your flat for your spare quickly and safely, getting you back on the road.",
+                icon: "🔧"
+              },
+              {
+                name: "Winch Out",
+                href: "/winch-out",
+                desc: "Stuck in mud, sand, a ditch, or a tight parking spot? Our winch-out service pulls your vehicle to safety without causing damage.",
+                icon: "⛓️"
+              }
+            ].map((service) => (
+              <Link
+                key={service.name}
+                href={service.href}
+                className="group block p-6 rounded-2xl bg-slate-50 border-2 border-slate-200 hover:border-red-500 hover:shadow-xl transition-all duration-300 hover:bg-white"
+              >
+                <div className="text-4xl mb-4" aria-hidden="true">{service.icon}</div>
+                <h3 className="text-xl font-black text-slate-900 group-hover:text-red-600 transition-colors mb-2">{service.name}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">{service.desc}</p>
+                <div className="mt-4 inline-flex items-center gap-1 text-red-600 font-bold text-sm group-hover:gap-2 transition-all">
+                  Learn More
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Other Services (compact link bar) */}
+      <section className="py-12 px-6 bg-slate-50 border-t border-slate-200">
+        <div className="mx-auto max-w-[1600px]">
+          <div className="text-center mb-8">
+            <h3 className="text-xl font-bold text-slate-900">Quick Links to All Services</h3>
+          </div>
+          <div className="flex flex-wrap justify-center gap-4">
             {[
               { name: "Towing", href: "/towing" },
+              { name: "Roadside Assistance", href: "/roadside-assistance" },
               { name: "Jump Start", href: "/jump-start" },
               { name: "Tire Change", href: "/tire-change" },
               { name: "Gas Delivery", href: "/gas-delivery" },
@@ -596,7 +933,7 @@ export default function LockoutPage() {
               <Link
                 key={service.name}
                 href={service.href}
-                className="px-8 py-4 rounded-2xl bg-white border-2 border-slate-200 hover:border-red-600 hover:shadow-xl transition-all duration-300 font-bold text-slate-900 hover:text-red-600 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-offset-2"
+                className="px-6 py-3 rounded-xl bg-white border-2 border-slate-200 hover:border-red-600 hover:shadow-lg transition-all duration-300 font-bold text-slate-900 hover:text-red-600 hover:scale-105 text-sm focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-offset-2"
               >
                 {service.name}
               </Link>

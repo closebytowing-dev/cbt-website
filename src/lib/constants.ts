@@ -67,6 +67,41 @@ export const SERVICES = {
     path: "/winch-out",
     description: "Professional winch-out and recovery services",
   },
+  roadsideAssistance: {
+    name: "Roadside Assistance",
+    path: "/roadside-assistance",
+    description: "Complete on-demand roadside assistance — no membership required",
+  },
+  motorcycleTowing: {
+    name: "Motorcycle Towing",
+    path: "/motorcycle-towing",
+    description: "Specialized motorcycle transport with soft straps and wheel chocks",
+  },
+  heavyDuty: {
+    name: "Heavy-Duty Towing",
+    path: "/heavyduty",
+    description: "Commercial-grade towing for trucks, RVs, and heavy equipment",
+  },
+  batteryReplacement: {
+    name: "Battery Replacement",
+    path: "/battery-replacement",
+    description: "Mobile car battery testing and replacement service",
+  },
+  longDistanceTowing: {
+    name: "Long Distance Towing",
+    path: "/long-distance-towing",
+    description: "Interstate and long-distance vehicle transport",
+  },
+  evTowing: {
+    name: "EV Towing",
+    path: "/ev-towing",
+    description: "Specialized flatbed towing for electric vehicles",
+  },
+  rvTowing: {
+    name: "RV Towing",
+    path: "/rv-towing",
+    description: "Motorhome, travel trailer, and RV transport service",
+  },
 } as const;
 
 // Pricing
@@ -136,6 +171,7 @@ export const TOP_LEVEL_ROUTES: Record<string, string> = {
   "alpine": "/alpine",
   "bankers-hill": "/bankers-hill",
   "bonita": "/bonita",
+  "carlsbad": "/carlsbad",
   "carmel-mountain": "/carmel-mountain",
   "carmel-valley": "/carmel-valley",
   "chula-vista": "/chula-vista",
@@ -147,6 +183,7 @@ export const TOP_LEVEL_ROUTES: Record<string, string> = {
   "downtown": "/downtown",
   "el-cajon": "/el-cajon",
   "encinitas": "/encinitas",
+  "escondido": "/escondido",
   "hillcrest": "/hillcrest",
   "imperial-beach": "/imperial-beach",
   "kearny-mesa": "/kearny-mesa",
@@ -167,6 +204,7 @@ export const TOP_LEVEL_ROUTES: Record<string, string> = {
   "normal-heights": "/normal-heights",
   "north-park": "/north-park",
   "ocean-beach": "/ocean-beach",
+  "oceanside": "/oceanside",
   "otay-mesa": "/otay-mesa",
   "pacific-beach": "/pacific-beach",
   "palm-city": "/palm-city",
@@ -180,6 +218,7 @@ export const TOP_LEVEL_ROUTES: Record<string, string> = {
   "sabre-springs": "/sabre-springs",
   "san-carlos": "/san-carlos",
   "san-diego": "/san-diego",
+  "san-marcos": "/san-marcos",
   "san-ysidro": "/san-ysidro",
   "santee": "/santee",
   "scripps-ranch": "/scripps-ranch",
@@ -192,6 +231,7 @@ export const TOP_LEVEL_ROUTES: Record<string, string> = {
   "torrey-hills": "/torrey-hills",
   "university-city": "/university-city",
   "university-heights": "/university-heights",
+  "vista": "/vista",
 };
 
 /** Return the canonical href for a San Diego area slug. */

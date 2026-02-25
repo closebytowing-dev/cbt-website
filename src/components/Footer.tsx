@@ -46,6 +46,9 @@ export default function Footer() {
                 <a href="/lockout" className="hover:text-white transition">Lockout Service</a>
                 <a href="/collision-recovery" className="hover:text-white transition">Collision Recovery</a>
                 <a href="/winch-out" className="hover:text-white transition">Winch-Out Service</a>
+                <a href="/roadside-assistance" className="hover:text-white transition">Roadside Assistance</a>
+                <a href="/motorcycle-towing" className="hover:text-white transition">Motorcycle Towing</a>
+                <a href="/heavyduty" className="hover:text-white transition">Heavy-Duty Towing</a>
               </nav>
             </div>
 

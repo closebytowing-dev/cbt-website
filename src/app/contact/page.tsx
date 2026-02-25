@@ -19,8 +19,62 @@ export default function ContactPage() {
     setTimeout(() => setSubmitted(false), 5000);
   };
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "name": "CloseBy Towing",
+        "telephone": "+1-858-999-9293",
+        "email": "info@closebytowing.com",
+        "url": "https://www.closebytowing.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "San Diego",
+          "addressRegion": "CA",
+          "postalCode": "92101",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "32.7157",
+          "longitude": "-117.1611"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "00:00",
+          "closes": "23:59"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "22"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-858-999-9293",
+          "contactType": "customer service",
+          "availableLanguage": ["English", "Spanish"],
+          "areaServed": "US"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.closebytowing.com" },
+          { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.closebytowing.com/contact" }
+        ]
+      }
+    ]
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <main className="min-h-screen bg-gradient-to-b from-[#1e1e4a] to-[#2a2a5a]">
         {/* Hero Section */}
         <section className="relative bg-[#1e1e4a] text-white py-12 sm:py-16 lg:py-24">
