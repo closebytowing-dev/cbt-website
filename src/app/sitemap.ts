@@ -38,6 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "long-distance-towing", priority: 0.85 },
     { path: "ev-towing", priority: 0.85 },
     { path: "rv-towing", priority: 0.85 },
+    { path: "towing-near-me", priority: 0.95 },
   ].map((service) => ({
     url: `${base}/${service.path}`,
     lastModified,
