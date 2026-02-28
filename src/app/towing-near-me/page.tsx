@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { CONTACT } from "@/lib/constants";
 import LeftPopup from "@/components/LeftPopup";
@@ -280,178 +281,98 @@ export default function TowingNearMePage() {
       {/* ═══════════════════════════════════
           1. HERO — Above the Fold
           ═══════════════════════════════════ */}
-      <section className="relative bg-gradient-to-br from-slate-950 via-slate-900 to-red-950 overflow-hidden">
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 opacity-[0.04]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-              backgroundSize: "32px 32px",
-            }}
+      <section className="relative min-h-[70vh] lg:min-h-[75vh] overflow-hidden">
+        {/* Full-bleed background image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/services/towing-near-me-hero.webp"
+            alt="CloseBy Towing flatbed truck carrying a classic Rolls-Royce in San Diego"
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
           />
+          {/* Cinematic overlays */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/75 to-slate-950/40 lg:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/30" />
         </div>
 
-        {/* Red glow accent */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-red-600/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 flex items-center min-h-[70vh] lg:min-h-[75vh]">
+          <div className="w-full lg:w-1/2 py-16 sm:py-20 lg:py-24 space-y-6 sm:space-y-7">
+            {/* Breadcrumb */}
+            <nav aria-label="Breadcrumb" className="text-sm text-white/50">
+              <Link href="/" className="hover:text-white/80 transition-colors">Home</Link>
+              <span className="mx-2">/</span>
+              <span className="text-white/70">Towing Near Me</span>
+            </nav>
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* Left: Copy + CTA */}
-            <div className="space-y-6 sm:space-y-8">
-              {/* Breadcrumb */}
-              <nav
-                aria-label="Breadcrumb"
-                className="text-sm text-white/50"
-              >
-                <Link href="/" className="hover:text-white/80">
-                  Home
-                </Link>
-                <span className="mx-2">/</span>
-                <span className="text-white/70">Towing Near Me</span>
-              </nav>
+            {/* Emergency badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/15 border border-red-500/30 backdrop-blur-sm">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500" />
+              </span>
+              <span className="text-red-300 font-bold text-sm tracking-wide">
+                EMERGENCY TOWING — DISPATCHING NOW
+              </span>
+            </div>
 
-              {/* Emergency badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/15 border border-red-500/30">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500" />
-                </span>
-                <span className="text-red-300 font-bold text-sm tracking-wide">
-                  EMERGENCY TOWING — DISPATCHING NOW
-                </span>
-              </div>
+            {/* H1 */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] text-white drop-shadow-lg">
+              24/7 Towing{" "}
+              <span className="bg-gradient-to-r from-red-400 via-orange-400 to-amber-400 bg-clip-text text-transparent">
+                Near You
+              </span>
+            </h1>
 
-              {/* H1 */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] text-white">
-                24/7 Towing{" "}
-                <span className="bg-gradient-to-r from-red-400 via-orange-400 to-amber-400 bg-clip-text text-transparent">
-                  Near You
-                </span>
-              </h1>
+            {/* Subheadline */}
+            <p className="text-lg sm:text-xl text-white/70 font-medium">
+              Fast Response &bull; Local Tow Trucks &bull; Available Now
+            </p>
 
-              {/* Subheadline */}
-              <p className="text-lg sm:text-xl text-white/70 font-medium">
-                Fast Response &bull; Local Tow Trucks &bull; Available
-                Now
-              </p>
+            {/* Primary CTA — Call */}
+            <a
+              href={`tel:${CONTACT.phoneRaw}`}
+              className="group inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 sm:px-10 py-5 sm:py-6 rounded-2xl font-black text-lg sm:text-xl bg-gradient-to-r from-red-600 to-red-700 text-white shadow-[0_20px_60px_rgba(220,38,38,0.4)] hover:shadow-[0_20px_80px_rgba(220,38,38,0.6)] hover:scale-[1.03] transition-all duration-300"
+            >
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
+              Call Now: {CONTACT.phone}
+            </a>
 
-              {/* Primary CTA — Call */}
-              <a
-                href={`tel:${CONTACT.phoneRaw}`}
-                className="group flex items-center justify-center gap-3 w-full sm:w-auto px-8 sm:px-10 py-5 sm:py-6 rounded-2xl font-black text-lg sm:text-xl bg-gradient-to-r from-red-600 to-red-700 text-white shadow-[0_20px_60px_rgba(220,38,38,0.4)] hover:shadow-[0_20px_80px_rgba(220,38,38,0.6)] hover:scale-[1.03] transition-all duration-300"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+            {/* Trust indicators */}
+            <div className="flex flex-wrap gap-3 pt-2">
+              {[
+                "Licensed & Insured",
+                "24/7 Emergency Service",
+                "Fast Local Dispatch",
+              ].map((label) => (
+                <div
+                  key={label}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm"
                 >
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                </svg>
-                Call Now: {CONTACT.phone}
-              </a>
-
-              {/* Trust indicators */}
-              <div className="flex flex-wrap gap-3 pt-2">
-                {[
-                  "Licensed & Insured",
-                  "24/7 Emergency Service",
-                  "Fast Local Dispatch",
-                ].map((label) => (
-                  <div
-                    key={label}
-                    className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10"
-                  >
-                    <svg
-                      className="w-4 h-4 text-emerald-400 flex-shrink-0"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span className="text-sm text-white/80 font-semibold">
-                      {label}
-                    </span>
-                  </div>
-                ))}
-              </div>
+                  <svg className="w-4 h-4 text-emerald-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-white/80 font-semibold">{label}</span>
+                </div>
+              ))}
             </div>
 
-            {/* Right: Image placeholder */}
-            <div className="relative hidden lg:block">
-              <div className="aspect-[4/5] rounded-3xl bg-slate-800/50 border-2 border-white/10 flex items-center justify-center overflow-hidden">
-                {/* Replace this div with an <Image> when photo is ready */}
-                <div className="text-center space-y-4 p-8">
-                  <div className="w-20 h-20 mx-auto rounded-2xl bg-white/5 flex items-center justify-center">
-                    <svg
-                      className="w-10 h-10 text-white/20"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
-                  </div>
-                  <p className="text-white/30 text-sm font-medium">
-                    Hero Image Placeholder
-                  </p>
-                </div>
+            {/* Stats row */}
+            <div className="grid grid-cols-3 gap-3 pt-4">
+              <div className="text-center bg-white/5 rounded-xl p-3 border border-white/10 backdrop-blur-sm">
+                <div className="text-lg font-black text-white">15–25 min</div>
+                <div className="text-[11px] text-white/50 font-medium">Avg. Response</div>
               </div>
-
-              {/* Floating stat cards */}
-              <div className="absolute -left-6 top-16 bg-white rounded-xl p-4 shadow-2xl">
-                <div className="text-2xl font-black text-red-600">
-                  15–25 min
-                </div>
-                <div className="text-xs text-slate-600 font-semibold">
-                  Avg. Response
-                </div>
+              <div className="text-center bg-white/5 rounded-xl p-3 border border-white/10 backdrop-blur-sm">
+                <div className="text-lg font-black text-white">24/7</div>
+                <div className="text-[11px] text-white/50 font-medium">Always On</div>
               </div>
-
-              <div className="absolute -right-4 bottom-24 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl p-4 shadow-2xl">
-                <div className="text-xl font-black text-white">
-                  5.0 Stars
-                </div>
-                <div className="text-xs text-white/80">
-                  Google Reviews
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile-only stats row */}
-          <div className="grid grid-cols-3 gap-3 mt-8 lg:hidden">
-            <div className="text-center bg-white/5 rounded-xl p-3 border border-white/10">
-              <div className="text-lg font-black text-white">
-                15–25 min
-              </div>
-              <div className="text-[11px] text-white/50 font-medium">
-                Avg. Response
-              </div>
-            </div>
-            <div className="text-center bg-white/5 rounded-xl p-3 border border-white/10">
-              <div className="text-lg font-black text-white">24/7</div>
-              <div className="text-[11px] text-white/50 font-medium">
-                Always On
-              </div>
-            </div>
-            <div className="text-center bg-white/5 rounded-xl p-3 border border-white/10">
-              <div className="text-lg font-black text-white">
-                5.0
-              </div>
-              <div className="text-[11px] text-white/50 font-medium">
-                Google Rating
+              <div className="text-center bg-white/5 rounded-xl p-3 border border-white/10 backdrop-blur-sm">
+                <div className="text-lg font-black text-white">5.0</div>
+                <div className="text-[11px] text-white/50 font-medium">Google Rating</div>
               </div>
             </div>
           </div>
