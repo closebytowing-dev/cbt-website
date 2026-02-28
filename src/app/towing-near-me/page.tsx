@@ -797,33 +797,6 @@ export default function TowingNearMePage() {
         </div>
       </section>
 
-      {/* ── Sticky Mobile Call Bar ── */}
-      <div
-        className="fixed bottom-0 left-0 right-0 z-50 lg:hidden"
-        style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)" }}
-      >
-        <a
-          href={`tel:${CONTACT.phoneRaw}`}
-          className="flex items-center justify-center gap-2 bg-gradient-to-r from-red-600 to-red-700 text-white font-black text-base py-4 px-6 shadow-[0_-4px_20px_rgba(0,0,0,0.3)]"
-        >
-          <svg
-            className="w-5 h-5"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-          </svg>
-          Call Now: {CONTACT.phone}
-        </a>
-      </div>
-      {/* Spacer for sticky bar */}
-      <div
-        className="lg:hidden"
-        style={{
-          height: "calc(3.5rem + env(safe-area-inset-bottom, 0px))",
-        }}
-      />
-
       {/* ── LeftPopup ── */}
       <LeftPopup />
     </main>
