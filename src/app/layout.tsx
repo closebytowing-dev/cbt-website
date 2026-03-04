@@ -92,9 +92,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           {/* Animated light sweep over the chrome border */}
           <div
-            className="absolute top-0 h-full w-[35%] pointer-events-none"
+            className="absolute top-0 h-full w-[40%] pointer-events-none"
             style={{
-              background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0) 10%, rgba(255,255,255,0.7) 45%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0.7) 55%, rgba(255,255,255,0) 90%, transparent 100%)",
+              background: "linear-gradient(90deg, transparent 0%, rgba(0,255,100,0) 5%, rgba(0,255,100,0.5) 15%, rgba(0,220,255,0.7) 30%, rgba(255,255,255,0.9) 50%, rgba(255,200,0,0.7) 70%, rgba(255,50,50,0.5) 85%, rgba(255,0,100,0) 95%, transparent 100%)",
               animation: "chromeSweep 3s ease-in-out infinite",
             }}
           />
