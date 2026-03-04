@@ -81,23 +81,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <Footer />
 
-        {/* ── Global Sticky Call Banner (mobile + desktop) ── */}
-        <div
-          className="fixed bottom-0 left-0 right-0 z-50"
-          style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)" }}
+        {/* ── Global Sticky Call Button (bottom-right) ── */}
+        <a
+          href="tel:+18589999293"
+          className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 bg-red-600 hover:bg-red-700 text-white font-black text-lg sm:text-xl py-3.5 sm:py-4 px-6 sm:px-8 rounded-full shadow-[0_8px_30px_rgba(220,38,38,0.5)] hover:shadow-[0_8px_40px_rgba(220,38,38,0.7)] hover:scale-105 transition-all duration-200"
+          style={{ marginBottom: "env(safe-area-inset-bottom, 0px)" }}
         >
-          <a
-            href="tel:+18589999293"
-            className="flex items-center justify-center gap-2 bg-gradient-to-r from-red-600 via-red-700 to-red-600 text-white font-black text-sm sm:text-base py-3.5 sm:py-4 px-6 shadow-[0_-4px_20px_rgba(0,0,0,0.3)] hover:from-red-700 hover:via-red-800 hover:to-red-700 transition-all"
-          >
-            <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-            </svg>
-            <span>Call Now: (858) 999-9293</span>
-          </a>
-        </div>
-        {/* Spacer so footer content isn't hidden behind sticky bar */}
-        <div style={{ height: "calc(3rem + env(safe-area-inset-bottom, 0px))" }} />
+          <svg className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+          </svg>
+          <span>(858) 999-9293</span>
+        </a>
 
         <GadsConversionTracker />
 

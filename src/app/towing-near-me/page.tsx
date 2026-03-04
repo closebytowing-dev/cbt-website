@@ -6,16 +6,16 @@ import LeftPopup from "@/components/LeftPopup";
 
 /* ── Metadata ── */
 export const metadata: Metadata = {
-  title: "Towing Near Me | 24/7 Tow Truck in San Diego & Nearby Areas",
+  title: "Tow Truck Near Me in San Diego | 24/7 Emergency Towing - CloseBy Towing",
   description:
-    "Looking for towing near me? CloseBy Towing provides fast 24/7 tow truck and roadside assistance across San Diego, Chula Vista, La Mesa & surrounding areas. Call now.",
+    "Looking for a tow truck near you? CloseBy Towing provides fast 24/7 towing across San Diego, Chula Vista, El Cajon, Poway, La Mesa, National City & nearby areas. Call (858) 999-9293.",
   keywords:
     "towing near me, tow truck near me, 24 hour towing near me, emergency towing near me, roadside assistance near me, towing service near me, closest tow truck, tow truck in my area, san diego towing near me",
-  alternates: { canonical: "/towing-near-me" },
+  alternates: { canonical: "https://www.closebytowing.com/towing-near-me" },
   openGraph: {
-    title: "Towing Near Me | 24/7 Tow Truck in San Diego & Nearby Areas",
+    title: "Tow Truck Near Me in San Diego | 24/7 Emergency Towing - CloseBy Towing",
     description:
-      "Looking for towing near me? CloseBy Towing provides fast 24/7 tow truck and roadside assistance across San Diego, Chula Vista, La Mesa & surrounding areas. Call now.",
+      "Fast local towing & emergency dispatch across San Diego County. Call (858) 999-9293.",
     url: "https://www.closebytowing.com/towing-near-me",
     type: "website",
   },
@@ -24,28 +24,28 @@ export const metadata: Metadata = {
 /* ── FAQ Data ── */
 const FAQ_ITEMS = [
   {
-    q: "How fast can you arrive?",
-    a: "Our average response time is 15–25 minutes across San Diego County. We dispatch the nearest available tow truck to your location and provide a real-time ETA so you know exactly when help arrives.",
+    q: "How fast can a tow truck reach me?",
+    a: "Most calls are dispatched quickly, and typical arrival times are about 15–25 minutes depending on your exact location and traffic conditions across San Diego County.",
   },
   {
-    q: "Are you available 24 hours?",
-    a: "Yes. CloseBy Towing operates 24 hours a day, 7 days a week, 365 days a year — including holidays and weekends. Whether it's 2 AM or rush hour, we're dispatching.",
+    q: "Do you offer 24/7 towing near me?",
+    a: "Yes. CloseBy Towing dispatches local drivers 24 hours a day, 7 days a week across San Diego County — including holidays, weekends, and late-night emergencies.",
   },
   {
-    q: "What areas do you serve?",
-    a: "We serve all of San Diego County, including San Diego, Chula Vista, La Mesa, El Cajon, National City, Pacific Beach, Downtown, Escondido, Oceanside, Carlsbad, Encinitas, and surrounding communities. If you're searching 'towing near me' anywhere in the county, we can reach you.",
-  },
-  {
-    q: "Do you offer flatbed towing?",
-    a: "Yes. We operate flatbed tow trucks ideal for luxury vehicles, AWD/4WD cars, lowered vehicles, motorcycles, and accident-damaged vehicles. Flatbed towing keeps all four wheels off the road for maximum safety.",
+    q: "What types of vehicles can you tow?",
+    a: "We tow most cars, SUVs, motorcycles, and light-duty trucks. For special situations like accidents or low-clearance vehicles, we can dispatch a flatbed when needed.",
   },
   {
     q: "How much does towing cost?",
-    a: "Local towing starts at $95 with $5 per mile after the first few miles. We provide an upfront quote before dispatch — no hidden fees, no surprises. The price you're quoted is the price you pay.",
+    a: "Pricing depends on factors like distance, vehicle type, and service needs. We always provide an upfront quote before dispatch — no hidden fees. Call us at (858) 999-9293 for a quick quote and immediate dispatch.",
   },
   {
-    q: "What should I do while waiting for a tow truck?",
-    a: "Stay safe: turn on your hazard lights, move to the shoulder if possible, stay inside your vehicle on busy roads, and set up reflective triangles or flares if you have them. Our dispatcher will keep you updated on your driver's ETA.",
+    q: "Do you provide roadside assistance too?",
+    a: "Yes. In addition to towing, we offer jump starts, lockouts, tire changes, and fuel delivery in many areas across San Diego.",
+  },
+  {
+    q: "What areas do you serve?",
+    a: "We serve all of San Diego County, including San Diego, Chula Vista, La Mesa, El Cajon, National City, Poway, Pacific Beach, Kearny Mesa, Clairemont, Spring Valley, Coronado, and surrounding communities.",
   },
 ];
 
@@ -84,19 +84,13 @@ const localBusinessSchema = {
     opens: "00:00",
     closes: "23:59",
   },
-  areaServed: {
-    "@type": "Place",
-    name: "San Diego County",
-    geo: {
-      "@type": "GeoCircle",
-      geoMidpoint: {
-        "@type": "GeoCoordinates",
-        latitude: 32.7157,
-        longitude: -117.1611,
-      },
-      geoRadius: "50",
-    },
-  },
+  areaServed: [
+    "San Diego", "Chula Vista", "National City", "La Mesa", "El Cajon",
+    "Poway", "Mission Valley", "Kearny Mesa", "Downtown San Diego",
+    "Pacific Beach", "Clairemont", "Spring Valley", "Lemon Grove",
+    "Imperial Beach", "Coronado",
+  ].map((name) => ({ "@type": "City", name })),
+  serviceType: ["Towing", "Emergency Towing", "Flatbed Towing", "Roadside Assistance"],
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "5.0",
@@ -161,6 +155,13 @@ const REVIEWS = [
   },
 ];
 
+/* ── Response Times ── */
+const RESPONSE_TIMES = [
+  { area: "Downtown / Central SD", time: "~15 minutes", icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" },
+  { area: "Chula Vista / South Bay", time: "~20 minutes", icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" },
+  { area: "El Cajon / East County", time: "~20 minutes", icon: "M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" },
+];
+
 /* ── Services ── */
 const SERVICES = [
   {
@@ -196,28 +197,58 @@ const SERVICES = [
     icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z",
     icon2: "M15 11a3 3 0 11-6 0 3 3 0 016 0z",
   },
+  {
+    title: "Jump Start Service",
+    desc: "Dead battery? We'll come to you and get your car started fast — no membership needed. Available 24/7 across San Diego.",
+    href: "/jump-start",
+    icon: "M13 10V3L4 14h7v7l9-11h-7z",
+  },
+  {
+    title: "Lockout Service",
+    desc: "Locked your keys in the car? Our trained technicians can safely unlock your vehicle without damage. Fast response, any time of day.",
+    href: "/lockout",
+    icon: "M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z",
+  },
+  {
+    title: "Tire Change",
+    desc: "Flat tire on the freeway or in a parking lot? We'll swap your spare on fast so you can get moving again safely.",
+    href: "/tire-change",
+    icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z",
+    icon2: "M15 12a3 3 0 11-6 0 3 3 0 016 0z",
+  },
+  {
+    title: "Gas Delivery",
+    desc: "Ran out of fuel? We'll bring enough gas to get you to the nearest station. No need to walk — just call and we'll come to you.",
+    href: "/gas-delivery",
+    icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z",
+  },
 ];
 
 /* ── Coverage Areas ── */
 const AREAS = [
   "San Diego",
   "Chula Vista",
-  "La Mesa",
   "National City",
+  "La Mesa",
   "El Cajon",
-  "Pacific Beach",
-  "Downtown",
-  "La Jolla",
+  "Poway",
   "Mission Valley",
-  "Escondido",
-  "Oceanside",
-  "Carlsbad",
+  "Kearny Mesa",
+  "Downtown San Diego",
+  "Pacific Beach",
+  "Clairemont",
+  "Spring Valley",
+  "Lemon Grove",
+  "Imperial Beach",
+  "Coronado",
+  "La Jolla",
   "North Park",
   "Hillcrest",
   "Point Loma",
-  "Coronado",
   "Santee",
-  "Poway",
+  "Escondido",
+  "Oceanside",
+  "Carlsbad",
 ];
 
 /* ── Why Choose Us ── */
@@ -319,9 +350,12 @@ export default function TowingNearMePage() {
 
             {/* H1 */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] text-white drop-shadow-lg">
-              24/7 Towing{" "}
+              Tow Truck{" "}
               <span className="bg-gradient-to-r from-red-400 via-orange-400 to-amber-400 bg-clip-text text-transparent">
-                Near You
+                Near Me
+              </span>
+              <span className="block text-2xl sm:text-3xl lg:text-4xl mt-2 text-white/80 font-bold">
+                in San Diego &mdash; 24/7 Emergency Towing
               </span>
             </h1>
 
@@ -435,7 +469,56 @@ export default function TowingNearMePage() {
       </section>
 
       {/* ═══════════════════════════════════
-          3. SERVICES PROVIDED
+          3. ARRIVAL TIME RESPONSE CARDS
+          ═══════════════════════════════════ */}
+      <section className="py-14 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-slate-900 to-slate-950 text-white">
+        <div className="mx-auto max-w-5xl">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl font-black mb-3">
+              Tow Truck Near You in Minutes
+            </h2>
+            <p className="text-lg text-white/60 max-w-2xl mx-auto">
+              We dispatch from strategic locations across San Diego County so a
+              truck is always close to your location.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-3 gap-6">
+            {RESPONSE_TIMES.map((rt) => (
+              <div
+                key={rt.area}
+                className="rounded-2xl bg-white/5 border border-white/10 p-6 text-center hover:bg-white/10 transition-colors"
+              >
+                <div className="w-14 h-14 mx-auto rounded-xl bg-red-500/15 flex items-center justify-center mb-4">
+                  <svg
+                    className="w-7 h-7 text-red-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d={rt.icon}
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold mb-1">{rt.area}</h3>
+                <p className="text-2xl font-black text-red-400">{rt.time}</p>
+                <p className="text-sm text-white/40 mt-1">avg. arrival</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-center text-sm text-white/40 mt-8">
+            Times are averages and may vary based on traffic, weather, and call volume.
+          </p>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════
+          4. SERVICES PROVIDED
           ═══════════════════════════════════ */}
       <section className="py-14 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-slate-50 to-white">
         <div className="mx-auto max-w-6xl">
@@ -508,7 +591,7 @@ export default function TowingNearMePage() {
       </section>
 
       {/* ═══════════════════════════════════
-          4. WHY CHOOSE CLOSEBY TOWING
+          5. WHY CHOOSE CLOSEBY TOWING
           ═══════════════════════════════════ */}
       <section className="py-14 sm:py-20 px-4 sm:px-6 bg-slate-900 text-white">
         <div className="mx-auto max-w-6xl">
@@ -565,7 +648,7 @@ export default function TowingNearMePage() {
       </section>
 
       {/* ═══════════════════════════════════
-          5. REVIEWS / SOCIAL PROOF
+          6. REVIEWS / SOCIAL PROOF
           ═══════════════════════════════════ */}
       <section className="py-14 sm:py-20 px-4 sm:px-6 bg-white">
         <div className="mx-auto max-w-6xl">
@@ -663,7 +746,7 @@ export default function TowingNearMePage() {
       </section>
 
       {/* ═══════════════════════════════════
-          6. FAQ SECTION
+          7. FAQ SECTION
           ═══════════════════════════════════ */}
       <section className="py-14 sm:py-20 px-4 sm:px-6 bg-slate-50 border-t border-slate-200">
         <div className="mx-auto max-w-3xl">
@@ -703,7 +786,7 @@ export default function TowingNearMePage() {
       </section>
 
       {/* ═══════════════════════════════════
-          7. FINAL CTA
+          8. FINAL CTA
           ═══════════════════════════════════ */}
       <section className="py-14 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-slate-950 via-slate-900 to-red-950 text-white text-center">
         <div className="mx-auto max-w-3xl space-y-6">
