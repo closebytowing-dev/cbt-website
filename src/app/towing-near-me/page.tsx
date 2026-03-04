@@ -349,19 +349,19 @@ export default function TowingNearMePage() {
             </div>
 
             {/* H1 */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] text-white drop-shadow-lg">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.1] text-white drop-shadow-lg">
               Tow Truck{" "}
               <span className="bg-gradient-to-r from-red-400 via-orange-400 to-amber-400 bg-clip-text text-transparent">
                 Near Me
-              </span>
-              <span className="block text-2xl sm:text-3xl lg:text-4xl mt-2 text-white/80 font-bold">
-                in San Diego &mdash; 24/7 Emergency Towing
-              </span>
+              </span>{" "}
+              in San Diego &ndash; 24/7 Emergency Towing
             </h1>
 
-            {/* Subheadline */}
-            <p className="text-lg sm:text-xl text-white/70 font-medium">
-              Fast Response &bull; Local Tow Trucks &bull; Available Now
+            {/* Supporting sentence */}
+            <p className="text-lg sm:text-xl text-white/75 leading-relaxed max-w-xl">
+              Looking for a tow truck near you? CloseBy Towing dispatches
+              local tow trucks across San Diego with fast 15&ndash;25 minute
+              response times.
             </p>
 
             {/* Primary CTA — Call */}
@@ -419,17 +419,18 @@ export default function TowingNearMePage() {
       <section className="py-14 sm:py-20 px-4 sm:px-6 bg-white border-b border-slate-100">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mb-6 text-center">
-            Towing Service Wherever You Are in San Diego
+            Serving Drivers Across San Diego County
           </h2>
 
           <div className="space-y-5 text-lg text-slate-600 leading-relaxed">
             <p>
-              When you search &ldquo;towing near me,&rdquo; you need a
-              company that&rsquo;s actually close. CloseBy Towing has
-              drivers positioned across San Diego County so we can
-              reach you fast — whether you&rsquo;re stuck on the I-5
-              in{" "}
-              <strong className="text-slate-800">Downtown San Diego</strong>, broken down on the 8 near{" "}
+              CloseBy Towing dispatches drivers throughout San Diego and
+              nearby communities. When you search &ldquo;towing near
+              me&rdquo; or need a 24 hour tow truck near you, our team
+              is already positioned across the county — ready to respond
+              whether you&rsquo;re stuck on the I-5 in{" "}
+              <strong className="text-slate-800">Downtown San Diego</strong>,
+              broken down on the 8 near{" "}
               <strong className="text-slate-800">La Mesa</strong>, or
               dealing with a flat tire in{" "}
               <strong className="text-slate-800">Pacific Beach</strong>.
@@ -437,11 +438,12 @@ export default function TowingNearMePage() {
             <p>
               Our dispatch system identifies the nearest available
               truck to your GPS location. That&rsquo;s how we maintain
-              a 15–25 minute average response time across communities
+              a 15&ndash;25 minute average response time across communities
               like{" "}
               <strong className="text-slate-800">Chula Vista</strong>,{" "}
               <strong className="text-slate-800">National City</strong>,{" "}
-              <strong className="text-slate-800">El Cajon</strong>,
+              <strong className="text-slate-800">El Cajon</strong>,{" "}
+              <strong className="text-slate-800">Poway</strong>,
               and everywhere in between. No long waits, no
               runaround — just a professional driver heading your way.
             </p>
@@ -478,8 +480,11 @@ export default function TowingNearMePage() {
               Tow Truck Near You in Minutes
             </h2>
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
-              We dispatch from strategic locations across San Diego County so a
-              truck is always close to your location.
+              Our drivers are positioned at strategic locations across San
+              Diego County so a tow truck is always close to your location.
+              Most calls are answered and dispatched within minutes, with
+              typical arrival times of 15&ndash;25 minutes depending on
+              traffic and your exact location.
             </p>
           </div>
 
@@ -591,7 +596,75 @@ export default function TowingNearMePage() {
       </section>
 
       {/* ═══════════════════════════════════
-          5. WHY CHOOSE CLOSEBY TOWING
+          5. EMERGENCY TOWING + KEYWORD CONTENT
+          ═══════════════════════════════════ */}
+      <section className="py-14 sm:py-20 px-4 sm:px-6 bg-white border-b border-slate-100">
+        <div className="mx-auto max-w-4xl space-y-5 text-lg text-slate-600 leading-relaxed">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mb-6 text-center">
+            Emergency Towing When You Need It Most
+          </h2>
+          <p>
+            Whether you&rsquo;re searching for{" "}
+            <strong className="text-slate-800">towing near me</strong>,{" "}
+            a <strong className="text-slate-800">24 hour tow truck near me</strong>,{" "}
+            or <strong className="text-slate-800">emergency towing near me</strong>,{" "}
+            CloseBy Towing is the local company that San Diego drivers rely
+            on. We operate around the clock — 24 hours a day, 7 days a
+            week, 365 days a year — so no matter when your car breaks down
+            or you&rsquo;re involved in an accident, help is just a phone
+            call away.
+          </p>
+          <p>
+            Our emergency towing service covers every major freeway in San
+            Diego County, including the I-5, I-8, I-15, SR-163, and
+            SR-94. We also respond to calls in residential neighborhoods,
+            shopping centers, parking garages, and apartment complexes.
+            When you need a tow truck fast, we dispatch the closest
+            available driver to your exact GPS location so you&rsquo;re
+            not waiting longer than necessary.
+          </p>
+          <p>
+            Beyond standard towing, we offer a full range of roadside
+            services to get you back on the road quickly. If your battery
+            is dead, our{" "}
+            <Link href="/jump-start" className="text-red-600 font-semibold hover:underline">
+              jump start service
+            </Link>{" "}
+            can help. Locked your keys in the car? Our{" "}
+            <Link href="/lockout" className="text-red-600 font-semibold hover:underline">
+              lockout service
+            </Link>{" "}
+            gets you back inside without damage. Got a flat? We provide{" "}
+            <Link href="/tire-change" className="text-red-600 font-semibold hover:underline">
+              tire change assistance
+            </Link>{" "}
+            right where you are. And if you&rsquo;ve run out of fuel,
+            our{" "}
+            <Link href="/gas-delivery" className="text-red-600 font-semibold hover:underline">
+              gas delivery
+            </Link>{" "}
+            service brings enough to get you to the nearest station.
+          </p>
+          <p>
+            All of our services are available without a membership or
+            subscription. Just call{" "}
+            <a href={`tel:${CONTACT.phoneRaw}`} className="text-red-600 font-semibold hover:underline">
+              {CONTACT.phone}
+            </a>{" "}
+            and we&rsquo;ll provide an upfront quote before dispatching a
+            driver. Every operator is licensed, insured, and trained to
+            handle your vehicle with care — whether it&rsquo;s a daily
+            commuter, a luxury car, or a motorcycle. For full towing
+            details, visit our{" "}
+            <Link href="/towing" className="text-red-600 font-semibold hover:underline">
+              towing service page
+            </Link>.
+          </p>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════
+          6. WHY CHOOSE CLOSEBY TOWING
           ═══════════════════════════════════ */}
       <section className="py-14 sm:py-20 px-4 sm:px-6 bg-slate-900 text-white">
         <div className="mx-auto max-w-6xl">
@@ -648,7 +721,7 @@ export default function TowingNearMePage() {
       </section>
 
       {/* ═══════════════════════════════════
-          6. REVIEWS / SOCIAL PROOF
+          7. REVIEWS / SOCIAL PROOF
           ═══════════════════════════════════ */}
       <section className="py-14 sm:py-20 px-4 sm:px-6 bg-white">
         <div className="mx-auto max-w-6xl">
@@ -746,7 +819,7 @@ export default function TowingNearMePage() {
       </section>
 
       {/* ═══════════════════════════════════
-          7. FAQ SECTION
+          8. FAQ SECTION
           ═══════════════════════════════════ */}
       <section className="py-14 sm:py-20 px-4 sm:px-6 bg-slate-50 border-t border-slate-200">
         <div className="mx-auto max-w-3xl">
@@ -786,7 +859,7 @@ export default function TowingNearMePage() {
       </section>
 
       {/* ═══════════════════════════════════
-          8. FINAL CTA
+          9. FINAL CTA
           ═══════════════════════════════════ */}
       <section className="py-14 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-slate-950 via-slate-900 to-red-950 text-white text-center">
         <div className="mx-auto max-w-3xl space-y-6">
