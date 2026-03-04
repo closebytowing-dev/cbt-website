@@ -114,6 +114,19 @@ body {
 }
 
 
+/* ===== Chrome Border Light Sweep ===== */
+@keyframes chromeSweep {
+  0% {
+    left: -40%;
+  }
+  40% {
+    left: 120%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+
 /* ===== Shimmer Animation for CTA Buttons ===== */
 @keyframes shimmer {
   0% {
