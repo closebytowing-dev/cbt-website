@@ -49,6 +49,30 @@ const FAQ_ITEMS = [
   },
 ];
 
+/* ── Reviews ── */
+const REVIEWS = [
+  {
+    name: "Joe Barajas",
+    text: "I had my 1968 MGB towed by CloseBy Towing. Daniel was friendly, professional and the price was reasonable. Highly recommend.",
+    date: "Recent",
+  },
+  {
+    name: "Brenda Valadez",
+    text: "Great service! The driver arrived sooner than expected, and made a stressful situation much easier! If you ever need roadside assistance this is the company to call!",
+    date: "Recent",
+  },
+  {
+    name: "Jacob Perkins",
+    text: "Fantastic and professional towing service. Very friendly and very fair, affordable prices. Would recommend to anyone looking for a tow.",
+    date: "Recent",
+  },
+  {
+    name: "Adam Perse'",
+    text: "This company was very fast and helpful. I blew a tire on Olympic Parkway during rush hour traffic and they truly made me feel like a priority.",
+    date: "Recent",
+  },
+];
+
 /* ── Schema ── */
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -96,6 +120,12 @@ const localBusinessSchema = {
     ratingValue: "5.0",
     reviewCount: "50",
   },
+  review: REVIEWS.map((r) => ({
+    "@type": "Review",
+    author: { "@type": "Person", name: r.name },
+    reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+    reviewBody: r.text,
+  })),
   sameAs: [
     "https://facebook.com/closebytowing",
     "https://twitter.com/closebytowing",
@@ -130,30 +160,6 @@ const breadcrumbSchema = {
     },
   ],
 };
-
-/* ── Reviews ── */
-const REVIEWS = [
-  {
-    name: "Joe Barajas",
-    text: "I had my 1968 MGB towed by CloseBy Towing. Daniel was friendly, professional and the price was reasonable. Highly recommend.",
-    date: "Recent",
-  },
-  {
-    name: "Brenda Valadez",
-    text: "Great service! The driver arrived sooner than expected, and made a stressful situation much easier! If you ever need roadside assistance this is the company to call!",
-    date: "Recent",
-  },
-  {
-    name: "Jacob Perkins",
-    text: "Fantastic and professional towing service. Very friendly and very fair, affordable prices. Would recommend to anyone looking for a tow.",
-    date: "Recent",
-  },
-  {
-    name: "Adam Perse'",
-    text: "This company was very fast and helpful. I blew a tire on Olympic Parkway during rush hour traffic and they truly made me feel like a priority.",
-    date: "Recent",
-  },
-];
 
 /* ── Response Times ── */
 const RESPONSE_TIMES = [
@@ -359,9 +365,10 @@ export default function TowingNearMePage() {
 
             {/* Supporting sentence */}
             <p className="text-lg sm:text-xl text-white/75 leading-relaxed max-w-xl">
-              Looking for a tow truck near you? CloseBy Towing dispatches
-              local tow trucks across San Diego with fast 15&ndash;25 minute
-              response times.
+              Looking for a tow truck near you in San Diego? CloseBy Towing
+              dispatches local drivers across the city with fast 15&ndash;25
+              minute response times for emergency towing and roadside
+              assistance.
             </p>
 
             {/* Primary CTA — Call */}
@@ -424,6 +431,12 @@ export default function TowingNearMePage() {
 
           <div className="space-y-5 text-lg text-slate-600 leading-relaxed">
             <p>
+              If you&rsquo;re searching for &ldquo;towing near me&rdquo; or
+              &ldquo;24 hour tow truck near me,&rdquo; CloseBy Towing has
+              drivers positioned throughout San Diego County ready to
+              dispatch quickly to your location.
+            </p>
+            <p>
               CloseBy Towing dispatches drivers throughout San Diego and
               nearby communities. When you search &ldquo;towing near
               me&rdquo; or need a 24 hour tow truck near you, our team
@@ -440,9 +453,15 @@ export default function TowingNearMePage() {
               truck to your GPS location. That&rsquo;s how we maintain
               a 15&ndash;25 minute average response time across communities
               like{" "}
-              <strong className="text-slate-800">Chula Vista</strong>,{" "}
-              <strong className="text-slate-800">National City</strong>,{" "}
-              <strong className="text-slate-800">El Cajon</strong>,{" "}
+              <Link href="/chula-vista" className="text-red-600 font-semibold hover:underline">
+                Chula Vista
+              </Link>,{" "}
+              <Link href="/national-city" className="text-red-600 font-semibold hover:underline">
+                National City
+              </Link>,{" "}
+              <Link href="/el-cajon" className="text-red-600 font-semibold hover:underline">
+                El Cajon
+              </Link>,{" "}
               <strong className="text-slate-800">Poway</strong>,
               and everywhere in between. No long waits, no
               runaround — just a professional driver heading your way.
@@ -453,6 +472,23 @@ export default function TowingNearMePage() {
               handling of your vehicle. From routine breakdowns to
               accident recovery, we treat every call like an
               emergency because to you, it is one.
+            </p>
+            <p>
+              In addition to emergency towing, CloseBy Towing provides
+              roadside assistance services including{" "}
+              <Link href="/jump-start" className="text-red-600 font-semibold hover:underline">
+                jump starts
+              </Link>,{" "}
+              <Link href="/lockout" className="text-red-600 font-semibold hover:underline">
+                car lockout service
+              </Link>,{" "}
+              <Link href="/tire-change" className="text-red-600 font-semibold hover:underline">
+                tire changes
+              </Link>, and{" "}
+              <Link href="/gas-delivery" className="text-red-600 font-semibold hover:underline">
+                fuel delivery
+              </Link>{" "}
+              across San Diego.
             </p>
           </div>
 
@@ -619,13 +655,21 @@ export default function TowingNearMePage() {
             Diego County, including the I-5, I-8, I-15, SR-163, and
             SR-94. We also respond to calls in residential neighborhoods,
             shopping centers, parking garages, and apartment complexes.
+            If your vehicle needs damage-free transport, we offer{" "}
+            <Link href="/san-diego/flatbed-towing" className="text-red-600 font-semibold hover:underline">
+              flatbed towing in San Diego
+            </Link>{" "}
+            for luxury cars, AWD vehicles, and accident-damaged vehicles.
             When you need a tow truck fast, we dispatch the closest
             available driver to your exact GPS location so you&rsquo;re
             not waiting longer than necessary.
           </p>
           <p>
-            Beyond standard towing, we offer a full range of roadside
-            services to get you back on the road quickly. If your battery
+            Beyond standard towing, we offer a full range of{" "}
+            <Link href="/roadside-assistance" className="text-red-600 font-semibold hover:underline">
+              roadside assistance
+            </Link>{" "}
+            to get you back on the road quickly. If your battery
             is dead, our{" "}
             <Link href="/jump-start" className="text-red-600 font-semibold hover:underline">
               jump start service
@@ -831,6 +875,7 @@ export default function TowingNearMePage() {
             {FAQ_ITEMS.map((faq, idx) => (
               <details
                 key={idx}
+                {...(idx === 0 ? { open: true } : {})}
                 className="group rounded-xl border border-slate-200 bg-white overflow-hidden"
               >
                 <summary className="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer select-none font-bold text-slate-900 hover:bg-slate-50 transition-colors">
