@@ -4,7 +4,10 @@ import { usePathname } from "next/navigation";
 
 export default function StickyCallButton() {
   const pathname = usePathname();
-  if (pathname.startsWith("/partners/signup")) return null;
+  if (
+    pathname.startsWith("/partners/signup") ||
+    pathname.startsWith("/partners/signin")
+  ) return null;
 
   return (
     <div
