@@ -228,7 +228,9 @@ export default function PartnerSignupPage() {
           className="object-cover object-top"
           priority
         />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+        {/* Extra darken band on the right so the form card pops too */}
+        <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-black/55 to-transparent pointer-events-none" />
       </div>
 
       {/* Main Content - Responsive layout */}
@@ -236,155 +238,69 @@ export default function PartnerSignupPage() {
 
         {/* Right side container - Auth Card + Tier Cards - with banners positioned relative to it */}
         <div className="flex flex-col items-center lg:items-end gap-2 lg:gap-8 flex-shrink-0 relative w-full max-w-[512px] lg:max-w-none lg:w-auto">
-          {/* Banners - Absolutely positioned to the left of auth card */}
-          <div className="hidden lg:flex flex-col gap-6 absolute right-[108%] top-[5.5vh]">
-            {/* Blue Banner */}
-            <div className="relative flex-shrink-0">
-              <div className="bg-black/40 backdrop-blur-md px-14 py-10 rounded-2xl shadow-2xl relative w-[504px] overflow-hidden">
-                <h3 className="text-4xl font-bold text-white mb-3 relative z-10">You Send Us Tows</h3>
-                <p className="text-white text-xl relative z-10 mb-4">
-                  Earn <span className="font-extrabold text-white bg-black px-3 py-1 rounded-lg">10-20%</span> commission on every referral
-                </p>
-                <ul className="space-y-2 relative z-10">
-                  <li className="flex items-center gap-2 text-white text-lg">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Quick 30-second referral form</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-white text-lg">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Track all your referrals in real-time</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-white text-lg">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Get paid weekly or faster</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Green Banner */}
-            <div className="relative flex-shrink-0">
-              <div className="bg-black/40 backdrop-blur-md px-14 py-10 rounded-2xl shadow-2xl relative w-[504px] overflow-hidden">
-                <div className="flex items-center gap-4 mb-3 relative z-10">
-                  <h3 className="text-4xl font-bold text-white">We Send You Work</h3>
-                  <span className="text-xl font-extrabold text-white bg-black px-3 py-1 rounded-lg">FREE</span>
-                </div>
-                <p className="text-white text-xl relative z-10 mb-4">
-                  We send customers <span className="font-semibold text-white">straight to you</span>
-                </p>
-                <ul className="space-y-2 relative z-10">
-                  <li className="flex items-center gap-2 text-white text-lg">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Free leads from our towing customers</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-white text-lg">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>No fees or hidden charges</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-white text-lg">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Grow your business effortlessly</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+          {/* Desktop hero headline - absolutely positioned in the left half of the hero image */}
+          <div className="hidden lg:block absolute right-[108%] top-[5.5vh] w-[504px]">
+            <h1 className="text-5xl xl:text-6xl font-black text-white leading-[1.05] tracking-tight mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+              Your customer needs a tow.<br />
+              We&apos;re 20 minutes away.
+            </h1>
+            <p className="text-xl xl:text-2xl text-white/95 leading-relaxed mb-3 drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
+              Send the job to us. Get paid same-day via Zelle.
+            </p>
+            <p className="text-xl xl:text-2xl font-bold text-white mb-6 drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
+              Earn <span className="text-amber-300">20–30% commission</span> on every tow.
+            </p>
+            <ul className="space-y-3 text-white/95 text-lg drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
+              <li className="flex items-start gap-3">
+                <svg className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
+                <span>No fees, no contracts, no minimums</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
+                <span>Sign up in 30 seconds</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
+                <span>We handle the customer — you just send the lead</span>
+              </li>
+            </ul>
           </div>
-        {/* Mobile Conversion Text - Only visible on mobile */}
-        <div className="lg:hidden text-center mb-2 px-2">
-          <h2 className="text-xl sm:text-2xl font-bold text-white">
-            Earn More. Grow Together.
-          </h2>
-        </div>
-
-        {/* ═══ PREMIUM B2B TAGLINE - The Signature Element ═══ */}
-        <div className="w-full mb-3 lg:mb-4">
-          <div className="relative group">
-            {/* Outer glow effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-amber-500/20 via-white/10 to-amber-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-
-            {/* Main container */}
-            <div className="relative bg-gradient-to-r from-black/60 via-black/40 to-black/60 backdrop-blur-md rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 border border-white/10 overflow-hidden">
-              {/* Animated gradient border */}
-              <div className="absolute inset-0 rounded-xl sm:rounded-2xl">
-                <div className="absolute inset-[-1px] bg-gradient-to-r from-transparent via-amber-400/30 to-transparent rounded-xl sm:rounded-2xl animate-shimmer"></div>
-              </div>
-
-              {/* Subtle top highlight line */}
-              <div className="absolute top-0 left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
-
-              {/* Content */}
-              <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
-                {/* Left decorative element */}
-                <div className="hidden sm:flex items-center gap-2">
-                  <div className="w-8 h-[1px] bg-gradient-to-r from-transparent to-amber-400/60"></div>
-                  <div className="w-1.5 h-1.5 rounded-full bg-amber-400/80 animate-pulse"></div>
-                </div>
-
-                {/* Main tagline */}
-                <div className="text-center">
-                  <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-amber-200/80 font-medium mb-1">B2B Partnership</p>
-                  <h3 className="text-base sm:text-lg lg:text-xl font-bold tracking-wide">
-                    <span className="bg-gradient-to-r from-white via-amber-100 to-white bg-clip-text text-transparent">The More You Refer</span>
-                    <span className="mx-2 text-amber-400/60">·</span>
-                    <span className="bg-gradient-to-r from-amber-200 via-amber-100 to-amber-200 bg-clip-text text-transparent">The More We Refer</span>
-                  </h3>
-                </div>
-
-                {/* Right decorative element */}
-                <div className="hidden sm:flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-amber-400/80 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                  <div className="w-8 h-[1px] bg-gradient-to-l from-transparent to-amber-400/60"></div>
-                </div>
-              </div>
-
-              {/* Learn More link */}
-              <div className="relative z-10 flex justify-center mt-2">
-                <button
-                  onClick={() => {
-                    const section = document.querySelector('section');
-                    if (section) section.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="group/link flex items-center gap-1.5 text-xs sm:text-sm text-white/60 hover:text-amber-300 transition-colors duration-300"
-                >
-                  <span className="tracking-wider">View Partnership Benefits</span>
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4 transform group-hover/link:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-
-              {/* Bottom subtle line */}
-              <div className="absolute bottom-0 left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-            </div>
-          </div>
-
-          {/* Shimmer animation */}
-          <style jsx>{`
-            @keyframes shimmer {
-              0% { transform: translateX(-100%); }
-              100% { transform: translateX(100%); }
-            }
-            .animate-shimmer {
-              animation: shimmer 3s ease-in-out infinite;
-            }
-          `}</style>
+        {/* Mobile hero headline - stacked above the form */}
+        <div className="lg:hidden text-left mb-4 px-2 w-full">
+          <h1 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-3 drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
+            Your customer needs a tow.<br />
+            We&apos;re 20 minutes away.
+          </h1>
+          <p className="text-base sm:text-lg text-white/95 mb-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
+            Send the job to us. Get paid same-day via Zelle.
+          </p>
+          <p className="text-base sm:text-lg font-bold text-white mb-3 drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
+            Earn <span className="text-amber-300">20–30% commission</span> on every tow.
+          </p>
+          <ul className="space-y-2 text-white/95 text-sm sm:text-base drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
+            <li className="flex items-start gap-2">
+              <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
+              <span>No fees, no contracts, no minimums</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
+              <span>Sign up in 30 seconds</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
+              <span>We handle the customer — you just send the lead</span>
+            </li>
+          </ul>
         </div>
 
         {/* Auth Card - Responsive width */}
         <div className="w-full lg:w-[512px] flex-shrink-0">
           <div className="bg-gray-200/30 backdrop-blur-[2px] rounded-2xl shadow-2xl overflow-hidden border border-white/40">
+          {/* Form card headline */}
+          <div className="text-center pt-6 px-6">
+            <h2 className="text-2xl sm:text-3xl font-black text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">Start Earning Today</h2>
+            <p className="text-sm sm:text-base text-white/85 mt-1 drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]">Free to join. Same-day payouts. Cancel anytime.</p>
+          </div>
           {/* Logo - Full width, cropped top/bottom empty space */}
           <div className="overflow-hidden">
             <Image
@@ -548,7 +464,7 @@ export default function PartnerSignupPage() {
                     Creating Account...
                   </span>
                 ) : (
-                  "Join Now"
+                  "Sign Up Free →"
                 )}
               </button>
 
@@ -560,6 +476,33 @@ export default function PartnerSignupPage() {
         </div>
       </div>
     </div>
+
+    {/* ═══ HOW IT WORKS - 3-step strip ═══ */}
+    <section className="relative z-20 bg-[#1e1e4a] pt-12 sm:pt-16 lg:pt-20 pb-[26vh] px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-3xl sm:text-4xl font-black text-white mb-2">How It Works</h2>
+          <p className="text-base sm:text-lg text-white/70">From referral to payment in three simple steps.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <div className="text-center">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-amber-500 flex items-center justify-center text-2xl font-black text-white shadow-lg shadow-amber-500/30">1</div>
+            <h3 className="text-xl font-bold text-white mb-2">Customer needs a tow</h3>
+            <p className="text-white/80">You call or text us the job</p>
+          </div>
+          <div className="text-center">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-amber-500 flex items-center justify-center text-2xl font-black text-white shadow-lg shadow-amber-500/30">2</div>
+            <h3 className="text-xl font-bold text-white mb-2">We dispatch a driver</h3>
+            <p className="text-white/80">Customer gets help in 20 minutes</p>
+          </div>
+          <div className="text-center">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-amber-500 flex items-center justify-center text-2xl font-black text-white shadow-lg shadow-amber-500/30">3</div>
+            <h3 className="text-xl font-bold text-white mb-2">You get paid same-day</h3>
+            <p className="text-white/80">Up to 30% commission via Zelle</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     {/* ═══════════════════════════════════════════════════════════════════════════════
         MAGNIFICENT BRIDGE SECTION - Where Hero Meets Value
