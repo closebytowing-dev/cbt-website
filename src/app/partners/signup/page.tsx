@@ -263,6 +263,10 @@ export default function PartnerSignupPage() {
                 <svg className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
                 <span>We handle the customer — you just send the lead</span>
               </li>
+              <li className="flex items-start gap-3">
+                <svg className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
+                <span>When our customers ask for a mechanic, we recommend our partners — ranked by who sends us the most tows</span>
+              </li>
             </ul>
           </div>
         {/* Mobile hero headline - stacked above the form */}
@@ -289,6 +293,10 @@ export default function PartnerSignupPage() {
             <li className="flex items-start gap-2">
               <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
               <span>We handle the customer — you just send the lead</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
+              <span>When our customers ask for a mechanic, we recommend our partners — ranked by who sends us the most tows</span>
             </li>
           </ul>
         </div>
