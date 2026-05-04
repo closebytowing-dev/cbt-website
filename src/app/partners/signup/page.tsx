@@ -713,17 +713,17 @@ export default function PartnerSignupPage() {
                       </svg>
                     </div>
                   </div>
-                  <div className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-800 mb-2 tracking-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.5)]">10<span className="text-3xl sm:text-4xl">%</span></div>
+                  <div className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-800 mb-2 tracking-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.5)]">20<span className="text-3xl sm:text-4xl">%</span></div>
                   <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">Commission per referral</p>
                   <div className="h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent mb-6"></div>
                   <ul className="space-y-3 text-gray-700 text-sm">
                     <li className="flex items-center gap-3">
                       <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
-                      0-10 referrals/month
+                      0–5 jobs in last 30 days
                     </li>
                     <li className="flex items-center gap-3">
                       <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
-                      Weekly payments
+                      Same-day payments
                     </li>
                     <li className="flex items-center gap-3">
                       <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
@@ -760,17 +760,17 @@ export default function PartnerSignupPage() {
                       </svg>
                     </div>
                   </div>
-                  <div className="text-5xl sm:text-6xl lg:text-7xl font-black text-[#7B5B00] mb-2 tracking-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.5)]">15<span className="text-3xl sm:text-4xl">%</span></div>
+                  <div className="text-5xl sm:text-6xl lg:text-7xl font-black text-[#7B5B00] mb-2 tracking-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.5)]">25<span className="text-3xl sm:text-4xl">%</span></div>
                   <p className="text-sm sm:text-base text-[#8B6914] mb-4 sm:mb-6">Commission per referral</p>
                   <div className="h-px bg-gradient-to-r from-transparent via-[#B8860B] to-transparent mb-6"></div>
                   <ul className="space-y-3 text-[#6B4F00] text-sm">
                     <li className="flex items-center gap-3">
                       <svg className="w-5 h-5 text-[#8B6914]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
-                      11-25 referrals/month
+                      6–9 jobs in last 30 days
                     </li>
                     <li className="flex items-center gap-3">
                       <svg className="w-5 h-5 text-[#8B6914]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
-                      Bi-weekly payments
+                      Same-day payments
                     </li>
                     <li className="flex items-center gap-3">
                       <svg className="w-5 h-5 text-[#8B6914]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
@@ -804,13 +804,13 @@ export default function PartnerSignupPage() {
                       </svg>
                     </div>
                   </div>
-                  <div className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-800 mb-2 tracking-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.5)]">20<span className="text-3xl sm:text-4xl">%</span></div>
+                  <div className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-800 mb-2 tracking-tight drop-shadow-[0_2px_2px_rgba(255,255,255,0.5)]">30<span className="text-3xl sm:text-4xl">%</span></div>
                   <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">Commission per referral</p>
                   <div className="h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent mb-6"></div>
                   <ul className="space-y-3 text-gray-700 text-sm">
                     <li className="flex items-center gap-3">
                       <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
-                      26+ referrals/month
+                      10+ jobs in last 30 days
                     </li>
                     <li className="flex items-center gap-3">
                       <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
