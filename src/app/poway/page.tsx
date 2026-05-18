@@ -627,7 +627,7 @@ export default function PowayPage() {
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://www.closebytowing.com" },
-              { "@type": "ListItem", position: 2, name: "San Diego Towing", item: "https://www.closebytowing.com/san-diego" },
+              { "@type": "ListItem", position: 2, name: "San Diego", item: "https://www.closebytowing.com/san-diego" },
               { "@type": "ListItem", position: 3, name: "Poway Towing", item: "https://www.closebytowing.com/poway" },
             ],
           }),

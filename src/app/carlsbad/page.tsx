@@ -688,7 +688,7 @@ export default function CarlsbadPage() {
               {
                 "@type": "ListItem",
                 position: 2,
-                name: "San Diego Towing",
+                name: "San Diego",
                 item: "https://www.closebytowing.com/san-diego",
               },
               {

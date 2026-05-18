@@ -27,14 +27,6 @@ export default function RVTowingPage() {
       "content",
       "Professional RV towing in San Diego. Class A, B, C motorhomes, travel trailers, fifth wheels & toy haulers. Heavy-duty equipment, insured transport. Call (858) 999-9293."
     );
-
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.setAttribute("rel", "canonical");
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute("href", "https://www.closebytowing.com/rv-towing");
   }, []);
 
   /* ── Schema.org structured data ── */

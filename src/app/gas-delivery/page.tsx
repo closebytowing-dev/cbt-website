@@ -32,16 +32,6 @@ export default function GasDeliveryPage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Set canonical URL
-  useEffect(() => {
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute('href', 'https://www.closebytowing.com/gas-delivery');
-  }, []);
 
   // FAQ data used for both rendering and schema
   const faqItems = [

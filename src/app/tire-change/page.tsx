@@ -31,15 +31,6 @@ export default function TireChangePage() {
     } else {
       metaDesc.setAttribute('content', "Stranded with a flat tire? Professional tire change service in San Diego. Fast response, all vehicles. Available 24/7. Call (858) 999-9293 for immediate help.");
     }
-
-    // Set canonical URL
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute('href', 'https://www.closebytowing.com/tire-change');
   }, [loading, onlinePrice]);
 
   const schema = {

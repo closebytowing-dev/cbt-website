@@ -28,15 +28,6 @@ export default function HeavyDutyTowingPage() {
       "content",
       "Heavy duty towing in San Diego. Semi-trucks, buses, RVs, construction equipment & commercial vehicles. 50+ ton capacity, 15-25 min response. Licensed & insured. Call (858) 999-9293."
     );
-
-    // Set canonical URL
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute('href', 'https://www.closebytowing.com/heavyduty');
   }, []);
 
   const schema = {

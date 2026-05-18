@@ -30,15 +30,6 @@ export default function CollisionRecoveryPage() {
       document.head.appendChild(metaDesc);
     }
     metaDesc.setAttribute('content', 'IMMEDIATE accident towing San Diego! Professional collision recovery in 15-25 minutes. Insurance direct billing. Licensed, insured, GPS tracking. Call (858) 999-9293 NOW!');
-
-    // Set canonical URL
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute('href', 'https://www.closebytowing.com/collision-recovery');
   }, []);
 
   const enhancedSchema = {

@@ -606,7 +606,7 @@ export default function LaMesaPage() {
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://www.closebytowing.com" },
-              { "@type": "ListItem", position: 2, name: "San Diego Towing", item: "https://www.closebytowing.com/san-diego" },
+              { "@type": "ListItem", position: 2, name: "San Diego", item: "https://www.closebytowing.com/san-diego" },
               { "@type": "ListItem", position: 3, name: "La Mesa Towing", item: "https://www.closebytowing.com/la-mesa" },
             ],
           }),
