@@ -421,7 +421,7 @@ export default function AlliedGardensPage() {
             {SERVICES.map((service, i) => (
               <Link
                 key={service.slug}
-                href={["towing","jump-start","lockout","tire-change","gas-delivery","winch-out","collision-recovery"].includes(service.slug) ? `/${service.slug}` : `/san-diego/${service.slug}`}
+                href={areaHref(service.slug)}
                 className="group flex items-start justify-between gap-8 py-6 border-b border-stone-300 hover:bg-stone-200/50 transition-colors px-2"
               >
                 <div className="flex items-start gap-5">
@@ -561,7 +561,7 @@ export default function AlliedGardensPage() {
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://www.closebytowing.com" },
-              { "@type": "ListItem", position: 2, name: "San Diego Towing", item: "https://www.closebytowing.com/san-diego/towing" },
+              { "@type": "ListItem", position: 2, name: "San Diego Towing", item: "https://www.closebytowing.com/towing" },
               { "@type": "ListItem", position: 3, name: "Allied Gardens", item: "https://www.closebytowing.com/allied-gardens" },
             ],
           }),

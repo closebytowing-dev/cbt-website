@@ -162,81 +162,14 @@ export const SEO = {
   twitterHandle: "@CloseByTowing",
 } as const;
 
-// ── Top-Level Area Routes ──
-// Neighborhoods promoted from /san-diego/[slug] to /[slug].
-// Add a slug here and areaHref() will return the short URL everywhere.
-export const TOP_LEVEL_ROUTES: Record<string, string> = {
-  "4s-ranch": "/4s-ranch",
-  "allied-gardens": "/allied-gardens",
-  "alpine": "/alpine",
-  "bankers-hill": "/bankers-hill",
-  "bonita": "/bonita",
-  "carlsbad": "/carlsbad",
-  "carmel-mountain": "/carmel-mountain",
-  "carmel-valley": "/carmel-valley",
-  "chula-vista": "/chula-vista",
-  "clairemont": "/clairemont",
-  "college-area": "/college-area",
-  "coronado": "/coronado",
-  "del-cerro": "/del-cerro",
-  "del-mar": "/del-mar",
-  "downtown": "/downtown",
-  "el-cajon": "/el-cajon",
-  "encinitas": "/encinitas",
-  "escondido": "/escondido",
-  "hillcrest": "/hillcrest",
-  "imperial-beach": "/imperial-beach",
-  "kearny-mesa": "/kearny-mesa",
-  "la-jolla": "/la-jolla",
-  "la-mesa": "/la-mesa",
-  "lakeside": "/lakeside",
-  "lemon-grove": "/lemon-grove",
-  "lincoln-park": "/lincoln-park",
-  "linda-vista": "/linda-vista",
-  "logan-heights": "/logan-heights",
-  "mira-mesa": "/mira-mesa",
-  "mission-bay": "/mission-bay",
-  "mission-beach": "/mission-beach",
-  "mission-hills": "/mission-hills",
-  "mission-valley": "/mission-valley",
-  "national-city": "/national-city",
-  "nestor": "/nestor",
-  "normal-heights": "/normal-heights",
-  "north-park": "/north-park",
-  "ocean-beach": "/ocean-beach",
-  "oceanside": "/oceanside",
-  "otay-mesa": "/otay-mesa",
-  "pacific-beach": "/pacific-beach",
-  "palm-city": "/palm-city",
-  "paradise-hills": "/paradise-hills",
-  "point-loma": "/point-loma",
-  "poway": "/poway",
-  "rancho-bernardo": "/rancho-bernardo",
-  "rancho-penasquitos": "/rancho-penasquitos",
-  "rancho-san-diego": "/rancho-san-diego",
-  "rancho-santa-fe": "/rancho-santa-fe",
-  "sabre-springs": "/sabre-springs",
-  "san-carlos": "/san-carlos",
-  "san-diego": "/san-diego",
-  "san-marcos": "/san-marcos",
-  "san-ysidro": "/san-ysidro",
-  "santee": "/santee",
-  "scripps-ranch": "/scripps-ranch",
-  "serra-mesa": "/serra-mesa",
-  "skyline": "/skyline",
-  "solana-beach": "/solana-beach",
-  "sorrento-valley": "/sorrento-valley",
-  "spring-valley": "/spring-valley",
-  "tierrasanta": "/tierrasanta",
-  "torrey-hills": "/torrey-hills",
-  "university-city": "/university-city",
-  "university-heights": "/university-heights",
-  "vista": "/vista",
-};
-
-/** Return the canonical href for a San Diego area slug. */
+/**
+ * Return the canonical href for an area or service slug.
+ * All neighborhood and service pages now live at top-level URLs after the
+ * /san-diego/[slug] → /[slug] migration, so this is a thin wrapper kept for
+ * a single point of update if URL structure changes again.
+ */
 export function areaHref(slug: string): string {
-  return TOP_LEVEL_ROUTES[slug] ?? `/san-diego/${slug}`;
+  return `/${slug}`;
 }
 
 // Business Hours

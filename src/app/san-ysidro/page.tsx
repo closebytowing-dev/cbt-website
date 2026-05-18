@@ -379,7 +379,7 @@ export default function SanYsidroPage() {
             {SERVICES.map((service, i) => (
               <Link
                 key={service.slug}
-                href={`/san-diego/${service.slug}`}
+                href={areaHref(service.slug)}
                 className="group relative bg-slate-900/80 hover:bg-slate-800/80 border border-slate-800 hover:border-emerald-500/40 rounded-2xl p-6 transition-all duration-300"
               >
                 <div className="flex items-start justify-between mb-3">
@@ -543,7 +543,7 @@ export default function SanYsidroPage() {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.closebytowing.com" },
-            { "@type": "ListItem", "position": 2, "name": "San Diego Towing", "item": "https://www.closebytowing.com/san-diego/towing" },
+            { "@type": "ListItem", "position": 2, "name": "San Diego Towing", "item": "https://www.closebytowing.com/towing" },
             { "@type": "ListItem", "position": 3, "name": "San Ysidro", "item": "https://www.closebytowing.com/san-ysidro" },
           ],
         }) }}

@@ -580,7 +580,7 @@ export default function MissionBeachPage() {
                 "@type": "ListItem",
                 position: 2,
                 name: "San Diego Towing",
-                item: "https://www.closebytowing.com/san-diego/towing",
+                item: "https://www.closebytowing.com/towing",
               },
               {
                 "@type": "ListItem",

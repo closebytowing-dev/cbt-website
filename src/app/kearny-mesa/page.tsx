@@ -209,7 +209,7 @@ export default function KearnyMesaPage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {SERVICES.map((s) => (
-              <Link key={s.slug} href={`/san-diego/${s.slug}`} className="group bg-slate-50 hover:bg-blue-50 rounded-xl p-6 transition-all hover:shadow-lg border border-slate-100 hover:border-blue-200 text-center">
+              <Link key={s.slug} href={areaHref(s.slug)} className="group bg-slate-50 hover:bg-blue-50 rounded-xl p-6 transition-all hover:shadow-lg border border-slate-100 hover:border-blue-200 text-center">
                 <div className="text-4xl mb-4">{s.icon}</div>
                 <h3 className="font-bold text-slate-900 group-hover:text-blue-600">{s.name}</h3>
               </Link>
@@ -288,7 +288,7 @@ export default function KearnyMesaPage() {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "San Diego Towing",
-                  "item": "https://www.closebytowing.com/san-diego/towing"
+                  "item": "https://www.closebytowing.com/towing"
             },
             {
                   "@type": "ListItem",

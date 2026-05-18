@@ -295,9 +295,9 @@ const FAQ_DATA = [
   },
 ];
 
-/** Resolve the correct href for a neighborhood */
-function neighborhoodHref(slug: string, topLevel?: boolean) {
-  return topLevel ? `/${slug}` : `/san-diego/${slug}`;
+/** Resolve the correct href for a neighborhood. All neighborhoods live at top-level URLs after the /san-diego/[slug] → /[slug] migration. */
+function neighborhoodHref(slug: string) {
+  return `/${slug}`;
 }
 
 export default function SanDiegoPage() {
@@ -510,7 +510,7 @@ export default function SanDiegoPage() {
                       {region.neighborhoods.map((n) => (
                         <Link
                           key={n.slug}
-                          href={neighborhoodHref(n.slug, "topLevel" in n && n.topLevel)}
+                          href={neighborhoodHref(n.slug)}
                           className={`group flex items-center gap-2 px-4 py-3 rounded-xl border border-slate-100 hover:${c.border} hover:${c.bg} transition-all duration-150`}
                         >
                           <svg className={`w-4 h-4 ${c.text} opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0`} fill="none" viewBox="0 0 24 24" stroke="currentColor">

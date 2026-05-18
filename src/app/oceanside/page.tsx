@@ -502,7 +502,7 @@ export default function OceansidePage() {
             {SERVICES.map((service) => (
               <Link
                 key={service.slug}
-                href={`/san-diego/${service.slug}`}
+                href={areaHref(service.slug)}
                 className="group bg-slate-900 hover:bg-slate-800 rounded-xl p-6 transition-all duration-300 hover:shadow-xl border border-slate-800 hover:border-indigo-500/50"
               >
                 <div className="flex items-start gap-4">
@@ -688,7 +688,7 @@ export default function OceansidePage() {
                 "@type": "ListItem",
                 position: 2,
                 name: "San Diego Towing",
-                item: "https://www.closebytowing.com/san-diego/towing",
+                item: "https://www.closebytowing.com/towing",
               },
               {
                 "@type": "ListItem",

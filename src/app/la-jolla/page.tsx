@@ -527,7 +527,7 @@ export default function LaJollaPage() {
             {PREMIUM_SERVICES.map((service) => (
               <Link
                 key={service.slug}
-                href={`/san-diego/${service.slug}`}
+                href={areaHref(service.slug)}
                 className="group bg-slate-50 hover:bg-gradient-to-br hover:from-amber-50 hover:to-orange-50 rounded-3xl p-8 transition-all duration-300 border border-slate-100 hover:border-amber-200 hover:shadow-xl"
               >
                 <div className="flex items-start gap-6">
@@ -712,7 +712,7 @@ export default function LaJollaPage() {
                 "@type": "ListItem",
                 position: 2,
                 name: "San Diego Towing",
-                item: "https://www.closebytowing.com/san-diego/towing",
+                item: "https://www.closebytowing.com/towing",
               },
               {
                 "@type": "ListItem",

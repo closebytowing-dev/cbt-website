@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { TOP_LEVEL_ROUTES, areaHref } from "@/lib/constants";
+import { areaHref } from "@/lib/constants";
 
 // Map of area names to their slugs (areas with dedicated pages)
 const AREA_SLUGS: Record<string, string> = {

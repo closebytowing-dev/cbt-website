@@ -486,7 +486,7 @@ export default function FourSRanchPage() {
             {SERVICES.map((service, i) => (
               <Link
                 key={service.slug}
-                href={["towing","jump-start","lockout","tire-change","gas-delivery","winch-out","collision-recovery"].includes(service.slug) ? `/${service.slug}` : `/san-diego/${service.slug}`}
+                href={areaHref(service.slug)}
                 className="group flex flex-col md:flex-row items-start md:items-center gap-6 bg-stone-50 hover:bg-gradient-to-r hover:from-teal-50 hover:to-emerald-50 rounded-2xl p-6 md:p-8 transition-all duration-300 border border-stone-100 hover:border-teal-200 hover:shadow-lg"
               >
                 {/* Number */}
@@ -632,7 +632,7 @@ export default function FourSRanchPage() {
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://www.closebytowing.com" },
-              { "@type": "ListItem", position: 2, name: "San Diego Towing", item: "https://www.closebytowing.com/san-diego/towing" },
+              { "@type": "ListItem", position: 2, name: "San Diego Towing", item: "https://www.closebytowing.com/towing" },
               { "@type": "ListItem", position: 3, name: "4S Ranch", item: "https://www.closebytowing.com/4s-ranch" },
             ],
           }),

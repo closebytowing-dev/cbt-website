@@ -453,7 +453,7 @@ export default function SanMarcosPage() {
             {SERVICES.map((service) => (
               <Link
                 key={service.slug}
-                href={`/san-diego/${service.slug}`}
+                href={areaHref(service.slug)}
                 className="group bg-white/5 hover:bg-white/10 rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-indigo-400/30 transition-all"
               >
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-blue-600 text-white flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-lg shadow-indigo-500/20">

@@ -361,7 +361,7 @@ export default function RanchoBernardoPage() {
             {SERVICES.map((service) => (
               <Link
                 key={service.slug}
-                href={`/san-diego/${service.slug}`}
+                href={areaHref(service.slug)}
                 className="group bg-slate-50 hover:bg-rose-50 rounded-xl p-6 transition-all hover:shadow-lg border border-slate-100 hover:border-rose-200 text-center"
               >
                 <div className="text-4xl mb-4">{service.icon}</div>
@@ -502,7 +502,7 @@ export default function RanchoBernardoPage() {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "San Diego Towing",
-                  "item": "https://www.closebytowing.com/san-diego/towing"
+                  "item": "https://www.closebytowing.com/towing"
             },
             {
                   "@type": "ListItem",

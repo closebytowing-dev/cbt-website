@@ -185,13 +185,13 @@ const SERVICES = [
   {
     title: "Emergency Towing San Diego",
     desc: "Dedicated emergency response across the San Diego metro area. We cover every freeway, neighborhood, and parking lot in the city.",
-    href: "/san-diego/emergency-towing",
+    href: "/emergency-towing",
     icon: "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z",
   },
   {
     title: "Flatbed Towing",
     desc: "The safest towing method for luxury cars, AWD vehicles, motorcycles, and accident-damaged vehicles. All four wheels stay off the road.",
-    href: "/san-diego/flatbed-towing",
+    href: "/flatbed-towing",
     icon: "M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z",
     icon2:
       "M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0",
@@ -199,7 +199,7 @@ const SERVICES = [
   {
     title: "San Diego Towing",
     desc: "Our main San Diego towing hub — local coverage across every neighborhood, freeway, and community in the county.",
-    href: "/san-diego/towing",
+    href: "/towing",
     icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z",
     icon2: "M15 11a3 3 0 11-6 0 3 3 0 016 0z",
   },
@@ -656,7 +656,7 @@ export default function TowingNearMePage() {
             SR-94. We also respond to calls in residential neighborhoods,
             shopping centers, parking garages, and apartment complexes.
             If your vehicle needs damage-free transport, we offer{" "}
-            <Link href="/san-diego/flatbed-towing" className="text-red-600 font-semibold hover:underline">
+            <Link href="/flatbed-towing" className="text-red-600 font-semibold hover:underline">
               flatbed towing in San Diego
             </Link>{" "}
             for luxury cars, AWD vehicles, and accident-damaged vehicles.
