@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     title: "Flatbed Towing San Diego | 24/7 | CloseBy",
     description:
       "Premium flatbed towing for luxury, exotic, AWD & specialty vehicles. Zero-damage transport guaranteed. 24/7 availability.",
-    url: "https://www.closebytowing.com/san-diego/flatbed-towing",
+    url: "https://www.closebytowing.com/flatbed-towing",
     type: "website",
   },
   alternates: {
-    canonical: "https://www.closebytowing.com/san-diego/flatbed-towing",
+    canonical: "https://www.closebytowing.com/flatbed-towing",
   },
 };
 
@@ -497,7 +497,7 @@ export default function FlatbedTowingPage() {
             {RELATED_SERVICES.map((service) => (
               <Link
                 key={service.slug}
-                href={`/san-diego/${service.slug}`}
+                href={`/${service.slug}`}
                 className="group bg-slate-50 hover:bg-amber-50 rounded-xl p-6 transition-all hover:shadow-lg border border-slate-100 hover:border-amber-200"
               >
                 <div className="text-3xl mb-3">{service.icon}</div>
@@ -638,13 +638,13 @@ export default function FlatbedTowingPage() {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "San Diego Towing",
-                  "item": "https://www.closebytowing.com/san-diego/towing"
+                  "item": "https://www.closebytowing.com/towing"
             },
             {
                   "@type": "ListItem",
                   "position": 3,
                   "name": "Flatbed Towing",
-                  "item": "https://www.closebytowing.com/san-diego/flatbed-towing"
+                  "item": "https://www.closebytowing.com/flatbed-towing"
             }
       ]
 }) }}
@@ -655,11 +655,11 @@ export default function FlatbedTowingPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "@id": "https://www.closebytowing.com/san-diego/flatbed-towing",
+            "@id": "https://www.closebytowing.com/flatbed-towing",
             name: "CloseBy Towing - Flatbed Towing San Diego",
             description:
               "Premium flatbed towing services in San Diego for luxury cars, AWD vehicles, lowered cars, motorcycles, and specialty vehicles. Zero-damage transport guaranteed.",
-            url: "https://www.closebytowing.com/san-diego/flatbed-towing",
+            url: "https://www.closebytowing.com/flatbed-towing",
             telephone: CONTACT.phone,
             areaServed: {
               "@type": "City",

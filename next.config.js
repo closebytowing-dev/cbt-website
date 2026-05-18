@@ -25,12 +25,12 @@ const nextConfig = {
       },
       {
         source: '/cheap-towing',
-        destination: '/san-diego/towing',
+        destination: '/towing',
         permanent: true,
       },
       {
         source: '/cheap-towing/',
-        destination: '/san-diego/towing',
+        destination: '/towing',
         permanent: true,
       },
     ];
@@ -115,6 +115,10 @@ const nextConfig = {
       { source: "/heavy-duty", destination: "/heavyduty", permanent: true },
       { source: "/services/heavy-duty", destination: "/heavyduty", permanent: true },
       { source: "/san-diego/roadside-assistance", destination: "/roadside-assistance", permanent: true },
+      { source: "/san-diego/towing", destination: "/towing", permanent: true },
+      { source: "/san-diego/accident-towing", destination: "/accident-towing", permanent: true },
+      { source: "/san-diego/emergency-towing", destination: "/emergency-towing", permanent: true },
+      { source: "/san-diego/flatbed-towing", destination: "/flatbed-towing", permanent: true },
     ];
 
     return [...legacy, ...neighborhoodRedirects, ...serviceRedirects, ...miscRedirects];

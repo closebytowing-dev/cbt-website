@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     title: "Accident Towing San Diego | 24/7 | CloseBy",
     description:
       "Professional accident and collision towing. We work with police & insurance. 24/7 emergency response throughout San Diego.",
-    url: "https://www.closebytowing.com/san-diego/accident-towing",
+    url: "https://www.closebytowing.com/accident-towing",
     type: "website",
   },
   alternates: {
-    canonical: "https://www.closebytowing.com/san-diego/accident-towing",
+    canonical: "https://www.closebytowing.com/accident-towing",
   },
 };
 
@@ -468,7 +468,7 @@ export default function AccidentTowingPage() {
             {RELATED_SERVICES.map((service) => (
               <Link
                 key={service.slug}
-                href={`/san-diego/${service.slug}`}
+                href={`/${service.slug}`}
                 className="group bg-slate-50 hover:bg-blue-50 rounded-xl p-6 transition-all hover:shadow-lg border border-slate-100 hover:border-blue-200"
               >
                 <div className="text-3xl mb-3">{service.icon}</div>
@@ -612,13 +612,13 @@ export default function AccidentTowingPage() {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "San Diego Towing",
-                  "item": "https://www.closebytowing.com/san-diego/towing"
+                  "item": "https://www.closebytowing.com/towing"
             },
             {
                   "@type": "ListItem",
                   "position": 3,
                   "name": "Accident Towing",
-                  "item": "https://www.closebytowing.com/san-diego/accident-towing"
+                  "item": "https://www.closebytowing.com/accident-towing"
             }
       ]
 }) }}
@@ -629,11 +629,11 @@ export default function AccidentTowingPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "@id": "https://www.closebytowing.com/san-diego/accident-towing",
+            "@id": "https://www.closebytowing.com/accident-towing",
             name: "CloseBy Towing - Accident Towing San Diego",
             description:
               "Professional accident towing and collision recovery in San Diego. We coordinate with police, insurance companies, and body shops. 24/7 response.",
-            url: "https://www.closebytowing.com/san-diego/accident-towing",
+            url: "https://www.closebytowing.com/accident-towing",
             telephone: CONTACT.phone,
             areaServed: {
               "@type": "City",

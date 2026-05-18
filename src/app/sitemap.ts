@@ -24,6 +24,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Main service pages - high priority
   const servicePages = [
     { path: "towing", priority: 0.9 },
+    { path: "emergency-towing", priority: 0.9 },
+    { path: "accident-towing", priority: 0.85 },
+    { path: "flatbed-towing", priority: 0.85 },
     { path: "jump-start", priority: 0.9 },
     { path: "lockout", priority: 0.9 },
     { path: "tire-change", priority: 0.9 },
@@ -53,27 +56,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "weekly" as const,
     priority: 0.9,
   };
-
-  // San Diego towing page
-  const sanDiegoTowing = {
-    url: `${base}/san-diego/towing`,
-    lastModified,
-    changeFrequency: "weekly" as const,
-    priority: 0.85,
-  };
-
-  // San Diego service variation pages
-  const sanDiegoServicePages = [
-    "emergency-towing",
-    "flatbed-towing",
-    "accident-towing",
-    "roadside-assistance",
-  ].map((slug) => ({
-    url: `${base}/san-diego/${slug}`,
-    lastModified,
-    changeFrequency: "weekly" as const,
-    priority: 0.75,
-  }));
 
   // All neighborhood/area pages (top-level)
   const areaPages = [
@@ -175,8 +157,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     servicesLanding,
     ...servicePages,
     sanDiegoHub,
-    sanDiegoTowing,
-    ...sanDiegoServicePages,
     ...areaPages,
     gruasPage,
     ...infoPages,

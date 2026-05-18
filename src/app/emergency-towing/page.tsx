@@ -8,12 +8,12 @@ export const metadata: Metadata = {
     "Need emergency towing in San Diego? We respond in 15-25 minutes, 24/7. Highway breakdowns, accidents, urgent situations. Call now for immediate dispatch.",
   keywords:
     "emergency towing San Diego, 24/7 towing, urgent tow truck, highway towing San Diego, roadside emergency, fast towing service",
-  alternates: { canonical: "https://www.closebytowing.com/san-diego/emergency-towing" },
+  alternates: { canonical: "https://www.closebytowing.com/emergency-towing" },
   openGraph: {
     title: "Emergency Towing San Diego | CloseBy Towing",
     description: "Immediate response when you need it most. 24/7 emergency towing across San Diego County.",
     type: "website",
-    url: "https://www.closebytowing.com/san-diego/emergency-towing",
+    url: "https://www.closebytowing.com/emergency-towing",
   },
 };
 
@@ -27,10 +27,10 @@ const NEARBY_AREAS = [
 ];
 
 const RELATED_SERVICES = [
-  { name: "General Towing", href: "/san-diego/towing", desc: "Standard tow truck service" },
-  { name: "Accident Towing", href: "/san-diego/accident-towing", desc: "Post-collision recovery" },
-  { name: "Roadside Assistance", href: "/san-diego/roadside-assistance", desc: "Quick fixes on the spot" },
-  { name: "Flatbed Towing", href: "/san-diego/flatbed-towing", desc: "Safe vehicle transport" },
+  { name: "General Towing", href: "/towing", desc: "Standard tow truck service" },
+  { name: "Accident Towing", href: "/accident-towing", desc: "Post-collision recovery" },
+  { name: "Roadside Assistance", href: "/roadside-assistance", desc: "Quick fixes on the spot" },
+  { name: "Flatbed Towing", href: "/flatbed-towing", desc: "Safe vehicle transport" },
 ];
 
 const FAQ_DATA = [
@@ -66,8 +66,8 @@ export default function EmergencyTowingSanDiegoPage() {
     "@type": "LocalBusiness",
     name: "CloseBy Towing - Emergency Services",
     image: "https://www.closebytowing.com/hero/home-hero.webp",
-    "@id": "https://www.closebytowing.com/san-diego/emergency-towing",
-    url: "https://www.closebytowing.com/san-diego/emergency-towing",
+    "@id": "https://www.closebytowing.com/emergency-towing",
+    url: "https://www.closebytowing.com/emergency-towing",
     telephone: CONTACT.phoneRaw,
     priceRange: "$$",
     address: {
@@ -112,13 +112,13 @@ export default function EmergencyTowingSanDiegoPage() {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "San Diego Towing",
-                  "item": "https://www.closebytowing.com/san-diego/towing"
+                  "item": "https://www.closebytowing.com/towing"
             },
             {
                   "@type": "ListItem",
                   "position": 3,
                   "name": "Emergency Towing",
-                  "item": "https://www.closebytowing.com/san-diego/emergency-towing"
+                  "item": "https://www.closebytowing.com/emergency-towing"
             }
       ]
 }) }}
@@ -166,7 +166,7 @@ export default function EmergencyTowingSanDiegoPage() {
                 Call Now: {CONTACT.phone}
               </a>
               <Link
-                href="/san-diego/towing"
+                href="/towing"
                 className="inline-flex items-center justify-center gap-2 px-8 py-5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold border border-white/20 transition-all"
               >
                 Not urgent? Standard towing
