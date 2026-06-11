@@ -44,6 +44,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/winching',
+        destination: '/winch-out',
+        permanent: true,
+      },
+      {
         source: '/towing-in-san-ysidro',
         destination: '/san-ysidro',
         permanent: true,
