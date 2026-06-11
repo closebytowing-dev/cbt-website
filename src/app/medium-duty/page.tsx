@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import LeftPopup from "@/components/LeftPopup";
 import { useEffect } from "react";
 import { useVisibility } from "@/hooks/useVisibility";
@@ -345,16 +346,17 @@ export default function MediumDutyTowingPage() {
             {/* Right: Hero Image Placeholder */}
             <div className="relative">
               <div className="absolute -inset-10 bg-gradient-to-r from-gray-600/20 via-slate-500/20 to-gray-600/20 rounded-[4rem] blur-3xl" />
-              <div className="relative aspect-[4/5] rounded-[4rem] overflow-hidden border-2 border-white/10 shadow-[0_0_80px_rgba(100,100,120,0.2)] bg-white/5 flex items-center justify-center">
-                <div className="text-center px-8">
-                  <div className="text-7xl mb-4">🚚</div>
-                  <p className="text-white/40 text-sm font-medium uppercase tracking-widest">
-                    Photo Coming Soon
-                  </p>
-                  <p className="text-white/25 text-xs mt-1">
-                    Medium Duty Tow Truck
-                  </p>
-                </div>
+              <div className="relative aspect-[4/5] rounded-[4rem] overflow-hidden border-2 border-white/10 shadow-[0_0_80px_rgba(100,100,120,0.2)]">
+                <Image
+                  src="/services/medium-duty-hero.webp"
+                  alt="Medium duty tow truck for box trucks and commercial vehicle towing in San Diego"
+                  fill
+                  className="object-cover"
+                  priority
+                  quality={85}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
                 {/* Floating Info Cards */}
                 <div className="absolute top-8 left-8 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl rounded-2xl p-4 border border-white/20 shadow-2xl">
