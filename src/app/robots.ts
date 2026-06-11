@@ -13,7 +13,6 @@ export default function robots(): MetadataRoute.Robots {
           "/_next/static/",
           "/api/",
           "/admin/",
-          "/partners/",
           "/driver-support",
           "/favicon.ico",
           "/*.json$",
