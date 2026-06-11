@@ -49,6 +49,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/24-hour-roadside-assistance',
+        destination: '/roadside-assistance',
+        permanent: true,
+      },
+      {
         source: '/towing-in-san-ysidro',
         destination: '/san-ysidro',
         permanent: true,
