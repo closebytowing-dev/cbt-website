@@ -24,6 +24,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/san-diego/spring-valley',
+        destination: '/spring-valley',
+        permanent: true,
+      },
+      {
         source: '/towing-in-san-ysidro',
         destination: '/san-ysidro',
         permanent: true,
