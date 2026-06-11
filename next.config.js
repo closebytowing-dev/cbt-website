@@ -14,6 +14,11 @@ const nextConfig = {
     // Legacy redirects
     const legacy = [
       {
+        source: '/tow-truck/near-me',
+        destination: '/towing-near-me',
+        permanent: true,
+      },
+      {
         source: '/towing-in-san-ysidro',
         destination: '/san-ysidro',
         permanent: true,
