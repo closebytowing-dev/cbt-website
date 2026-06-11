@@ -29,6 +29,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/san-diego/national-city',
+        destination: '/national-city',
+        permanent: true,
+      },
+      {
         source: '/towing-in-san-ysidro',
         destination: '/san-ysidro',
         permanent: true,
