@@ -44,6 +44,71 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/san-diego/logan-heights',
+        destination: '/logan-heights',
+        permanent: true,
+      },
+      {
+        source: '/san-diego/sabre-springs',
+        destination: '/sabre-springs',
+        permanent: true,
+      },
+      {
+        source: '/san-diego/north-park',
+        destination: '/north-park',
+        permanent: true,
+      },
+      {
+        source: '/san-diego/mission-valley',
+        destination: '/mission-valley',
+        permanent: true,
+      },
+      {
+        source: '/san-diego/carmel-valley',
+        destination: '/carmel-valley',
+        permanent: true,
+      },
+      {
+        source: '/san-diego/san-ysidro',
+        destination: '/san-ysidro',
+        permanent: true,
+      },
+      {
+        source: '/san-diego/mission-beach',
+        destination: '/mission-beach',
+        permanent: true,
+      },
+      {
+        source: '/san-diego/kearny-mesa',
+        destination: '/kearny-mesa',
+        permanent: true,
+      },
+      {
+        source: '/san-diego/torrey-hills',
+        destination: '/torrey-hills',
+        permanent: true,
+      },
+      {
+        source: '/san-diego/nestor',
+        destination: '/nestor',
+        permanent: true,
+      },
+      {
+        source: '/services/gas-delivery',
+        destination: '/gas-delivery',
+        permanent: true,
+      },
+      {
+        source: '/services/jump-start',
+        destination: '/jump-start',
+        permanent: true,
+      },
+      {
+        source: '/services/lockout',
+        destination: '/lockout',
+        permanent: true,
+      },
+      {
         source: '/winching',
         destination: '/winch-out',
         permanent: true,
