@@ -136,6 +136,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "gruas", priority: 0.85 },
     { path: "servicios", priority: 0.85 },
     { path: "lugares", priority: 0.85 },
+    { path: "contacto", priority: 0.8 },
   ].map((page) => ({
     url: `${base}/${page.path}`,
     lastModified,
