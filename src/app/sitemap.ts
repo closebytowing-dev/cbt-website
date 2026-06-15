@@ -131,13 +131,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  // Spanish landing page
-  const gruasPage = {
-    url: `${base}/gruas`,
+  // Spanish landing pages
+  const spanishPages = [
+    { path: "gruas", priority: 0.85 },
+    { path: "servicios", priority: 0.85 },
+  ].map((page) => ({
+    url: `${base}/${page.path}`,
     lastModified,
     changeFrequency: "weekly" as const,
-    priority: 0.85,
-  };
+    priority: page.priority,
+  }));
 
   // Information pages - medium priority
   const infoPages = [
@@ -158,7 +161,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...servicePages,
     sanDiegoHub,
     ...areaPages,
-    gruasPage,
+    ...spanishPages,
     ...infoPages,
   ];
 }
