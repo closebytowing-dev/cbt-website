@@ -135,6 +135,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const spanishPages = [
     { path: "gruas", priority: 0.85 },
     { path: "servicios", priority: 0.85 },
+    { path: "lugares", priority: 0.85 },
   ].map((page) => ({
     url: `${base}/${page.path}`,
     lastModified,
