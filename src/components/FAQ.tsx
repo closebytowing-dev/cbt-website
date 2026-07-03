@@ -161,7 +161,7 @@ export default function FAQ() {
 
                     <button
                       onClick={() => setOpenIndex(isOpen ? null : index)}
-                      className="w-full text-left p-4 sm:p-6 focus:outline-none"
+                      className="w-full text-left py-3 px-4 sm:p-6 focus:outline-none"
                       aria-expanded={isOpen}
                     >
                       <div className="flex items-center gap-3 sm:gap-4">
@@ -184,7 +184,7 @@ export default function FAQ() {
                         </div>
 
                         {/* Toggle icon */}
-                        <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
+                        <div className={`flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
                           isOpen
                             ? "bg-amber-500 text-white rotate-180"
                             : "bg-gray-100 text-gray-500 group-hover:bg-amber-100 group-hover:text-amber-600"
