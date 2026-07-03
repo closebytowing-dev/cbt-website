@@ -490,7 +490,7 @@ export default function AboutPage() {
                 }
               ].map((faq, idx) => (
                 <details key={idx} itemScope itemProp="mainEntity" itemType="https://schema.org/Question" className="group relative overflow-hidden rounded-xl border-2 border-gray-200 bg-white hover:border-[#1e1e4a] transition-all duration-300 hover:shadow-lg">
-                  <summary itemProp="name" className="cursor-pointer select-none p-6 font-bold text-lg flex items-start justify-between text-[#1e1e4a] list-none min-h-[56px]">
+                  <summary itemProp="name" className="cursor-pointer select-none p-6 font-bold text-lg flex items-center justify-between text-[#1e1e4a] list-none min-h-[56px]">
                     <span className="flex-1 pr-4">{faq.q}</span>
                     <svg
                       className="w-6 h-6 text-[#ffba42] group-open:rotate-180 transition-transform duration-500 flex-shrink-0 mt-1"

@@ -740,7 +740,7 @@ export default function TowingPage() {
               }
             ].map((faq, idx) => (
               <details key={idx} itemScope itemProp="mainEntity" itemType="https://schema.org/Question" className="group relative overflow-hidden rounded-2xl border-2 border-slate-200 bg-white hover:border-blue-600 transition-all duration-300 hover:shadow-xl">
-                <summary itemProp="name" className="cursor-pointer select-none p-6 font-bold text-lg sm:text-xl flex items-start justify-between text-slate-900 list-none min-h-[56px]">
+                <summary itemProp="name" className="cursor-pointer select-none p-6 font-bold text-lg sm:text-xl flex items-center justify-between text-slate-900 list-none min-h-[56px]">
                   <span className="flex-1 pr-4">{faq.q}</span>
                   <svg
                     className="w-7 h-7 text-blue-600 group-open:rotate-180 transition-transform duration-500 flex-shrink-0"

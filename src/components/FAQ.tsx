@@ -164,7 +164,7 @@ export default function FAQ() {
                       className="w-full text-left p-5 sm:p-6 focus:outline-none"
                       aria-expanded={isOpen}
                     >
-                      <div className="flex items-start gap-4">
+                      <div className="flex items-center gap-4">
                         {/* Icon */}
                         <div className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-2xl transition-all duration-300 ${
                           isOpen
