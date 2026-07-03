@@ -161,12 +161,12 @@ export default function FAQ() {
 
                     <button
                       onClick={() => setOpenIndex(isOpen ? null : index)}
-                      className="w-full text-left p-5 sm:p-6 focus:outline-none"
+                      className="w-full text-left p-4 sm:p-6 focus:outline-none"
                       aria-expanded={isOpen}
                     >
-                      <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-3 sm:gap-4">
                         {/* Icon */}
-                        <div className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-2xl transition-all duration-300 ${
+                        <div className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-xl sm:text-2xl transition-all duration-300 ${
                           isOpen
                             ? "bg-gradient-to-br from-amber-400 to-orange-500 shadow-lg shadow-amber-500/30 scale-110"
                             : "bg-gray-100 group-hover:bg-amber-100"
@@ -176,7 +176,7 @@ export default function FAQ() {
 
                         {/* Question */}
                         <div className="flex-1 min-w-0">
-                          <h3 className={`font-bold text-base sm:text-lg pr-8 transition-colors ${
+                          <h3 className={`font-bold text-base sm:text-lg pr-2 transition-colors ${
                             isOpen ? "text-amber-900" : "text-gray-900"
                           }`}>
                             {q}
@@ -197,7 +197,7 @@ export default function FAQ() {
 
                       {/* Answer */}
                       <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-96 mt-4" : "max-h-0"}`}>
-                        <div className="pl-16 pr-4">
+                        <div className="pl-14 sm:pl-16 pr-4">
                           <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                             {a}
                           </p>
