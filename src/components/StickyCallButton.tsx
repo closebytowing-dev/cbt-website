@@ -11,7 +11,7 @@ export default function StickyCallButton() {
 
   return (
     <div
-      className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 rounded-2xl p-[6px] sm:p-[7px] overflow-hidden"
+      className="fixed bottom-3 left-1/2 -translate-x-1/2 z-50 rounded-2xl p-[6px] sm:p-[7px] overflow-hidden"
       style={{
         marginBottom: "env(safe-area-inset-bottom, 0px)",
         background: "linear-gradient(160deg, #ffffff 0%, #e8e8e8 12%, #c0c0c0 25%, #f5f5f5 38%, #d0d0d0 50%, #fafafa 62%, #b8b8b8 75%, #e0e0e0 88%, #cfcfcf 100%)",
