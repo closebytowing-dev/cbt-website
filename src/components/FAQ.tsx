@@ -165,8 +165,8 @@ export default function FAQ() {
                       aria-expanded={isOpen}
                     >
                       <div className="flex items-center gap-3 sm:gap-4">
-                        {/* Icon — hidden on mobile so the question gets full width */}
-                        <div className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl hidden sm:flex items-center justify-center text-xl sm:text-2xl transition-all duration-300 ${
+                        {/* Icon */}
+                        <div className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-xl sm:text-2xl transition-all duration-300 ${
                           isOpen
                             ? "bg-gradient-to-br from-amber-400 to-orange-500 shadow-lg shadow-amber-500/30 scale-110"
                             : "bg-gray-100 group-hover:bg-amber-100"
@@ -197,7 +197,7 @@ export default function FAQ() {
 
                       {/* Answer */}
                       <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-96 mt-4" : "max-h-0"}`}>
-                        <div className="pl-0 sm:pl-16 pr-4">
+                        <div className="pl-14 sm:pl-16 pr-4">
                           <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                             {a}
                           </p>
