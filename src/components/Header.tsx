@@ -190,6 +190,7 @@ export default function Header() {
               {/* Dashboard link - Mobile only */}
               <Link
                 href="/partners/dashboard"
+                prefetch={false}
                 className="text-sm font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
               >
                 Dashboard
@@ -284,6 +285,7 @@ export default function Header() {
                 <>
                   <Link
                     href="/partners/dashboard"
+                    prefetch={false}
                     className="hidden xl:inline text-lg font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
                   >
                     Dashboard
@@ -300,6 +302,7 @@ export default function Header() {
                 <>
                   <Link
                     href="/partners/login"
+                    prefetch={false}
                     className="text-xs sm:text-sm xl:text-lg font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
                   >
                     Login
@@ -307,6 +310,7 @@ export default function Header() {
                   <span className="text-[#1e1e4a]/30 text-xs sm:text-sm xl:text-xl">|</span>
                   <Link
                     href="/partners/signup"
+                    prefetch={false}
                     className="text-xs sm:text-sm xl:text-lg font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-2 transition whitespace-nowrap"
                   >
                     Sign Up
