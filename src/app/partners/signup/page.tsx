@@ -12,6 +12,7 @@ import {
   signInWithPopup,
   setPersistence,
   browserLocalPersistence,
+  onAuthStateChanged,
 } from "firebase/auth";
 
 export default function PartnerSignupPage() {
@@ -33,6 +34,22 @@ export default function PartnerSignupPage() {
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
   const [error, setError] = useState("");
   const [showCreatingAccount, setShowCreatingAccount] = useState(false);
+  const [checkingAuth, setCheckingAuth] = useState(true);
+
+  // If already signed in, redirect to dashboard. Otherwise stop the auth check
+  // so the signup page can render. While the check is running we render a
+  // spinner — the form must not flash for already-authenticated visitors.
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        router.replace("/partners/dashboard");
+      } else {
+        setCheckingAuth(false);
+      }
+    });
+    return () => unsubscribe();
+  }, [router]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -171,6 +188,17 @@ export default function PartnerSignupPage() {
       isPopupOpen.current = false;
     }
   };
+
+  if (checkingAuth) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#1e1e4a]">
+        <svg className="animate-spin h-12 w-12 text-white" viewBox="0 0 24 24" aria-label="Checking sign-in">
+          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+        </svg>
+      </div>
+    );
+  }
 
   return (
     <div className="overflow-x-hidden">
