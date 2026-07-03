@@ -28,11 +28,8 @@ export default function StickyCallButton() {
       />
       <a
         href="tel:+18589999293"
-        className="relative group flex items-center gap-3 font-black text-xl sm:text-2xl text-white py-4 sm:py-5 px-8 sm:px-12 rounded-xl border-b-[5px] border-red-900 bg-gradient-to-b from-red-500 via-red-600 to-red-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] hover:from-emerald-400 hover:via-emerald-500 hover:to-emerald-600 hover:border-emerald-800 hover:translate-y-[2px] hover:border-b-[3px] active:translate-y-[4px] active:border-b-[1px] transition-all duration-150"
+        className="relative group flex items-center justify-center whitespace-nowrap font-black text-xl sm:text-2xl text-white py-4 sm:py-5 px-8 sm:px-12 rounded-xl border-b-[5px] border-red-900 bg-gradient-to-b from-red-500 via-red-600 to-red-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] hover:from-emerald-400 hover:via-emerald-500 hover:to-emerald-600 hover:border-emerald-800 hover:translate-y-[2px] hover:border-b-[3px] active:translate-y-[4px] active:border-b-[1px] transition-all duration-150"
       >
-        <svg className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0 drop-shadow-md" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-        </svg>
         <span className="drop-shadow-md">(858) 999-9293</span>
       </a>
     </div>
