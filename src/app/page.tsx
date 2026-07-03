@@ -1,13 +1,10 @@
-'use client';
-
 import Hero from "@/components/Hero";
 import Value from "@/components/Value";
 import Reviews from "@/components/Reviews";
 import Services from "@/components/Services";
 import ServiceArea from "@/components/ServiceArea";
-import LeftPopup from "@/components/LeftPopup";
 import FAQ from "@/components/FAQ";
-import { useVisibility } from "@/hooks/useVisibility";
+import LeftPopupGate from "@/components/LeftPopupGate";
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -71,8 +68,6 @@ const businessSchema = {
 };
 
 export default function Home() {
-  const { config } = useVisibility();
-
   return (
     <main className="flex min-h-screen flex-col overflow-x-hidden">
       <script
@@ -97,7 +92,7 @@ export default function Home() {
 
       {/* FAQ and Left-side popup */}
       <FAQ />
-      {config.customerRequestForm?.leftPopup !== false && <LeftPopup />}
+      <LeftPopupGate />
     </main>
   );
 }

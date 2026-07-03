@@ -9,6 +9,14 @@ const nextConfig = {
   // Enable compression
   compress: true,
 
+  // Image optimization: serve AVIF (≈30% smaller than WebP) with WebP fallback.
+  // next/image already resizes our large source images per device; adding AVIF
+  // shrinks the bytes shipped to mobile further. Cache optimized images 1yr.
+  images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 31536000,
+  },
+
   // 301 Redirects for old/dead URLs indexed by Google
   async redirects() {
     // Legacy redirects

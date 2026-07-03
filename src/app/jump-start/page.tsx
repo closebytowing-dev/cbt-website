@@ -181,10 +181,13 @@ export default function JumpStartPage() {
 
               {/* Main Image Container */}
               <div className="relative h-full rounded-[4rem] overflow-hidden border-2 border-blue-400/50 shadow-[0_0_100px_rgba(59,130,246,0.3)]">
-                <img
+                <Image
                   src="/services/jump-start-hero.webp"
                   alt="Professional Jump Start Service - CloseBy Towing Technician with Booster Pack"
-                  className="absolute inset-0 w-full h-full object-cover object-center"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-center"
                 />
               </div>
 
@@ -297,10 +300,12 @@ export default function JumpStartPage() {
                     <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-3xl opacity-30 group-hover:opacity-50 blur-xl transition duration-500"></div>
                     <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border-2 border-blue-400/30">
                       {item.imgSrc ? (
-                        <img
+                        <Image
                           src={item.imgSrc}
                           alt={item.imgLabel}
-                          className="absolute inset-0 w-full h-full object-cover"
+                          fill
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                          className="object-cover"
                         />
                       ) : (
                         <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
@@ -410,11 +415,12 @@ export default function JumpStartPage() {
             <div className="relative h-[500px] rounded-[3rem] overflow-hidden order-2 lg:order-1">
               <div className="absolute inset-0 bg-gradient-to-br from-green-600/20 to-emerald-600/20 rounded-[3rem] blur-2xl"></div>
               <div className="relative h-full border-2 border-green-400/30 rounded-[3rem] overflow-hidden">
-                <img
+                <Image
                   src="/services/jump-start-ev.webp"
                   alt="Hybrid and Electric Vehicle Jump Start Service"
-                  className="absolute inset-0 w-full h-full object-cover"
-                  loading="lazy"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
                 />
               </div>
             </div>
