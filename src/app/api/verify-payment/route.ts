@@ -5,6 +5,11 @@ import { adminDb } from "@/lib/firebaseAdmin";
 import { FieldValue } from "firebase-admin/firestore";
 import { paymentLinkMatchesJob } from "@/lib/apiSecurity";
 
+// P1.4 #3 Phase 2 — the narrow Cloud Function that confirms payment via Square.
+const VERIFY_CUSTOMER_PAYMENT_URL =
+  process.env.VERIFY_CUSTOMER_PAYMENT_URL ||
+  "https://us-central1-closebydriverapp1.cloudfunctions.net/verifyCustomerPayment";
+
 export async function POST(req: Request) {
   try {
     const body = await req.json().catch(() => ({}));
@@ -21,6 +26,25 @@ export async function POST(req: Request) {
       );
     }
 
+    // ── NEW PATH (flag-gated) ────────────────────────────────────────────────
+    // When USE_VERIFY_PAYMENT_FN=true, verify via verifyCustomerPayment (Square-
+    // confirmed, no Admin SDK / Square token here). The function returns the same
+    // { job, ... } shape; forward its response verbatim. Revertable by clearing the flag.
+    if (process.env.USE_VERIFY_PAYMENT_FN === "true") {
+      const secret = process.env.INTAKE_SECRET || "";
+      const resp = await fetch(VERIFY_CUSTOMER_PAYMENT_URL, {
+        method: "POST",
+        headers: { "content-type": "application/json", "x-intake-secret": secret },
+        body: JSON.stringify({ jobId, paymentLinkId }),
+      });
+      const data = await resp.json().catch(() => ({}));
+      return new Response(JSON.stringify(data), {
+        status: resp.status,
+        headers: { "content-type": "application/json" },
+      });
+    }
+
+    // ── OLD PATH (retained for instant revert) ───────────────────────────────
     // Get job document
     const jobDoc = await adminDb.collection("live_jobs").doc(jobId).get();
 
