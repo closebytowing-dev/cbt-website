@@ -21,14 +21,33 @@ type JobPayload = {
     amountQuoted?: number; // dollars
 };
 
-export async function POST(req: NextRequest) {
-    console.log("[create-job] ENV PROJECT ID:", process.env.FIREBASE_PROJECT_ID);
-    console.log("[create-job] ENV CLIENT EMAIL:", process.env.FIREBASE_CLIENT_EMAIL);
-    console.log(
-        "[create-job] ENV PRIVATE KEY STARTS WITH:",
-        process.env.FIREBASE_PRIVATE_KEY?.slice(0, 40)
-    );
+// P1.4 #3 Phase 2B — the narrow Cloud Function that replaces the Admin-SDK write.
+const CREATE_CUSTOMER_JOB_URL =
+    process.env.CREATE_CUSTOMER_JOB_URL ||
+    "https://us-central1-closebydriverapp1.cloudfunctions.net/createCustomerJob";
 
+/**
+ * NEW path: create the job via the narrow, field-whitelisted createCustomerJob
+ * Cloud Function instead of a direct Admin-SDK write. The website forwards ONLY the
+ * customer payload + the shared intake secret; it holds no service-account write here.
+ */
+async function createViaFunction(
+    body: JobPayload
+): Promise<{ ok: boolean; jobId?: string; status: number; error?: string }> {
+    const secret = process.env.INTAKE_SECRET || "";
+    const resp = await fetch(CREATE_CUSTOMER_JOB_URL, {
+        method: "POST",
+        headers: { "content-type": "application/json", "x-intake-secret": secret },
+        body: JSON.stringify(body),
+    });
+    const data = await resp.json().catch(() => ({} as Record<string, unknown>));
+    if (!resp.ok) {
+        return { ok: false, status: resp.status, error: (data as { error?: string }).error || `createCustomerJob ${resp.status}` };
+    }
+    return { ok: true, jobId: (data as { jobId?: string }).jobId, status: 200 };
+}
+
+export async function POST(req: NextRequest) {
     try {
         const body = (await req.json()) as JobPayload;
 
@@ -42,24 +61,36 @@ export async function POST(req: NextRequest) {
             amountQuoted: body.amountQuoted
         });
 
-        // Minimal validation
+        // Minimal validation (same as before)
         if (!body?.pickup || !body?.customer_name || !body?.customer_phone) {
-            console.error("❌ Validation failed - missing required fields:", {
-                hasPickup: !!body?.pickup,
-                hasCustomerName: !!body?.customer_name,
-                hasCustomerPhone: !!body?.customer_phone
-            });
             return new Response(JSON.stringify({ error: "Missing required fields (pickup, customer_name, customer_phone)" }), {
                 status: 400,
                 headers: { "content-type": "application/json" },
             });
         }
 
-        // Build Firestore doc for Dispatcher Panel.
-        // Content fields come ONLY from the field-whitelist (buildCreateJobContent):
-        // the request body is NEVER spread, so money/status/privilege fields
-        // (offerAmount, networkFee, status, paymentStatus, role, isProvider, …) can
-        // never be injected by a caller. Server-owned fields are set here. (P1.4 #3.)
+        // ── NEW PATH (flag-gated) ────────────────────────────────────────────────
+        // When USE_CREATE_CUSTOMER_JOB=true, route through the narrow Cloud Function
+        // (no Admin-SDK write here). Instantly revertable by clearing the flag.
+        if (process.env.USE_CREATE_CUSTOMER_JOB === "true") {
+            const r = await createViaFunction(body);
+            if (!r.ok) {
+                console.error("❌ createCustomerJob failed:", r.status, r.error);
+                return new Response(JSON.stringify({ error: r.error || "Job creation failed" }), {
+                    status: r.status && r.status >= 400 ? r.status : 502,
+                    headers: { "content-type": "application/json" },
+                });
+            }
+            console.log("✅ Job created via createCustomerJob:", r.jobId);
+            return new Response(JSON.stringify({ ok: true, jobId: r.jobId }), {
+                status: 200,
+                headers: { "content-type": "application/json" },
+            });
+        }
+
+        // ── OLD PATH (retained for instant revert) ───────────────────────────────
+        // Direct Admin-SDK write. Content is field-whitelisted (buildCreateJobContent)
+        // — the body is never spread — and server-owned fields are set here. (P1.4 #3.)
         const docData: Record<string, unknown> = {
             ...buildCreateJobContent(body as Record<string, unknown>),
             source: "website",
@@ -72,7 +103,7 @@ export async function POST(req: NextRequest) {
             paymentCompletedAt: null,
         };
 
-        console.log("💾 Attempting to save job to Firestore...");
+        console.log("💾 Attempting to save job to Firestore (Admin SDK path)...");
         const ref = await adminDb.collection("live_jobs").add(docData);
         console.log("✅ Job created successfully with ID:", ref.id);
 
