@@ -2,6 +2,39 @@ export const runtime = "nodejs";
 
 import { adminDb } from "@/lib/firebaseAdmin";
 
+// P1.4 #3 Phase 2 — the narrow Cloud Function that derives the amount server-side.
+const CREATE_CUSTOMER_PAYMENT_LINK_URL =
+  process.env.CREATE_CUSTOMER_PAYMENT_LINK_URL ||
+  "https://us-central1-closebydriverapp1.cloudfunctions.net/createCustomerPaymentLink";
+
+/**
+ * NEW path: create the Square payment link via createCustomerPaymentLink. The website
+ * forwards ONLY jobId + the redirect origin + the intake secret; the FUNCTION derives
+ * the amount from the job (client can't supply it) and holds the Square token — so the
+ * website needs no Admin SDK and no Square token here.
+ */
+async function createLinkViaFunction(
+  jobId: string,
+  origin: string
+): Promise<{ ok: boolean; status: number; paymentLinkUrl?: string; paymentLinkId?: string; error?: string }> {
+  const secret = process.env.INTAKE_SECRET || "";
+  const resp = await fetch(CREATE_CUSTOMER_PAYMENT_LINK_URL, {
+    method: "POST",
+    headers: { "content-type": "application/json", "x-intake-secret": secret },
+    body: JSON.stringify({ jobId, redirectBase: origin }),
+  });
+  const data = await resp.json().catch(() => ({} as Record<string, unknown>));
+  if (!resp.ok) {
+    return { ok: false, status: resp.status, error: (data as { error?: string }).error || `createCustomerPaymentLink ${resp.status}` };
+  }
+  return {
+    ok: true,
+    status: 200,
+    paymentLinkUrl: (data as { paymentLinkUrl?: string }).paymentLinkUrl,
+    paymentLinkId: (data as { paymentLinkId?: string }).paymentLinkId,
+  };
+}
+
 export async function POST(req: Request) {
   try {
     const origin = req.headers.get("origin") || "";
@@ -21,6 +54,37 @@ export async function POST(req: Request) {
       pickup_address
     });
 
+    // ── NEW PATH (flag-gated) ────────────────────────────────────────────────
+    // When USE_CREATE_PAYMENT_LINK=true, route through createCustomerPaymentLink,
+    // which derives the amount from the job (no client amount, no Admin SDK here).
+    // Instantly revertable by clearing the flag. jobId is required on this path.
+    if (process.env.USE_CREATE_PAYMENT_LINK === "true") {
+      if (!jobId) {
+        return new Response(JSON.stringify({ error: "jobId is required" }), {
+          status: 400,
+          headers: { "content-type": "application/json", "access-control-allow-origin": origin },
+        });
+      }
+      const r = await createLinkViaFunction(jobId, origin);
+      if (!r.ok) {
+        console.error("❌ createCustomerPaymentLink failed:", r.status, r.error);
+        return new Response(JSON.stringify({ error: r.error || "Payment link creation failed" }), {
+          status: r.status && r.status >= 400 ? r.status : 502,
+          headers: { "content-type": "application/json", "access-control-allow-origin": origin },
+        });
+      }
+      return new Response(JSON.stringify({
+        success: true,
+        paymentLinkUrl: r.paymentLinkUrl,
+        paymentLinkId: r.paymentLinkId,
+        message: "Payment link created successfully",
+      }), {
+        status: 200,
+        headers: { "content-type": "application/json", "access-control-allow-origin": origin },
+      });
+    }
+
+    // ── OLD PATH (retained for instant revert) ───────────────────────────────
     if (!amount || amount <= 0) {
       console.error("❌ Invalid amount:", amount);
       return new Response(JSON.stringify({ error: "Invalid amount" }), {
