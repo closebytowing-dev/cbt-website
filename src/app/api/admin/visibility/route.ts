@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { adminDb } from '@/lib/firebaseAdmin';
+import { isValidAdminSession } from '@/lib/apiSecurity';
 
 // Disable caching for this route
 export const dynamic = 'force-dynamic';
@@ -33,6 +34,13 @@ export async function GET() {
 // POST - Update visibility configuration
 export async function POST(request: NextRequest) {
   try {
+    // Staff-only. The Admin SDK bypasses Firestore rules, so this write route
+    // MUST authorize itself server-side. Verify the httpOnly admin session cookie
+    // (issued by /api/admin/auth). Rejects anonymous callers. (P1.4 #3.)
+    if (!isValidAdminSession(request.cookies.get('admin_session')?.value, process.env.ADMIN_PASSWORD)) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    }
+
     const { config } = await request.json();
 
     // Save to Firestore

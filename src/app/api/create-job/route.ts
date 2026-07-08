@@ -3,6 +3,7 @@ import { NextRequest } from "next/server";
 import { adminDb } from "@/lib/firebaseAdmin";
 
 import { FieldValue } from "firebase-admin/firestore";
+import { buildCreateJobContent } from "@/lib/apiSecurity";
 
 type JobPayload = {
     jobUid?: string;
@@ -54,31 +55,22 @@ export async function POST(req: NextRequest) {
             });
         }
 
-        // Build Firestore doc for Dispatcher Panel
+        // Build Firestore doc for Dispatcher Panel.
+        // Content fields come ONLY from the field-whitelist (buildCreateJobContent):
+        // the request body is NEVER spread, so money/status/privilege fields
+        // (offerAmount, networkFee, status, paymentStatus, role, isProvider, …) can
+        // never be injected by a caller. Server-owned fields are set here. (P1.4 #3.)
         const docData: Record<string, unknown> = {
-            customerName: body.customer_name,
-            customerPhone: body.customer_phone,
-            pickupLocation: body.pickup,
-            dropoffLocation: body.dropoff || "",
-            vehicle: body.vehicle || "", // MVP: single string
-            service: body.service || "",
+            ...buildCreateJobContent(body as Record<string, unknown>),
             source: "website",
             createdAt: FieldValue.serverTimestamp(),
-            // Payment tracking fields
+            // Payment tracking fields (server-owned)
             paymentStatus: "unpaid",
             paymentLinkId: null,
             squarePaymentId: null,
             squareOrderId: null,
             paymentCompletedAt: null,
         };
-
-        // Optional fields
-        if (body.amountQuoted != null) docData.amountQuoted = Number(body.amountQuoted);
-        if (body.jobUid) docData.jobUid = body.jobUid;
-        if (body.year) docData.year = body.year;
-        if (body.make) docData.make = body.make;
-        if (body.model) docData.model = body.model;
-        if (body.color) docData.color = body.color;
 
         console.log("💾 Attempting to save job to Firestore...");
         const ref = await adminDb.collection("live_jobs").add(docData);

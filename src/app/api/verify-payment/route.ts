@@ -3,6 +3,7 @@ export const runtime = "nodejs";
 
 import { adminDb } from "@/lib/firebaseAdmin";
 import { FieldValue } from "firebase-admin/firestore";
+import { paymentLinkMatchesJob } from "@/lib/apiSecurity";
 
 export async function POST(req: Request) {
   try {
@@ -33,7 +34,19 @@ export async function POST(req: Request) {
       );
     }
 
-    const jobData = jobDoc.data();
+    // Guaranteed defined: we returned 404 above if the job did not exist.
+    const jobData = jobDoc.data()!;
+
+    // The paymentLinkId MUST be the one stored on THIS job. Without this, an
+    // anonymous caller could mark an arbitrary job paid using a paid link that
+    // belongs to a different job (the Admin SDK bypasses Firestore rules). Also
+    // prevents enumerating a job's customer details by jobId alone. (P1.4 #3.)
+    if (!paymentLinkMatchesJob(jobData?.paymentLinkId, paymentLinkId)) {
+      return new Response(
+        JSON.stringify({ error: "Payment link does not match this job" }),
+        { status: 403, headers: { "content-type": "application/json" } }
+      );
+    }
 
     // Check if payment is already verified
     if (jobData?.paymentStatus === "paid") {
