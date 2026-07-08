@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
 
 type VisibilityConfig = {
   customerRequestForm?: {
@@ -31,14 +33,11 @@ export function useVisibility() {
 
     async function fetchConfig() {
       try {
-        const response = await fetch('/api/admin/visibility', {
-          cache: 'no-store',
-          headers: {
-            'Cache-Control': 'no-cache',
-          },
-        });
-        const data = await response.json();
-        setConfig(data.config || defaultConfig);
+        // Public read via the CLIENT SDK — settings/visibility is world-readable
+        // (staff-writable) by Firestore rule. Carries NO service-account / Admin-SDK
+        // access. Replaces the old /api/admin/visibility Admin-SDK route. (P1.4 #3.)
+        const snap = await getDoc(doc(db, 'settings', 'visibility'));
+        setConfig(snap.exists() ? (snap.data() as VisibilityConfig) : defaultConfig);
       } catch (error) {
         console.error('Failed to load visibility config:', error);
         setConfig(defaultConfig);

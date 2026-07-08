@@ -8,7 +8,7 @@
 // routes bypass ALL Firestore security rules. Every privileged route must
 // therefore authorize itself. These helpers centralize that logic.
 
-import { createHash, timingSafeEqual } from 'crypto';
+import { timingSafeEqual } from 'crypto';
 
 /** Constant-time string comparison that tolerates unequal lengths. */
 export function safeEqual(a: string, b: string): boolean {
@@ -16,34 +16,6 @@ export function safeEqual(a: string, b: string): boolean {
   const bb = Buffer.from(b, 'utf8');
   if (ab.length !== bb.length) return false;
   return timingSafeEqual(ab, bb);
-}
-
-/** Opaque admin session token derived from the admin password (never the raw password). */
-export function adminSessionToken(password: string): string {
-  return createHash('sha256').update(`closeby-admin-session:${password}`).digest('hex');
-}
-
-/**
- * Validate the admin login password. There is NO default/fallback password: if
- * ADMIN_PASSWORD is unset this fails closed (returns false). This is what removes
- * the old `ADMIN_PASSWORD || 'admin123'` backdoor — 'admin123' is only ever
- * accepted if it is literally the configured password.
- */
-export function checkAdminPassword(input: unknown, adminPassword: string | undefined): boolean {
-  if (!adminPassword) return false; // never a default; fail closed
-  if (typeof input !== 'string' || input.length === 0) return false;
-  return safeEqual(input, adminPassword);
-}
-
-/**
- * Verify an admin session cookie against the configured admin password. Used by
- * staff-only Admin-SDK write routes (e.g. settings/visibility). Fails closed if
- * unconfigured or the cookie is missing/wrong.
- */
-export function isValidAdminSession(cookieToken: unknown, adminPassword: string | undefined): boolean {
-  if (!adminPassword) return false;
-  if (typeof cookieToken !== 'string' || cookieToken.length === 0) return false;
-  return safeEqual(cookieToken, adminSessionToken(adminPassword));
 }
 
 /**
