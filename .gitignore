@@ -3,10 +3,16 @@ node_modules
 .next
 out
 .vercel
+*.tsbuildinfo
 
 # OS & logs
 .DS_Store
 *.log
+
+# Backups / archives (never commit — use git history)
+*.backup
+*.bak
+*.zip
 
 # Env files (keep local only)
 .env*
