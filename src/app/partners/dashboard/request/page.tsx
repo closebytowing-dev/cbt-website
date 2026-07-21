@@ -2,7 +2,9 @@
 
 import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import { getAuth } from "firebase/auth";
-import { collection, query, where, getDocs, addDoc, updateDoc, doc, serverTimestamp } from "firebase/firestore";
+import { collection, query, where, getDocs, updateDoc, doc, serverTimestamp } from "firebase/firestore";
+import { getApp } from "firebase/app";
+import { getFunctions, httpsCallable } from "firebase/functions";
 import { db } from "@/lib/firebase";
 import Script from "next/script";
 import { YEARS, MAKES, MODELS_BY_MAKE } from "@/data/vehicleOptions";
@@ -457,11 +459,14 @@ export default function RequestTowPage() {
     const isScheduled = requestType === "scheduled";
 
     try {
-      const towRequest: any = {
-        partnerId: partnerData.id,
-        partnerName: partnerData.companyName,
-        partnerPhone: partnerData.phone,
-        partnerEmail: partnerData.email,
+      // Partner tow requests are created SERVER-SIDE by the createPartnerJob callable.
+      // A partner cannot write live_jobs directly (rules deny non-staff creates), and
+      // commission attribution (referredById) must come from the authenticated uid,
+      // never the client. Send only customer/vehicle/service content; the server owns
+      // referredById, commissionRate, status, source, paymentStatus, timestamps, and
+      // composes scheduledFor from the date + time.
+      const createPartnerJob = httpsCallable(getFunctions(getApp(), "us-central1"), "createPartnerJob");
+      await createPartnerJob({
         customerName: formData.customerName,
         customerPhone: formData.customerPhone,
         vehicleYear: formData.vehicleYear,
@@ -473,19 +478,8 @@ export default function RequestTowPage() {
         pickupLocation: formData.pickupLocation,
         dropoffLocation: formData.dropoffLocation,
         notes: formData.notes,
-        status: isScheduled ? "scheduled" : "pending",
-        createdAt: serverTimestamp(),
-        updatedAt: serverTimestamp(),
-        commissionRate: partnerData.commissionRate,
-        partnerCommissionPaid: false,
-      };
-
-      if (isScheduled && scheduledDate && scheduledTime) {
-        towRequest.scheduledDate = scheduledDate;
-        towRequest.scheduledTime = scheduledTime;
-      }
-
-      await addDoc(collection(db, "live_jobs"), towRequest);
+        ...(isScheduled && scheduledDate && scheduledTime ? { scheduledDate, scheduledTime } : {}),
+      });
       setSubmitted(true);
       setHasUnsavedChanges(false);
       showToast("Request submitted successfully!", "success");
