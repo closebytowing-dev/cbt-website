@@ -103,9 +103,9 @@ export async function fetchConfig(): Promise<any> {
     // Fetch services and config documents in parallel with retry logic
     const [services, timeMultipliersDoc, featuresDoc, companyDoc] = await Promise.all([
       fetchServices(),
-      fetchDocWithRetry(doc(db, "Price & Rate config", "time_multipliers")),
-      fetchDocWithRetry(doc(db, "Price & Rate config", "features")),
-      fetchDocWithRetry(doc(db, "Price & Rate config", "company"))
+      fetchDocWithRetry(doc(db, "price_rate_config", "time_multipliers")),
+      fetchDocWithRetry(doc(db, "price_rate_config", "features")),
+      fetchDocWithRetry(doc(db, "price_rate_config", "company"))
     ]);
 
     if (Object.keys(services).length === 0) {
