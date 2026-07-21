@@ -14,7 +14,7 @@ import {
   browserLocalPersistence,
   onAuthStateChanged,
 } from "firebase/auth";
-import { collection, query, where, getDocs, addDoc, serverTimestamp } from "firebase/firestore";
+import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
 export default function PartnerSigninPage() {
@@ -136,11 +136,14 @@ export default function PartnerSigninPage() {
       const user = result.user;
 
       // Check if partner document exists
-      const partnersRef = collection(db, "partners");
-      const q = query(partnersRef, where("userId", "==", user.uid));
-      const querySnapshot = await getDocs(q);
+      // Read the partner doc BY UID (doc-id == uid) — matches the isReferralPartner
+      // rule and the email-signup path, so what we write here can be read back. A
+      // prior Google sign-in wrote an auto-id doc that no self-read can see; creating
+      // partners/{uid} here self-heals that partner on their next sign-in.
+      const partnerRef = doc(db, "partners", user.uid);
+      const partnerSnap = await getDoc(partnerRef);
 
-      if (querySnapshot.empty) {
+      if (!partnerSnap.exists()) {
         // Create new partner document for Google sign-in users
         const partnerData = {
           userId: user.uid,
@@ -163,7 +166,7 @@ export default function PartnerSigninPage() {
           updatedAt: serverTimestamp(),
         };
 
-        await addDoc(collection(db, "partners"), partnerData);
+        await setDoc(partnerRef, partnerData);
       }
 
       router.push("/partners/dashboard/request");
