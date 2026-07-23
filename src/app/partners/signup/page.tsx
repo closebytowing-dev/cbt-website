@@ -9,6 +9,7 @@ import "@/lib/firebase";
 import {
   getAuth,
   createUserWithEmailAndPassword,
+  sendEmailVerification,
   GoogleAuthProvider,
   signInWithPopup,
   setPersistence,
@@ -35,6 +36,7 @@ export default function PartnerSignupPage() {
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
   const [error, setError] = useState("");
   const [showCreatingAccount, setShowCreatingAccount] = useState(false);
+  const [showVerifyEmail, setShowVerifyEmail] = useState(false);
   const [checkingAuth, setCheckingAuth] = useState(true);
 
   // If already signed in, redirect to dashboard. Otherwise stop the auth check
@@ -71,28 +73,20 @@ export default function PartnerSignupPage() {
       }
 
       const auth = getAuth();
-      // Creates + signs in the Auth account; the createPartner call below runs authenticated
-      // as this new user (context.auth), so we don't need the credential handle here.
-      await createUserWithEmailAndPassword(
+      const cred = await createUserWithEmailAndPassword(
         auth,
         formData.email,
         formData.password
       );
 
-      // Server-owned create: the createPartner CF (Admin SDK) creates partners/{uid} and
-      // sets commissionRate/status/balances. The client CANNOT write partners/{uid} directly
-      // (rules: isManager only) — that was the signup outage. Send ONLY profile fields; the
-      // server ignores any client-supplied money/authority field.
-      const createPartner = httpsCallable(getFunctions(getApp(), "us-central1"), "createPartner");
-      await createPartner({ businessName: formData.businessName, email: formData.email });
-
-      // Show creating account overlay
-      setShowCreatingAccount(true);
-
-      // Wait 3 seconds then redirect
-      setTimeout(() => {
-        router.push("/partners/dashboard/request");
-      }, 3000);
+      // ABUSE GATE (Layer 1): the partner doc — the commission surface — is created ONLY after
+      // email verification. The createPartner CF rejects an unverified caller, so we DON'T create
+      // it here; we send the verification link and show a "check your email" screen. The partner
+      // record is created when they verify + sign in (the signin fallback calls createPartner
+      // idempotently, now that their token is email_verified). Google signups are pre-verified and
+      // create the doc directly (below), so this two-step only affects email/password.
+      await sendEmailVerification(cred.user);
+      setShowVerifyEmail(true);
     } catch (error: unknown) {
       console.error("Error creating partner:", error);
       const firebaseError = error as { code?: string };
@@ -174,6 +168,27 @@ export default function PartnerSignupPage() {
   return (
     <div className="overflow-x-hidden">
     {/* Full-screen Creating Account Overlay */}
+    {showVerifyEmail && (
+      <div className="fixed inset-0 z-[9999] bg-gradient-to-br from-[#0f172a] via-[#1e3a5f] to-[#0f172a] flex flex-col items-center justify-center p-6">
+        <div className="relative z-10 flex flex-col items-center max-w-md text-center">
+          <div className="w-20 h-20 mb-6 rounded-full bg-cyan-500/15 flex items-center justify-center text-4xl">✉️</div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Check your email</h2>
+          <p className="text-gray-300 text-lg mb-2">
+            We sent a verification link to <span className="font-semibold text-white">{formData.email}</span>.
+          </p>
+          <p className="text-gray-400 mb-8">
+            Click the link to verify your address, then sign in — your partner dashboard is created the moment you do.
+          </p>
+          <a
+            href="/partners/signin"
+            className="px-8 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:opacity-90 transition"
+          >
+            Go to sign in
+          </a>
+          <p className="text-gray-500 text-sm mt-6">Didn&apos;t get it? Check spam, or wait a minute and try again.</p>
+        </div>
+      </div>
+    )}
     {showCreatingAccount && (
       <div className="fixed inset-0 z-[9999] bg-gradient-to-br from-[#0f172a] via-[#1e3a5f] to-[#0f172a] flex flex-col items-center justify-center">
         {/* Animated background elements */}
