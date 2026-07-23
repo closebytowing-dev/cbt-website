@@ -3,8 +3,9 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { doc, setDoc, serverTimestamp } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+import { getFunctions, httpsCallable } from "firebase/functions";
+import { getApp } from "firebase/app";
+import "@/lib/firebase";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -70,36 +71,20 @@ export default function PartnerSignupPage() {
       }
 
       const auth = getAuth();
-      const userCredential = await createUserWithEmailAndPassword(
+      // Creates + signs in the Auth account; the createPartner call below runs authenticated
+      // as this new user (context.auth), so we don't need the credential handle here.
+      await createUserWithEmailAndPassword(
         auth,
         formData.email,
         formData.password
       );
 
-      const userId = userCredential.user.uid;
-
-      const partnerData = {
-        userId: userId,
-        address: "",
-        commissionOwed: 0,
-        commissionRate: 10,
-        companyName: formData.businessName,
-        contactName: "",
-        createdAt: serverTimestamp(),
-        email: formData.email,
-        notes: "",
-        paymentMethod: "check",
-        pendingJobs: [],
-        phone: "",
-        status: "active",
-        totalCommissionEarned: 0,
-        totalPaid: 0,
-        totalReferrals: 0,
-        totalRevenue: 0,
-        updatedAt: serverTimestamp(),
-      };
-
-      await setDoc(doc(db, "partners", userCredential.user.uid), partnerData);
+      // Server-owned create: the createPartner CF (Admin SDK) creates partners/{uid} and
+      // sets commissionRate/status/balances. The client CANNOT write partners/{uid} directly
+      // (rules: isManager only) — that was the signup outage. Send ONLY profile fields; the
+      // server ignores any client-supplied money/authority field.
+      const createPartner = httpsCallable(getFunctions(getApp(), "us-central1"), "createPartner");
+      await createPartner({ businessName: formData.businessName, email: formData.email });
 
       // Show creating account overlay
       setShowCreatingAccount(true);
@@ -141,29 +126,15 @@ export default function PartnerSignupPage() {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
 
-      // Create partner record in Firestore
-      const partnerData = {
-        userId: user.uid,
-        address: "",
-        commissionOwed: 0,
-        commissionRate: 10,
-        companyName: user.displayName || "",
-        contactName: user.displayName || "",
-        createdAt: serverTimestamp(),
+      // Server-owned create (see the email path): the createPartner CF creates
+      // partners/{uid} + sets the money/authority fields. Client sends ONLY profile.
+      const createPartner = httpsCallable(getFunctions(getApp(), "us-central1"), "createPartner");
+      await createPartner({
+        businessName: user.displayName || "",
+        displayName: user.displayName || "",
         email: user.email || "",
-        notes: "",
-        paymentMethod: "check",
-        pendingJobs: [],
         phone: user.phoneNumber || "",
-        status: "active",
-        totalCommissionEarned: 0,
-        totalPaid: 0,
-        totalReferrals: 0,
-        totalRevenue: 0,
-        updatedAt: serverTimestamp(),
-      };
-
-      await setDoc(doc(db, "partners", user.uid), partnerData);
+      });
 
       // Show creating account overlay
       setShowCreatingAccount(true);

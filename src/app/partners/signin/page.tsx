@@ -14,8 +14,9 @@ import {
   browserLocalPersistence,
   onAuthStateChanged,
 } from "firebase/auth";
-import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+import { getFunctions, httpsCallable } from "firebase/functions";
+import { getApp } from "firebase/app";
+import "@/lib/firebase";
 
 export default function PartnerSigninPage() {
   const router = useRouter();
@@ -135,39 +136,17 @@ export default function PartnerSigninPage() {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
 
-      // Check if partner document exists
-      // Read the partner doc BY UID (doc-id == uid) — matches the isReferralPartner
-      // rule and the email-signup path, so what we write here can be read back. A
-      // prior Google sign-in wrote an auto-id doc that no self-read can see; creating
-      // partners/{uid} here self-heals that partner on their next sign-in.
-      const partnerRef = doc(db, "partners", user.uid);
-      const partnerSnap = await getDoc(partnerRef);
-
-      if (!partnerSnap.exists()) {
-        // Create new partner document for Google sign-in users
-        const partnerData = {
-          userId: user.uid,
-          address: "",
-          commissionOwed: 0,
-          commissionRate: 10,
-          companyName: user.displayName || "",
-          contactName: user.displayName || "",
-          createdAt: serverTimestamp(),
-          email: user.email,
-          notes: "",
-          paymentMethod: "check",
-          pendingJobs: [],
-          phone: user.phoneNumber || "",
-          status: "active",
-          totalCommissionEarned: 0,
-          totalPaid: 0,
-          totalReferrals: 0,
-          totalRevenue: 0,
-          updatedAt: serverTimestamp(),
-        };
-
-        await setDoc(partnerRef, partnerData);
-      }
+      // Self-heal: createPartner (Admin SDK, idempotent) creates partners/{uid} if missing
+      // — the client cannot write partners/{uid} directly (rules: isManager only). No-ops if
+      // the partner already exists, so it's safe to call on every sign-in. isReferralPartner
+      // is doc-based (userId==uid), so once the doc exists the next read succeeds.
+      const createPartner = httpsCallable(getFunctions(getApp(), "us-central1"), "createPartner");
+      await createPartner({
+        businessName: user.displayName || "",
+        displayName: user.displayName || "",
+        email: user.email || "",
+        phone: user.phoneNumber || "",
+      });
 
       router.push("/partners/dashboard/request");
     } catch (error: unknown) {
