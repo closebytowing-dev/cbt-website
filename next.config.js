@@ -241,6 +241,12 @@ const nextConfig = {
   async headers() {
     return [
       {
+        // Apple App Site Association — the extensionless file must be served as JSON so
+        // iOS accepts it for Universal Links (CloseBy Pro provider approval deep link).
+        source: "/.well-known/apple-app-site-association",
+        headers: [{ key: "Content-Type", value: "application/json" }],
+      },
+      {
         // Apply to all routes
         source: "/:path*",
         headers: [
