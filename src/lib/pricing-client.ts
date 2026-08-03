@@ -54,6 +54,15 @@ async function fetchServices(retryCount = 0): Promise<any> {
         id: doc.id,
         ...doc.data()
       };
+      // P1 DUAL-KEY: also key by the stable doc id, so callers can quote by
+      // serviceId (e.g. "towing"). The name keys above STAY — legacy name callers
+      // and the hardcoded config.services["Travel Miles"] lookup keep working — so id
+      // and name both resolve and there is NO deploy window (config and widgets can
+      // ship in any order). P4 can drop the name keys once every caller sends the id.
+      services[doc.id] = {
+        id: doc.id,
+        ...doc.data()
+      };
     });
 
     return services;
