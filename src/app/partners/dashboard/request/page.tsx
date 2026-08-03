@@ -8,7 +8,7 @@ import { getFunctions, httpsCallable } from "firebase/functions";
 import { db } from "@/lib/firebase";
 import Script from "next/script";
 import { YEARS, MAKES, MODELS_BY_MAKE } from "@/data/vehicleOptions";
-import { quoteWithTravel, quoteWithBreakdown, initializePricing } from "@/lib/pricing-client";
+import { quoteWithTravel, quoteWithBreakdown, initializePricing, getPostableServices } from "@/lib/pricing-client";
 import { DISPATCH_BASE_ADDRESS } from "@/lib/dispatchBase";
 import Link from "next/link";
 
@@ -33,6 +33,9 @@ export default function RequestTowPage() {
   const [calculatingPrice, setCalculatingPrice] = useState(false);
   const [priceError, setPriceError] = useState("");
   const [pricingReady, setPricingReady] = useState(false);
+  // Service options for the dropdown — sourced from Firestore (/services), never
+  // hardcoded. Loaded once pricing is ready (see the effect below).
+  const [serviceOptions, setServiceOptions] = useState<{ id: string; name: string }[]>([]);
 
   // Toast notifications
   const [toasts, setToasts] = useState<Toast[]>([]);
@@ -59,6 +62,7 @@ export default function RequestTowPage() {
     vehicleColor: "",
     pickupLocation: "",
     dropoffLocation: "",
+    serviceId: "towing",
     serviceType: "Towing",
     reason: "",
     notes: "",
@@ -74,6 +78,7 @@ export default function RequestTowPage() {
     vehicleColor: "",
     pickupLocation: "",
     dropoffLocation: "",
+    serviceId: "towing",
     serviceType: "Towing",
     reason: "",
     notes: "",
@@ -318,8 +323,8 @@ export default function RequestTowPage() {
   }, [formData.vehicleMake]);
 
   const isTowing = useMemo(
-    () => formData.serviceType === "Towing",
-    [formData.serviceType]
+    () => formData.serviceId === "towing",
+    [formData.serviceId]
   );
 
   // Calculate travel distance
@@ -365,19 +370,19 @@ export default function RequestTowPage() {
 
   // Price calculation
   useEffect(() => {
-    if (!pricingReady || !formData.serviceType) return;
+    if (!pricingReady || !formData.serviceId) return;
     setCalculatingPrice(true);
 
     try {
       let price = 0;
       if (isTowing && distanceMilesRounded != null && baseTravelMilesRounded != null) {
-        const breakdown = quoteWithTravel(formData.serviceType, distanceMilesRounded, baseTravelMilesRounded);
+        const breakdown = quoteWithTravel(formData.serviceId, distanceMilesRounded, baseTravelMilesRounded);
         price = breakdown.base;
       } else if (!isTowing && baseTravelMilesRounded != null) {
-        const breakdown = quoteWithTravel(formData.serviceType, undefined, baseTravelMilesRounded);
+        const breakdown = quoteWithTravel(formData.serviceId, undefined, baseTravelMilesRounded);
         price = breakdown.base;
       } else {
-        const breakdown = quoteWithBreakdown(formData.serviceType);
+        const breakdown = quoteWithBreakdown(formData.serviceId);
         price = breakdown.base;
       }
 
@@ -393,7 +398,7 @@ export default function RequestTowPage() {
     } finally {
       setCalculatingPrice(false);
     }
-  }, [pricingReady, formData.serviceType, isTowing, distanceMilesRounded, baseTravelMilesRounded, partnerData]);
+  }, [pricingReady, formData.serviceId, isTowing, distanceMilesRounded, baseTravelMilesRounded, partnerData]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -406,6 +411,22 @@ export default function RequestTowPage() {
       clearFieldError(name);
     }
   };
+
+  // Service dropdown: write the canonical serviceId + its canonical Firestore name
+  // (dual-write). One vocabulary — the label shown IS the name stored.
+  const handleServiceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const id = e.target.value;
+    const opt = serviceOptions.find(s => s.id === id);
+    setFormData(prev => ({ ...prev, serviceId: id, serviceType: opt?.name || prev.serviceType }));
+    clearFieldError("serviceId");
+    clearFieldError("serviceType");
+  };
+
+  // Options for the service dropdown come from Firestore (/services) — the single
+  // canonical vocabulary. Loaded once pricing is ready (the config is cached by then).
+  useEffect(() => {
+    if (pricingReady) setServiceOptions(getPostableServices());
+  }, [pricingReady]);
 
   // Handle selecting the partner's shop as dropoff location
   const handleSelectShop = useCallback(() => {
@@ -473,6 +494,7 @@ export default function RequestTowPage() {
         vehicleMake: formData.vehicleMake,
         vehicleModel: formData.vehicleModel,
         vehicleColor: formData.vehicleColor,
+        serviceId: formData.serviceId,
         serviceType: formData.serviceType,
         reason: formData.reason,
         pickupLocation: formData.pickupLocation,
@@ -494,6 +516,7 @@ export default function RequestTowPage() {
         vehicleColor: "",
         pickupLocation: "",
         dropoffLocation: partnerData.address || "",
+        serviceId: "towing",
         serviceType: "Towing",
         reason: "",
         notes: "",
@@ -565,15 +588,6 @@ export default function RequestTowPage() {
       </div>
     );
   }
-
-  const serviceTypes = [
-    "Towing",
-    "Battery Jump Start",
-    "Lockout Service",
-    "Flat Tire Change",
-    "Fuel Delivery",
-    "Winch-Out Service",
-  ];
 
   return (
     <>
@@ -859,12 +873,17 @@ export default function RequestTowPage() {
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-2">Service *</label>
                 <select
-                  name="serviceType"
-                  value={formData.serviceType}
-                  onChange={handleInputChange}
+                  name="serviceId"
+                  value={formData.serviceId}
+                  onChange={handleServiceChange}
                   className="w-full h-12 rounded-xl border-2 border-slate-400 px-4 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500"
                 >
-                  {serviceTypes.map(s => <option key={s} value={s}>{s}</option>)}
+                  {/* Options sourced from Firestore (/services) — the single canonical
+                      vocabulary. Falls back to the current selection until they load. */}
+                  {(serviceOptions.length
+                    ? serviceOptions
+                    : [{ id: formData.serviceId, name: formData.serviceType }]
+                  ).map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
                 </select>
               </div>
 

@@ -170,6 +170,33 @@ export function getConfigSync(): any {
 }
 
 /**
+ * P1: the postable dispatchable services, sourced from Firestore (/services) — the
+ * SINGLE canonical vocabulary (id + canonical name). Deduped by id (the cache keys
+ * each service under name + lowercase + id), postable-only, sorted by pinnedOrder /
+ * displayOrder then name. Returns [] if the config isn't loaded yet (the caller loads
+ * it once pricing is ready) — never throws, never invents names.
+ */
+export function getPostableServices(): { id: string; name: string }[] {
+  const map = servicesCache;
+  if (!map) return [];
+  const seen = new Set<string>();
+  const out: { id: string; name: string; order: number }[] = [];
+  for (const key of Object.keys(map)) {
+    const s = map[key];
+    if (!s || s.postable !== true || !s.id || seen.has(s.id)) continue;
+    seen.add(s.id);
+    out.push({
+      id: s.id,
+      name: s.name || s.id,
+      order: typeof s.pinnedOrder === "number" ? s.pinnedOrder
+        : typeof s.displayOrder === "number" ? s.displayOrder : 999,
+    });
+  }
+  out.sort((a, b) => a.order - b.order || a.name.localeCompare(b.name));
+  return out.map(({ id, name }) => ({ id, name }));
+}
+
+/**
  * Get current time multiplier based on time of day
  */
 function getCurrentTimeMultiplier(config: any): { multiplier: number; label: string } | null {
