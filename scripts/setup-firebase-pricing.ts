@@ -60,21 +60,17 @@ async function setupPricing() {
         }
       },
 
-      // Towing prices
+      // Towing prices — ONE unified "Towing" service. Local/Long-Distance were
+      // collapsed 2026-08 (distance is a rate detail billed via Tow Miles / Travel
+      // Miles, not a separate service). Hookup is $75 platform-wide. Do NOT reintroduce
+      // "Local Towing" / "Long-Distance Towing" or the old $65 two-tier hookup.
       towing: {
-        "Local Towing": {
-          hookupFee: 65,
+        "Towing": {
+          hookupFee: 75,
           perMileRate: 8,
           minimumMiles: 5,
           discountRate: 0.15,
-          description: "Local towing service"
-        },
-        "Long-Distance Towing": {
-          hookupFee: 65,
-          perMileRate: 8,
-          minimumMiles: 5,
-          discountRate: 0.15,
-          description: "Long-distance towing service"
+          description: "Towing service"
         }
       },
 

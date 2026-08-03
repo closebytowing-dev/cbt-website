@@ -28,7 +28,7 @@ export default function PopupAddress({
   onContinue,
 }: PopupAddressProps) {
 const isTowing = useMemo(
-    () => choice === "Local Towing" || choice === "Long-Distance Towing",
+    () => choice === "Towing",
     [choice]
   );
 

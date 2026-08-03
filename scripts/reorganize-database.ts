@@ -114,29 +114,20 @@ async function reorganizeDatabase() {
         }
       },
 
+      // ONE unified "Towing" service (Local/Long-Distance collapsed 2026-08; distance
+      // is billed via Tow Miles / Travel Miles, not a separate service). $75 hookup
+      // platform-wide. Do NOT reintroduce the two-tier towing or the old $65 hookup.
       towing: {
-        'Local Towing': {
+        'Towing': {
           hookupFee: 75,
           perMileRate: 8,
           minimumMiles: 5,
-          label: 'Local towing service',
-          description: 'Local towing within service area',
+          label: 'Towing service',
+          description: 'Towing service',
           calcType: 'TOWING',
           discountEligible: true,
           afterHoursEligible: true,
           displayOrder: 10,
-          active: true
-        },
-        'Long-Distance Towing': {
-          hookupFee: 65,
-          perMileRate: 8,
-          minimumMiles: 5,
-          label: 'Long-distance towing service',
-          description: 'Long-distance towing service',
-          calcType: 'TOWING',
-          discountEligible: true,
-          afterHoursEligible: true,
-          displayOrder: 20,
           active: true
         }
       }
@@ -242,7 +233,7 @@ async function reorganizeDatabase() {
           description: 'Vehicle towing and transport',
           displayOrder: 1,
           icon: 'truck',
-          services: ['Local Towing', 'Long-Distance Towing'],
+          services: ['Towing'],
           active: true
         },
         roadside: {

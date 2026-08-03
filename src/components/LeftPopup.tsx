@@ -74,7 +74,7 @@ export default function LeftPopup({
 
       // Hardcoded services (ordered by display preference)
       return [
-        { name: "Local Towing", price: "from $75", originalPrice: "from $88" },
+        { name: "Towing", price: "from $75", originalPrice: "from $88" },
         { name: "Jump Start", price: "from $75", originalPrice: "from $88" },
         { name: "Lockout Service", price: "from $75", originalPrice: "from $88" },
         { name: "Fuel Delivery", price: "from $75", originalPrice: "from $88" },
@@ -82,7 +82,6 @@ export default function LeftPopup({
         { name: "Flat Tire Change", price: "from $75", originalPrice: "from $88" },
         { name: "Winch-Out / Recovery", price: "from $125", originalPrice: "from $147" },
         { name: "Collision Recovery", price: "from $150", originalPrice: "from $176" },
-        { name: "Long-Distance Towing", price: "from $125", originalPrice: "from $147" },
       ];
     },
     [services]
@@ -91,7 +90,7 @@ export default function LeftPopup({
   // Filtered service list based on search query
   const list = useMemo(() => {
     // Services to hide on mobile by default
-    const mobileHiddenServices = ['Emergency Roadside Assistance', 'Long Distance Towing', 'Long-Distance Towing'];
+    const mobileHiddenServices = ['Emergency Roadside Assistance'];
 
     // If no search query and on mobile, hide specific services
     if (!searchQuery.trim() && isMobile) {

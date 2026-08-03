@@ -313,7 +313,16 @@ Found in `settings/pricing/timeMultipliers`:
 ## ❓ QUESTIONS TO ANSWER BEFORE PROCEEDING
 
 1. **Travel Rate:** Is it $1.75/mile or $3/mile?
-2. **Local Towing Hookup:** Is it $65 or $75?
+2. ~~**Local Towing Hookup:** Is it $65 or $75?~~ **RESOLVED 2026-08 → $75.**
+   Local Towing ($75) and Long-Distance Towing ($65) were **collapsed into ONE `Towing`
+   service** (Firestore id `towing`, name "Towing", **hookupFee $75**). Distance is a rate
+   detail billed via Tow Miles / Travel Miles — it is not a separate service, and a longer
+   tow must never have a *cheaper* hookup, so the $65 on long-distance was drift, not a
+   decision. `/services/local-towing` and `/services/long-distance-towing` were deleted; the
+   2 historical jobs referencing `local-towing` were backfilled to `towing` (price unchanged);
+   every writer, seed, and pricing-config script now uses the single `Towing` @ $75. **The
+   website `/long-distance-towing` marketing/SEO page is intentionally kept** — it just no
+   longer maps to a separate catalog service.
 3. **Dispatcher App:** Do you have a separate dispatcher app using the `services` collection?
 4. **After-Hours:** Do you want to use the existing multipliers (1.4x evening, 2x overnight) or your new ones (1.2x, 1.3x, 1.5x)?
 5. **Service Prices:** Should all roadside services be $88 base (before discount) or $75?

@@ -59,7 +59,7 @@ export default function RequestTowPage() {
     vehicleColor: "",
     pickupLocation: "",
     dropoffLocation: "",
-    serviceType: "Local Towing",
+    serviceType: "Towing",
     reason: "",
     notes: "",
   });
@@ -74,7 +74,7 @@ export default function RequestTowPage() {
     vehicleColor: "",
     pickupLocation: "",
     dropoffLocation: "",
-    serviceType: "Local Towing",
+    serviceType: "Towing",
     reason: "",
     notes: "",
   });
@@ -318,7 +318,7 @@ export default function RequestTowPage() {
   }, [formData.vehicleMake]);
 
   const isTowing = useMemo(
-    () => formData.serviceType === "Local Towing" || formData.serviceType === "Long-Distance Towing",
+    () => formData.serviceType === "Towing",
     [formData.serviceType]
   );
 
@@ -494,7 +494,7 @@ export default function RequestTowPage() {
         vehicleColor: "",
         pickupLocation: "",
         dropoffLocation: partnerData.address || "",
-        serviceType: "Local Towing",
+        serviceType: "Towing",
         reason: "",
         notes: "",
       });
@@ -567,8 +567,7 @@ export default function RequestTowPage() {
   }
 
   const serviceTypes = [
-    "Local Towing",
-    "Long-Distance Towing",
+    "Towing",
     "Battery Jump Start",
     "Lockout Service",
     "Flat Tire Change",
